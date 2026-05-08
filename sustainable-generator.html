@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sustainable Generator — Nikaylah</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#F5F0E8;--cream-dark:#EDE6D6;
+  --terra:#A0522D;--terra-light:#C4733A;--terra-pale:#F0E0D0;
+  --sage:#7A8C6E;--sage-pale:#E8EEE4;
+  --ink:#2C2A26;--ink-mid:#4A4740;--ink-light:#7A7670;
+  --border:rgba(44,42,38,0.12);
+  --serif:'Cormorant Garamond',serif;
+  --sans:'DM Sans',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.6;overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.25rem 3rem;background:rgba(245,240,232,0.93);backdrop-filter:blur(12px);border-bottom:0.5px solid var(--border)}
+.nav-name{font-family:var(--serif);font-size:1.1rem;font-weight:400;letter-spacing:0.04em;color:var(--ink);text-decoration:none}
+.nav-back{font-size:0.78rem;color:var(--ink-light);text-decoration:none;letter-spacing:0.04em;transition:color 0.2s}
+.nav-back:hover{color:var(--terra)}
+
+.page{padding-top:80px;max-width:780px;margin:0 auto;padding-left:2rem;padding-right:2rem}
+
+.cs-hero{padding:3rem 0 0}
+.breadcrumb{font-size:0.72rem;color:var(--ink-light);margin-bottom:1rem;letter-spacing:0.04em}
+.cs-title{font-family:var(--serif);font-size:clamp(2.5rem,5vw,3.8rem);font-weight:300;line-height:1.05;letter-spacing:-0.02em;color:var(--ink);margin-bottom:0.75rem}
+.cs-subtitle{font-size:0.95rem;color:var(--ink-mid);max-width:560px;line-height:1.65;margin-bottom:1.75rem}
+.meta-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;padding-bottom:2rem;border-bottom:0.5px solid var(--border)}
+.meta-label{font-size:0.65rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-light);margin-bottom:4px}
+.meta-val{font-size:0.875rem;color:var(--ink)}
+.hero-img{width:100%;border-radius:12px;border:0.5px solid var(--border);box-shadow:0 8px 40px rgba(44,42,38,0.1);object-fit:cover;object-position:top;max-height:440px;margin:1.75rem 0}
+
+/* TWO-COLUMN ROWS */
+.row{display:grid;grid-template-columns:200px 1fr;gap:3rem;padding:2.5rem 0;border-bottom:0.5px solid var(--border)}
+.anchor-label{font-size:0.65rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-light);margin-bottom:6px}
+.anchor-title{font-family:var(--serif);font-size:1.05rem;font-weight:400;line-height:1.3;color:var(--ink)}
+.row-body{font-size:0.9rem;font-weight:300;color:var(--ink-mid);line-height:1.8}
+.row-body p{margin-bottom:0.85rem}
+.row-body p:last-child{margin-bottom:0}
+
+/* PULL QUOTE */
+.pull-quote{border-left:2px solid var(--terra);padding:0.85rem 1rem;margin:1.25rem 0;background:var(--cream-dark);border-radius:0 8px 8px 0}
+.pull-quote p{font-family:var(--serif);font-style:italic;font-size:1rem;color:var(--ink-mid);margin:0;line-height:1.65}
+
+/* IMAGE PLACEHOLDERS */
+.img-placeholder{width:100%;border-radius:10px;border:1.5px dashed var(--border);background:var(--cream-dark);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;padding:2.5rem 1rem;margin:1.25rem 0;text-align:center}
+.img-placeholder-icon{font-size:1.5rem;opacity:0.4}
+.img-placeholder-label{font-size:0.72rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-light)}
+.img-placeholder-desc{font-size:0.72rem;color:var(--ink-light);opacity:0.7;max-width:300px;line-height:1.5}
+
+/* VIDEO PLACEHOLDER */
+.video-placeholder{width:100%;border-radius:10px;border:1.5px dashed var(--terra-light);background:var(--terra-pale);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.6rem;padding:3rem 1rem;margin:1.25rem 0;text-align:center}
+.video-placeholder-icon{font-size:2rem;opacity:0.5}
+.video-placeholder-label{font-size:0.72rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--terra)}
+.video-placeholder-desc{font-size:0.72rem;color:var(--terra);opacity:0.7;max-width:340px;line-height:1.5}
+
+/* STAT ROW */
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:1.25rem 0}
+.stat{background:var(--cream-dark);border-radius:8px;padding:0.85rem 1rem}
+.stat-val{font-family:var(--serif);font-size:1.3rem;font-weight:400;color:var(--ink);display:block;line-height:1}
+.stat-desc{font-size:0.72rem;color:var(--ink-light);display:block;margin-top:4px;line-height:1.4}
+
+/* SKILL TAGS */
+.skill-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:1rem}
+.skill-tag{font-size:0.7rem;color:var(--ink-light);background:var(--cream-dark);border:0.5px solid var(--border);border-radius:100px;padding:0.3rem 0.85rem}
+
+/* BOTTOM NAV */
+.case-nav{display:flex;justify-content:space-between;align-items:center;padding:3rem 0 5rem;flex-wrap:wrap;gap:1rem}
+.case-nav a{font-size:0.85rem;color:var(--ink-light);text-decoration:none;letter-spacing:0.04em;transition:color 0.2s}
+.case-nav a:hover{color:var(--terra)}
+.case-nav a.next{color:var(--ink);font-weight:500}
+
+footer{padding:2rem;border-top:0.5px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;max-width:780px;margin:0 auto}
+.footer-name{font-family:var(--serif);font-size:1.5rem;font-weight:300;font-style:italic;color:var(--ink)}
+.footer-copy{font-size:0.68rem;color:var(--ink-light)}
+
+.email-btn{position:fixed;bottom:2rem;right:2rem;z-index:99;background:var(--ink);color:var(--cream);font-size:0.75rem;letter-spacing:0.06em;padding:0.75rem 1.25rem;border-radius:100px;cursor:pointer;border:none;font-family:var(--sans);transition:background 0.2s}
+.email-btn:hover{background:var(--terra)}
+.copy-toast{position:fixed;bottom:5rem;right:2rem;background:var(--sage);color:#fff;font-size:0.72rem;padding:0.5rem 1rem;border-radius:8px;z-index:100;opacity:0;transition:opacity 0.3s;pointer-events:none}
+.copy-toast.show{opacity:1}
+
+@media(max-width:700px){
+  nav{padding:1rem 1.5rem}
+  .page{padding-left:1.25rem;padding-right:1.25rem}
+  .meta-row{grid-template-columns:1fr 1fr}
+  .row{grid-template-columns:1fr;gap:0.75rem}
+  .stat-row{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-name">Nikaylah</a>
+  <a href="/" class="nav-back">← All work</a>
+</nav>
+
+<div class="page">
+  <div class="cs-hero">
+    <p class="breadcrumb">All work / Sustainable Generator</p>
+    <h1 class="cs-title">Sustainable Fashion Generator</h1>
+    <p class="cs-subtitle">A full-stack AI tool that generates outfit concepts grounded in natural fiber selection, personal style, and real sustainability data — built in 7 days</p>
+    <div class="meta-row">
+      <div><div class="meta-label">Role</div><div class="meta-val">Solo Designer & Developer</div></div>
+      <div><div class="meta-label">Timeline</div><div class="meta-val">7 days</div></div>
+      <div><div class="meta-label">Stack</div><div class="meta-val">React, Vite, Claude API, Vercel</div></div>
+      <div><div class="meta-label">Status</div><div class="meta-val">Live on Vercel</div></div>
+    </div>
+    <img src="generator-homepage.png" alt="Sustainable Fashion Generator" class="hero-img">
+  </div>
+
+  <!-- CONTEXT -->
+  <div class="row">
+    <div>
+      <div class="anchor-label">Context</div>
+      <div class="anchor-title">Most fashion tools start with a trend. I wanted to build one that starts with a value.</div>
+    </div>
+    <div class="row-body">
+      <p>I care about what we consume and what we leave behind. Plastic in our water. Synthetic fibers that take centuries to break down. A fashion industry that produces more than it needs and disposes of it faster than the planet can absorb it.</p>
+      <p>I wanted to explore what a tool might look like if sustainability came first. Not as a filter applied after the fact, but as the starting point for every creative decision. This project is my answer to that question.</p>
+      <div class="img-placeholder">
+        <div class="img-placeholder-icon">🖼</div>
+        <div class="img-placeholder-label">Problem context</div>
+        <div class="img-placeholder-desc">Screenshot or visual showing the gap in existing sustainable fashion tools — either a competitor screenshot or a diagram of the problem space</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- THE EXPERIMENT -->
+  <div class="row">
+    <div>
+      <div class="anchor-label">The experiment</div>
+      <div class="anchor-title">A working prototype that puts material integrity before aesthetic direction</div>
+    </div>
+    <div class="row-body">
+      <p>The AI Sustainable Fashion Generator is a working web prototype that generates outfit concepts based on natural fiber selection, personal style, and design values. Every output includes a sustainability score calculated from real environmental data, fabric texture photography, an animated garment silhouette, and an AI reasoning layer that explains how each selection shaped the result.</p>
+      <p>It is not a finished product. It is a design experiment built to explore a specific idea: what happens when material integrity drives the creative process instead of following it?</p>
+      <div class="stat-row">
+        <div class="stat"><span class="stat-val">7</span><span class="stat-desc">days from concept to deployed prototype</span></div>
+        <div class="stat"><span class="stat-val">Higg</span><span class="stat-desc">Index methodology for sustainability scoring</span></div>
+        <div class="stat"><span class="stat-val">Solo</span><span class="stat-desc">designer and developer, end to end</span></div>
+      </div>
+      <div class="img-placeholder">
+        <div class="img-placeholder-icon">🖼</div>
+        <div class="img-placeholder-label">Full app interface</div>
+        <div class="img-placeholder-desc">Hero screenshot showing the complete two-panel layout — fiber selection on the left, generated outfit on the right</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- THE GAP -->
+  <div class="row">
+    <div>
+      <div class="anchor-label">The gap</div>
+      <div class="anchor-title">Two types of tools exist. Nothing bridges both.</div>
+    </div>
+    <div class="row-body">
+      <p>Most sustainable fashion tools fall into one of two categories. They are either creative generation tools that focus on aesthetics without addressing environmental impact, or sustainability verification tools that track data without helping anyone make something new.</p>
+      <p>Nothing bridges both. That gap is where this project lives. The tool I built asks users to choose a fiber before they choose a style. That sequencing is deliberate. In the traditional fashion industry, designers choose an aesthetic direction first and find a cheap fabric to match it later. Flipping that order is a small interface decision with a meaningful design philosophy behind it.</p>
+      <div class="img-placeholder">
+        <div class="img-placeholder-icon">🖼</div>
+        <div class="img-placeholder-label">Gap diagram or competitor comparison</div>
+        <div class="img-placeholder-desc">Side-by-side showing existing tools on either end of the spectrum vs this tool bridging them</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- THE DESIGN DECISIONS -->
+  <div class="row">
+    <div>
+      <div class="anchor-label">Design decisions</div>
+      <div class="anchor-title">Fiber before style. Values before aesthetics.</div>
+    </div>
+    <div class="row-body">
+      <p>The most important design decision in this project was the sequencing. Every other choice — the UI layout, the sustainability score display, the animated garment system — came after that one structural call was made.</p>
+      <div class="img-placeholder">
+        <div class="img-placeholder-icon">🖼</div>
+        <div class="img-placeholder-label">User flow diagram</div>
+        <div class="img-placeholder-desc">Flow showing the fiber → style → values → generate sequence and how each step gates the next</div>
+      </div>
+      <p>Writing the system prompt for the Claude API was closer to UX writing than engineering. Every word shaped the output. Vague instructions produced vague results. Specific constraints produced specific, useful outputs. The prompt had to encode not just what to generate, but why each material choice mattered and how to explain that reasoning back to the user.</p>
+      <div class="img-placeholder">
+        <div class="img-placeholder-icon">🖼</div>
+        <div class="img-placeholder-label">Wireframes or early iteration</div>
+        <div class="img-placeholder-desc">Early sketches or wireframes showing how the layout evolved before the final two-panel design</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- THE INTERACTION -->
+  <div class="row">
+    <div>
+      <div class="anchor-label">The interaction</div>
+      <div class="anchor-title">The moment the tool felt like a creative collaboration</div>
+    </div>
+    <div class="row-body">
+      <p>The "how your choices shaped this" section was the design decision I am most proud of. After generating an outfit the app shows three lines explaining which selection drove each creative decision. Organic Hemp informed the fabric weight and drape. Romantic shaped the gathered layers and soft movement. Full Coverage guided the longer hemlines and layered silhouette.</p>
+      <div class="pull-quote">
+        <p>That section transforms the experience from feeling like a random output generator into feeling like a creative collaboration. Users understand that their values produced this specific result.</p>
+      </div>
+      <div class="img-placeholder">
+        <div class="img-placeholder-icon">🖼</div>
+        <div class="img-placeholder-label">Component close-up</div>
+        <div class="img-placeholder-desc">Zoomed screenshot of the "how your choices shaped this" section showing the three reasoning lines</div>
+      </div>
+      <div class="video-placeholder">
+        <div class="video-placeholder-icon">▶</div>
+        <div class="video-placeholder-label">Live demo — interaction recording</div>
+        <div class="video-placeholder-desc">Screen recording of the full generation flow: fiber selection → style choice → values → generate → reveal. Export as MP4 or GIF and embed here.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- USER TESTING -->
+  <div class="row">
+    <div>
+      <div class="anchor-label">User testing</div>
+      <div class="anchor-title">Testing with people who are not like you is more valuable than testing with people who are</div>
+    </div>
+    <div class="row-body">
+      <p>I tested with family members who had no background in fashion sustainability. The goal was to see whether someone completely outside the target audience could move through the experience without friction.</p>
+      <p>My mom navigated it independently and responded positively to the aesthetic — describing it as a nice design, pretty. She did not get stuck. She did not ask for help. For a tool built around a complex sustainability framework, that kind of frictionless first impression is exactly what the guided reveal flow was designed to produce.</p>
+      <div class="pull-quote">
+        <p>My mom's reaction was a better design signal than any assumption I could have made about a typical user. If someone with no context for sustainability scoring finds the experience approachable, the sequencing is working.</p>
+      </div>
+      <div class="img-placeholder">
+        <div class="img-placeholder-icon">🖼</div>
+        <div class="img-placeholder-label">User testing moment</div>
+        <div class="img-placeholder-desc">Photo or screen recording of a user testing session — someone actually using the app on their device</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT WORKED -->
+  <div class="row">
+    <div>
+      <div class="anchor-label">What worked</div>
+      <div class="anchor-title">The reveal flow. The sequencing. The fact that sustainability felt informative rather than preachy.</div>
+    </div>
+    <div class="row-body">
+      <p>The moment the project felt real was when people I know used it and understood it immediately. Not every feature. Not every data point. But the core idea: you choose what you care about and the tool builds something from it.</p>
+      <p>Sustainability data is more compelling when it is specific. "Hemp is better for the environment" changes nothing. "Hemp saves 2000 liters of water per garment compared to conventional cotton" changes how someone thinks about a choice.</p>
+      <div class="img-placeholder">
+        <div class="img-placeholder-icon">🖼</div>
+        <div class="img-placeholder-label">Before and after</div>
+        <div class="img-placeholder-desc">Side-by-side showing an early version of the output screen vs the final version with the guided reveal flow</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT I WOULD BUILD NEXT -->
+  <div class="row">
+    <div>
+      <div class="anchor-label">What I would build next</div>
+      <div class="anchor-title">Three things that would make this significantly more powerful</div>
+    </div>
+    <div class="row-body">
+      <p>First, I would make the initial selections more visual. Right now users choose between text labels with subtitles. Ideally each option would have a small image or texture preview so the choice feels sensory not just conceptual.</p>
+      <p>Second, I would allow users to refine a generated outfit rather than regenerate entirely. If someone loves the silhouette but wants a different fiber, they should be able to change one variable and see how the output shifts. That interaction would make the design system logic visible in a way that a complete regeneration does not.</p>
+      <p>Third, I would add photorealistic AI image generation. The SVG silhouettes are elegant and distinctive but visual learners want to see something closer to what the garment would actually look like on a real person. I would integrate an image generation API to produce editorial-style photographs alongside the illustrated silhouette.</p>
+    </div>
+  </div>
+
+  <!-- WHAT THIS COULD BECOME -->
+  <div class="row">
+    <div>
+      <div class="anchor-label">What this could become</div>
+      <div class="anchor-title">The fashion industry is moving toward material-first design. Tools like this are going to matter.</div>
+    </div>
+    <div class="row-body">
+      <p>The EU Digital Product Passport requires brands to document the environmental impact of every garment before it reaches market. Tools that help designers make those decisions at the concept stage rather than retroactively are going to matter.</p>
+      <p>This prototype explores what the earliest version of that tool might feel like. Not an enterprise system. Not a compliance dashboard. Something a designer actually wants to open.</p>
+    </div>
+  </div>
+
+  <!-- WHAT I LEARNED -->
+  <div class="row">
+    <div>
+      <div class="anchor-label">What I learned</div>
+      <div class="anchor-title">Four things this project taught me about design</div>
+    </div>
+    <div class="row-body">
+      <p>Writing a constrained system prompt is closer to UX writing than engineering. Every word shapes the output. Vague instructions produce vague results. Specific constraints produce specific, useful outputs.</p>
+      <p>User testing with people who are not like you is more valuable than testing with people who are. My mom's response in testing was a better design signal than any assumption I could have made about a typical user.</p>
+      <p>Sustainability data is more compelling when it is specific. "Hemp is better for the environment" changes nothing. "Hemp saves 2000 liters of water per garment compared to conventional cotton" changes how someone thinks about a choice.</p>
+      <p>The most important design decision in this project was the sequencing. Fiber before style. Values before aesthetics. That one structural choice is what makes this a design experiment worth talking about rather than another AI generator.</p>
+      <div class="img-placeholder">
+        <div class="img-placeholder-icon">🖼</div>
+        <div class="img-placeholder-label">Final screens grid</div>
+        <div class="img-placeholder-desc">3 to 4 hero shots of the finished product — the fiber selection screen, a generated outfit with sustainability score, and the "how your choices shaped this" section</div>
+      </div>
+      <div class="skill-tags">
+        <span class="skill-tag">UX Research</span>
+        <span class="skill-tag">Interaction Design</span>
+        <span class="skill-tag">Prompt Engineering</span>
+        <span class="skill-tag">Full-Stack Development</span>
+        <span class="skill-tag">React · Vite</span>
+        <span class="skill-tag">Claude API</span>
+        <span class="skill-tag">Upstash Redis</span>
+        <span class="skill-tag">Vercel</span>
+        <span class="skill-tag">Sustainability Design</span>
+        <span class="skill-tag">User Testing</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="case-nav">
+    <a href="/">← Back to all work</a>
+    <a href="/crescent-stables" class="next">Next: Crescent Stables →</a>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-name">Nikaylah.</span>
+  <span class="footer-copy">© 2026 Nikaylah. Minneapolis, MN.</span>
+</footer>
+
+<button class="email-btn" onclick="copyEmail()">✉ Email me</button>
+<div class="copy-toast" id="toast">Copied — nikaylah@gmail.com</div>
+
+<script>
+function copyEmail(){
+  navigator.clipboard.writeText('nikaylah@gmail.com').then(()=>{
+    const t=document.getElementById('toast');
+    t.classList.add('show');
+    setTimeout(()=>t.classList.remove('show'),2500);
+  });
+}
+</script>
+</body>
+</html>

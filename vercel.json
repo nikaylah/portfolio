@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/crescent-stables", "destination": "/crescent-stables.html" },
+    { "source": "/sustainable-generator", "destination": "/sustainable-generator.html" }
+  ]
+}

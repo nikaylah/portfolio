@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crescent Stables — Nikaylah</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --cream:#F5F0E8;--cream-dark:#EDE6D6;
+  --terra:#A0522D;--terra-light:#C4733A;--terra-pale:#F0E0D0;
+  --sage:#7A8C6E;--sage-pale:#E8EEE4;
+  --ink:#2C2A26;--ink-mid:#4A4740;--ink-light:#7A7670;
+  --border:rgba(44,42,38,0.12);
+  --serif:'Cormorant Garamond',serif;
+  --sans:'DM Sans',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.6;overflow-x:hidden}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.25rem 3rem;background:rgba(245,240,232,0.93);backdrop-filter:blur(12px);border-bottom:0.5px solid var(--border)}
+.nav-name{font-family:var(--serif);font-size:1.1rem;font-weight:400;letter-spacing:0.04em;color:var(--ink);text-decoration:none}
+.nav-back{font-size:0.78rem;color:var(--ink-light);text-decoration:none;letter-spacing:0.04em;transition:color 0.2s}
+.nav-back:hover{color:var(--terra)}
+
+.page{padding-top:80px;max-width:780px;margin:0 auto;padding-left:2rem;padding-right:2rem}
+
+.cs-hero{padding:3rem 0 0}
+.breadcrumb{font-size:0.72rem;color:var(--ink-light);margin-bottom:1rem;letter-spacing:0.04em}
+.cs-title{font-family:var(--serif);font-size:clamp(2.5rem,5vw,3.8rem);font-weight:300;line-height:1.05;letter-spacing:-0.02em;color:var(--ink);margin-bottom:0.75rem}
+.cs-subtitle{font-size:0.95rem;color:var(--ink-mid);max-width:560px;line-height:1.65;margin-bottom:1.75rem}
+.meta-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;padding-bottom:2rem;border-bottom:0.5px solid var(--border)}
+.meta-label{font-size:0.65rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-light);margin-bottom:4px}
+.meta-val{font-size:0.875rem;color:var(--ink)}
+.hero-img{width:100%;border-radius:12px;border:0.5px solid var(--border);box-shadow:0 8px 40px rgba(44,42,38,0.1);object-fit:cover;object-position:top;max-height:440px;margin:1.75rem 0}
+
+/* TWO-COLUMN ROWS */
+.row{display:grid;grid-template-columns:200px 1fr;gap:3rem;padding:2.5rem 0;border-bottom:0.5px solid var(--border)}
+.anchor-label{font-size:0.65rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-light);margin-bottom:6px}
+.anchor-title{font-family:var(--serif);font-size:1.05rem;font-weight:400;line-height:1.3;color:var(--ink)}
+.row-body{font-size:0.9rem;font-weight:300;color:var(--ink-mid);line-height:1.8}
+.row-body p{margin-bottom:0.85rem}
+.row-body p:last-child{margin-bottom:0}
+
+/* PULL QUOTE */
+.pull-quote{border-left:2px solid var(--terra);padding:0.85rem 1rem;margin:1.25rem 0;background:var(--cream-dark);border-radius:0 8px 8px 0}
+.pull-quote p{font-family:var(--serif);font-style:italic;font-size:1rem;color:var(--ink-mid);margin:0;line-height:1.65}
+
+/* CHALLENGE */
+.challenge{margin-bottom:1.5rem}
+.ch-label{font-size:0.65rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-light);margin-bottom:4px}
+.ch-q{font-family:var(--serif);font-size:1rem;font-weight:400;color:var(--ink);margin-bottom:0.5rem;line-height:1.3}
+
+/* STAT ROW */
+.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:1.25rem 0}
+.stat{background:var(--cream-dark);border-radius:8px;padding:0.85rem 1rem}
+.stat-val{font-family:var(--serif);font-size:1.3rem;font-weight:400;color:var(--ink);display:block;line-height:1}
+.stat-desc{font-size:0.72rem;color:var(--ink-light);display:block;margin-top:4px;line-height:1.4}
+
+/* IMAGE PLACEHOLDERS — priority 1 (high) */
+.img-placeholder{width:100%;border-radius:10px;border:1.5px dashed var(--border);background:var(--cream-dark);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;padding:2.5rem 1rem;margin:1.25rem 0;text-align:center}
+.img-placeholder-icon{font-size:1.5rem;opacity:0.4}
+.img-placeholder-label{font-size:0.72rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-light)}
+.img-placeholder-desc{font-size:0.72rem;color:var(--ink-light);opacity:0.7;max-width:340px;line-height:1.5}
+.priority-badge{font-size:0.6rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;padding:0.2rem 0.6rem;border-radius:100px;margin-bottom:0.25rem;display:inline-block}
+.p1{background:var(--terra-pale);color:var(--terra)} /* Priority 1 — make first */
+.p2{background:var(--sage-pale);color:var(--sage)}   /* Priority 2 — make next */
+.p3{background:var(--cream-dark);color:var(--ink-light)} /* Priority 3 — nice to have */
+
+/* COPY COMPARISON TABLE */
+.copy-table{width:100%;border-collapse:collapse;margin:1.25rem 0;font-size:0.82rem}
+.copy-table th{font-size:0.65rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-light);padding:0.5rem 0.75rem;text-align:left;border-bottom:0.5px solid var(--border)}
+.copy-table td{padding:0.75rem;border-bottom:0.5px solid var(--border);line-height:1.5;vertical-align:top}
+.copy-table td:first-child{color:var(--ink-light);font-style:italic}
+.copy-table td:last-child{color:var(--ink);font-weight:400}
+
+/* SKILL TAGS */
+.skill-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:1rem}
+.skill-tag{font-size:0.7rem;color:var(--ink-light);background:var(--cream-dark);border:0.5px solid var(--border);border-radius:100px;padding:0.3rem 0.85rem}
+
+/* SHOPIFY NOTE */
+.shopify-note{background:var(--sage-pale);border-radius:10px;padding:1.25rem 1.5rem;margin:1.25rem 0;border:0.5px solid rgba(122,140,110,0.3)}
+.shopify-note p{font-size:0.875rem;color:var(--ink-mid);line-height:1.75;margin:0}
+.shopify-note strong{color:var(--ink);font-weight:500}
+
+.case-nav{display:flex;justify-content:space-between;align-items:center;padding:3rem 0 5rem;flex-wrap:wrap;gap:1rem}
+.case-nav a{font-size:0.85rem;color:var(--ink-light);text-decoration:none;letter-spacing:0.04em;transition:color 0.2s}
+.case-nav a:hover{color:var(--terra)}
+.case-nav a.next{color:var(--ink);font-weight:500}
+
+footer{padding:2rem;border-top:0.5px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;max-width:780px;margin:0 auto}
+.footer-name{font-family:var(--serif);font-size:1.5rem;font-weight:300;font-style:italic;color:var(--ink)}
+.footer-copy{font-size:0.68rem;color:var(--ink-light)}
+
+.email-btn{position:fixed;bottom:2rem;right:2rem;z-index:99;background:var(--ink);color:var(--cream);font-size:0.75rem;letter-spacing:0.06em;padding:0.75rem 1.25rem;border-radius:100px;cursor:pointer;border:none;font-family:var(--sans);transition:background 0.2s}
+.email-btn:hover{background:var(--terra)}
+.copy-toast{position:fixed;bottom:5rem;right:2rem;background:var(--sage);color:#fff;font-size:0.72rem;padding:0.5rem 1rem;border-radius:8px;z-index:100;opacity:0;transition:opacity 0.3s;pointer-events:none}
+.copy-toast.show{opacity:1}
+
+@media(max-width:700px){
+  nav{padding:1rem 1.5rem}
+  .page{padding-left:1.25rem;padding-right:1.25rem}
+  .meta-row{grid-template-columns:1fr 1fr}
+  .row{grid-template-columns:1fr;gap:0.75rem}
+  .stat-row{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-name">Nikaylah</a>
+  <a href="/" class="nav-back">← All work</a>
+</nav>
+
+<div class="page">
+  <div class="cs-hero">
+    <p class="breadcrumb">All work / Crescent Stables</p>
+    <h1 class="cs-title">Crescent Stables</h1>
+    <p class="cs-subtitle">UX strategy, information architecture, and interaction design for an equestrian brand targeting adult first-time riders</p>
+    <div class="meta-row">
+      <div><div class="meta-label">Role</div><div class="meta-val">Lead Designer</div></div>
+      <div><div class="meta-label">Timeline</div><div class="meta-val">4 to 6 weeks</div></div>
+      <div><div class="meta-label">Tools</div><div class="meta-val">Figma, Replit</div></div>
+      <div><div class="meta-label">Deliverable</div><div class="meta-val">Netlify + Squarespace</div></div>
+    </div>
+
+    <!-- PRIORITY 1 — Make this first -->
+    <div class="img-placeholder">
+      <span class="priority-badge p1">Priority 1 — Make first</span>
+      <div class="img-placeholder-icon">🖼</div>
+      <div class="img-placeholder-label">Before and after — hero shot</div>
+      <div class="img-placeholder-desc">Side-by-side of the original Crescent Stables site vs your redesign. Same page, same viewport. This is the single most powerful visual in the case study. Screenshot the old site if it still exists, or recreate it roughly.</div>
+    </div>
+  </div>
+
+  <!-- CONTEXT -->
+  <div class="row">
+    <div>
+      <div class="anchor-label">Context</div>
+      <div class="anchor-title">A welcoming equestrian brand for women who have never ridden</div>
+    </div>
+    <div class="row-body">
+      <p>Crescent Stables is a women-led equestrian experiences brand in Minnesota targeting adult beginners. I served as lead designer, collaborating with the brand stakeholder throughout.</p>
+      <p>The target audience is specific. Adult women with little to no riding experience, motivated by curiosity but stopped by anxiety. Worried about safety, embarrassment, and not fitting in. One insight sharpened the entire design direction — women from certain cultural and religious backgrounds face additional barriers to accessing equestrian spaces. The design could not just be welcoming in a general sense. It had to be specifically and visibly welcoming to the women who had the most reason to feel like this space was not for them.</p>
+    </div>
+  </div>
+
+  <!-- THE QUESTION -->
+  <div class="row">
+    <div>
+      <div class="anchor-label">The question</div>
+      <div class="anchor-title">What does a first-time rider need to feel before she takes a first step?</div>
+    </div>
+    <div class="row-body">
+      <p>Not information. Not a list of sessions and prices. A feeling that this place is for someone like her — that she won't look foolish, that someone thought about her specifically when they built this.</p>
+      <div class="pull-quote">
+        <p>Most equestrian websites are built for people who already ride. They use insider language and assume prior knowledge. The existing site had the same problem — it answered functional questions before it answered emotional ones.</p>
+      </div>
+      <p>The site needed to answer three questions for every visitor, in this order: Is this for someone like me? Is it safe and structured? What do I do to get started?</p>
+    </div>
+  </div>
+
+  <!-- RESEARCH -->
+  <div class="row">
+    <div>
+      <div class="anchor-label">Research</div>
+      <div class="anchor-title">10 interviews confirmed the emotional barrier was real</div>
+    </div>
+    <div class="row-body">
+      <p>I spoke with approximately 10 people to validate whether the emotional barriers I suspected were real. I asked about their perceptions of riding, whether they had ever considered trying it, and what would make them feel safe enough to take a first step.</p>
+      <div class="stat-row">
+        <div class="stat"><span class="stat-val">Curiosity</span><span class="stat-desc">was common but rarely acted on</span></div>
+        <div class="stat"><span class="stat-val">Fear</span><span class="stat-desc">of looking inexperienced came up repeatedly</span></div>
+        <div class="stat"><span class="stat-val">Insiders</span><span class="stat-desc">is who existing barn sites felt written for</span></div>
+      </div>
+      <!-- PRIORITY 2 -->
+      <div class="img-placeholder">
+        <span class="priority-badge p2">Priority 2 — Make next</span>
+        <div class="img-placeholder-icon">🖼</div>
+        <div class="img-placeholder-label">Research synthesis</div>
+        <div class="img-placeholder-desc">A simple visual showing your key research findings — could be an affinity map, a quote wall, or three insight cards. Even a clean Figma frame with your top three quotes from interviews.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FRAMEWORK -->
+  <div class="row">
+    <div>
+      <div class="anchor-label">Framework</div>
+      <div class="anchor-title">Behavioral psychology as the design spine</div>
+    </div>
+    <div class="row-body">
+      <p>I structured the entire redesign around Kahneman's System 1 and System 2 framework. An anxious first-time visitor is operating almost entirely in System 1 — she feels before she thinks. Every design decision had to serve what she feels in the first three seconds before her rational mind engages.</p>
+
+      <!-- PRIORITY 1 -->
+      <div class="img-placeholder">
+        <span class="priority-badge p1">Priority 1 — Make first</span>
+        <div class="img-placeholder-icon">🖼</div>
+        <div class="img-placeholder-label">Behavioral framework diagram</div>
+        <div class="img-placeholder-desc">A simple diagram showing System 1 vs System 2 and how each design decision maps to one of them. Can be made in Figma in under an hour. This shows Shopify you think in frameworks, not just aesthetics.</div>
+      </div>
+
+      <div class="challenge">
+        <div class="ch-label">Challenge 1</div>
+        <div class="ch-q">How might we make an anxious visitor feel seen before she reads a word?</div>
+        <p>Anchoring shaped the hero. The opening headline sets the emotional frame before any information is processed. Everything the visitor reads afterward is interpreted through that first impression.</p>
+      </div>
+      <div class="challenge">
+        <div class="ch-label">Challenge 2</div>
+        <div class="ch-q">How might we build trust without triggering defensiveness?</div>
+        <p>Loss aversion shaped the session cards. Showing spots remaining creates urgency without pressure copy. Losing a spot feels worse than gaining one feels good. WYSIATI shaped the Before You Come page — anxious users fill information gaps with worst-case assumptions, so the page was designed to fill every possible gap proactively.</p>
+      </div>
+      <div class="challenge">
+        <div class="ch-label">Challenge 3</div>
+        <div class="ch-q">How might we make the space feel specifically made for her?</div>
+        <p>Cognitive ease shaped the visual design. Text contrast corrections, generous line height, calm hierarchy, and short paragraphs reduce cognitive load before the user consciously notices any of it.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- INFORMATION ARCHITECTURE -->
+  <div class="row">
+    <div>
+      <div class="anchor-label">Information architecture</div>
+      <div class="anchor-title">Built around how a nervous beginner thinks, not how a barn operates</div>
+    </div>
+    <div class="row-body">
+      <p>The final site has four pages: Home, Experiences, Before You Come, and About. Two naming decisions are worth noting.</p>
+      <p>The Safety page was renamed Before You Come. That shift moves the label from functional to experiential — it signals preparation and welcome rather than liability and rules. Contact was removed from the navigation entirely and merged into the bottom of the About page. This places the inquiry moment at the end of the trust-building journey rather than in competition with it.</p>
+
+      <!-- PRIORITY 1 -->
+      <div class="img-placeholder">
+        <span class="priority-badge p1">Priority 1 — Make first</span>
+        <div class="img-placeholder-icon">🖼</div>
+        <div class="img-placeholder-label">Site map</div>
+        <div class="img-placeholder-desc">A clean four-page site map showing Home, Experiences, Before You Come, and About — with a note on why each naming decision was made. Make this in Figma. It directly shows IA thinking which Shopify values highly.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WIREFRAMING -->
+  <div class="row">
+    <div>
+      <div class="anchor-label">Wireframing</div>
+      <div class="anchor-title">Three rounds of wireframes before any visual design</div>
+    </div>
+    <div class="row-body">
+      <p>Three rounds of wireframes in Figma before any visual design. Round one established basic page structure and content hierarchy. Round two refined spacing, card layouts, and CTA placement. Round three used Figma AI to pressure-test layout assumptions — as a tool to accelerate iteration, not to replace design thinking.</p>
+      <p>The wireframes locked in a consistent set of decisions across every page: large headlines at the top, CTAs placed after reassurance content rather than before it, card-based program layouts, consistent spacing to signal calm.</p>
+
+      <!-- PRIORITY 2 -->
+      <div class="img-placeholder">
+        <span class="priority-badge p2">Priority 2 — Make next</span>
+        <div class="img-placeholder-icon">🖼</div>
+        <div class="img-placeholder-label">Wireframe progression — rounds 1, 2, 3</div>
+        <div class="img-placeholder-desc">Three frames side by side showing how the homepage wireframe evolved across rounds. Even rough lo-fi wireframes work here — they show process which is exactly what Shopify wants to see.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VISUAL DIRECTION -->
+  <div class="row">
+    <div>
+      <div class="anchor-label">Visual direction</div>
+      <div class="anchor-title">Warm, unhurried, and built for cognitive ease</div>
+    </div>
+    <div class="row-body">
+      <p>The visual direction is warm and unhurried. Generous white space, strong typography hierarchy, card-based layouts, and a restrained palette of warm cream, terracotta, and sage green. Pull quote treatments appear at emotional peak moments on each page.</p>
+
+      <!-- PRIORITY 1 -->
+      <div class="img-placeholder">
+        <span class="priority-badge p1">Priority 1 — Make first</span>
+        <div class="img-placeholder-icon">🖼</div>
+        <div class="img-placeholder-label">Component close-ups — 3 key UX decisions</div>
+        <div class="img-placeholder-desc">Three zoomed screenshots, each with a one-line annotation: (1) the renamed nav item "Before You Come", (2) the reassurance strip "No rushing. Ever. / Small enough that you will never feel lost.", (3) the session cards with terracotta CTA. These show craft and intentionality.</div>
+      </div>
+
+      <p>Copywriting was treated as a design discipline with explicit constraints. No generic phrasing. No filler. No formal tone. Every sentence either reassures the visitor or moves her forward.</p>
+
+      <!-- PRIORITY 2 -->
+      <table class="copy-table">
+        <thead>
+          <tr>
+            <th>Original copy</th>
+            <th>Rewritten copy</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>"Join us for a session"</td>
+            <td>"Whenever you are ready, we will be here."</td>
+          </tr>
+          <tr>
+            <td>"Safety information"</td>
+            <td>"Before You Come"</td>
+          </tr>
+          <tr>
+            <td>"Contact us"</td>
+            <td>Removed from nav, merged into About page</td>
+          </tr>
+          <tr>
+            <td>Generic facility photos</td>
+            <td>Women of color and women in hijab in casual riding contexts</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- PHOTOGRAPHY -->
+  <div class="row">
+    <div>
+      <div class="anchor-label">Photography strategy</div>
+      <div class="anchor-title">Images that confirm what the copy promises</div>
+    </div>
+    <div class="row-body">
+      <p>Photography was shifted from facility shots to human-centered connection imagery. The images selected show women of color and women in hijab in casual, non-competitive riding contexts. This was a UX decision, not a visual one.</p>
+      <div class="pull-quote">
+        <p>The inclusion approach was attraction-based. The goal was to make the target audience feel so seen and centered that the space clearly belongs to them — without policy language that could feel defensive or performative.</p>
+      </div>
+
+      <!-- PRIORITY 1 -->
+      <div class="img-placeholder">
+        <span class="priority-badge p1">Priority 1 — Make first</span>
+        <div class="img-placeholder-icon">🖼</div>
+        <div class="img-placeholder-label">Photography strategy — before and after</div>
+        <div class="img-placeholder-desc">Two columns: left shows the type of photography typical equestrian sites use (empty facilities, competitive contexts), right shows the type you chose (women of color, hijab, casual riding). This makes the inclusion design thinking visible in one image.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT WAS DELIVERED -->
+  <div class="row">
+    <div>
+      <div class="anchor-label">What was delivered</div>
+      <div class="anchor-title">Two products. A deployed prototype and a production site handed off to the client.</div>
+    </div>
+    <div class="row-body">
+      <p>A deployed Netlify prototype and a production Squarespace site handed off to the client. The prototype is publicly accessible at crescent-stables.netlify.app.</p>
+
+      <!-- PRIORITY 1 -->
+      <div class="img-placeholder">
+        <span class="priority-badge p1">Priority 1 — Make first</span>
+        <div class="img-placeholder-icon">🖼</div>
+        <div class="img-placeholder-label">Final screens — live site hero shots</div>
+        <div class="img-placeholder-desc">3 to 4 full-width screenshots of the final live site: homepage hero, Experiences page, Before You Come page, and About page. Clean browser screenshots at 1440px width. These are your proof of shipped work.</div>
+      </div>
+
+      <!-- PRIORITY 3 -->
+      <div class="img-placeholder">
+        <span class="priority-badge p3">Priority 3 — Nice to have</span>
+        <div class="img-placeholder-icon">🖼</div>
+        <div class="img-placeholder-label">User testing photo</div>
+        <div class="img-placeholder-desc">A photo of someone (mom, sister, friend) using the site on a phone or laptop. Doesn't need to be staged. Even a candid works. Real user testing photos make the research feel credible.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT I LEARNED -->
+  <div class="row">
+    <div>
+      <div class="anchor-label">What I learned</div>
+      <div class="anchor-title">Three things that changed how I think about design</div>
+    </div>
+    <div class="row-body">
+      <p>Writing is a design decision. Removing generic phrasing had more impact on trust than any layout change. The difference between "Join us for a session" and "Whenever you are ready, we will be here" is the difference between transactional and human.</p>
+      <p>Structure is empathy. Organizing a site around how a nervous beginner thinks separates a site that builds trust from one that overwhelms.</p>
+      <p>Shipping changes how you design. Working through real deployment issues deepened my understanding of how design decisions translate into technical constraints. It made me more precise, not less creative.</p>
+
+      <!-- SHOPIFY CONNECTION NOTE -->
+      <div class="shopify-note">
+        <p><strong>Why this matters beyond equestrian.</strong> Shopify exists to make commerce better for everyone — including first-time business owners who feel anxious, underqualified, and unsure where to start. The design problem in Crescent Stables is structurally the same: how do you make someone who has never done this before feel like this space was built specifically for them? That question is one I want to keep answering.</p>
+      </div>
+
+      <div class="skill-tags">
+        <span class="skill-tag">UX Strategy</span>
+        <span class="skill-tag">Discovery Research</span>
+        <span class="skill-tag">Information Architecture</span>
+        <span class="skill-tag">Behavioral Psychology</span>
+        <span class="skill-tag">Wireframing</span>
+        <span class="skill-tag">Copywriting</span>
+        <span class="skill-tag">Visual Direction</span>
+        <span class="skill-tag">Photography Strategy</span>
+        <span class="skill-tag">Front-end Development</span>
+        <span class="skill-tag">Live Deployment</span>
+        <span class="skill-tag">Inclusion Design</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="case-nav">
+    <a href="/">← Back to all work</a>
+    <a href="/sustainable-generator" class="next">Next: Sustainable Generator →</a>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-name">Nikaylah.</span>
+  <span class="footer-copy">© 2026 Nikaylah. Minneapolis, MN.</span>
+</footer>
+
+<button class="email-btn" onclick="copyEmail()">✉ Email me</button>
+<div class="copy-toast" id="toast">Copied — nikaylah@gmail.com</div>
+
+<script>
+function copyEmail(){
+  navigator.clipboard.writeText('nikaylah@gmail.com').then(()=>{
+    const t=document.getElementById('toast');
+    t.classList.add('show');
+    setTimeout(()=>t.classList.remove('show'),2500);
+  });
+}
+</script>
+</body>
+</html>
