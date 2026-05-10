@@ -44,6 +44,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .row-body p{margin-bottom:0.85rem}
 .row-body p:last-child{margin-bottom:0}
 
+
+/* ASSET IMAGES */
+.asset-img{width:100%;border-radius:10px;margin:1.25rem 0;border:0.5px solid var(--border);box-shadow:0 4px 20px rgba(44,42,38,0.08)}
+.asset-caption{font-size:0.72rem;color:var(--ink-light);font-style:italic;margin-top:-0.5rem;margin-bottom:1.25rem;padding-left:4px}
+
 /* PULL QUOTE */
 .pull-quote{border-left:2px solid var(--terra);padding:0.85rem 1rem;margin:1.25rem 0;background:var(--cream-dark);border-radius:0 8px 8px 0}
 .pull-quote p{font-family:var(--serif);font-style:italic;font-size:1rem;color:var(--ink-mid);margin:0;line-height:1.65}
@@ -124,11 +129,8 @@ footer{padding:2rem;border-top:0.5px solid var(--border);display:flex;justify-co
     <div class="row-body">
       <p>I care about what we consume and what we leave behind. Plastic in our water. Synthetic fibers that take centuries to break down. A fashion industry that produces more than it needs and disposes of it faster than the planet can absorb it.</p>
       <p>I wanted to explore what a tool might look like if sustainability came first. Not as a filter applied after the fact, but as the starting point for every creative decision. This project is my answer to that question.</p>
-      <div class="img-placeholder">
-        <div class="img-placeholder-icon">🖼</div>
-        <div class="img-placeholder-label">Problem context</div>
-        <div class="img-placeholder-desc">Screenshot or visual showing the gap in existing sustainable fashion tools. either a competitor screenshot or a diagram of the problem space</div>
-      </div>
+      <img src="portfolio-assets/sg-gap-diagram.png" alt="Gap diagram showing where the Sustainable Generator sits between creative tools and compliance tools" class="asset-img">
+      <p class="asset-caption">Nothing bridges both. That gap is where this project lives.</p>
     </div>
   </div>
 
@@ -269,11 +271,8 @@ footer{padding:2rem;border-top:0.5px solid var(--border);display:flex;justify-co
       <p>I chose the animated SVG silhouette system instead. It renders instantly, it moves, and it gives users a visual response the moment generation completes. The tradeoff was photorealism. but the gain was trust. Users could see something happening. The experience felt responsive rather than broken.</p>
       <p>That decision also sharpened the design philosophy of the whole project. The visual is not the point. The reasoning is the point. The "how your choices shaped this" section. which explains exactly why the AI made each design decision. became more valuable than any photorealistic render could have been. A performance limitation became the strongest design decision in the project.</p>
 
-      <div class="img-placeholder">
-        <div class="img-placeholder-icon">🖼</div>
-        <div class="img-placeholder-label">Priority 1. The pivot moment</div>
-        <div class="img-placeholder-desc">Side by side showing what photorealistic generation would have looked like vs the animated SVG silhouette system you chose. Show the performance tradeoff visually. a loading state comparison or a before/after of the output screen.</div>
-      </div>
+      <img src="portfolio-assets/sg-pivot-diagram.png" alt="Performance pivot diagram showing 3D rendering vs SVG silhouette decision" class="asset-img">
+      <p class="asset-caption">A performance constraint became the strongest design decision in the project.</p>
     </div>
   </div>
 
