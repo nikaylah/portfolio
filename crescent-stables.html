@@ -532,6 +532,10 @@ footer{padding:2rem;border-top:0.5px solid var(--border);display:flex;justify-co
 <button class="email-btn" onclick="copyEmail()">✉ Email me</button>
 <div class="copy-toast" id="toast">Copied. nikaylah@gmail.com</div>
 
+<div id="lightbox" style="display:none;position:fixed;inset:0;z-index:999;background:rgba(44,42,38,0.92);align-items:center;justify-content:center;cursor:zoom-out" onclick="closeLightbox()">
+  <img id="lightbox-img" src="" alt="" style="max-width:90vw;max-height:90vh;border-radius:8px;box-shadow:0 8px 60px rgba(0,0,0,0.4)">
+</div>
+
 <script>
 function copyEmail(){
   navigator.clipboard.writeText('nikaylah@gmail.com').then(()=>{
@@ -540,6 +544,30 @@ function copyEmail(){
     setTimeout(()=>t.classList.remove('show'),2500);
   });
 }
+
+function openLightbox(src, alt){
+  const lb=document.getElementById('lightbox');
+  document.getElementById('lightbox-img').src=src;
+  document.getElementById('lightbox-img').alt=alt;
+  lb.style.display='flex';
+  document.body.style.overflow='hidden';
+}
+
+function closeLightbox(){
+  document.getElementById('lightbox').style.display='none';
+  document.body.style.overflow='';
+}
+
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape') closeLightbox();
+});
+
+document.querySelectorAll('img.asset-img, img.compare-img, img.compare-after-hero').forEach(function(img){
+  img.style.cursor='zoom-in';
+  img.addEventListener('click',function(){
+    openLightbox(img.src, img.alt);
+  });
+});
 </script>
 </body>
 </html>
