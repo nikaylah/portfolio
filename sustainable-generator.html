@@ -148,11 +148,8 @@ footer{padding:2rem;border-top:0.5px solid var(--border);display:flex;justify-co
         <div class="stat"><span class="stat-val">Higg</span><span class="stat-desc">Index methodology for sustainability scoring</span></div>
         <div class="stat"><span class="stat-val">Solo</span><span class="stat-desc">designer and developer, end to end</span></div>
       </div>
-      <div class="img-placeholder">
-        <div class="img-placeholder-icon">🖼</div>
-        <div class="img-placeholder-label">Full app interface</div>
-        <div class="img-placeholder-desc">Hero screenshot showing the complete two-panel layout. fiber selection on the left, generated outfit on the right</div>
-      </div>
+      <img src="portfolio-assets/sg-app-interface.png" alt="Full Sustainable Fashion Generator app interface showing fiber selection and generated outfit" class="asset-img">
+      <p class="asset-caption">The full two-panel layout. Fiber selection on the left, generated outfit with sustainability score on the right.</p>
     </div>
   </div>
 
@@ -165,11 +162,8 @@ footer{padding:2rem;border-top:0.5px solid var(--border);display:flex;justify-co
     <div class="row-body">
       <p>Most sustainable fashion tools fall into one of two categories. They are either creative generation tools that focus on aesthetics without addressing environmental impact, or sustainability verification tools that track data without helping anyone make something new.</p>
       <p>Nothing bridges both. That gap is where this project lives. The tool I built asks users to choose a fiber before they choose a style. That sequencing is deliberate. In the traditional fashion industry, designers choose an aesthetic direction first and find a cheap fabric to match it later. Flipping that order is a small interface decision with a meaningful design philosophy behind it.</p>
-      <div class="img-placeholder">
-        <div class="img-placeholder-icon">🖼</div>
-        <div class="img-placeholder-label">Gap diagram or competitor comparison</div>
-        <div class="img-placeholder-desc">Side-by-side showing existing tools on either end of the spectrum vs this tool bridging them</div>
-      </div>
+      <img src="portfolio-assets/sg-gap-diagram.png" alt="Gap diagram showing where the Sustainable Generator sits between creative and compliance tools" class="asset-img">
+      <p class="asset-caption">Creative tools ignore sustainability. Compliance tools ignore creativity. This tool bridges both.</p>
     </div>
   </div>
 
@@ -181,17 +175,11 @@ footer{padding:2rem;border-top:0.5px solid var(--border);display:flex;justify-co
     </div>
     <div class="row-body">
       <p>The most important design decision in this project was the sequencing. Every other choice. the UI layout, the sustainability score display, the animated garment system. came after that one structural call was made.</p>
-      <div class="img-placeholder">
-        <div class="img-placeholder-icon">🖼</div>
-        <div class="img-placeholder-label">User flow diagram</div>
-        <div class="img-placeholder-desc">Flow showing the fiber → style → values → generate sequence and how each step gates the next</div>
-      </div>
+      <img src="portfolio-assets/sg-user-flow.png" alt="User flow diagram showing fiber to style to values to generate sequence" class="asset-img">
+      <p class="asset-caption">Fiber before style. Values before aesthetics. The sequencing is the design.</p>
       <p>Writing the system prompt for the Claude API was closer to UX writing than engineering. Every word shaped the output. Vague instructions produced vague results. Specific constraints produced specific, useful outputs. The prompt had to encode not just what to generate, but why each material choice mattered and how to explain that reasoning back to the user.</p>
-      <div class="img-placeholder">
-        <div class="img-placeholder-icon">🖼</div>
-        <div class="img-placeholder-label">Wireframes or early iteration</div>
-        <div class="img-placeholder-desc">Early sketches or wireframes showing how the layout evolved before the final two-panel design</div>
-      </div>
+      <img src="portfolio-assets/sg-app-interface.png" alt="Early iteration of the Sustainable Fashion Generator layout" class="asset-img">
+      <p class="asset-caption">Early layout iteration before the two-panel design was finalized.</p>
     </div>
   </div>
 
@@ -206,16 +194,12 @@ footer{padding:2rem;border-top:0.5px solid var(--border);display:flex;justify-co
       <div class="pull-quote">
         <p>That section transforms the experience from feeling like a random output generator into feeling like a creative collaboration. Users understand that their values produced this specific result.</p>
       </div>
-      <div class="img-placeholder">
-        <div class="img-placeholder-icon">🖼</div>
-        <div class="img-placeholder-label">Component close-up</div>
-        <div class="img-placeholder-desc">Zoomed screenshot of the "how your choices shaped this" section showing the three reasoning lines</div>
-      </div>
-      <div class="video-placeholder">
-        <div class="video-placeholder-icon">▶</div>
-        <div class="video-placeholder-label">Live demo. interaction recording</div>
-        <div class="video-placeholder-desc">Screen recording of the full generation flow: fiber selection → style choice → values → generate → reveal. Export as MP4 or GIF and embed here.</div>
-      </div>
+      <img src="portfolio-assets/sg-choices-closeup.png" alt="How your choices shaped this section showing three reasoning lines" class="asset-img">
+      <p class="asset-caption">The reasoning layer. Each line connects a user selection directly to a creative decision in the output.</p>
+      <video controls style="width:100%;border-radius:10px;margin:1.25rem 0;border:0.5px solid var(--border);box-shadow:0 4px 20px rgba(44,42,38,0.08)" poster="portfolio-assets/sg-app-interface.png">
+        <source src="portfolio-assets/sg-demo.mp4" type="video/mp4">
+      </video>
+      <p class="asset-caption">Full generation flow. Fiber selection, style choice, values, generate, reveal.</p>
     </div>
   </div>
 
@@ -312,10 +296,19 @@ footer{padding:2rem;border-top:0.5px solid var(--border);display:flex;justify-co
       <p>User testing with people who are not like you is more valuable than testing with people who are. My mom's response in testing was a better design signal than any assumption I could have made about a typical user.</p>
       <p>Sustainability data is more compelling when it is specific. "Hemp is better for the environment" changes nothing. "Hemp saves 2000 liters of water per garment compared to conventional cotton" changes how someone thinks about a choice.</p>
       <p>The most important design decision in this project was the sequencing. Fiber before style. Values before aesthetics. That one structural choice is what makes this a design experiment worth talking about rather than another AI generator.</p>
-      <div class="img-placeholder">
-        <div class="img-placeholder-icon">🖼</div>
-        <div class="img-placeholder-label">Final screens grid</div>
-        <div class="img-placeholder-desc">3 to 4 hero shots of the finished product. the fiber selection screen, a generated outfit with sustainability score, and the "how your choices shaped this" section</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin:1.25rem 0">
+        <div>
+          <img src="portfolio-assets/sg-final-1.png" alt="Fiber selection screen" class="asset-img" style="margin:0">
+          <p class="asset-caption" style="margin-top:0.4rem">Fiber selection. The starting point for every creative decision.</p>
+        </div>
+        <div>
+          <img src="portfolio-assets/sg-final-2.png" alt="Generated outfit with sustainability score" class="asset-img" style="margin:0">
+          <p class="asset-caption" style="margin-top:0.4rem">Generated outfit with Higg Index sustainability score.</p>
+        </div>
+        <div>
+          <img src="portfolio-assets/sg-final-3.png" alt="How your choices shaped this section" class="asset-img" style="margin:0">
+          <p class="asset-caption" style="margin-top:0.4rem">The reasoning layer. Values made visible.</p>
+        </div>
       </div>
       <div class="skill-tags">
         <span class="skill-tag">UX Research</span>
@@ -346,6 +339,10 @@ footer{padding:2rem;border-top:0.5px solid var(--border);display:flex;justify-co
 <button class="email-btn" onclick="copyEmail()">✉ Email me</button>
 <div class="copy-toast" id="toast">Copied. nikaylah@gmail.com</div>
 
+<div id="lightbox" style="display:none;position:fixed;inset:0;z-index:999;background:rgba(44,42,38,0.92);align-items:center;justify-content:center;cursor:zoom-out" onclick="closeLightbox()">
+  <img id="lightbox-img" src="" alt="" style="max-width:90vw;max-height:90vh;border-radius:8px;box-shadow:0 8px 60px rgba(0,0,0,0.4)">
+</div>
+
 <script>
 function copyEmail(){
   navigator.clipboard.writeText('nikaylah@gmail.com').then(()=>{
@@ -354,6 +351,30 @@ function copyEmail(){
     setTimeout(()=>t.classList.remove('show'),2500);
   });
 }
+
+function openLightbox(src,alt){
+  const lb=document.getElementById('lightbox');
+  document.getElementById('lightbox-img').src=src;
+  document.getElementById('lightbox-img').alt=alt;
+  lb.style.display='flex';
+  document.body.style.overflow='hidden';
+}
+
+function closeLightbox(){
+  document.getElementById('lightbox').style.display='none';
+  document.body.style.overflow='';
+}
+
+document.addEventListener('keydown',function(e){
+  if(e.key==='Escape') closeLightbox();
+});
+
+document.querySelectorAll('img.asset-img').forEach(function(img){
+  img.style.cursor='zoom-in';
+  img.addEventListener('click',function(){
+    openLightbox(img.src,img.alt);
+  });
+});
 </script>
 </body>
 </html>
