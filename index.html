@@ -218,6 +218,27 @@ footer{
   from{opacity:0;transform:translateY(16px)}
   to{opacity:1;transform:translateY(0)}
 }
+/* ACCESSIBILITY */
+.skip-link{
+  position:absolute;top:-100px;left:1rem;
+  background:var(--ink);color:var(--cream);
+  padding:0.5rem 1rem;border-radius:4px;
+  font-size:0.85rem;font-family:var(--sans);
+  text-decoration:none;z-index:999;
+  transition:top 0.2s;
+}
+.skip-link:focus{top:1rem}
+*:focus-visible{
+  outline:2px solid var(--terra);
+  outline-offset:3px;
+  border-radius:2px;
+}
+/* Fix ink-light contrast — darkened from #7A7670 to #635F5B to pass AA */
+:root{--ink-light:#635F5B}
+/* Respect reduced motion preference */
+@media(prefers-reduced-motion:reduce){
+  *{animation:none !important;transition:none !important}
+}
 
 @media(max-width:900px){
   nav{padding:1rem 1.5rem}
@@ -233,11 +254,12 @@ footer{
 </style>
 </head>
 <body>
-
+  <a href="#main-content" class="skip-link">Skip to main content</a>
 <nav>
   <a href="/" class="nav-left" aria-label="Nikaylah home">
     <div class="nav-mark" aria-hidden="true"><span>N</span></div>
-  </a>
+    <span class="nav-name">Nikaylah</span>
+    </a>
   <div class="nav-right">
     <a href="https://www.linkedin.com/in/nikaylah" target="_blank" rel="noopener noreferrer" class="nav-link hide-mobile">LinkedIn</a>
     <button class="nav-cta" onclick="revealEmail()" aria-label="Copy email address">Email me</button>
@@ -250,7 +272,8 @@ footer{
   <p class="hero-subtitle">Designing for the moment a user doesn't have to think.</p>
 </div>
 
-<section class="work" aria-label="Selected work">
+<main id="main-content">
+  <section class="work" aria-label="Selected work">
   <div class="work-label">Selected work</div>
   <div class="cards">
 
@@ -263,7 +286,7 @@ footer{
         <div class="card-type">UX Redesign · Lead Designer</div>
         <h2 class="card-name">Crescent Stables</h2>
         <p class="card-hook">A full redesign for a women-led equestrian brand whose original site was attracting the wrong audience. Research, behavioral psychology, and inclusion design made the experience feel like it was built for her specifically.</p>
-        <span class="card-cta">View case study →</span>
+        <span class="card-cta" aria-label="View Crescent Stables case study">View case study →</span>
       </div>
     </a>
 
@@ -276,13 +299,13 @@ footer{
         <div class="card-type">Full-stack AI tool · Built in 7 days</div>
         <h2 class="card-name">Sustainable Fashion Generator</h2>
         <p class="card-hook">An AI tool that generates outfit concepts starting from material values, not trends. Sustainability scores grounded in real Higg Index data. Built solo with React, Claude API, and Vercel.</p>
-        <span class="card-cta">View case study →</span>
+        <span class="card-cta" aria-label="View Sustainable Generator case study">View case study →</span>
       </div>
     </a>
 
   </div>
 </section>
-
+</main>
 <footer>
   <div class="nav-mark" aria-hidden="true"><span>N</span></div>
   <div>
