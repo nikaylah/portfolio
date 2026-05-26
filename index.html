@@ -4,36 +4,33 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nikaylah — Product Designer & Creative Technologist</title>
-<meta name="description" content="UX Designer and Creative Technologist based in Minneapolis.">
-<link rel="icon" type="image/x-icon" href="favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="description" content="Product Designer based in New York City. Focused on high-performance interaction and human-centered systems.">
+<link rel="icon" href="/favicon.ico?v=3" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=3">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=3">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
 <!-- Vercel Analytics — tracks page views and time on page -->
 <script defer src="/_vercel/insights/script.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --cream:#F5F0E8;
-  --cream-dark:#EDE6D6;
-  --terra:#A0522D;
-  --terra-light:#C4733A;
-  --terra-pale:#F0E0D0;
-  --sage:#7A8C6E;
-  --ink:#2C2A26;
-  --ink-mid:#4A4740;
-  --ink-light:#7A7670;
-  --border:rgba(44,42,38,0.12);
-  --serif:'Cormorant Garamond',serif;
-  --sans:'DM Sans',sans-serif;
+  --bg-primary:#FFFFFF;
+  --text-primary:#000000;
+  --text-secondary:#666666;
+  --ui-border:#E5E5E5;
+  --font:'Inter',sans-serif;
+  --font-display:'Inter',sans-serif;
 }
 html{scroll-behavior:smooth}
 body{
-  background:var(--cream);color:var(--ink);
-  font-family:var(--sans);font-weight:300;
+  background:var(--bg-primary);color:var(--text-primary);
+  font-family:'Inter',sans-serif;font-weight:400;
   line-height:1.6;overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
 }
 
 /* NAV */
@@ -41,41 +38,33 @@ nav{
   position:fixed;top:0;left:0;right:0;z-index:100;
   display:flex;justify-content:space-between;align-items:center;
   padding:1.25rem 3rem;
-  background:rgba(245,240,232,0.93);
+  background:rgba(255,255,255,0.96);
   backdrop-filter:blur(12px);
-  border-bottom:0.5px solid var(--border);
+  -webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--ui-border);
 }
-.nav-left{display:flex;align-items:center;gap:0.65rem;text-decoration:none}
-.nav-mark{
-  width:30px;height:30px;border-radius:50%;
-  border:1.5px solid var(--terra);
-  display:flex;align-items:center;justify-content:center;
-  flex-shrink:0;
+.nav-left{display:flex;align-items:center;text-decoration:none}
+.site-logo{
+  width:64px;height:64px;flex-shrink:0;
+  object-fit:contain;display:block;
 }
-.nav-mark span{
-  font-family:var(--serif);font-size:1rem;
-  font-weight:400;font-style:italic;
-  color:var(--terra);line-height:1;
-}
-.nav-name{
-  font-family:var(--serif);font-size:1.05rem;
-  font-weight:400;letter-spacing:0.04em;color:var(--ink);
-}
-.nav-right{display:flex;align-items:center;gap:2rem}
+.site-logo--footer{width:44px;height:44px}
+.nav-right{display:flex;align-items:center;gap:2rem;flex-wrap:wrap}
 .nav-link{
   font-size:0.78rem;font-weight:400;letter-spacing:0.08em;
-  text-transform:uppercase;color:var(--ink-light);
+  text-transform:uppercase;color:var(--text-secondary);
   text-decoration:none;transition:color 0.2s;
 }
-.nav-link:hover{color:var(--ink)}
+.nav-link:hover{color:var(--text-primary)}
+.nav-link--current{color:var(--text-primary);font-weight:600}
 .nav-cta{
-  background:var(--ink);color:var(--cream);
-  padding:0.5rem 1.25rem;border-radius:100px;
-  font-size:0.75rem;letter-spacing:0.06em;
-  cursor:pointer;border:none;font-family:var(--sans);
-  transition:background 0.2s;
+  background:var(--text-primary);color:var(--bg-primary);
+  padding:0.5rem 1.25rem;border-radius:0;
+  font-size:0.75rem;font-weight:600;letter-spacing:0.06em;
+  cursor:pointer;border:1px solid var(--text-primary);font-family:var(--font);
+  transition:background 0.2s,color 0.2s;
 }
-.nav-cta:hover{background:var(--terra)}
+.nav-cta:hover{background:var(--bg-primary);color:var(--text-primary)}
 
 /* HERO */
 .hero{
@@ -83,133 +72,145 @@ nav{
   max-width:1200px;margin:0 auto;
 }
 .hero-eyebrow{
-  font-size:0.72rem;font-weight:500;
-  letter-spacing:0.14em;text-transform:uppercase;
-  color:var(--terra);margin-bottom:0.85rem;
+  font-size:0.65rem;font-weight:400;
+  letter-spacing:0.2em;text-transform:uppercase;
+  color:var(--text-secondary);margin-bottom:1rem;
   opacity:0;animation:fadeUp 0.7s 0.1s forwards;
 }
 .hero-name{
-  font-family:var(--serif);
-  font-size:clamp(3.5rem,7vw,6.5rem);
-  font-weight:300;font-style:italic;
-  line-height:1.0;letter-spacing:-0.01em;
-  color:var(--terra);margin-bottom:0.7rem;
+  font-family:var(--font-display);
+  font-size:clamp(3rem,7vw,5.5rem);
+  font-weight:500;font-style:italic;
+  line-height:1.0;letter-spacing:-0.03em;
+  color:var(--text-primary);margin-bottom:1.25rem;
   opacity:0;animation:fadeUp 0.8s 0.2s forwards;
 }
+.hero-divider{
+  width:32px;height:1.5px;background:var(--text-primary);
+  margin-bottom:1.25rem;
+  opacity:0;animation:fadeUp 0.8s 0.25s forwards;
+}
 .hero-subtitle{
-  font-family:var(--serif);
-  font-size:clamp(1rem,1.6vw,1.2rem);
-  font-weight:300;font-style:italic;
-  color:var(--ink-light);letter-spacing:0.01em;
+  font-family:var(--font);
+  font-size:0.7rem;font-weight:300;
+  letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--text-secondary);max-width:420px;line-height:1.7;
   opacity:0;animation:fadeUp 0.8s 0.3s forwards;
 }
 
-/* WORK */
+/* WORK — project cards (original soft editorial look) */
 .work{
+  --card-bg:#ffffff;
+  --card-img-bg:#EDE9E2;
+  --card-border:rgba(51,15,10,0.1);
+  --card-terra:#B38A58;
+  --card-tag-bg:rgba(51,15,10,0.82);
+  --card-tag-text:#D0D6B3;
+  --card-ink:#330F0A;
+  --card-ink-mid:#555555;
   padding:2.5rem 3rem 6rem;
   max-width:1200px;margin:0 auto;
 }
 .work-label{
-  font-size:0.7rem;font-weight:500;
-  letter-spacing:0.14em;text-transform:uppercase;
-  color:var(--ink-light);margin-bottom:1.75rem;
+  font-size:0.65rem;font-weight:400;
+  letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--text-secondary);margin-bottom:1.75rem;
 }
-.cards{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
-.card{
+.work .cards{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.work .card{
   border-radius:16px;overflow:hidden;
-  background:#fff;border:0.5px solid var(--border);
+  background:var(--card-bg);border:0.5px solid var(--card-border);
   text-decoration:none;color:inherit;
   display:flex;flex-direction:column;
   transition:transform 0.3s,box-shadow 0.3s;
 }
-.card:hover{
+.work .card:hover{
   transform:translateY(-6px);
   box-shadow:0 24px 64px rgba(44,42,38,0.12);
+  border-color:var(--card-border);
 }
-.card-img{
+.work .card-img{
   width:100%;height:320px;
   overflow:hidden;position:relative;
-  background:var(--cream-dark);flex-shrink:0;
+  background:var(--card-img-bg);flex-shrink:0;
 }
-.card-img img{
+.work .card-img img{
   width:100%;height:100%;
   object-fit:cover;object-position:top;
   display:block;transition:transform 0.5s ease;
 }
-.card:hover .card-img img{transform:scale(1.03)}
-.card-tag{
+.work .card:hover .card-img img{transform:scale(1.03)}
+.work .card-tag{
   position:absolute;bottom:1rem;left:1rem;
-  background:rgba(44,42,38,0.75);
-  backdrop-filter:blur(8px);color:#fff;
+  background:var(--card-tag-bg);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  color:var(--card-tag-text);
   font-size:0.65rem;font-weight:500;
   letter-spacing:0.1em;text-transform:uppercase;
   padding:0.35rem 0.85rem;border-radius:100px;
+  border:none;
 }
-.card-body{
+.work .card-body{
   padding:1.75rem 1.75rem 1.5rem;
   display:flex;flex-direction:column;gap:0.6rem;flex:1;
 }
-.card-type{
-  font-size:0.68rem;font-weight:500;
-  letter-spacing:0.1em;text-transform:uppercase;
-  color:var(--terra);
+.work .card-type{
+  font-size:0.65rem;font-weight:400;
+  letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--card-terra);
 }
-.card-name{
-  font-family:var(--serif);
-  font-size:clamp(1.6rem,2.5vw,2.2rem);
-  font-weight:400;line-height:1.1;color:var(--ink);
+.work .card-name{
+  font-family:'Playfair Display',Georgia,serif;
+  font-size:clamp(1.5rem,2.5vw,2rem);
+  font-weight:400;line-height:1.15;letter-spacing:-0.01em;color:var(--card-ink);
 }
-.card-hook{
+.work .card-hook{
   font-size:0.875rem;font-weight:300;
-  color:var(--ink-mid);line-height:1.7;flex:1;
+  color:var(--card-ink-mid);line-height:1.75;flex:1;
 }
-.card-cta{
+.work .card-cta{
   display:inline-flex;align-items:center;
   gap:0.4rem;margin-top:0.75rem;
   font-size:0.78rem;font-weight:500;
-  color:var(--ink);letter-spacing:0.02em;
+  color:var(--card-ink);letter-spacing:0.02em;
   transition:gap 0.2s;
 }
-.card:hover .card-cta{gap:0.7rem}
+.work .card:hover .card-cta{gap:0.7rem}
 
 /* FOOTER */
 footer{
-  border-top:0.5px solid var(--border);
+  border-top:1px solid var(--ui-border);
   padding:2.5rem 3rem;
   display:flex;justify-content:space-between;
   align-items:center;flex-wrap:wrap;gap:1rem;
   max-width:1200px;margin:0 auto;
 }
-.footer-name{
-  font-family:var(--serif);
-  font-size:clamp(1.8rem,4vw,3rem);
-  font-weight:300;font-style:italic;
-  color:var(--ink);letter-spacing:-0.02em;
-}
-.footer-links{display:flex;gap:1.5rem;flex-wrap:wrap;margin-bottom:0.5rem}
+.footer-logo{flex-shrink:0;line-height:0;text-decoration:none}
+.footer-right{display:flex;flex-direction:column;align-items:flex-end;gap:0.5rem}
+.footer-links{display:flex;gap:1.5rem;flex-wrap:wrap}
 .footer-links a{
-  font-size:0.78rem;color:var(--ink-light);
+  font-size:0.78rem;font-weight:400;letter-spacing:0.06em;
+  text-transform:uppercase;color:var(--text-secondary);
   text-decoration:none;transition:color 0.2s;
 }
-.footer-links a:hover{color:var(--terra)}
-.footer-copy{font-size:0.68rem;color:var(--ink-light)}
+.footer-links a:hover{color:var(--text-primary)}
+.footer-copy{font-size:0.68rem;color:var(--text-secondary);margin:0}
 
 /* STICKY EMAIL */
 .email-btn{
   position:fixed;bottom:2rem;right:2rem;z-index:99;
-  background:var(--ink);color:var(--cream);
+  background:var(--text-primary);color:var(--bg-primary);
   font-size:0.75rem;letter-spacing:0.06em;
-  padding:0.75rem 1.25rem;border-radius:100px;
-  cursor:pointer;border:none;font-family:var(--sans);
-  display:flex;align-items:center;gap:0.5rem;
-  transition:background 0.2s,transform 0.2s;
+  padding:0.75rem 1.25rem;border-radius:0;
+  cursor:pointer;border:1px solid var(--text-primary);font-family:var(--font);
+  transition:background 0.2s,color 0.2s;
 }
-.email-btn:hover{background:var(--terra);transform:scale(1.03)}
+.email-btn:hover{background:var(--bg-primary);color:var(--text-primary)}
 .copy-toast{
   position:fixed;bottom:5rem;right:2rem;
-  background:var(--sage);color:#fff;
+  background:var(--text-primary);color:var(--bg-primary);
   font-size:0.72rem;padding:0.5rem 1rem;
-  border-radius:8px;z-index:100;
+  border-radius:0;border:1px solid var(--ui-border);z-index:100;
   opacity:0;transition:opacity 0.3s;pointer-events:none;
 }
 .copy-toast.show{opacity:1}
@@ -221,47 +222,44 @@ footer{
 /* ACCESSIBILITY */
 .skip-link{
   position:absolute;top:-100px;left:1rem;
-  background:var(--ink);color:var(--cream);
+  background:var(--text-primary);color:var(--bg-primary);
   padding:0.5rem 1rem;border-radius:4px;
-  font-size:0.85rem;font-family:var(--sans);
+  font-size:0.85rem;font-family:var(--font);
   text-decoration:none;z-index:999;
   transition:top 0.2s;
 }
 .skip-link:focus{top:1rem}
 *:focus-visible{
-  outline:2px solid var(--terra);
+  outline:2px solid var(--text-primary);
   outline-offset:3px;
   border-radius:2px;
 }
-/* Fix ink-light contrast — darkened from #7A7670 to #635F5B to pass AA */
-:root{--ink-light:#635F5B}
 /* Respect reduced motion preference */
 @media(prefers-reduced-motion:reduce){
   *{animation:none !important;transition:none !important}
 }
 
-@media(max-width:900px){
-  nav{padding:1rem 1.5rem}
-  .hero{padding:7rem 1.5rem 2rem}
-  .work{padding:2rem 1.5rem 4rem}
-  .cards{grid-template-columns:1fr;gap:1.25rem}
-  .card-img{height:260px}
-  footer{padding:2rem 1.5rem;flex-direction:column;align-items:flex-start}
-}
-@media(max-width:600px){
-  .hide-mobile{display:none}
-}
+/* Responsive layout: see responsive.css */
 </style>
+<link rel="stylesheet" href="/editorial-theme.css">
+<link rel="stylesheet" href="/responsive.css">
+<link rel="stylesheet" href="/weather-engine.css?v=3">
 </head>
 <body>
+<div class="gc-atmosphere" aria-hidden="true">
+  <div class="gc-cloud gc-cloud--1"></div>
+  <div class="gc-cloud gc-cloud--2"></div>
+  <div class="gc-cloud gc-cloud--3"></div>
+  <div class="gc-cloud gc-cloud--4"></div>
+</div>
   <a href="#main-content" class="skip-link">Skip to main content</a>
 <nav>
   <a href="/" class="nav-left" aria-label="Nikaylah home">
-    <div class="nav-mark" aria-hidden="true"><span>N</span></div>
-    <span class="nav-name">Nikaylah</span>
-    </a>
+    <img src="/logo-v3.png" alt="Nikaylah" class="site-logo" width="64" height="64">
+  </a>
   <div class="nav-right">
-    <a href="https://www.linkedin.com/in/nikaylah" target="_blank" rel="noopener noreferrer" class="nav-link hide-mobile">LinkedIn</a>
+    <a href="/about/" class="nav-link">About</a>
+    <a href="https://www.linkedin.com/in/nikaylah" target="_blank" rel="noopener noreferrer" class="nav-link">LinkedIn</a>
     <button class="nav-cta" onclick="revealEmail()" aria-label="Copy email address">Email me</button>
   </div>
 </nav>
@@ -269,17 +267,19 @@ footer{
 <div class="hero">
   <div class="hero-eyebrow">Product Designer · Creative Technologist</div>
   <h1 class="hero-name">Nikaylah.</h1>
-  <p class="hero-subtitle">Designing for the moment a user doesn't have to think.</p>
+  <div class="hero-divider" aria-hidden="true"></div>
+  <p class="hero-subtitle">Designing for the people who just want things to work.</p>
+  <p class="hero-eyebrow">Currently open to product design roles. <a href="#selected-work">See my work ↓</a></p>
 </div>
 
 <main id="main-content">
-  <section class="work" aria-label="Selected work">
+  <section class="work" id="selected-work" aria-label="Selected work">
   <div class="work-label">Selected work</div>
   <div class="cards">
 
-    <a href="/crescent-stables" class="card">
+    <a href="/crescent-stables.html" class="card">
       <div class="card-img">
-        <img src="crescent-homepage.png" alt="Redesigned Crescent Stables homepage showing warm cream and terracotta design">
+        <img src="/crescent-homepage.png" alt="Redesigned Crescent Stables homepage showing warm cream and terracotta design">
         <span class="card-tag">UX Strategy · Inclusion Design</span>
       </div>
       <div class="card-body">
@@ -290,9 +290,9 @@ footer{
       </div>
     </a>
 
-    <a href="/sustainable-generator" class="card">
+    <a href="/sustainable-generator.html" class="card">
       <div class="card-img">
-        <img src="generator-homepage.png" alt="Sustainable Fashion Generator app interface showing fiber selection and outfit output panels">
+        <img src="/generator-homepage.png" alt="Sustainable Fashion Generator app interface showing fiber selection and outfit output panels">
         <span class="card-tag">Creative Technology · AI Tool</span>
       </div>
       <div class="card-body">
@@ -307,14 +307,16 @@ footer{
 </section>
 </main>
 <footer>
-  <div class="nav-mark" aria-hidden="true"><span>N</span></div>
-  <div>
-    <div class="footer-links">
+  <a href="/" class="footer-logo" aria-label="Nikaylah home">
+    <img src="/logo-v3.png" alt="" class="site-logo site-logo--footer" width="44" height="44">
+  </a>
+  <div class="footer-right">
+    <div class="footer-links" role="navigation" aria-label="Footer">
+      <a href="/" aria-current="page">Work</a>
+      <a href="/about/">About</a>
       <a href="https://www.linkedin.com/in/nikaylah" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      <a href="https://crescent-stables.netlify.app" target="_blank" rel="noopener noreferrer">Crescent Stables</a>
-      <a href="https://sustainable-fashion-gen.vercel.app" target="_blank" rel="noopener noreferrer">Sustainable Generator</a>
     </div>
-    <div class="footer-copy">© 2026 Nikaylah.</div>
+    <p class="footer-copy">© 2026 Nikaylah.</p>
   </div>
 </footer>
 

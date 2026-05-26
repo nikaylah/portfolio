@@ -1,6 +1,13 @@
 {
+  "redirects": [
+    { "source": "/fun-projects", "destination": "/gesture-interface.html", "permanent": false },
+    { "source": "/fun-projects/", "destination": "/gesture-interface.html", "permanent": false },
+    { "source": "/gesture-interface", "destination": "/gesture-interface.html", "permanent": false },
+    { "source": "/gesture-interface/", "destination": "/gesture-interface.html", "permanent": false }
+  ],
   "rewrites": [
     { "source": "/crescent-stables", "destination": "/crescent-stables.html" },
-    { "source": "/sustainable-generator", "destination": "/sustainable-generator.html" }
+    { "source": "/sustainable-generator", "destination": "/sustainable-generator.html" },
+    { "source": "/about", "destination": "/about/index.html" }
   ]
 }

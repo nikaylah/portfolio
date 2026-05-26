@@ -1,0 +1,622 @@
+/**
+ * gesture-interface.css
+ * Scoped under .gc-container (About embed + standalone gesture page).
+ * Standalone: body.gc-page + .gc-container--standalone
+ */
+
+/* Light theme tokens */
+body.gc-page,
+.gc-container {
+  --bg-gallery: #ffffff;
+  --text-primary: #1a1a1a;
+  --text-secondary: #666666;
+  --modal-backdrop: rgba(255, 255, 255, 0.9);
+  --gc-border-subtle: #e5e5e5;
+  --gc-panel-border: rgba(26, 26, 26, 0.12);
+  --gc-panel-surface: rgba(255, 255, 255, 0.88);
+  --gc-panel-shadow: 0 10px 28px rgba(26, 26, 26, 0.1);
+  --gc-panel-shadow-focus: 0 22px 52px rgba(26, 26, 26, 0.16);
+  --gc-modal-shadow: 0 20px 40px rgba(26, 26, 26, 0.12);
+}
+
+.gc-container {
+  font-family: var(--font, 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  position: relative;
+  width: 100%;
+  color: var(--text-primary);
+  background: var(--bg-gallery);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+/* About embed — let global .gc-atmosphere show through gallery shell */
+.gc-container:not(.gc-container--standalone) {
+  background: transparent;
+}
+
+/* Embedded showcase (About) */
+.gc-container:not(.gc-container--standalone) .gc-experience {
+  position: relative;
+  inset: auto;
+  width: 100%;
+  height: min(85vh, 720px);
+  min-height: 420px;
+  background: transparent;
+}
+
+.gc-container:not(.gc-container--standalone) .gc-stage,
+.gc-container:not(.gc-container--standalone) .gc-spatial-hub,
+.gc-container:not(.gc-container--standalone) .gc-gallery-scene {
+  height: 100%;
+}
+
+/* Standalone full-viewport page */
+body.gc-page {
+  background: var(--bg-gallery);
+  color: var(--text-primary);
+}
+
+body.gc-page .ph-chrome {
+  color: var(--text-primary);
+}
+
+body.gc-page .ph-chrome .ph-gesture-status {
+  background: rgba(26, 26, 26, 0.05);
+  border-color: var(--gc-border-subtle);
+  color: var(--text-secondary);
+}
+
+.gc-container--standalone .gc-experience {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  height: 100dvh;
+}
+
+/* ── Base tokens ── */
+
+.gc-container .gc-experience {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-gallery);
+  touch-action: none !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+}
+
+.gc-container .gc-stage {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.gc-container .gc-spatial-hub {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.gc-container .gc-gallery-scene {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.gc-container .gc-gallery {
+  --gc-focus: 6;
+  --gc-ring-z: 800px;
+  --gc-motion-duration: 1.2s;
+  --gc-motion-ease: cubic-bezier(0.19, 1, 0.22, 1);
+  --gc-photo-fade-duration: 0.8s;
+  touch-action: none !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+}
+
+.gc-container .gc-panel {
+  --panel-angle: 0;
+  margin: 0;
+  cursor: pointer;
+  pointer-events: auto;
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+.gc-container .gc-panel-glass {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 2px;
+  overflow: hidden;
+  background: none;
+  border: none;
+  box-shadow: none;
+}
+
+.gc-container .gc-panel-media {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.gc-container .gc-panel-photo {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.gc-container .gc-panel-photo-thumb {
+  opacity: 1;
+  filter: blur(20px);
+  transform: scale(1.08);
+  transform-origin: center center;
+  transition:
+    opacity var(--gc-photo-fade-duration) var(--gc-motion-ease),
+    filter var(--gc-photo-fade-duration) var(--gc-motion-ease);
+}
+
+.gc-container .gc-panel-photo-full {
+  opacity: 0;
+  transition: opacity var(--gc-photo-fade-duration) var(--gc-motion-ease);
+}
+
+.gc-container .gc-panel-glass.is-full-loaded .gc-panel-photo-thumb {
+  opacity: 0;
+  filter: blur(0);
+  pointer-events: none;
+}
+
+.gc-container .gc-panel-glass.is-full-loaded .gc-panel-photo-full {
+  opacity: 1;
+}
+
+.gc-container .gc-panel-glass.is-full-loaded-instant .gc-panel-photo-thumb,
+.gc-container .gc-panel-glass.is-full-loaded-instant .gc-panel-photo-full {
+  transition: none;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   DESKTOP 3D ENGINE (width > 768px)
+   ══════════════════════════════════════════════════════════════════════════ */
+
+@media (min-width: 769px) {
+  html:has(body.gc-page),
+  body.gc-page {
+    overflow: hidden;
+    height: 100%;
+  }
+
+  .gc-container .gc-experience,
+  .gc-container .gc-stage {
+    height: 100%;
+    overflow: visible;
+  }
+
+  .gc-container .gc-gallery,
+  .gc-container .gc-gallery-scene,
+  .gc-container .gc-spatial-hub {
+    scroll-snap-type: none !important;
+    overflow: visible !important;
+    touch-action: none !important;
+  }
+
+  .gc-container .gc-stage,
+  .gc-container .gc-spatial-hub,
+  .gc-container .gc-gallery-scene {
+    display: grid;
+    place-items: center;
+  }
+
+  .gc-container .gc-gallery-scene {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    perspective: 3000px;
+    perspective-origin: 50% 50%;
+    transition: transform 0.5s var(--gc-motion-ease);
+    pointer-events: none;
+  }
+
+  .gc-container .gc-spatial-hub {
+    pointer-events: auto;
+  }
+
+  .gc-container .gesture-catcher {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: auto;
+    touch-action: none;
+    cursor: grab;
+  }
+
+  .gc-container .gesture-catcher.is-active {
+    cursor: grabbing;
+  }
+
+  .gc-container .gc-gallery {
+    --gc-panel-w: 240px;
+    --gc-panel-h: 320px;
+    position: relative;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    background: var(--bg-gallery);
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    transform-style: preserve-3d;
+    transform: rotateY(0deg);
+    pointer-events: none;
+    will-change: transform;
+    transition: none;
+  }
+
+  .gc-container:not(.gc-container--standalone) .gc-gallery {
+    height: 100%;
+    min-height: 420px;
+  }
+
+  .gc-container .gc-gallery.is-snapping {
+    transition: transform var(--gc-motion-duration) var(--gc-motion-ease);
+  }
+
+  .gc-container .gc-gallery.is-direct,
+  .gc-container .gc-gallery.is-direct .gc-panel,
+  .gc-container .gc-gallery.is-direct .gc-panel-glass {
+    transition: none !important;
+  }
+
+  .gc-container .gc-gallery.is-direct {
+    will-change: transform;
+  }
+
+  .gc-container .gc-gallery.is-direct .gc-panel {
+    will-change: transform, opacity, filter;
+  }
+
+  .gc-container .gc-gallery-ring {
+    position: relative;
+    width: 0;
+    height: 0;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    pointer-events: none;
+  }
+
+  .gc-container .gc-panel {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: var(--gc-panel-w);
+    height: var(--gc-panel-h);
+    margin-left: calc(var(--gc-panel-w) / -2);
+    margin-top: calc(var(--gc-panel-h) / -2);
+    overflow: hidden;
+    transform-style: preserve-3d;
+    transform-origin: center center;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border: 1px solid var(--gc-panel-border);
+    background: var(--gc-panel-surface);
+    box-shadow: var(--gc-panel-shadow);
+    cursor: pointer;
+    pointer-events: auto;
+    z-index: calc(22 - var(--gc-delta-abs, 0) * 2);
+    transition:
+      transform var(--gc-motion-duration) var(--gc-motion-ease),
+      opacity var(--gc-motion-duration) var(--gc-motion-ease),
+      filter var(--gc-motion-duration) var(--gc-motion-ease);
+  }
+
+  .gc-container .gc-panel:hover {
+    cursor: pointer;
+  }
+
+  .gc-container .gc-panel:hover .gc-panel-glass {
+    transform: scale(1.02);
+  }
+
+  .gc-container .gc-panel:not(.is-focused) {
+    opacity: 0.72;
+    filter: saturate(0.88);
+  }
+
+  .gc-container .gc-panel.is-focused {
+    opacity: 1;
+    border: 1px solid var(--gc-border-subtle);
+    filter: none;
+    z-index: 50;
+    box-shadow: var(--gc-panel-shadow-focus);
+  }
+
+  .gc-container .gc-panel-glass,
+  .gc-container .gc-panel-media {
+    pointer-events: none;
+  }
+
+  .gc-container .gc-panel-glass {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    background: var(--gc-panel-surface);
+    border: 1px solid var(--gc-border-subtle);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    transition:
+      transform var(--gc-motion-duration) var(--gc-motion-ease),
+      box-shadow var(--gc-motion-duration) var(--gc-motion-ease);
+  }
+
+  .gc-container .gc-panel-media,
+  .gc-container .gc-panel-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  .gc-container .gc-panel.is-focused .gc-panel-glass {
+    transform: translateZ(65px);
+    box-shadow: var(--gc-panel-shadow-focus);
+    border-color: var(--gc-panel-border);
+  }
+
+  .gc-container .gc-panel.is-focused:hover .gc-panel-glass {
+    transform: translateZ(65px) scale(1.02);
+  }
+}
+
+/* Mobile-only scroll arrows (injected by gesture-interface.js) */
+.gc-container .gc-mobile-nav {
+  display: none;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   MOBILE FLEX ENGINE (width ≤ 768px)
+   ══════════════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+  .gc-container .gc-mobile-nav {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 0.75rem;
+    z-index: 5;
+    pointer-events: none;
+  }
+
+  .gc-container .gc-mobile-nav__btn {
+    pointer-events: auto;
+    width: 40px;
+    height: 40px;
+    border-radius: 999px;
+    border: 1px solid var(--gc-border-subtle);
+    background: rgba(255, 255, 255, 0.82);
+    color: var(--text-primary);
+    font: inherit;
+    line-height: 1;
+    display: grid;
+    place-items: center;
+    box-shadow: 0 10px 22px rgba(26, 26, 26, 0.12);
+  }
+
+  .gc-container .gesture-catcher {
+    display: none;
+    pointer-events: none !important;
+  }
+
+  .gc-container .gc-experience,
+  .gc-container .gc-stage,
+  .gc-container .gc-spatial-hub,
+  .gc-container .gc-gallery-scene {
+    display: block;
+    overflow: visible;
+    height: auto;
+    min-height: 100vh;
+    min-height: 100dvh;
+    pointer-events: auto;
+  }
+
+  .gc-container:not(.gc-container--standalone) .gc-experience,
+  .gc-container:not(.gc-container--standalone) .gc-stage,
+  .gc-container:not(.gc-container--standalone) .gc-spatial-hub,
+  .gc-container:not(.gc-container--standalone) .gc-gallery-scene {
+    min-height: 420px;
+    height: auto;
+  }
+
+  .gc-container .gc-gallery-scene {
+    position: relative;
+    perspective: none;
+    transform-style: flat;
+    transform: none;
+    transition: none;
+  }
+
+  .gc-container .gc-gallery {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    background: var(--bg-gallery);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    pointer-events: auto;
+    touch-action: pan-x !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 60vh;
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    perspective: none;
+    transform-style: flat;
+    gap: 1rem;
+    padding: 0 10vw;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    scroll-snap-stop: always;
+    will-change: scroll-position;
+    transition: none;
+  }
+
+  .gc-container .gc-gallery::-webkit-scrollbar {
+    display: none;
+  }
+
+  .gc-container .gc-gallery-ring {
+    display: contents;
+    position: static;
+    width: auto;
+    height: auto;
+    transform-style: flat;
+  }
+
+  .gc-container .gc-panel {
+    position: relative;
+    left: auto;
+    top: auto;
+    margin: 0;
+    flex: 0 0 80vw;
+    width: 80vw;
+    height: 60vh;
+    max-width: 80vw;
+    transform: none;
+    transform-style: flat;
+    perspective: none;
+    scroll-snap-align: center;
+    flex-shrink: 0;
+    opacity: 1;
+    filter: none;
+    border: 1px solid var(--gc-panel-border);
+    background: var(--gc-panel-surface);
+    box-shadow: var(--gc-panel-shadow);
+    transition: none;
+    z-index: auto;
+  }
+
+  .gc-container .gc-panel.is-focused {
+    opacity: 1;
+    filter: none;
+    border-color: var(--gc-border-subtle);
+    box-shadow: var(--gc-panel-shadow-focus);
+    z-index: 1;
+  }
+
+  .gc-container .gc-panel.is-focused .gc-panel-glass {
+    transform: none;
+    box-shadow: none;
+    border: 1px solid var(--gc-border-subtle);
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   CLICK-TO-EXPAND MODAL
+   ══════════════════════════════════════════════════════════════════════════ */
+
+body.gc-modal-open {
+  overflow: hidden;
+}
+
+.gc-container #modal-overlay.gc-modal-overlay {
+  --gc-modal-duration: 0.5s;
+  --gc-modal-ease: cubic-bezier(0.19, 1, 0.22, 1);
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  padding: clamp(1rem, 4vw, 3rem);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity var(--gc-modal-duration) var(--gc-modal-ease),
+    visibility 0s linear var(--gc-modal-duration);
+}
+
+.gc-container #modal-overlay.gc-modal-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transition:
+    opacity var(--gc-modal-duration) var(--gc-modal-ease),
+    visibility 0s linear 0s;
+}
+
+.gc-container #modal-overlay .gc-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  isolation: isolate;
+}
+
+.gc-container #modal-overlay .gc-modal-stage {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+  max-width: min(92vw, 720px);
+  max-height: min(88vh, 960px);
+  background: transparent;
+  border: none;
+  border-radius: 2px;
+  transform: scale(0.95);
+  opacity: 0;
+  transition:
+    transform var(--gc-modal-duration) var(--gc-modal-ease),
+    opacity var(--gc-modal-duration) var(--gc-modal-ease);
+}
+
+.gc-container #modal-overlay.is-open .gc-modal-stage {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.gc-container #modal-overlay .gc-modal-image {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: min(92vw, 720px);
+  max-height: min(88vh, 960px);
+  object-fit: contain;
+  object-position: center center;
+  border: 1px solid var(--gc-border-subtle);
+  border-radius: 2px;
+  box-shadow: var(--gc-modal-shadow);
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gc-container #modal-overlay.gc-modal-overlay,
+  .gc-container #modal-overlay .gc-modal-stage {
+    transition: none;
+  }
+}

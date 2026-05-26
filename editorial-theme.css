@@ -1,0 +1,12 @@
+/**
+ * editorial-theme.css — High-Contrast Editorial palette (site-wide)
+ */
+
+:root {
+  --bg-primary: #ffffff;
+  --text-primary: #000000;
+  --text-secondary: #666666;
+  --ui-border: #e5e5e5;
+  --font: 'Inter', sans-serif;
+  --font-display: 'Inter', sans-serif;
+}

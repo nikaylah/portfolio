@@ -5,110 +5,125 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Crescent Stables. Nikaylah</title>
 <meta name="description" content="A full UX redesign for a women-led equestrian brand using behavioral psychology and inclusion design.">
-<link rel="icon" type="image/x-icon" href="favicon.ico">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
-<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" href="/favicon.ico?v=3" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=3">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=3">
 <script defer src="/_vercel/insights/script.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:opsz,wght@9.40,300;9.40,400;9.40,500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --cream:#F5F0E8;--cream-dark:#EDE6D6;
-  --terra:#A0522D;--terra-light:#C4733A;--terra-pale:#F0E0D0;
-  --sage:#7A8C6E;--sage-pale:#E8EEE4;
-  --ink:#2C2A26;--ink-mid:#4A4740;--ink-light:#7A7670;
-  --border:rgba(44,42,38,0.12);
-  --serif:'Cormorant Garamond',serif;
-  --sans:'DM Sans',sans-serif;
+  --bg-primary:#FFFFFF;
+  --text-primary:#000000;
+  --text-secondary:#666666;
+  --ui-border:#E5E5E5;
+  --font:'Inter',sans-serif;
+  --font-display:'Inter',sans-serif;
 }
 html{scroll-behavior:smooth}
-body{background:var(--cream);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.6;overflow-x:hidden}
+body{background:var(--bg-primary);color:var(--text-primary);font-family:'Inter',sans-serif;font-weight:400;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.25rem 3rem;background:rgba(245,240,232,0.93);backdrop-filter:blur(12px);border-bottom:0.5px solid var(--border)}
-.nav-name{font-family:var(--serif);font-size:1.1rem;font-weight:400;letter-spacing:0.04em;color:var(--ink);text-decoration:none}
-.nav-back{font-size:0.78rem;color:var(--ink-light);text-decoration:none;letter-spacing:0.04em;transition:color 0.2s}
-.nav-back:hover{color:var(--terra)}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.25rem 3rem;background:rgba(255,255,255,0.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--ui-border)}
+.nav-left{display:flex;align-items:center;text-decoration:none}
+.site-logo{width:64px;height:64px;flex-shrink:0;object-fit:contain;display:block}
+.site-logo--footer{width:44px;height:44px}
+.nav-name{font-family:var(--font);font-size:1.05rem;font-weight:500;letter-spacing:-0.01em;color:var(--text-primary);text-decoration:none}
+.nav-right{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;min-width:0}
+.nav-link{
+  font-size:0.78rem;font-weight:400;letter-spacing:0.08em;
+  text-transform:uppercase;color:var(--text-secondary);
+  text-decoration:none;transition:color 0.2s;
+}
+.nav-link:hover{color:var(--text-primary)}
+.nav-cta{
+  background:var(--text-primary);color:var(--bg-primary);
+  padding:0.5rem 1.25rem;border-radius:0;
+  font-size:0.75rem;font-weight:600;letter-spacing:0.06em;
+  cursor:pointer;border:1px solid var(--text-primary);font-family:var(--font);
+  transition:background 0.2s,color 0.2s;
+}
+.nav-cta:hover{background:var(--bg-primary);color:var(--text-primary)}
 
-.page{padding-top:80px;max-width:780px;margin:0 auto;padding-left:2rem;padding-right:2rem}
+.page{max-width:780px;margin:0 auto;padding-left:2rem;padding-right:2rem}
 
 .cs-hero{padding:3rem 0 0}
-.breadcrumb{font-size:0.72rem;color:var(--ink-light);margin-bottom:1rem;letter-spacing:0.04em}
-.cs-title{font-family:var(--serif);font-size:clamp(2.5rem,5vw,3.8rem);font-weight:300;line-height:1.05;letter-spacing:-0.02em;color:var(--ink);margin-bottom:0.75rem}
-.cs-subtitle{font-size:0.95rem;color:var(--ink-mid);max-width:560px;line-height:1.65;margin-bottom:1.75rem}
-.meta-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;padding-bottom:2rem;border-bottom:0.5px solid var(--border)}
-.meta-label{font-size:0.65rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-light);margin-bottom:4px}
-.meta-val{font-size:0.875rem;color:var(--ink)}
-.hero-img{width:100%;border-radius:12px;border:0.5px solid var(--border);box-shadow:0 8px 40px rgba(44,42,38,0.1);object-fit:cover;object-position:top;max-height:440px;margin:1.75rem 0}
+.breadcrumb{font-size:0.65rem;color:var(--text-secondary);margin-bottom:1rem;letter-spacing:0.12em;text-transform:uppercase}
+.cs-title{font-family:var(--font-display);font-size:clamp(2.5rem,5vw,3.5rem);font-weight:500;line-height:1.05;letter-spacing:-0.03em;color:var(--text-primary);margin-bottom:0.75rem}
+.cs-subtitle{font-size:0.95rem;color:var(--text-secondary);max-width:560px;line-height:1.65;margin-bottom:1.75rem}
+.meta-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;padding-bottom:2rem;border-bottom:1px solid var(--ui-border)}
+.meta-label{font-size:0.65rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-secondary);margin-bottom:4px}
+.meta-val{font-size:0.875rem;color:var(--text-primary)}
+.hero-img{width:100%;border-radius:0;border:1px solid var(--ui-border);object-fit:cover;object-position:top;max-height:440px;margin:1.75rem 0}
 
 /* TWO-COLUMN ROWS */
-.row{display:grid;grid-template-columns:200px 1fr;gap:3rem;padding:2.5rem 0;border-bottom:0.5px solid var(--border)}
-.anchor-label{font-size:0.65rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-light);margin-bottom:6px}
-.anchor-title{font-family:var(--serif);font-size:1.05rem;font-weight:400;line-height:1.3;color:var(--ink)}
-.row-body{font-size:0.9rem;font-weight:300;color:var(--ink-mid);line-height:1.8}
+.row{display:grid;grid-template-columns:minmax(0,11rem) minmax(0,1fr);gap:clamp(2rem,4vw,3.5rem);padding:3.25rem 0;border-bottom:1px solid var(--ui-border)}
+.anchor-label{font-size:0.65rem;font-weight:400;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-secondary);margin-bottom:6px}
+.anchor-title{font-family:var(--font-display);font-size:1.1rem;font-weight:500;line-height:1.3;letter-spacing:-0.02em;color:var(--text-primary)}
+.row-body{font-size:0.9rem;font-weight:400;color:var(--text-secondary);line-height:1.8}
 .row-body p{margin-bottom:0.85rem}
 .row-body p:last-child{margin-bottom:0}
 
 /* ASSET IMAGES */
-.asset-img{width:100%;border-radius:10px;margin:1.25rem 0;border:0.5px solid var(--border);box-shadow:0 4px 20px rgba(44,42,38,0.08)}
-.asset-caption{font-size:0.72rem;color:var(--ink-light);font-style:italic;margin-top:-0.5rem;margin-bottom:1.25rem;padding-left:4px}
+.asset-img{width:100%;border-radius:0;margin:1.25rem 0;border:1px solid var(--ui-border);}
+.asset-caption{font-size:0.72rem;color:var(--text-secondary);font-style:italic;margin-top:-0.5rem;margin-bottom:1.25rem;padding-left:4px}
 
 /* PULL QUOTE */
-.pull-quote{border-left:2px solid var(--terra);padding:0.85rem 1rem;margin:1.25rem 0;background:var(--cream-dark);border-radius:0 8px 8px 0}
-.pull-quote p{font-family:var(--serif);font-style:italic;font-size:1rem;color:var(--ink-mid);margin:0;line-height:1.65}
+.pull-quote{border-left:1px solid var(--ui-border);padding:1.5rem 1.75rem;margin:2rem 0;background:var(--bg-primary);border:1px solid var(--ui-border);border-radius:0}
+.pull-quote p{font-family:var(--font);font-style:italic;font-weight:500;font-size:1.05rem;color:var(--text-primary);margin:0;line-height:1.7;letter-spacing:-0.01em}
 
 /* CHALLENGE */
 .challenge{margin-bottom:1.5rem}
-.ch-label{font-size:0.65rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--ink-light);margin-bottom:4px}
-.ch-q{font-family:var(--serif);font-size:1rem;font-weight:400;color:var(--ink);margin-bottom:0.5rem;line-height:1.3}
+.ch-label{font-size:0.65rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-secondary);margin-bottom:4px}
+.ch-q{font-family:var(--font);font-size:1rem;font-weight:600;color:var(--text-primary);margin-bottom:0.5rem;line-height:1.3}
 
 /* STAT ROW */
 .stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:1.25rem 0}
-.stat{background:var(--cream-dark);border-radius:8px;padding:0.85rem 1rem}
-.stat-val{font-family:var(--serif);font-size:1.3rem;font-weight:400;color:var(--ink);display:block;line-height:1}
-.stat-desc{font-size:0.72rem;color:var(--ink-light);display:block;margin-top:4px;line-height:1.4}
+.stat{background:var(--bg-primary);border:1px solid var(--ui-border);border-radius:0;padding:1rem 1.15rem}
+.stat-val{font-family:var(--font);font-size:1.3rem;font-weight:600;color:var(--text-primary);display:block;line-height:1}
+.stat-desc{font-size:0.72rem;color:var(--text-secondary);display:block;margin-top:4px;line-height:1.4}
 
 /* IMAGE PLACEHOLDERS */
-.img-placeholder{width:100%;border-radius:10px;border:1.5px dashed var(--border);background:var(--cream-dark);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;padding:2.5rem 1rem;margin:1.25rem 0;text-align:center}
+.img-placeholder{width:100%;border-radius:0;border:1.5px dashed var(--ui-border);background:var(--bg-primary);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;padding:2.5rem 1rem;margin:1.25rem 0;text-align:center}
 .img-placeholder-icon{font-size:1.5rem;opacity:0.4}
-.img-placeholder-label{font-size:0.72rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-light)}
-.img-placeholder-desc{font-size:0.72rem;color:var(--ink-light);opacity:0.7;max-width:340px;line-height:1.5}
-.priority-badge{font-size:0.6rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;padding:0.2rem 0.6rem;border-radius:100px;margin-bottom:0.25rem;display:inline-block}
-.p1{background:var(--terra-pale);color:var(--terra)}
-.p2{background:var(--sage-pale);color:var(--sage)}
-.p3{background:var(--cream-dark);color:var(--ink-light)}
+.img-placeholder-label{font-size:0.72rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-secondary)}
+.img-placeholder-desc{font-size:0.72rem;color:var(--text-secondary);opacity:0.7;max-width:340px;line-height:1.5}
+.priority-badge{font-size:0.6rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;padding:0.2rem 0.6rem;border-radius:0;margin-bottom:0.25rem;display:inline-block}
+.p1{background:var(--bg-primary);color:var(--text-primary)}
+.p2{background:var(--bg-primary);color:var(--text-primary)}
+.p3{background:var(--bg-primary);color:var(--text-secondary)}
 
 /* COPY COMPARISON TABLE */
 .copy-table{width:100%;border-collapse:collapse;margin:1.25rem 0;font-size:0.82rem}
-.copy-table th{font-size:0.65rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--ink-light);padding:0.5rem 0.75rem;text-align:left;border-bottom:0.5px solid var(--border)}
-.copy-table td{padding:0.75rem;border-bottom:0.5px solid var(--border);line-height:1.5;vertical-align:top}
-.copy-table td:first-child{color:var(--ink-light);font-style:italic}
-.copy-table td:last-child{color:var(--ink);font-weight:400}
+.copy-table th{font-size:0.65rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-secondary);padding:0.5rem 0.75rem;text-align:left;border-bottom:1px solid var(--ui-border)}
+.copy-table td{padding:0.75rem;border-bottom:1px solid var(--ui-border);line-height:1.5;vertical-align:top}
+.copy-table td:first-child{color:var(--text-secondary);font-style:italic}
+.copy-table td:last-child{color:var(--text-primary);font-weight:400}
 
 /* SKILL TAGS */
 .skill-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:1rem}
-.skill-tag{font-size:0.7rem;color:var(--ink-light);background:var(--cream-dark);border:0.5px solid var(--border);border-radius:100px;padding:0.3rem 0.85rem;display:inline-block}
+.skill-tag{font-size:0.65rem;color:var(--text-secondary);letter-spacing:0.06em;background:transparent;border:1px solid var(--ui-border);border-radius:0;padding:0.3rem 0.85rem;display:inline-block}
 
 /* SHOPIFY NOTE */
-.shopify-note{background:var(--sage-pale);border-radius:10px;padding:1.25rem 1.5rem;margin:1.25rem 0;border:0.5px solid rgba(122,140,110,0.3)}
-.shopify-note p{font-size:0.875rem;color:var(--ink-mid);line-height:1.75;margin:0}
-.shopify-note strong{color:var(--ink);font-weight:500}
+.shopify-note{background:var(--bg-primary);border-radius:0;padding:1.25rem 1.5rem;margin:1.25rem 0;border:1px solid rgba(122,140,110,0.3)}
+.shopify-note p{font-size:0.875rem;color:var(--text-secondary);line-height:1.75;margin:0}
+.shopify-note strong{color:var(--text-primary);font-weight:500}
 
 /* PHOTOGRAPHY COMPARISON */
 .photo-compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:2rem}
 .compare-column{display:flex;flex-direction:column}
 .compare-label{font-size:0.65rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;padding:0.3rem 0.75rem;border-radius:2px;display:inline-block;margin-bottom:1.5rem}
-.compare-label--before{background:rgba(44,42,38,0.08);color:var(--ink-light)}
-.compare-label--after{background:rgba(160,82,45,0.12);color:var(--terra)}
+.compare-label--before{background:rgba(44,42,38,0.08);color:var(--text-secondary)}
+.compare-label--after{background:rgba(160,82,45,0.12);color:var(--text-primary)}
 .compare-item{margin-bottom:1.75rem}
-.compare-img{width:100%;display:block;border-radius:6px;margin-bottom:0.5rem;border:0.5px solid var(--border)}
-.compare-note{font-size:0.75rem;color:var(--ink-light);line-height:1.55;margin:0;font-style:italic}
-.compare-after-callout{background:var(--sage-pale);border-left:3px solid var(--sage);padding:1.25rem 1.5rem;border-radius:0 4px 4px 0;margin-bottom:1.75rem}
-.compare-after-callout p{font-size:0.85rem;color:var(--ink-mid);line-height:1.65;margin:0 0 0.75rem}
+.compare-img{width:100%;display:block;border-radius:6px;margin-bottom:0.5rem;border:1px solid var(--ui-border)}
+.compare-note{font-size:0.75rem;color:var(--text-secondary);line-height:1.55;margin:0;font-style:italic}
+.compare-after-callout{background:var(--bg-primary);border-left:3px solid var(--text-primary);padding:1.25rem 1.5rem;border-radius:0 4px 4px 0;margin-bottom:1.75rem}
+.compare-after-callout p{font-size:0.85rem;color:var(--text-secondary);line-height:1.65;margin:0 0 0.75rem}
 .compare-after-callout p:last-child{margin-bottom:0}
-.compare-after-hero{width:100%;display:block;border-radius:6px;border:0.5px solid var(--border);box-shadow:0 4px 20px rgba(44,42,38,0.08);margin-bottom:0.5rem}
+.compare-after-hero{width:100%;display:block;border-radius:0;border:1px solid var(--ui-border);margin-bottom:0.5rem}
 
 /* FINAL SCREENS GRID */
 .final-screens-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:1.5rem}
@@ -116,58 +131,74 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .final-screen .asset-img{margin-bottom:0.5rem}
 
 .case-nav{display:flex;justify-content:space-between;align-items:center;padding:3rem 0 5rem;flex-wrap:wrap;gap:1rem}
-.case-nav a{font-size:0.85rem;color:var(--ink-light);text-decoration:none;letter-spacing:0.04em;transition:color 0.2s}
-.case-nav a:hover{color:var(--terra)}
-.case-nav a.next{color:var(--ink);font-weight:500}
+.case-nav a{font-size:0.85rem;color:var(--text-secondary);text-decoration:none;letter-spacing:0.04em;transition:color 0.2s}
+.case-nav a:hover{color:var(--text-primary)}
+.case-nav a.next{color:var(--text-primary);font-weight:500}
 
-footer{padding:2rem;border-top:0.5px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;max-width:780px;margin:0 auto}
-.footer-name{font-family:var(--serif);font-size:1.5rem;font-weight:300;font-style:italic;color:var(--ink)}
-.footer-copy{font-size:0.68rem;color:var(--ink-light)}
+footer{
+  border-top:1px solid var(--ui-border);
+  padding:2.5rem 3rem;
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:1rem;
+  max-width:1200px;margin:0 auto;
+}
+.footer-logo{flex-shrink:0;line-height:0;text-decoration:none}
+.footer-right{display:flex;flex-direction:column;align-items:flex-end;gap:0.5rem}
+.footer-links{display:flex;gap:1.5rem;flex-wrap:wrap}
+.footer-links a{
+  font-size:0.78rem;font-weight:400;letter-spacing:0.06em;
+  text-transform:uppercase;color:var(--text-secondary);
+  text-decoration:none;transition:color 0.2s;
+}
+.footer-links a:hover{color:var(--text-primary)}
+.footer-copy{font-size:0.68rem;color:var(--text-secondary);margin:0}
 
-.email-btn{position:fixed;bottom:2rem;right:2rem;z-index:99;background:var(--ink);color:var(--cream);font-size:0.75rem;letter-spacing:0.06em;padding:0.75rem 1.25rem;border-radius:100px;cursor:pointer;border:none;font-family:var(--sans);transition:background 0.2s}
-.email-btn:hover{background:var(--terra)}
-.copy-toast{position:fixed;bottom:5rem;right:2rem;background:var(--sage);color:#fff;font-size:0.72rem;padding:0.5rem 1rem;border-radius:8px;z-index:100;opacity:0;transition:opacity 0.3s;pointer-events:none}
+.email-btn{
+  position:fixed;bottom:2rem;right:2rem;z-index:99;
+  background:var(--text-primary);color:var(--bg-primary);
+  font-size:0.75rem;letter-spacing:0.06em;
+  padding:0.75rem 1.25rem;border-radius:0;
+  cursor:pointer;border:1px solid var(--text-primary);font-family:var(--font);
+  transition:background 0.2s,color 0.2s;
+}
+.email-btn:hover{background:var(--bg-primary);color:var(--text-primary)}
+.copy-toast{position:fixed;bottom:5rem;right:2rem;background:var(--text-primary);color:var(--bg-primary);border:1px solid var(--ui-border);font-size:0.72rem;padding:0.5rem 1rem;border-radius:0;z-index:100;opacity:0;transition:opacity 0.3s;pointer-events:none}
 .copy-toast.show{opacity:1}
 
 /* ACCESSIBILITY */
 .skip-link{
   position:absolute;top:-100px;left:1rem;
-  background:var(--ink);color:var(--cream);
-  padding:0.5rem 1rem;border-radius:4px;
-  font-size:0.85rem;font-family:var(--sans);
+  background:var(--text-primary);color:var(--bg-primary);
+  padding:0.5rem 1rem;border-radius:0;
+  font-size:0.85rem;font-family:var(--font);
   text-decoration:none;z-index:999;
   transition:top 0.2s;
 }
 .skip-link:focus{top:1rem}
 *:focus-visible{
-  outline:2px solid var(--terra);
+  outline:2px solid var(--text-primary);
   outline-offset:3px;
   border-radius:2px;
 }
-:root{--ink-light:#635F5B}
 @media(prefers-reduced-motion:reduce){
   *{animation:none !important;transition:none !important}
 }
-@media(max-width:700px){
-  nav{padding:1rem 1.5rem}
-  .page{padding-left:1.25rem;padding-right:1.25rem}
-  .meta-row{grid-template-columns:1fr 1fr}
-  .row{grid-template-columns:1fr;gap:0.75rem}
-  .stat-row{grid-template-columns:1fr}
-  .photo-compare-grid{grid-template-columns:1fr}
-  .final-screens-grid{grid-template-columns:1fr}
-}
+/* Responsive layout: see responsive.css */
 </style>
+<link rel="stylesheet" href="/editorial-theme.css">
+<link rel="stylesheet" href="/responsive.css">
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <nav>
-    <a href="/" class="nav-left" style="display:flex;align-items:center;gap:0.65rem;text-decoration:none">
-      <div style="width:30px;height:30px;border-radius:50%;border:1.5px solid var(--terra);display:flex;align-items:center;justify-content:center;flex-shrink:0">
-        <span style="font-family:var(--serif);font-size:1rem;font-weight:400;font-style:italic;color:var(--terra);line-height:1">N</span>
-      </div>
+    <a href="/" class="nav-left" aria-label="Nikaylah home">
+      <img src="/logo-v3.png" alt="Nikaylah" class="site-logo" width="64" height="64">
     </a>
-    <a href="/" class="nav-back">← All work</a>
+    <div class="nav-right">
+      <a href="/about/" class="nav-link">About</a>
+      <a href="https://www.linkedin.com/in/nikaylah" target="_blank" rel="noopener noreferrer" class="nav-link">LinkedIn</a>
+      <button class="nav-cta" onclick="copyEmail()" aria-label="Copy email address">Email me</button>
+    </div>
   </nav>
 
   <main id="main-content">
@@ -183,7 +214,7 @@ footer{padding:2rem;border-top:0.5px solid var(--border);display:flex;justify-co
       <div><div class="meta-label">Deliverable</div><div class="meta-val">Netlify + Squarespace</div></div>
     </div>
 
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.75rem 0">
+    <div class="media-grid media-grid--2">
       <div>
         <img src="portfolio-assets/before-homepage-crescent.png" alt="Original Crescent Stables homepage — dark navy and gold palette" class="asset-img" style="margin:0">
         <p class="asset-caption" style="margin-top:0.4rem">Before. Dark navy and gold.</p>
@@ -278,8 +309,8 @@ footer{padding:2rem;border-top:0.5px solid var(--border);display:flex;justify-co
       <p>The final site has four pages: Home, Experiences, Before You Come, and About. Two naming decisions are worth noting.</p>
       <p>The Safety page was renamed Before You Come. That shift moves the label from functional to experiential. It signals preparation and welcome rather than liability and rules. Contact was removed from the navigation entirely and merged into the bottom of the About page. This places the inquiry moment at the end of the trust-building journey rather than in competition with it.</p>
 
-      <div style="margin:1.25rem 0;background:var(--cream-dark);border-radius:10px;border:0.5px solid var(--border);padding:2rem 1.5rem;overflow:hidden">
-        <svg viewBox="0 0 680 220" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;font-family:'DM Sans',sans-serif">
+      <div style="margin:1.25rem 0;background:var(--bg-primary);border-radius:0;border:1px solid var(--ui-border);padding:2rem 1.5rem;overflow:hidden">
+        <svg viewBox="0 0 680 220" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;font-family:'Inter',sans-serif">
       
           <!-- Arrows -->
           <line x1="122" y1="52" x2="158" y2="52" stroke="#C4A882" stroke-width="1"/>
@@ -339,7 +370,7 @@ footer{padding:2rem;border-top:0.5px solid var(--border);display:flex;justify-co
       <p>Three rounds of wireframes in Figma before any visual design. Round one established basic page structure and content hierarchy. Round two refined spacing, card layouts, and CTA placement. Round three used Figma AI to pressure-test layout assumptions as a tool to accelerate iteration, not to replace design thinking.</p>
       <p>The wireframes locked in a consistent set of decisions across every page: large headlines at the top, CTAs placed after reassurance content rather than before it, card-based program layouts, consistent spacing to signal calm.</p>
 
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;margin:1.25rem 0">
+      <div class="media-grid media-grid--3">
         <div>
           <img src="portfolio-assets/cs-wireframe-round1.png" alt="Round 1 wireframes — hand-drawn sketches exploring page structure" class="asset-img" style="margin:0">
           <p class="asset-caption" style="margin-top:0.4rem">Round 1. Hand-drawn sketches to explore structure before committing to anything digital.</p>
@@ -370,6 +401,7 @@ footer{padding:2rem;border-top:0.5px solid var(--border);display:flex;justify-co
 
       <p>Copywriting was treated as a design discipline with explicit constraints. No generic phrasing. No filler. No formal tone. Every sentence either reassures the visitor or moves her forward.</p>
 
+      <div class="copy-table-wrap">
       <table class="copy-table">
         <thead>
           <tr>
@@ -396,6 +428,7 @@ footer{padding:2rem;border-top:0.5px solid var(--border);display:flex;justify-co
           </tr>
         </tbody>
       </table>
+      </div>
     </div>
   </div>
 
@@ -471,7 +504,7 @@ footer{padding:2rem;border-top:0.5px solid var(--border);display:flex;justify-co
       </div>
       <p>Both pivots, the color palette and the photography strategy, came from the same insight: design is not neutral. Every visual choice either includes someone or excludes them. The warm cream and terracotta palette and the human-centered photography were not aesthetic preferences. They were inclusion decisions.</p>
 
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.25rem 0">
+      <div class="media-grid media-grid--2">
         <div>
           <img src="portfolio-assets/before-homepage-crescent.png" alt="Original Crescent Stables homepage — dark navy and gold palette" class="asset-img" style="margin:0">
           <p class="asset-caption" style="margin-top:0.4rem">Before. Navy and gold reads luxury and expertise.</p>
@@ -554,32 +587,41 @@ footer{padding:2rem;border-top:0.5px solid var(--border);display:flex;justify-co
 
   <div class="case-nav">
     <a href="/">← Back to all work</a>
-    <a href="/sustainable-generator" class="next">Next: Sustainable Generator →</a>
+    <a href="/sustainable-generator.html" class="next">Next: Sustainable Generator →</a>
   </div>
 </div>
 </main>
 <footer>
-  <div style="width:30px;height:30px;border-radius:50%;border:1.5px solid var(--terra);display:flex;align-items:center;justify-content:center;flex-shrink:0">
-    <span style="font-family:var(--serif);font-size:1rem;font-weight:400;font-style:italic;color:var(--terra);line-height:1">N</span>
+  <a href="/" class="footer-logo" aria-label="Nikaylah home">
+    <img src="/logo-v3.png" alt="" class="site-logo site-logo--footer" width="44" height="44">
+  </a>
+  <div class="footer-right">
+    <div class="footer-links" role="navigation" aria-label="Footer">
+      <a href="/">Work</a>
+      <a href="/about/">About</a>
+      <a href="https://www.linkedin.com/in/nikaylah" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+    <p class="footer-copy">© 2026 Nikaylah.</p>
   </div>
-  <span class="footer-copy">© 2026 Nikaylah.</span>
 </footer>
 
 <button class="email-btn" onclick="copyEmail()">✉ Email me</button>
-<div class="copy-toast" id="toast">Copied. nikaylah@gmail.com</div>
+<div class="copy-toast" id="toast" role="status" aria-live="polite"></div>
 
 <div id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" aria-hidden="true" style="display:none;position:fixed;inset:0;z-index:999;background:rgba(44,42,38,0.92);align-items:center;justify-content:center;cursor:zoom-out" onclick="closeLightbox()">
-  <button id="lightbox-close" onclick="closeLightbox()" aria-label="Close image viewer" style="position:fixed;top:1.5rem;right:1.5rem;background:none;border:none;color:rgba(245,240,232,0.8);font-size:2rem;cursor:pointer;line-height:1;font-family:var(--sans)">×</button>
-  <img id="lightbox-img" src="" alt="" style="max-width:90vw;max-height:90vh;border-radius:8px;box-shadow:0 8px 60px rgba(0,0,0,0.4)">
+  <button id="lightbox-close" onclick="closeLightbox()" aria-label="Close image viewer" style="position:fixed;top:1.5rem;right:1.5rem;background:none;border:none;color:rgba(245,240,232,0.8);font-size:2rem;cursor:pointer;line-height:1;font-family:var(--font)">×</button>
+  <img id="lightbox-img" src="" alt="" style="max-width:90vw;max-height:90vh;border-radius:0;border:1px solid var(--ui-border)">
   </div>
 
 <script>
 function copyEmail(){
-  navigator.clipboard.writeText('nikaylah@gmail.com').then(()=>{
+  const u='nikaylah',d='gmail.com',e=u+'@'+d;
+  navigator.clipboard.writeText(e).then(()=>{
     const t=document.getElementById('toast');
+    t.textContent='Copied — '+e;
     t.classList.add('show');
-    setTimeout(()=>t.classList.remove('show'),2500);
-  });
+    setTimeout(()=>t.classList.remove('show'),2800);
+  }).catch(()=>{window.location.href='mailto:'+u+'@'+d});
 }
 
 function openLightbox(src, alt){

@@ -1,0 +1,164 @@
+/**
+ * weather-engine.css
+ * Global page atmosphere for Home + About only.
+ * GPU-friendly: transform/opacity only, pointer-events none, compositor isolated.
+ */
+
+.gc-atmosphere {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  contain: strict;
+  isolation: isolate;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Keep modal backdrop clean — do not sample clouds through semi-transparent overlay */
+body.gc-modal-open .gc-atmosphere {
+  visibility: hidden;
+}
+
+/* Warm haze — sits behind all page content */
+.gc-atmosphere::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    128deg,
+    rgba(242, 201, 172, 0.38) 0%,
+    rgba(255, 252, 248, 0.72) 42%,
+    rgba(255, 255, 255, 0.98) 100%
+  );
+}
+
+.gc-atmosphere .gc-cloud {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  opacity: 0;
+  transform: translate3d(0, 0, 0);
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.gc-atmosphere .gc-cloud--1 {
+  width: 58%;
+  height: 42%;
+  top: 8%;
+  left: -12%;
+  background: radial-gradient(
+    ellipse 100% 80% at 45% 50%,
+    rgba(255, 255, 255, 0.92) 0%,
+    rgba(248, 238, 228, 0.45) 42%,
+    transparent 72%
+  );
+  animation-name: gc-cloud-drift-1;
+  animation-duration: 118s;
+}
+
+.gc-atmosphere .gc-cloud--2 {
+  width: 48%;
+  height: 36%;
+  top: 22%;
+  right: -8%;
+  background: radial-gradient(
+    ellipse 90% 70% at 55% 48%,
+    rgba(255, 255, 255, 0.88) 0%,
+    rgba(235, 228, 220, 0.38) 48%,
+    transparent 70%
+  );
+  animation-name: gc-cloud-drift-2;
+  animation-duration: 96s;
+  animation-delay: -24s;
+}
+
+.gc-atmosphere .gc-cloud--3 {
+  width: 72%;
+  height: 38%;
+  bottom: 6%;
+  left: 5%;
+  background: radial-gradient(
+    ellipse 110% 75% at 40% 55%,
+    rgba(255, 255, 255, 0.75) 0%,
+    rgba(242, 201, 172, 0.28) 50%,
+    transparent 74%
+  );
+  animation-name: gc-cloud-drift-3;
+  animation-duration: 142s;
+  animation-delay: -48s;
+}
+
+.gc-atmosphere .gc-cloud--4 {
+  width: 40%;
+  height: 28%;
+  bottom: 18%;
+  right: 10%;
+  background: radial-gradient(
+    ellipse 85% 65% at 50% 50%,
+    rgba(255, 255, 255, 0.82) 0%,
+    rgba(250, 245, 240, 0.35) 45%,
+    transparent 68%
+  );
+  animation-name: gc-cloud-drift-4;
+  animation-duration: 108s;
+  animation-delay: -12s;
+}
+
+@keyframes gc-cloud-drift-1 {
+  0%,
+  100% {
+    opacity: 0.42;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    opacity: 0.58;
+    transform: translate3d(14%, 4%, 0) scale(1.04);
+  }
+}
+
+@keyframes gc-cloud-drift-2 {
+  0%,
+  100% {
+    opacity: 0.36;
+    transform: translate3d(0, 0, 0) scale(1.02);
+  }
+  50% {
+    opacity: 0.52;
+    transform: translate3d(-12%, 6%, 0) scale(0.98);
+  }
+}
+
+@keyframes gc-cloud-drift-3 {
+  0%,
+  100% {
+    opacity: 0.34;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    opacity: 0.48;
+    transform: translate3d(8%, -5%, 0) scale(1.06);
+  }
+}
+
+@keyframes gc-cloud-drift-4 {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: translate3d(0, 0, 0) scale(0.98);
+  }
+  50% {
+    opacity: 0.44;
+    transform: translate3d(-10%, -4%, 0) scale(1.03);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gc-atmosphere .gc-cloud {
+    animation: none;
+    opacity: 0.38;
+  }
+}

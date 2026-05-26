@@ -1,0 +1,424 @@
+/* Editorial palette */
+:root {
+  --bg-primary: #ffffff;
+  --text-primary: #000000;
+  --text-secondary: #666666;
+  --ui-border: #e5e5e5;
+}
+
+/**
+ * Site-wide responsive foundation
+ * Breakpoints: 1440px+ | 1024px | 768px | 480px | 360px
+ * Preserves existing visual style — layout stability only.
+ */
+
+/* ── Base stability ── */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+html,
+body {
+  overflow-x: clip;
+  max-width: 100%;
+  width: 100%;
+}
+
+img,
+video,
+svg,
+canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Prevent flex/grid children from forcing overflow */
+nav,
+.nav-left,
+.nav-right,
+.hero,
+.work,
+.shell,
+.page {
+  overflow-x: clip;
+}
+
+nav,
+footer,
+.card,
+.project,
+.row,
+.anchor,
+.about-panel,
+.pillars-panel {
+  min-width: 0;
+}
+
+/* ── Navigation: wrap instead of overflow (footer links use div, not nav) ── */
+nav {
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem 1rem;
+  row-gap: 0.5rem;
+  padding: 1rem clamp(1rem, 4vw, 3rem);
+}
+
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 0.5rem 1.25rem;
+}
+
+.nav-left {
+  flex-shrink: 0;
+}
+
+.nav-right {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem 1.25rem;
+  min-width: 0;
+}
+
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.35rem 0.25rem;
+}
+
+/* ── Case study pages: clear fixed nav (80px was too short when nav wraps) ── */
+.page {
+  padding-top: clamp(6.5rem, 10vw + 4rem, 8.5rem);
+}
+
+/* ── Grids: minmax(0,1fr) prevents column overflow ── */
+.cards,
+.two-col,
+.photo-compare-grid,
+.final-screens-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* ── Case study section rows (sidebar → stack at 1024px) ── */
+.row {
+  grid-template-columns: minmax(0, 11rem) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+}
+
+/* ── Reusable image grids (replaces inline grid styles) ── */
+.media-grid {
+  display: grid;
+  gap: 1rem;
+  margin: 1.25rem 0;
+  min-width: 0;
+}
+
+.media-grid--2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.media-grid--3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* ── Scrollable tables on narrow screens ── */
+.copy-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 1.25rem 0;
+}
+
+.copy-table-wrap .copy-table {
+  margin: 0;
+}
+
+/* ── Fixed email button: keep content and footer clickable ── */
+body:has(.email-btn) {
+  padding-bottom: 5.5rem;
+}
+
+body:has(.email-btn) footer {
+  margin-bottom: 4.75rem;
+}
+
+/* ── 1440px+ large desktop ── */
+@media (min-width: 1440px) {
+  .hero,
+  .work,
+  .shell,
+  footer,
+  .page {
+    max-width: 1280px;
+  }
+}
+
+/* ── 1024px laptop ── */
+@media (max-width: 1024px) {
+  .hero,
+  .work,
+  .shell,
+  footer {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  .page {
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
+  }
+
+  .about-panels {
+    margin-left: -2rem;
+    margin-right: -2rem;
+  }
+
+  .row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .meta-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .media-grid--3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .photo-compare-grid {
+    gap: 1.5rem;
+  }
+}
+
+/* ── 768px tablet ── */
+@media (max-width: 768px) {
+  .hero {
+    padding-top: clamp(7.5rem, 16vw, 8.5rem);
+    padding-bottom: 2rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .work,
+  .shell,
+  footer {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .page {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .cards,
+  .two-col,
+  .photo-compare-grid,
+  .final-screens-grid,
+  .project {
+    grid-template-columns: 1fr;
+  }
+
+  .media-grid--2,
+  .media-grid--3 {
+    grid-template-columns: 1fr;
+  }
+
+  .meta-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .stat-row {
+    grid-template-columns: 1fr;
+  }
+
+  footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+
+  .footer-right {
+    align-items: flex-start;
+  }
+
+  .card-img {
+    height: min(280px, 55vw);
+  }
+
+  .project-visual {
+    min-height: 12rem;
+  }
+
+  .about-panels {
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+  }
+
+  .about-panel,
+  .pillars-panel {
+    padding: 2rem 1.5rem;
+  }
+}
+
+/* ── 480px mobile ── */
+@media (max-width: 480px) {
+  .footer-links a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0.35rem 0.15rem;
+  }
+
+  .email-btn,
+  .about-fun-btn {
+    min-height: 44px;
+    padding: 0.5rem 1rem;
+    font-size: 0.7rem;
+  }
+
+  .site-logo {
+    width: 48px;
+    height: 48px;
+  }
+
+  .hero {
+    padding-top: clamp(7.5rem, 22vw, 9rem);
+    padding-bottom: 1.75rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .work,
+  .shell,
+  footer {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .page {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .about-panels {
+    margin-left: -1rem;
+    margin-right: -1rem;
+  }
+
+  .about-panel,
+  .pillars-panel {
+    padding: 1.75rem 1rem;
+  }
+
+  .meta-row {
+    grid-template-columns: 1fr;
+  }
+
+  .case-nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .card-body {
+    padding: 1.25rem;
+  }
+
+  .card-img {
+    height: min(240px, 52vw);
+  }
+
+  .project-body,
+  .project-visual {
+    padding: 1.5rem 1rem;
+  }
+
+  .email-btn {
+    bottom: 1rem;
+    right: 1rem;
+  }
+
+  .copy-toast {
+    left: 1rem;
+    right: 1rem;
+    bottom: 4.25rem;
+    max-width: none;
+    text-align: center;
+  }
+}
+
+/* ── 360px small mobile ── */
+@media (max-width: 360px) {
+  nav {
+    padding: 0.875rem clamp(0.75rem, 3vw, 1.25rem);
+  }
+
+  .nav-right {
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .nav-cta {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.15rem;
+  }
+
+}
+
+/* ── Pointer hover only (avoids sticky taps on touch) ── */
+@media (hover: hover) and (pointer: fine) {
+  .nav-link:hover {
+    color: var(--text-primary);
+  }
+
+  .nav-cta:hover {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+  }
+}
+
+/* ── Touch: no hover-dependent motion ── */
+@media (hover: none) {
+  .nav-link:hover {
+    color: var(--text-secondary);
+  }
+
+  .nav-cta:hover {
+    background: var(--text-primary);
+    color: var(--text-primary);
+  }
+  .project-link:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .card:hover .card-img img {
+    transform: none;
+  }
+
+  .email-btn:hover {
+    transform: none;
+  }
+}
