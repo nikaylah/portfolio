@@ -341,6 +341,12 @@ footer {
   text-decoration: none;
 }
 
+.footer-whisper {
+  font-size: 0.62rem;
+  font-weight: 300;
+  opacity: 0.72;
+}
+
 .copy-toast {
   background: var(--text-primary);
   color: var(--bg-page);

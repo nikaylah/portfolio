@@ -217,8 +217,8 @@ body:has(.email-btn) footer {
   }
 
   .hero {
-    padding-top: clamp(8.5rem, 18vw, 10rem);
-    padding-bottom: 2rem;
+    padding-top: 64px;
+    padding-bottom: 48px;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
@@ -242,7 +242,7 @@ body:has(.email-btn) footer {
   #selected-work .cards,
   .work .cards {
     display: grid !important;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr)) !important;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 100%), 1fr)) !important;
     gap: 64px;
     width: 100%;
     max-width: 100%;
@@ -381,8 +381,8 @@ body:has(.email-btn) footer {
   }
 
   .hero {
-    padding-top: clamp(7.5rem, 22vw, 9rem);
-    padding-bottom: 1.75rem;
+    padding-top: 64px;
+    padding-bottom: 48px;
     padding-left: 1rem;
     padding-right: 1rem;
   }

@@ -33,32 +33,60 @@ body{
 
 /* HERO */
 .hero{
-  padding:10.5rem 3rem 3rem;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  min-height:70vh;
+  padding:120px 3rem 80px;
   max-width:1200px;margin:0 auto;
 }
-.hero-eyebrow{
-  font-size:0.65rem;font-weight:400;
-  letter-spacing:0.2em;text-transform:uppercase;
-  color:var(--text-secondary);margin-bottom:1rem;
-  opacity:0;animation:fadeUp 0.7s 0.1s forwards;
+.hero-inner{
+  max-width:620px;
+  width:100%;
+  margin:0 auto;
 }
-.hero-name{
-  font-size:clamp(3rem,7vw,5.5rem);
-  line-height:1.0;
-  margin-bottom:1.25rem;
-  opacity:0;animation:fadeUp 0.8s 0.2s forwards;
-}
-.hero-divider{
-  width:32px;height:1.5px;background:var(--text-primary);
-  margin-bottom:1.25rem;
-  opacity:0;animation:fadeUp 0.8s 0.25s forwards;
-}
-.hero-subtitle{
+.hero-intro{
   font-family:var(--font);
-  font-size:0.7rem;font-weight:300;
-  letter-spacing:0.18em;text-transform:uppercase;
-  color:var(--text-secondary);max-width:420px;line-height:1.7;
-  opacity:0;animation:fadeUp 0.8s 0.3s forwards;
+  font-size:28px;
+  font-weight:400;
+  line-height:1.7;
+  color:var(--text-primary);
+  opacity:0;
+  animation:fadeUp 0.8s 0.15s forwards;
+}
+.hero-intro-soft{
+  font-weight:300;
+}
+.hero-intro-strong{
+  font-weight:700;
+  color:var(--brand-primary);
+}
+.hero-scroll{
+  display:inline-block;
+  margin-top:40px;
+  font-family:var(--font);
+  font-size:14px;
+  font-weight:400;
+  line-height:1.7;
+  color:var(--text-secondary);
+  text-decoration:none;
+  opacity:0;
+  animation:fadeUp 0.8s 0.3s forwards;
+  transition:color 0.2s;
+}
+.hero-scroll:hover{
+  color:var(--brand-primary);
+}
+@media (max-width:768px){
+  .hero{
+    padding:64px 1.5rem 48px;
+  }
+  .hero-intro{
+    font-size:20px;
+    line-height:1.6;
+  }
 }
 
 /* WORK — project cards (original soft editorial look) */
@@ -81,7 +109,7 @@ body{
 }
 .work .cards{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,350px),1fr));
   gap:64px;
 }
 .work .card{
@@ -222,17 +250,17 @@ footer{
       <button class="nav-cta" type="button" onclick="revealEmail()" aria-label="Copy email address">Email me</button>
     </div>
   </nav>
-  <div class="nav-meta-bar" aria-label="Page context">
-    <span class="nav-meta">Home</span>
-  </div>
 </header>
 
 <div class="hero">
-  <div class="hero-eyebrow">Product Designer · Creative Technologist</div>
-  <h1 class="hero-name">Nikaylah.</h1>
-  <div class="hero-divider" aria-hidden="true"></div>
-  <p class="hero-subtitle">Designing for the people who just want things to work.</p>
-  <p class="hero-eyebrow">Currently open to product design roles. <a href="#selected-work">See my work ↓</a></p>
+  <div class="hero-inner">
+    <h1 class="hero-intro">
+      <span class="hero-intro-soft">Hi, I'm Nikaylah,</span>
+      <span class="hero-intro-strong">a Product Designer</span>
+      and Creative Technologist. I research, design, and build for the people who have the vision but need someone to bring it to life.
+    </h1>
+    <a href="#selected-work" class="hero-scroll">See my work ↓</a>
+  </div>
 </div>
 
 <main id="main-content">
@@ -292,7 +320,7 @@ footer{
       <a href="/about/">About</a>
       <a href="https://www.linkedin.com/in/nikaylah" target="_blank" rel="noopener noreferrer">LinkedIn</a>
     </div>
-    <p class="footer-copy">© 2026 Nikaylah.</p>
+    <p class="footer-copy"><span class="footer-whisper">Designed to classical music, good snacks and the hum of a treadmill. Sometimes a nice café.</span> © 2026 Nikaylah.</p>
   </div>
 </footer>
 
