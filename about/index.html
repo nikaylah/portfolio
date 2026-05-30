@@ -18,10 +18,12 @@
   --bg-primary:#F1F2F4;
   --bg-callout:#EEDBB1;
   --brand-primary:#DDA22F;
+  --brand-primary-hover:#c89228;
   --text-primary:#1a1a1a;
   --text-secondary:#5c5c5c;
   --ui-border:rgba(26,26,26,0.12);
   --font:'Switzer',system-ui,-apple-system,sans-serif;
+  --font-display:'Gambarino',Georgia,serif;
 }
 html{scroll-behavior:smooth}
 body{
@@ -30,122 +32,122 @@ body{
 
 /* NAV — see editorial-theme.css */
 
-/* HERO — matches index */
-.hero{
-  padding:10.5rem 3rem 3rem;
+/* ABOUT PAGE */
+
+/* Section 1 — Opening */
+.about-opening{
+  padding:80px 3rem 0;
   max-width:1200px;margin:0 auto;
+  text-align:center;
 }
-.hero-eyebrow{
-  font-size:0.65rem;font-weight:400;
-  letter-spacing:0.2em;text-transform:uppercase;
-  color:var(--text-secondary);margin-bottom:1rem;
-  opacity:0;animation:fadeUp 0.7s 0.1s forwards;
+.about-opening-headline,
+.about-quote-text{
+  font-family:var(--font-display,'Gambarino',Georgia,serif);
 }
-.hero-name{
-  font-size:clamp(3rem,7vw,5.5rem);
-  line-height:1.0;
-  margin-bottom:1.25rem;
-  opacity:0;animation:fadeUp 0.8s 0.2s forwards;
-}
-.hero-divider{
-  width:32px;height:1.5px;background:var(--text-primary);
-  margin-bottom:1.25rem;
-  opacity:0;animation:fadeUp 0.8s 0.25s forwards;
-}
-.hero-subtitle{
-  font-family:var(--font);
-  font-size:0.7rem;font-weight:300;
-  letter-spacing:0.18em;text-transform:uppercase;
-  color:var(--text-secondary);max-width:420px;line-height:1.7;
-  opacity:0;animation:fadeUp 0.8s 0.3s forwards;
-}
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(16px)}
-  to{opacity:1;transform:translateY(0)}
+.about-opening-headline{
+  font-size:32px;font-weight:400;
+  line-height:1.45;letter-spacing:-0.02em;
+  max-width:680px;margin:0 auto;
+  color:var(--text-primary);
 }
 
-/* PAGE */
-.shell{max-width:1200px;margin:0 auto;padding:0 3rem}
-
-/* STORY — two-panel like Cotton Journal */
-.about-panels{margin:0 -3rem}
-.two-col{display:grid;grid-template-columns:1fr 1fr}
-.about-panel{
-  background:var(--bg-primary);padding:3rem 3.5rem;
-  display:flex;flex-direction:column;gap:1.25rem;
-  border-right:1px solid var(--ui-border);
+/* Section 2 — Bio */
+.about-bio{
+  padding:48px 0 3rem;
 }
-.panel-label{
-  font-size:0.65rem;letter-spacing:0.18em;
-  text-transform:uppercase;color:var(--text-secondary);font-weight:400;
+.about-bio-grid{
+  display:flex;
+  align-items:flex-start;
+  gap:48px;
 }
-.panel-heading{
-  font-size:1.35rem;line-height:1.3;
-}
-.panel-heading em{font-style:italic;color:var(--text-secondary)}
-.about-body{
-  font-size:0.9rem;color:var(--text-secondary);
-  line-height:1.75;font-weight:300;
-}
-
-/* Profile hover reveal */
-.profile-reveal{
-  position:relative;
-  width:100%;
-  max-width:200px;
-  aspect-ratio:1/1;
-  border-radius:8px;
-  border:1px solid var(--ui-border);
+.about-bio-photo{
+  flex:0 0 40%;
+  width:40%;
+  max-width:40%;
+  border-radius:12px;
   overflow:hidden;
-  flex-shrink:0;
+  cursor:pointer;
 }
-.profile-reveal__layer{
-  position:absolute;
-  inset:0;
-  will-change:opacity;
+.about-bio-copy{
+  flex:0 0 55%;
+  width:55%;
+  max-width:55%;
+  display:flex;
+  flex-direction:column;
+  gap:1.25rem;
 }
-.profile-reveal__layer img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
+.about-bio-photo img{
   display:block;
+  width:100%;
+  max-height:380px;
+  object-fit:cover;
+  border-radius:12px;
+  filter:blur(8px);
+  transition:filter 0.4s ease;
 }
-.profile-reveal__sharp{
-  opacity:0;
-  transition:opacity 0s;
+.about-bio-photo:hover img,
+.about-bio-photo:focus-within img{
+  filter:blur(0);
 }
-.profile-reveal__blur{
-  opacity:1;
-  transition:opacity 0s;
+@media (prefers-reduced-motion:reduce){
+  .about-bio-photo img{transition:none}
 }
-.profile-reveal:hover .profile-reveal__sharp,
-.profile-reveal:focus-within .profile-reveal__sharp{
-  opacity:1;
-  transition:opacity 0.4s;
-}
-.profile-reveal:hover .profile-reveal__blur,
-.profile-reveal:focus-within .profile-reveal__blur{
-  opacity:0;
-  transition:opacity 0.4s;
-}
-@media(prefers-reduced-motion:reduce){
-  .profile-reveal__sharp,
-  .profile-reveal__blur{transition:none !important}
-}
-.pillars-panel{
-  background:var(--bg-primary);padding:3rem 3.5rem;
-  display:flex;flex-direction:column;justify-content:center;gap:1.25rem;
-}
-.pillars-panel .panel-label{color:var(--text-secondary)}
-.pull-quote p{
-  font-family:var(--font);
-  font-size:clamp(1.1rem,2vw,1.4rem);
-  font-weight:500;font-style:italic;
-  line-height:1.55;color:var(--text-primary);margin:0;
+.about-bio-lead{
+  font-family:var(--font-display,'Gambarino',Georgia,serif);
+  font-size:1.35rem;line-height:1.3;
+  color:var(--text-primary);
 }
 
-/* META */
-.about-meta{padding:4rem 0 6rem}
+/* Section 3 — Featured quote */
+.about-quote{
+  background:#2C1A0E;
+  color:#FAF5EE;
+  padding:80px 3rem;
+  width:100%;
+}
+.about-quote-text{
+  font-size:26px;font-weight:400;font-style:italic;
+  line-height:1.5;text-align:center;
+  max-width:640px;margin:0 auto;
+  color:#FAF5EE;
+}
+.about-quote-text p{margin:0}
+
+/* Section 4 — Credentials */
+.about-credentials{
+  padding:3rem 0 0;
+  margin-bottom:56px;
+}
+.about-credentials-list{
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+.about-credentials-row{
+  display:flex;
+  gap:24px;
+  line-height:2.2;
+  align-items:baseline;
+}
+.about-credentials-label{
+  display:inline-block;
+  width:140px;
+  flex-shrink:0;
+  font-size:13px;
+  font-weight:400;
+  color:#9C7A55;
+}
+.about-credentials-value{
+  font-size:13px;
+  font-weight:500;
+  color:#2C1A0E;
+}
+
+/* Section 5 — Focus (about-meta) */
+.about-meta{
+  padding:0;
+  margin-bottom:48px;
+}
 .meta-block{margin-bottom:2.5rem}
 .meta-block:last-child{margin-bottom:0}
 .section-label{
@@ -155,18 +157,95 @@ body{
 }
 .skill-tags{display:flex;flex-wrap:wrap;gap:8px}
 .skill-tag{
-  font-size:0.65rem;color:var(--text-secondary);font-weight:400;
+  font-size:0.65rem;font-weight:400;
   letter-spacing:0.06em;
-  background:transparent;
-  border:1px solid var(--ui-border);
   border-radius:0;padding:0.35rem 0.85rem;
 }
+.about-meta .skill-tag{
+  background:#EFE6D8;
+  border:0.5px solid #D5C8B4;
+  color:#2C1A0E;
+}
+.about-tools .skill-tag{
+  background:transparent;
+  border:0.5px solid #D5C8B4;
+  color:#4A3020;
+}
+
+/* Section 6 — Tools */
+.about-tools{
+  padding:0;
+  margin-bottom:64px;
+}
+.about-tools-groups{
+  display:flex;flex-direction:column;gap:24px;
+}
+.about-tools-group{
+  display:flex;flex-direction:column;gap:8px;
+}
+.about-tools-category{
+  font-size:10px;font-weight:400;
+  letter-spacing:0.1em;text-transform:uppercase;
+  color:#9C7A55;
+  margin:0;
+  padding-left:8px;
+}
+
+/* Section 7 — Currently Tinkering */
+.about-tinkering{
+  padding:0;
+  max-width:640px;
+  margin-bottom:80px;
+}
+.about-tinkering-text{
+  font-size:0.9rem;color:var(--text-secondary);
+  line-height:1.75;font-weight:300;
+}
+.about-tinkering-text a{
+  color:var(--brand-primary);
+  text-decoration:none;
+  transition:color 0.2s;
+}
+.about-tinkering-text a:hover{
+  color:var(--brand-primary-hover,#c89228);
+}
+
+@media (max-width:768px){
+  .about-opening{padding:80px 1.5rem 0}
+  .about-opening-headline{font-size:24px}
+  .about-quote{padding:80px 1.5rem}
+  .about-quote-text{font-size:20px}
+  .about-bio-grid{
+    flex-direction:column;
+    align-items:stretch;
+    gap:1.5rem;
+  }
+  .about-bio-photo,
+  .about-bio-copy{
+    flex:none;
+    width:100%;
+    max-width:100%;
+  }
+}
+
+.about-body{
+  font-size:0.9rem;color:var(--text-secondary);
+  line-height:1.75;font-weight:300;
+}
+
+/* PAGE */
+.shell{max-width:1200px;margin:0 auto;padding:0 3rem}
+
 .about-engineering{
   padding:0 0 4rem;
 }
 .about-engineering-title{
   font-size:clamp(1.75rem,3.5vw,2.5rem);
   margin-bottom:0.75rem;line-height:1.15;
+}
+.panel-label{
+  font-size:0.65rem;letter-spacing:0.18em;
+  text-transform:uppercase;color:var(--text-secondary);font-weight:400;
 }
 .about-engineering-lead{
   font-size:0.9rem;color:var(--text-secondary);
@@ -180,6 +259,33 @@ body{
   color:var(--text-secondary);text-decoration:none;
 }
 .about-engineering-fullscreen:hover{color:var(--text-primary)}
+
+/* Closing statement */
+.about-closing{
+  background:#FAF5EE;
+  padding:80px 3rem;
+  width:100%;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:1.5rem;
+}
+.about-closing-text{
+  font-family:var(--font-display,'Gambarino',Georgia,serif);
+  font-size:22px;font-weight:400;
+  color:#2C1A0E;
+  max-width:560px;
+  line-height:1.7;
+  margin:0;
+}
+.about-closing-link{
+  font-size:0.78rem;font-weight:500;
+  letter-spacing:0.02em;
+  text-decoration:none;
+  transition:color 0.2s;
+}
+
 /* FOOTER — matches index */
 footer{
   border-top:1px solid var(--ui-border);
@@ -251,37 +357,47 @@ footer{
   </nav>
 </header>
 
-<div class="hero">
-  <div class="hero-eyebrow">Product Designer · Creative Technologist</div>
-  <h1 class="hero-name">Nikaylah.</h1>
-  <div class="hero-divider" aria-hidden="true"></div>
-  <p class="hero-subtitle">Designing for the moment a user doesn't have to think.</p>
-</div>
-
 <main id="main-content">
+  <section class="about-opening" aria-label="Introduction">
+    <h1 class="about-opening-headline">I see the world through a film camera and a terminal window. Design is where those two things finally made sense together.</h1>
+  </section>
+
   <div class="shell">
-    <section class="about-panels" aria-label="Background">
-      <div class="two-col">
-        <div class="about-panel">
-          <div class="profile-reveal" tabindex="0" aria-label="Profile photo — hover to reveal">
-            <div class="profile-reveal__layer profile-reveal__sharp">
-              <img src="/portfolio-assets/selfie.png" alt="Nikaylah" width="400" height="400" decoding="async">
-            </div>
-            <div class="profile-reveal__layer profile-reveal__blur" aria-hidden="true">
-              <img src="/portfolio-assets/selfie-blur.png" alt="" width="400" height="400" decoding="async">
-            </div>
-          </div>
-          <div class="panel-heading">I grew up painting, sewing and carrying a film camera.</div>
+    <section class="about-bio" aria-label="Background">
+      <div class="about-bio-grid">
+        <div class="about-bio-photo" tabindex="0" aria-label="Profile photo — hover to reveal">
+          <img src="/portfolio-assets/selfie.png" alt="Nikaylah" width="400" height="400" decoding="async">
+        </div>
+        <div class="about-bio-copy">
+          <p class="about-bio-lead">I grew up painting, sewing and carrying a film camera.</p>
           <p class="about-body">Then I studied computer science, spent years building and shipping software and found that product design is where both halves finally made sense.</p>
         </div>
-        <div class="pillars-panel">
-          <div class="panel-label">How I design</div>
-          <blockquote class="pull-quote">
-            <p>I design with the technical depth of someone who has actually read the error logs and the eye of someone who still shoots on film.</p>
-          </blockquote>
-          <div class="panel-label">CS grad · 4 years at Accenture · still learning every day</div>
-        </div>
       </div>
+    </section>
+  </div>
+
+  <section class="about-quote" aria-label="Design philosophy">
+    <blockquote class="about-quote-text">
+      <p>I design with the technical depth of someone who has actually read the error logs and the eye of someone who still shoots on film.</p>
+    </blockquote>
+  </section>
+
+  <div class="shell">
+    <section class="about-credentials" aria-label="Credentials">
+      <ul class="about-credentials-list">
+        <li class="about-credentials-row">
+          <span class="about-credentials-label">CS Graduate</span>
+          <span class="about-credentials-value">Computer Science</span>
+        </li>
+        <li class="about-credentials-row">
+          <span class="about-credentials-label">Accenture</span>
+          <span class="about-credentials-value">Technology Consulting · 4 years</span>
+        </li>
+        <li class="about-credentials-row">
+          <span class="about-credentials-label">Currently</span>
+          <span class="about-credentials-value">Product Designer and Creative Technologist</span>
+        </li>
+      </ul>
     </section>
 
     <section class="about-meta" aria-label="Focus">
@@ -297,10 +413,43 @@ footer{
       </div>
     </section>
 
+    <section class="about-tools" aria-label="Tools">
+      <p class="section-label">Tools</p>
+      <div class="about-tools-groups">
+        <div class="about-tools-group">
+          <p class="about-tools-category">Design</p>
+          <div class="skill-tags">
+            <span class="skill-tag">Figma</span>
+            <span class="skill-tag">Framer</span>
+          </div>
+        </div>
+        <div class="about-tools-group">
+          <p class="about-tools-category">Build</p>
+          <div class="skill-tags">
+            <span class="skill-tag">Cursor</span>
+            <span class="skill-tag">Replit</span>
+            <span class="skill-tag">Vercel</span>
+            <span class="skill-tag">GitHub</span>
+          </div>
+        </div>
+        <div class="about-tools-group">
+          <p class="about-tools-category">AI</p>
+          <div class="skill-tags">
+            <span class="skill-tag">Claude</span>
+            <span class="skill-tag">Claude Code</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-tinkering" aria-label="Currently Tinkering">
+      <p class="section-label">Currently Tinkering</p>
+      <p class="about-tinkering-text">Follow along on <a href="https://x.com/cottonjournal_" target="_blank" rel="noopener noreferrer">Twitter</a> for experiments and side builds.</p>
+    </section>
+
     <section class="about-engineering" aria-label="Creative Engineering">
-      <h2 class="about-engineering-title">Creative Engineering</h2>
       <div class="panel-label">Analog Eye.</div>
-      <p class="about-engineering-lead">I shoot on film because it helps me slow down and be more intentional. These images are just a selection of personal moments, curated here for the screen. I also enjoy writing code. I do it not because I have to but because the process of making something real helps me design better products</p>
+      <p class="about-engineering-lead">Slow down. Shoot film. Make things.</p>
 
       <div class="gc-container">
         <section class="gc-experience" aria-label="3D interaction showcase">
@@ -342,6 +491,11 @@ footer{
     </section>
 
   </div>
+
+  <section class="about-closing" aria-label="Closing">
+    <p class="about-closing-text">The technical and the human have always lived in the same person. Design is just where I finally stopped choosing between them.</p>
+    <a href="/#selected-work" class="about-closing-link card-cta">See my work →</a>
+  </section>
 </main>
 
 <footer>
