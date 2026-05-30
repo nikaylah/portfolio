@@ -8,65 +8,31 @@
 <link rel="icon" href="/favicon.ico?v=3" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=3">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=3">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=switzer@300&f[]=gambarino@400&display=swap" rel="stylesheet">
 <script defer src="/_vercel/insights/script.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg-primary:#FFFFFF;
-  --text-primary:#000000;
-  --text-secondary:#666666;
-  --ui-border:#E5E5E5;
-  --font:'Inter',sans-serif;
-  --font-display:'Inter',sans-serif;
+  --bg-page:#F1F2F4;
+  --bg-primary:#F1F2F4;
+  --bg-callout:#EEDBB1;
+  --brand-primary:#DDA22F;
+  --text-primary:#1a1a1a;
+  --text-secondary:#5c5c5c;
+  --ui-border:rgba(26,26,26,0.12);
+  --font:'Switzer',system-ui,-apple-system,sans-serif;
 }
 html{scroll-behavior:smooth}
 body{
-  background:var(--bg-primary);color:var(--text-primary);
-  font-family:var(--font);font-weight:400;
   line-height:1.6;overflow-x:hidden;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
 }
 
-/* NAV — matches index */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  display:flex;justify-content:space-between;align-items:center;
-  padding:1.25rem 3rem;
-  background:rgba(255,255,255,0.96);
-  backdrop-filter:blur(12px);
-  -webkit-backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--ui-border);
-}
-.nav-left{display:flex;align-items:center;text-decoration:none}
-.site-logo{
-  width:64px;height:64px;flex-shrink:0;
-  object-fit:contain;display:block;
-}
-.site-logo--footer{width:44px;height:44px}
-.nav-right{display:flex;align-items:center;gap:2rem;flex-wrap:wrap}
-.nav-link{
-  font-size:0.78rem;font-weight:400;letter-spacing:0.08em;
-  text-transform:uppercase;color:var(--text-secondary);
-  text-decoration:none;transition:color 0.2s;
-}
-.nav-link:hover{color:var(--text-primary)}
-.nav-link--current{color:var(--text-primary);font-weight:600}
-.nav-cta{
-  background:var(--text-primary);color:var(--bg-primary);
-  padding:0.5rem 1.25rem;border-radius:0;
-  font-size:0.75rem;font-weight:600;letter-spacing:0.06em;
-  cursor:pointer;border:1px solid var(--text-primary);font-family:var(--font);
-  transition:background 0.2s,color 0.2s;
-}
-.nav-cta:hover{background:var(--bg-primary);color:var(--text-primary)}
+/* NAV — see editorial-theme.css */
 
 /* HERO — matches index */
 .hero{
-  padding:9rem 3rem 3rem;
+  padding:10.5rem 3rem 3rem;
   max-width:1200px;margin:0 auto;
 }
 .hero-eyebrow{
@@ -76,11 +42,9 @@ nav{
   opacity:0;animation:fadeUp 0.7s 0.1s forwards;
 }
 .hero-name{
-  font-family:var(--font-display);
   font-size:clamp(3rem,7vw,5.5rem);
-  font-weight:500;font-style:normal;
-  line-height:1.0;letter-spacing:-0.03em;
-  color:var(--text-primary);margin-bottom:1.25rem;
+  line-height:1.0;
+  margin-bottom:1.25rem;
   opacity:0;animation:fadeUp 0.8s 0.2s forwards;
 }
 .hero-divider{
@@ -116,8 +80,7 @@ nav{
   text-transform:uppercase;color:var(--text-secondary);font-weight:400;
 }
 .panel-heading{
-  font-family:var(--font-display);
-  font-size:1.35rem;font-weight:500;letter-spacing:-0.02em;color:var(--text-primary);line-height:1.3;
+  font-size:1.35rem;line-height:1.3;
 }
 .panel-heading em{font-style:italic;color:var(--text-secondary)}
 .about-body{
@@ -202,10 +165,8 @@ nav{
   padding:0 0 4rem;
 }
 .about-engineering-title{
-  font-family:var(--font-display);
-  font-size:1.35rem;font-weight:500;
-  letter-spacing:-0.02em;color:var(--text-primary);
-  margin-bottom:0.75rem;
+  font-size:clamp(1.75rem,3.5vw,2.5rem);
+  margin-bottom:0.75rem;line-height:1.15;
 }
 .about-engineering-lead{
   font-size:0.9rem;color:var(--text-secondary);
@@ -275,27 +236,23 @@ footer{
 <link rel="stylesheet" href="/editorial-theme.css">
 <link rel="stylesheet" href="/responsive.css">
 <link rel="stylesheet" href="/gesture-interface.css?v=25">
-<link rel="stylesheet" href="/weather-engine.css?v=3">
 </head>
 <body>
-<div class="gc-atmosphere" aria-hidden="true">
-  <div class="gc-cloud gc-cloud--1"></div>
-  <div class="gc-cloud gc-cloud--2"></div>
-  <div class="gc-cloud gc-cloud--3"></div>
-  <div class="gc-cloud gc-cloud--4"></div>
-</div>
 <a href="#main-content" class="skip-link">Skip to main content</a>
 
-<nav>
-  <a href="/" class="nav-left" aria-label="Nikaylah home">
-    <img src="/logo-v3.png" alt="Nikaylah" class="site-logo" width="64" height="64">
-  </a>
-  <div class="nav-right">
-    <a href="/about/" class="nav-link nav-link--current" aria-current="page">About</a>
-    <a href="https://www.linkedin.com/in/nikaylah" target="_blank" rel="noopener noreferrer" class="nav-link">LinkedIn</a>
-    <button class="nav-cta" onclick="revealEmail()" aria-label="Copy email address">Email me</button>
+<header class="site-header">
+  <nav class="nav-main" aria-label="Site">
+    <a href="/index.html" class="nav-home">Nikaylah</a>
+    <div class="nav-center">
+      <a href="/about/" class="nav-link nav-link--current" aria-current="page">About</a>
+      <a href="https://www.linkedin.com/in/nikaylah" target="_blank" rel="noopener noreferrer" class="nav-link">LinkedIn</a>
+      <button class="nav-cta" type="button" onclick="revealEmail()" aria-label="Copy email address">Email me</button>
+    </div>
+  </nav>
+  <div class="nav-meta-bar" aria-label="Page context">
+    <span class="nav-meta">About</span>
   </div>
-</nav>
+</header>
 
 <div class="hero">
   <div class="hero-eyebrow">Product Designer · Creative Technologist</div>
@@ -332,7 +289,7 @@ footer{
 
     <section class="about-meta" aria-label="Focus">
       <div class="meta-block">
-        <h2 class="section-label">Focus</h2>
+        <p class="section-label">Focus</p>
         <div class="skill-tags">
           <span class="skill-tag">UX Strategy &amp; Research</span>
           <span class="skill-tag">Inclusion &amp; Behavioral Design</span>

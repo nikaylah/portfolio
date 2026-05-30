@@ -1,12 +1,348 @@
 /**
- * editorial-theme.css — High-Contrast Editorial palette (site-wide)
+ * editorial-theme.css — Site-wide brand & layout
  */
 
 :root {
-  --bg-primary: #ffffff;
-  --text-primary: #000000;
-  --text-secondary: #666666;
-  --ui-border: #e5e5e5;
-  --font: 'Inter', sans-serif;
-  --font-display: 'Inter', sans-serif;
+  --bg-page: #f1f2f4;
+  --bg-primary: #f1f2f4;
+  --bg-card: #eedbb1;
+  --bg-callout: #eedbb1;
+  --brand-primary: #dda22f;
+  --brand-primary-hover: #c89228;
+  --text-primary: #1a1a1a;
+  --text-secondary: #5c5c5c;
+  --text-on-brand: #1a1a1a;
+  --ui-border: rgba(26, 26, 26, 0.12);
+  --font-ui: 'Switzer', system-ui, -apple-system, sans-serif;
+  --font-display: 'Gambarino', Georgia, serif;
+  --radius-btn: 999px;
+  --radius-card: 16px;
+  --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.05);
+  --shadow-interactive: 0 8px 28px rgba(0, 0, 0, 0.08);
+  --site-header-offset: 5.75rem;
+}
+
+html,
+body,
+.shell,
+.page,
+main,
+.hero,
+.work,
+.about-panel,
+.pillars-panel {
+  background-color: var(--bg-page);
+}
+
+html,
+body {
+  background: var(--bg-page);
+  color: var(--text-primary);
+  font-family: var(--font-ui);
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Editorial display typography — Gambarino */
+h1,
+h2,
+h3,
+.project-title,
+.hero-name,
+.cs-title,
+.card-name,
+.panel-heading,
+.about-engineering-title,
+.anchor-title,
+.pain-heading,
+.ba-heading,
+.xcel-hero-headline {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+h2.xcel-section-label,
+.xcel-section-label {
+  font-family: var(--font-ui);
+  font-weight: 300;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+}
+
+/* UI & body typography — Switzer */
+body,
+p,
+li,
+.nav-main,
+.nav-center,
+.nav-meta-bar,
+.nav-link,
+.nav-home,
+.nav-meta,
+.nav-cta,
+.footer-links a,
+.footer-copy,
+.breadcrumb,
+.meta-label,
+.meta-val,
+.row-body,
+.about-body,
+.hero-eyebrow,
+.hero-subtitle,
+.section-label,
+.panel-label,
+.work-label,
+.card-type,
+.card-hook,
+.skip-link,
+.copy-toast,
+button,
+input,
+textarea,
+select,
+label,
+figcaption,
+.xcel-eyebrow,
+.xcel-hero-sub,
+.pain-eyebrow,
+.pain-body,
+.ba-body,
+.ba-label,
+.xcel-section-intro,
+.xcel-next-label,
+.skill-tag,
+.asset-caption,
+.ch-label,
+.ch-q,
+.stat-val,
+.stat-desc,
+.pull-quote p,
+.ph-gesture-status {
+  font-family: var(--font-ui);
+  font-weight: 300;
+}
+
+/* Body copy weight */
+p,
+.row-body,
+.about-body,
+.card-hook,
+.pain-body,
+.ba-body,
+.xcel-section-intro,
+.about-engineering-lead,
+.cs-subtitle {
+  font-weight: 300;
+}
+
+/* Primary links */
+.card-cta,
+.xcel-next-link,
+.case-nav a.next {
+  color: var(--brand-primary);
+}
+
+.card-cta:hover,
+.xcel-next-link:hover,
+.case-nav a:hover {
+  color: var(--brand-primary-hover);
+}
+
+.footer-links a:hover,
+.nav-link:hover {
+  color: var(--brand-primary);
+}
+
+.nav-link--current {
+  color: var(--text-primary);
+}
+
+/* Case study call-outs */
+.pull-quote,
+.compare-after-callout,
+.shopify-note {
+  background-color: var(--bg-callout);
+  border-color: var(--ui-border);
+  border-radius: 12px;
+}
+
+.pull-quote {
+  border-left: 3px solid var(--brand-primary);
+}
+
+.compare-after-callout {
+  border-left: 3px solid var(--brand-primary);
+}
+
+/* ── Site header ── */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: var(--bg-page);
+  border-bottom: 1px solid var(--ui-border);
+}
+
+.nav-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem clamp(1rem, 4vw, 3rem);
+}
+
+.nav-home {
+  flex-shrink: 0;
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  text-decoration: none;
+  line-height: 1.2;
+  transition: opacity 0.2s ease;
+}
+
+.nav-home:hover {
+  opacity: 0.55;
+}
+
+.nav-home:focus-visible {
+  outline: 2px solid var(--brand-primary);
+  outline-offset: 3px;
+}
+
+.nav-center {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 0.65rem 1.5rem;
+  min-width: 0;
+  margin-left: auto;
+}
+
+.nav-link {
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nav-link--current {
+  color: var(--text-primary);
+  font-weight: 600;
+}
+
+/* Primary buttons */
+.nav-cta,
+.email-btn,
+.about-fun-btn {
+  background: var(--brand-primary);
+  color: var(--text-on-brand);
+  border: 1px solid var(--brand-primary);
+  border-radius: var(--radius-btn);
+  font-weight: 600;
+  box-shadow: var(--shadow-subtle);
+  transition: background 0.2s, border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.nav-cta {
+  padding: 0.5rem 1.15rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.email-btn,
+.about-fun-btn {
+  padding: 0.75rem 1.25rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+}
+
+.nav-cta:hover,
+.email-btn:hover,
+.about-fun-btn:hover {
+  background: var(--brand-primary-hover);
+  border-color: var(--brand-primary-hover);
+  color: var(--text-on-brand);
+  box-shadow: var(--shadow-interactive);
+}
+
+.nav-meta-bar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.85rem;
+  padding: 0.45rem clamp(1rem, 4vw, 3rem);
+  border-top: 1px solid var(--ui-border);
+  min-height: 1.75rem;
+  background: var(--bg-page);
+}
+
+.nav-meta {
+  font-size: 0.58rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+/* Project cards (homepage) */
+.work .card {
+  background: var(--bg-card);
+  border-color: var(--ui-border);
+}
+
+.work .card-body {
+  background: var(--bg-card);
+}
+
+.work .card-cta {
+  font-weight: 600;
+}
+
+/* Footer */
+footer {
+  background: var(--bg-page);
+  border-top-color: var(--ui-border);
+}
+
+.site-logo {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  object-fit: contain;
+  display: block;
+}
+
+.site-logo--footer {
+  width: 44px;
+  height: 44px;
+}
+
+.footer-logo {
+  flex-shrink: 0;
+  line-height: 0;
+  text-decoration: none;
+}
+
+.copy-toast {
+  background: var(--text-primary);
+  color: var(--bg-page);
+  border-radius: var(--radius-btn);
 }

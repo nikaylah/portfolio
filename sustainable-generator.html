@@ -9,28 +9,25 @@
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=3">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=3">
 <script defer src="/_vercel/insights/script.js"></script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=switzer@300&f[]=gambarino@400&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg-primary:#FFFFFF;
-  --text-primary:#000000;
-  --text-secondary:#666666;
-  --ui-border:#E5E5E5;
-  --font:'Inter',sans-serif;
-  --font-display:'Inter',sans-serif;
+  --bg-page:#F1F2F4;
+  --bg-primary:#F1F2F4;
+  --bg-callout:#EEDBB1;
+  --brand-primary:#DDA22F;
+  --text-primary:#1a1a1a;
+  --text-secondary:#5c5c5c;
+  --ui-border:rgba(26,26,26,0.12);
+  --font:'Switzer',system-ui,-apple-system,sans-serif;
 }
 html{scroll-behavior:smooth}
-body{background:var(--bg-primary);color:var(--text-primary);font-family:'Inter',sans-serif;font-weight:400;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+body{line-height:1.6;overflow-x:hidden}
 
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:1.25rem 3rem;background:rgba(255,255,255,0.96);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--ui-border)}
-.nav-left{display:flex;align-items:center;text-decoration:none}
-.site-logo{width:64px;height:64px;flex-shrink:0;object-fit:contain;display:block}
+/* nav — see editorial-theme.css */
 .site-logo--footer{width:44px;height:44px}
-.nav-name{font-family:var(--font);font-size:1.05rem;font-weight:500;letter-spacing:-0.01em;color:var(--text-primary);text-decoration:none}
-.nav-right{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;min-width:0}
 .nav-link{
   font-size:0.78rem;font-weight:400;letter-spacing:0.08em;
   text-transform:uppercase;color:var(--text-secondary);
@@ -52,7 +49,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 
 .cs-hero{padding:3rem 0 0}
 .breadcrumb{font-size:0.65rem;color:var(--text-secondary);margin-bottom:1rem;letter-spacing:0.12em;text-transform:uppercase}
-.cs-title{font-family:var(--font-display);font-size:clamp(2.5rem,5vw,3.5rem);font-weight:500;line-height:1.05;letter-spacing:-0.03em;color:var(--text-primary);margin-bottom:0.75rem}
+.cs-title{font-size:clamp(2.5rem,5vw,3.5rem);line-height:1.05;margin-bottom:0.75rem}
 .cs-subtitle{font-size:0.95rem;color:var(--text-secondary);max-width:560px;line-height:1.65;margin-bottom:1.75rem}
 .meta-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;padding-bottom:2rem;border-bottom:1px solid var(--ui-border)}
 .meta-label{font-size:0.65rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-secondary);margin-bottom:4px}
@@ -62,7 +59,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 /* TWO-COLUMN ROWS */
 .row{display:grid;grid-template-columns:minmax(0,11rem) minmax(0,1fr);gap:clamp(2rem,4vw,3.5rem);padding:3.25rem 0;border-bottom:1px solid var(--ui-border)}
 .anchor-label{font-size:0.65rem;font-weight:400;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-secondary);margin-bottom:6px}
-.anchor-title{font-family:var(--font-display);font-size:1.1rem;font-weight:500;line-height:1.3;letter-spacing:-0.02em;color:var(--text-primary)}
+.anchor-title{font-size:1.1rem;line-height:1.3}
 .row-body{font-size:0.9rem;font-weight:400;color:var(--text-secondary);line-height:1.8}
 .row-body p{margin-bottom:0.85rem}
 .row-body p:last-child{margin-bottom:0}
@@ -73,7 +70,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content
 .asset-caption{font-size:0.72rem;color:var(--text-secondary);font-style:italic;margin-top:-0.5rem;margin-bottom:1.25rem;padding-left:4px}
 
 /* PULL QUOTE */
-.pull-quote{border-left:1px solid var(--ui-border);padding:1.5rem 1.75rem;margin:2rem 0;background:var(--bg-primary);border:1px solid var(--ui-border);border-radius:0}
+.pull-quote{border-left:3px solid var(--brand-primary);padding:1.5rem 1.75rem;margin:2rem 0;background:var(--bg-callout);border:1px solid var(--ui-border);border-radius:12px}
 .pull-quote p{font-family:var(--font);font-style:italic;font-weight:500;font-size:1.05rem;color:var(--text-primary);margin:0;line-height:1.7;letter-spacing:-0.01em}
 
 /* IMAGE PLACEHOLDERS */
@@ -159,22 +156,25 @@ footer{
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
-  <nav>
-    <a href="/" class="nav-left" aria-label="Nikaylah home">
-      <img src="/logo-v3.png" alt="Nikaylah" class="site-logo" width="64" height="64">
-    </a>
-    <div class="nav-right">
-      <a href="/about/" class="nav-link">About</a>
-      <a href="https://www.linkedin.com/in/nikaylah" target="_blank" rel="noopener noreferrer" class="nav-link">LinkedIn</a>
-      <button class="nav-cta" onclick="copyEmail()" aria-label="Copy email address">Email me</button>
+  <header class="site-header">
+    <nav class="nav-main" aria-label="Site">
+      <a href="/index.html" class="nav-home">Nikaylah</a>
+      <div class="nav-center">
+        <a href="/about/" class="nav-link">About</a>
+        <a href="https://www.linkedin.com/in/nikaylah" target="_blank" rel="noopener noreferrer" class="nav-link">LinkedIn</a>
+        <button class="nav-cta" type="button" onclick="copyEmail()" aria-label="Copy email address">Email me</button>
+      </div>
+    </nav>
+    <div class="nav-meta-bar" aria-label="Page context">
+      <span class="nav-meta">Projects</span>
     </div>
-  </nav>
+  </header>
 
   <main id="main-content">
     <div class="page">
     <div class="cs-hero">
     <p class="breadcrumb">All work / Sustainable Generator</p>
-    <h1 class="cs-title">Sustainable Fashion Generator</h1>
+    <h1 class="cs-title project-title">Sustainable Fashion Generator</h1>
     <p class="cs-subtitle">A full-stack AI tool that generates outfit concepts grounded in natural fiber selection, personal style, and real sustainability data. built in 7 days</p>
     <div class="meta-row">
       <div><div class="meta-label">Role</div><div class="meta-val">Solo Designer & Developer</div></div>

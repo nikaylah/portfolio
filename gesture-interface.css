@@ -7,20 +7,21 @@
 /* Light theme tokens */
 body.gc-page,
 .gc-container {
-  --bg-gallery: #ffffff;
+  --bg-gallery: #f1f2f4;
   --text-primary: #1a1a1a;
-  --text-secondary: #666666;
+  --text-secondary: #5c5c5c;
+  --brand-primary: #dda22f;
   --modal-backdrop: rgba(255, 255, 255, 0.9);
   --gc-border-subtle: #e5e5e5;
   --gc-panel-border: rgba(26, 26, 26, 0.12);
-  --gc-panel-surface: rgba(255, 255, 255, 0.88);
-  --gc-panel-shadow: 0 10px 28px rgba(26, 26, 26, 0.1);
-  --gc-panel-shadow-focus: 0 22px 52px rgba(26, 26, 26, 0.16);
-  --gc-modal-shadow: 0 20px 40px rgba(26, 26, 26, 0.12);
+  --gc-panel-surface: #ffffff;
+  --gc-panel-shadow: 0 10px 36px rgba(0, 0, 0, 0.06);
+  --gc-panel-shadow-focus: 0 16px 48px rgba(0, 0, 0, 0.08);
+  --gc-modal-shadow: 0 16px 48px rgba(0, 0, 0, 0.08);
 }
 
 .gc-container {
-  font-family: var(--font, 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif);
+  font-family: var(--font-ui, 'Switzer', system-ui, -apple-system, sans-serif);
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -32,19 +33,17 @@ body.gc-page,
   overflow: hidden;
 }
 
-/* About embed — let global .gc-atmosphere show through gallery shell */
+/* Embedded showcase (About) */
 .gc-container:not(.gc-container--standalone) {
-  background: transparent;
+  background: var(--bg-gallery);
 }
 
-/* Embedded showcase (About) */
 .gc-container:not(.gc-container--standalone) .gc-experience {
   position: relative;
   inset: auto;
   width: 100%;
   height: min(85vh, 720px);
   min-height: 420px;
-  background: transparent;
 }
 
 .gc-container:not(.gc-container--standalone) .gc-stage,
@@ -59,14 +58,30 @@ body.gc-page {
   color: var(--text-primary);
 }
 
-body.gc-page .ph-chrome {
-  color: var(--text-primary);
+/* Gallery overlay: header floats above canvas; only links are interactive */
+body.gc-page .site-header.ph-chrome {
+  pointer-events: none;
 }
 
-body.gc-page .ph-chrome .ph-gesture-status {
-  background: rgba(26, 26, 26, 0.05);
-  border-color: var(--gc-border-subtle);
-  color: var(--text-secondary);
+body.gc-page .site-header.ph-chrome .nav-home,
+body.gc-page .site-header.ph-chrome .ph-gesture-status {
+  pointer-events: auto;
+}
+
+body.gc-page .ph-gesture-status {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.75rem;
+  border-radius: 100px;
+  font-family: var(--font-ui, 'Switzer', system-ui, -apple-system, sans-serif);
+  font-size: 0.58rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border: 0.5px solid #e5e5e5;
+  background: #ffffff;
+  box-shadow: 0 10px 36px rgba(0, 0, 0, 0.06);
+  color: #666666;
 }
 
 .gc-container--standalone .gc-experience {
@@ -356,8 +371,6 @@ body.gc-page .ph-chrome .ph-gesture-status {
     overflow: hidden;
     background: var(--gc-panel-surface);
     border: 1px solid var(--gc-border-subtle);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
     transition:
       transform var(--gc-motion-duration) var(--gc-motion-ease),
       box-shadow var(--gc-motion-duration) var(--gc-motion-ease);
@@ -572,10 +585,7 @@ body.gc-modal-open {
   position: absolute;
   inset: 0;
   z-index: 0;
-  background: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  isolation: isolate;
+  background: #ffffff;
 }
 
 .gc-container #modal-overlay .gc-modal-stage {

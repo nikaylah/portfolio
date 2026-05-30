@@ -8,9 +8,8 @@
 <link rel="icon" href="/favicon.ico?v=3" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=3">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=3">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=switzer@300&f[]=gambarino@400&display=swap" rel="stylesheet">
 <script>
 if(location.hostname!=='localhost'&&location.hostname!=='127.0.0.1'){
   const s=document.createElement('script');
@@ -27,7 +26,6 @@ html,body{
   overflow:hidden;
 }
 body{
-  font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
   font-weight:400;
   line-height:1.6;
   -webkit-font-smoothing:antialiased;
@@ -38,21 +36,20 @@ body{
   *{animation:none !important;transition:none !important}
 }
 </style>
+<link rel="stylesheet" href="/editorial-theme.css">
 <link rel="stylesheet" href="/gesture-interface.css?v=25">
 </head>
 <body class="gc-page">
 <div class="gc-container gc-container--standalone">
-<div class="ph-chrome" style="position: fixed; inset: 0; pointer-events: none; z-index: 100; padding: 3rem; font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; text-transform: uppercase; font-size: 0.72rem; letter-spacing: 0.15em; font-weight: 600;">
-  <div style="display: flex; justify-content: space-between; align-items: flex-start; width: 100%;">
-    <div>
-      <div style="margin-bottom: 0.5rem; opacity: 0.95;">3D Rendering</div>
-      <div class="ph-gesture-status" style="display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.45rem 0.85rem; border-radius: 100px; font-size: 0.62rem; font-weight: 500; border: 0.5px solid #e5e5e5; pointer-events: auto;">
-        Gesture Control
-      </div>
-    </div>
-    <div style="opacity: 0.95;">Nikaylah</div>
+<header class="site-header ph-chrome">
+  <nav class="nav-main" aria-label="Site">
+    <a href="/index.html" class="nav-home">Nikaylah</a>
+  </nav>
+  <div class="nav-meta-bar" aria-label="Page context">
+    <span class="nav-meta">3D Rendering</span>
+    <span class="ph-gesture-status">Gesture Control</span>
   </div>
-</div>
+</header>
 <section class="gc-experience" id="main-content" aria-label="Photography gallery">
   <div class="gc-stage">
     <div class="gc-spatial-hub">

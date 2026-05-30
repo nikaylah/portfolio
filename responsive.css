@@ -1,9 +1,13 @@
-/* Editorial palette */
+/* Editorial palette — see editorial-theme.css */
 :root {
-  --bg-primary: #ffffff;
-  --text-primary: #000000;
-  --text-secondary: #666666;
-  --ui-border: #e5e5e5;
+  --bg-page: #f1f2f4;
+  --bg-primary: #f1f2f4;
+  --bg-card: #eedbb1;
+  --bg-callout: #eedbb1;
+  --brand-primary: #dda22f;
+  --text-primary: #1a1a1a;
+  --text-secondary: #5c5c5c;
+  --ui-border: rgba(26, 26, 26, 0.12);
 }
 
 /**
@@ -34,17 +38,20 @@ canvas {
 }
 
 /* Prevent flex/grid children from forcing overflow */
-nav,
-.nav-left,
-.nav-right,
+.site-header,
+.nav-main,
+.nav-center,
 .hero,
-.work,
 .shell,
 .page {
   overflow-x: clip;
 }
 
-nav,
+.work {
+  overflow-x: visible;
+}
+
+.site-header,
 footer,
 .card,
 .project,
@@ -55,12 +62,8 @@ footer,
   min-width: 0;
 }
 
-/* ── Navigation: wrap instead of overflow (footer links use div, not nav) ── */
-nav {
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.5rem 1rem;
-  row-gap: 0.5rem;
+/* ── Navigation (footer links use div, not header) ── */
+.nav-main {
   padding: 1rem clamp(1rem, 4vw, 3rem);
 }
 
@@ -70,20 +73,11 @@ nav {
   justify-content: center;
   min-height: 44px;
   min-width: 44px;
-  padding: 0.5rem 1.25rem;
+  padding: 0.5rem 1.15rem;
 }
 
-.nav-left {
-  flex-shrink: 0;
-}
-
-.nav-right {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 0.75rem 1.25rem;
-  min-width: 0;
+.nav-center {
+  gap: 0.5rem 0.85rem;
 }
 
 .nav-link {
@@ -94,9 +88,9 @@ nav {
   padding: 0.35rem 0.25rem;
 }
 
-/* ── Case study pages: clear fixed nav (80px was too short when nav wraps) ── */
+/* ── Case study pages: clear fixed header (main + metadata strip) ── */
 .page {
-  padding-top: clamp(6.5rem, 10vw + 4rem, 8.5rem);
+  padding-top: clamp(7.5rem, 12vw + 4.5rem, 10rem);
 }
 
 /* ── Grids: minmax(0,1fr) prevents column overflow ── */
@@ -201,8 +195,29 @@ body:has(.email-btn) footer {
 
 /* ── 768px tablet ── */
 @media (max-width: 768px) {
+  body,
+  main,
+  #main-content {
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+
+  .nav-main {
+    padding: 1rem clamp(1rem, 4vw, 3rem);
+    gap: 0.5rem 0.75rem;
+  }
+
+  .nav-meta {
+    font-size: 0.54rem;
+    letter-spacing: 0.16em;
+  }
+
+  .nav-center {
+    gap: 0.4rem 0.65rem;
+  }
+
   .hero {
-    padding-top: clamp(7.5rem, 16vw, 8.5rem);
+    padding-top: clamp(8.5rem, 18vw, 10rem);
     padding-bottom: 2rem;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
@@ -215,16 +230,94 @@ body:has(.email-btn) footer {
     padding-right: 1.5rem;
   }
 
+  /* Homepage selected work — keep auto-fit grid, uniform cards */
+  #selected-work,
+  .work#selected-work {
+    width: 100%;
+    max-width: 100%;
+    overflow: visible;
+    box-sizing: border-box;
+  }
+
+  #selected-work .cards,
+  .work .cards {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr)) !important;
+    gap: 64px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  #selected-work .card,
+  .work .card {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0;
+    height: auto;
+    margin: 0;
+    box-sizing: border-box;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  #selected-work .card-img,
+  .work .card-img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    height: auto;
+    min-height: 0;
+    border-radius: 16px 16px 0 0;
+    overflow: hidden;
+    position: relative;
+    flex-shrink: 0;
+  }
+
+  #selected-work .card-img img,
+  .work .card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+
+  #selected-work .card-tag,
+  .work .card-tag {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    z-index: 1;
+  }
+
+  #selected-work .card-body,
+  .work .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    background: var(--bg-card);
+    padding: 1.75rem 1.5rem 1.5rem;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: visible;
+  }
+
   .page {
     padding-left: 1.25rem;
     padding-right: 1.25rem;
   }
 
-  .cards,
   .two-col,
   .photo-compare-grid,
   .final-screens-grid,
   .project {
+    grid-template-columns: 1fr;
+  }
+
+  /* Case-study grids only — homepage .work .cards uses flex above */
+  .page .cards {
     grid-template-columns: 1fr;
   }
 
@@ -249,10 +342,6 @@ body:has(.email-btn) footer {
 
   .footer-right {
     align-items: flex-start;
-  }
-
-  .card-img {
-    height: min(280px, 55vw);
   }
 
   .project-visual {
@@ -286,7 +375,7 @@ body:has(.email-btn) footer {
     font-size: 0.7rem;
   }
 
-  .site-logo {
+  .site-logo--footer {
     width: 48px;
     height: 48px;
   }
@@ -330,11 +419,12 @@ body:has(.email-btn) footer {
     gap: 0.75rem;
   }
 
-  .card-body {
-    padding: 1.25rem;
+  #selected-work .card-body,
+  .work .card-body {
+    padding: 1.5rem 20px 1.25rem;
   }
 
-  .card-img {
+  .page .card-img {
     height: min(240px, 52vw);
   }
 
@@ -359,19 +449,14 @@ body:has(.email-btn) footer {
 
 /* ── 360px small mobile ── */
 @media (max-width: 360px) {
-  nav {
+  .nav-main {
+    flex-wrap: wrap;
     padding: 0.875rem clamp(0.75rem, 3vw, 1.25rem);
   }
 
-  .nav-right {
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .nav-cta {
-    flex: 1 1 auto;
-    text-align: center;
+  .nav-center {
+    flex: 1 1 100%;
+    justify-content: flex-start;
   }
 
   .footer-links {
@@ -389,8 +474,8 @@ body:has(.email-btn) footer {
   }
 
   .nav-cta:hover {
-    background: var(--bg-primary);
-    color: var(--text-primary);
+    background: var(--brand-primary-hover);
+    color: var(--text-on-brand, #1a1a1a);
   }
 }
 

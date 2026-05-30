@@ -8,67 +8,32 @@
 <link rel="icon" href="/favicon.ico?v=3" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=3">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=3">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=switzer@300&f[]=gambarino@400&display=swap" rel="stylesheet">
 <!-- Vercel Analytics — tracks page views and time on page -->
 <script defer src="/_vercel/insights/script.js"></script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg-primary:#FFFFFF;
-  --text-primary:#000000;
-  --text-secondary:#666666;
-  --ui-border:#E5E5E5;
-  --font:'Inter',sans-serif;
-  --font-display:'Inter',sans-serif;
+  --bg-page:#F1F2F4;
+  --bg-primary:#F1F2F4;
+  --bg-card:#EEDBB1;
+  --brand-primary:#DDA22F;
+  --text-primary:#1a1a1a;
+  --text-secondary:#5c5c5c;
+  --ui-border:rgba(26,26,26,0.12);
+  --font:'Switzer',system-ui,-apple-system,sans-serif;
 }
 html{scroll-behavior:smooth}
 body{
-  background:var(--bg-primary);color:var(--text-primary);
-  font-family:'Inter',sans-serif;font-weight:400;
   line-height:1.6;overflow-x:hidden;
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
 }
 
-/* NAV */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:100;
-  display:flex;justify-content:space-between;align-items:center;
-  padding:1.25rem 3rem;
-  background:rgba(255,255,255,0.96);
-  backdrop-filter:blur(12px);
-  -webkit-backdrop-filter:blur(12px);
-  border-bottom:1px solid var(--ui-border);
-}
-.nav-left{display:flex;align-items:center;text-decoration:none}
-.site-logo{
-  width:64px;height:64px;flex-shrink:0;
-  object-fit:contain;display:block;
-}
-.site-logo--footer{width:44px;height:44px}
-.nav-right{display:flex;align-items:center;gap:2rem;flex-wrap:wrap}
-.nav-link{
-  font-size:0.78rem;font-weight:400;letter-spacing:0.08em;
-  text-transform:uppercase;color:var(--text-secondary);
-  text-decoration:none;transition:color 0.2s;
-}
-.nav-link:hover{color:var(--text-primary)}
-.nav-link--current{color:var(--text-primary);font-weight:600}
-.nav-cta{
-  background:var(--text-primary);color:var(--bg-primary);
-  padding:0.5rem 1.25rem;border-radius:0;
-  font-size:0.75rem;font-weight:600;letter-spacing:0.06em;
-  cursor:pointer;border:1px solid var(--text-primary);font-family:var(--font);
-  transition:background 0.2s,color 0.2s;
-}
-.nav-cta:hover{background:var(--bg-primary);color:var(--text-primary)}
+/* NAV — see editorial-theme.css */
 
 /* HERO */
 .hero{
-  padding:9rem 3rem 3rem;
+  padding:10.5rem 3rem 3rem;
   max-width:1200px;margin:0 auto;
 }
 .hero-eyebrow{
@@ -78,11 +43,9 @@ nav{
   opacity:0;animation:fadeUp 0.7s 0.1s forwards;
 }
 .hero-name{
-  font-family:var(--font-display);
   font-size:clamp(3rem,7vw,5.5rem);
-  font-weight:500;font-style:italic;
-  line-height:1.0;letter-spacing:-0.03em;
-  color:var(--text-primary);margin-bottom:1.25rem;
+  line-height:1.0;
+  margin-bottom:1.25rem;
   opacity:0;animation:fadeUp 0.8s 0.2s forwards;
 }
 .hero-divider{
@@ -100,14 +63,14 @@ nav{
 
 /* WORK — project cards (original soft editorial look) */
 .work{
-  --card-bg:#ffffff;
-  --card-img-bg:#EDE9E2;
-  --card-border:rgba(51,15,10,0.1);
-  --card-terra:#B38A58;
-  --card-tag-bg:rgba(51,15,10,0.82);
-  --card-tag-text:#D0D6B3;
-  --card-ink:#330F0A;
-  --card-ink-mid:#555555;
+  --card-bg:#EEDBB1;
+  --card-img-bg:#F1F2F4;
+  --card-border:rgba(26,26,26,0.1);
+  --card-accent:#5c5c5c;
+  --card-tag-bg:rgba(26,26,26,0.88);
+  --card-tag-text:#F1F2F4;
+  --card-ink:#1a1a1a;
+  --card-ink-mid:#5c5c5c;
   padding:2.5rem 3rem 6rem;
   max-width:1200px;margin:0 auto;
 }
@@ -116,34 +79,40 @@ nav{
   letter-spacing:0.18em;text-transform:uppercase;
   color:var(--text-secondary);margin-bottom:1.75rem;
 }
-.work .cards{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.work .cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+  gap:64px;
+}
 .work .card{
   border-radius:16px;overflow:hidden;
   background:var(--card-bg);border:0.5px solid var(--card-border);
   text-decoration:none;color:inherit;
   display:flex;flex-direction:column;
+  height:100%;
+  box-shadow:0 4px 20px rgba(0,0,0,0.05);
   transition:transform 0.3s,box-shadow 0.3s;
 }
 .work .card:hover{
-  transform:translateY(-6px);
-  box-shadow:0 24px 64px rgba(44,42,38,0.12);
+  transform:translateY(-4px);
+  box-shadow:0 8px 28px rgba(0,0,0,0.08);
   border-color:var(--card-border);
 }
 .work .card-img{
-  width:100%;height:320px;
+  width:100%;
+  aspect-ratio:4/3;
   overflow:hidden;position:relative;
   background:var(--card-img-bg);flex-shrink:0;
 }
 .work .card-img img{
   width:100%;height:100%;
-  object-fit:cover;object-position:top;
+  object-fit:cover;object-position:center;
   display:block;transition:transform 0.5s ease;
 }
 .work .card:hover .card-img img{transform:scale(1.03)}
 .work .card-tag{
   position:absolute;bottom:1rem;left:1rem;
   background:var(--card-tag-bg);
-  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
   color:var(--card-tag-text);
   font-size:0.65rem;font-weight:500;
   letter-spacing:0.1em;text-transform:uppercase;
@@ -152,28 +121,32 @@ nav{
 }
 .work .card-body{
   padding:1.75rem 1.75rem 1.5rem;
-  display:flex;flex-direction:column;gap:0.6rem;flex:1;
+  display:flex;flex-direction:column;
+  justify-content:space-between;
+  flex:1;min-height:0;
+  gap:0.6rem;
 }
 .work .card-type{
   font-size:0.65rem;font-weight:400;
   letter-spacing:0.14em;text-transform:uppercase;
-  color:var(--card-terra);
+  color:var(--card-accent);
 }
 .work .card-name{
-  font-family:'Playfair Display',Georgia,serif;
   font-size:clamp(1.5rem,2.5vw,2rem);
-  font-weight:400;line-height:1.15;letter-spacing:-0.01em;color:var(--card-ink);
+  line-height:1.15;
 }
 .work .card-hook{
   font-size:0.875rem;font-weight:300;
-  color:var(--card-ink-mid);line-height:1.75;flex:1;
+  color:var(--card-ink-mid);line-height:1.75;
+  flex:1;
 }
 .work .card-cta{
   display:inline-flex;align-items:center;
-  gap:0.4rem;margin-top:0.75rem;
+  gap:0.4rem;
   font-size:0.78rem;font-weight:500;
   color:var(--card-ink);letter-spacing:0.02em;
   transition:gap 0.2s;
+  flex-shrink:0;
 }
 .work .card:hover .card-cta{gap:0.7rem}
 
@@ -196,21 +169,15 @@ footer{
 .footer-links a:hover{color:var(--text-primary)}
 .footer-copy{font-size:0.68rem;color:var(--text-secondary);margin:0}
 
-/* STICKY EMAIL */
+/* STICKY EMAIL — see editorial-theme.css */
 .email-btn{
   position:fixed;bottom:2rem;right:2rem;z-index:99;
-  background:var(--text-primary);color:var(--bg-primary);
-  font-size:0.75rem;letter-spacing:0.06em;
-  padding:0.75rem 1.25rem;border-radius:0;
-  cursor:pointer;border:1px solid var(--text-primary);font-family:var(--font);
-  transition:background 0.2s,color 0.2s;
+  font-family:var(--font);
 }
-.email-btn:hover{background:var(--bg-primary);color:var(--text-primary)}
 .copy-toast{
   position:fixed;bottom:5rem;right:2rem;
-  background:var(--text-primary);color:var(--bg-primary);
   font-size:0.72rem;padding:0.5rem 1rem;
-  border-radius:0;border:1px solid var(--ui-border);z-index:100;
+  border:1px solid var(--ui-border);z-index:100;
   opacity:0;transition:opacity 0.3s;pointer-events:none;
 }
 .copy-toast.show{opacity:1}
@@ -243,26 +210,22 @@ footer{
 </style>
 <link rel="stylesheet" href="/editorial-theme.css">
 <link rel="stylesheet" href="/responsive.css">
-<link rel="stylesheet" href="/weather-engine.css?v=3">
 </head>
 <body>
-<div class="gc-atmosphere" aria-hidden="true">
-  <div class="gc-cloud gc-cloud--1"></div>
-  <div class="gc-cloud gc-cloud--2"></div>
-  <div class="gc-cloud gc-cloud--3"></div>
-  <div class="gc-cloud gc-cloud--4"></div>
-</div>
   <a href="#main-content" class="skip-link">Skip to main content</a>
-<nav>
-  <a href="/" class="nav-left" aria-label="Nikaylah home">
-    <img src="/logo-v3.png" alt="Nikaylah" class="site-logo" width="64" height="64">
-  </a>
-  <div class="nav-right">
-    <a href="/about/" class="nav-link">About</a>
-    <a href="https://www.linkedin.com/in/nikaylah" target="_blank" rel="noopener noreferrer" class="nav-link">LinkedIn</a>
-    <button class="nav-cta" onclick="revealEmail()" aria-label="Copy email address">Email me</button>
+<header class="site-header">
+  <nav class="nav-main" aria-label="Site">
+    <a href="/index.html" class="nav-home">Nikaylah</a>
+    <div class="nav-center">
+      <a href="/about/" class="nav-link">About</a>
+      <a href="https://www.linkedin.com/in/nikaylah" target="_blank" rel="noopener noreferrer" class="nav-link">LinkedIn</a>
+      <button class="nav-cta" type="button" onclick="revealEmail()" aria-label="Copy email address">Email me</button>
+    </div>
+  </nav>
+  <div class="nav-meta-bar" aria-label="Page context">
+    <span class="nav-meta">Home</span>
   </div>
-</nav>
+</header>
 
 <div class="hero">
   <div class="hero-eyebrow">Product Designer · Creative Technologist</div>
@@ -284,7 +247,7 @@ footer{
       </div>
       <div class="card-body">
         <div class="card-type">UX Redesign · Lead Designer</div>
-        <h2 class="card-name">Crescent Stables</h2>
+        <h2 class="card-name project-title">Crescent Stables</h2>
         <p class="card-hook">A full redesign for a women-led equestrian brand whose original site was attracting the wrong audience. Research, behavioral psychology, and inclusion design made the experience feel like it was built for her specifically.</p>
         <span class="card-cta" aria-label="View Crescent Stables case study">View case study →</span>
       </div>
@@ -297,9 +260,22 @@ footer{
       </div>
       <div class="card-body">
         <div class="card-type">Full-stack AI tool · Built in 7 days</div>
-        <h2 class="card-name">Sustainable Fashion Generator</h2>
+        <h2 class="card-name project-title">Sustainable Fashion Generator</h2>
         <p class="card-hook">An AI tool that generates outfit concepts starting from material values, not trends. Sustainability scores grounded in real Higg Index data. Built solo with React, Claude API, and Vercel.</p>
         <span class="card-cta" aria-label="View Sustainable Generator case study">View case study →</span>
+      </div>
+    </a>
+
+    <a href="/xcel-energy.html" class="card">
+      <div class="card-img">
+        <img src="/xcel-after-dashboard.png" alt="Redesigned My Energy Connection app dashboard showing cost per hour and daily energy comparison">
+        <span class="card-tag">Enterprise UX · Data Design</span>
+      </div>
+      <div class="card-body">
+        <div class="card-type">UX Redesign · Accenture × Xcel Energy</div>
+        <h2 class="card-name project-title">My Energy Connection</h2>
+        <p class="card-hook">A smart meter app built for engineers, redesigned for people. I came back to the data I once built — this time as a designer — to make real-time energy usage legible, actionable, and human.</p>
+        <span class="card-cta" aria-label="View Xcel Energy case study">View case study →</span>
       </div>
     </a>
 
