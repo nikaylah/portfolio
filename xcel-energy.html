@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Energy Connection — Nikaylah</title>
-<meta name="description" content="Enterprise UX case study. Redesigning a smart meter app from the inside out — from backend engineer to product designer.">
+<title>My Energy Connection, Nikaylah</title>
+<meta name="description" content="Enterprise UX case study. Redesigning a smart meter app from the inside out, from backend engineer to product designer.">
 <link rel="icon" href="/favicon.ico?v=3" sizes="any">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=3">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=3">
@@ -50,6 +50,9 @@ body{line-height:1.6;overflow-x:hidden}
 .xcel-hero{
   text-align:center;
   padding:3rem 0 0;
+  background:transparent;
+  background-color:transparent;
+  box-shadow:none;
 }
 .xcel-hero .xcel-eyebrow{
   font-size:0.65rem;font-weight:400;
@@ -79,7 +82,9 @@ body{line-height:1.6;overflow-x:hidden}
   height:auto;
   margin:3rem auto 0;
   border-radius:12px;
-  box-shadow:var(--shadow-subtle);
+  background:transparent;
+  background-color:transparent;
+  box-shadow:none;
   border:1px solid var(--ui-border);
 }
 
@@ -280,7 +285,7 @@ footer{
       <section class="xcel-hero" aria-labelledby="xcel-hero-title">
         <p class="xcel-eyebrow">UX Redesign · Accenture × Xcel Energy</p>
         <h1 id="xcel-hero-title" class="xcel-hero-headline project-title">What does 4710 watts mean to you?</h1>
-        <p class="xcel-hero-sub">A smart meter app shipped under deadline pressure. It worked technically. Internally, the team described it as "only useful to super nerds." I came back to the data I once built — this time as a designer — to ask why.</p>
+        <p class="xcel-hero-sub">A smart meter app shipped under deadline pressure. It worked technically. Internally, the team described it as "only useful to super nerds." I came back to the data I once built, this time as a designer, to ask why.</p>
         <img src="/xcel-before-dashboard.png" alt="Original My Energy Connection dashboard showing 4710 watts with no context" class="xcel-hero-img" width="360" height="780" loading="eager">
       </section>
 
@@ -290,7 +295,7 @@ footer{
           <div class="anchor-label">The Project</div>
         </div>
         <div class="row-body">
-          <p>Xcel Energy partnered with Accenture to build My Energy Connection — a smart meter companion app giving customers real-time access to their energy data, fulfilling a regulatory commitment ahead of a Colorado meter rollout. I was embedded on the delivery team writing Python Lambda functions to expose meter data to the UI layer, managing database logic in PostgreSQL, and working across a delivery team of 15+ engineers and analysts.</p>
+          <p>Xcel Energy partnered with Accenture to build My Energy Connection, a smart meter companion app giving customers real-time access to their energy data, fulfilling a regulatory commitment ahead of a Colorado meter rollout. I was embedded on the delivery team writing Python Lambda functions to expose meter data to the UI layer, managing database logic in PostgreSQL, and working across a delivery team of 15+ engineers and analysts.</p>
         </div>
       </div>
 
@@ -299,7 +304,7 @@ footer{
           <div class="anchor-label">My Role</div>
         </div>
         <div class="row-body">
-          <p>Technical contributor → UX designer. I didn't design the original app. My role was backend — data exposure, system integration, API logic. This case study is the redesign I came back to do: using everything I knew about why the data exists the way it does to make it work for the person holding the phone.</p>
+          <p>Technical contributor → UX designer. I didn't design the original app. My role was backend: data exposure, system integration, API logic. This case study is the redesign I came back to do: using everything I knew about why the data exists the way it does to make it work for the person holding the phone.</p>
         </div>
       </div>
 
@@ -308,7 +313,7 @@ footer{
           <div class="anchor-label">The Problem</div>
         </div>
         <div class="row-body">
-          <p>The MVP delivered raw meter readings — watts and kilowatt-hours — with no translation layer for non-technical users. Even stakeholders in internal review meetings asked "is that good or bad?" The app needed a v2 that served everyday customers, not just early adopters.</p>
+          <p>The MVP delivered raw meter readings, watts and kilowatt-hours, with no translation layer for non-technical users. Even stakeholders in internal review meetings asked "is that good or bad?" The app needed a v2 that served everyday customers, not just early adopters.</p>
         </div>
       </div>
 
@@ -321,7 +326,7 @@ footer{
           <div>
             <p class="pain-eyebrow">Pain Point 01</p>
             <h3 class="pain-heading project-title">The dashboard spoke in numbers, not meaning.</h3>
-            <p class="pain-body">Users saw "4710 w" with no frame of reference. The gauge had no scale, no benchmark, no cost translation. The only other metric — total use since smart meter installation — was meaningless to daily behavior. In an internal review meeting, a non-technical stakeholder asked directly: "Is that good or bad?" That question became the brief.</p>
+            <p class="pain-body">Users saw "4710 w" with no frame of reference. The gauge had no scale, no benchmark, no cost translation. The only other metric, total use since smart meter installation, was meaningless to daily behavior. In an internal review meeting, a non-technical stakeholder asked directly: "Is that good or bad?" That question became the brief.</p>
           </div>
         </article>
 
@@ -330,7 +335,7 @@ footer{
           <div>
             <p class="pain-eyebrow">Pain Point 02</p>
             <h3 class="pain-heading project-title">Errors told you what went wrong. Not what to do.</h3>
-            <p class="pain-body">The connection error screen listed three possible causes as bullet points and offered one button: Try Again. Users had no path to resolution — just a list of things that might be wrong and a prompt to repeat the same action. Error states are where trust is built or broken. This one broke it.</p>
+            <p class="pain-body">The connection error screen listed three possible causes as bullet points and offered one button: Try Again. Users had no path to resolution: just a list of things that might be wrong and a prompt to repeat the same action. Error states are where trust is built or broken. This one broke it.</p>
           </div>
         </article>
 
@@ -339,7 +344,7 @@ footer{
           <div>
             <p class="pain-eyebrow">Pain Point 03</p>
             <h3 class="pain-heading project-title">Setup spoke like a developer wrote it.</h3>
-            <p class="pain-body">Five checklist steps used language written for the system, not the user. "Creating trusted ID for your mobile device." "Authorizing your device to meter." These steps described what was happening technically — but left customers with no sense of what it meant for them or how long it would take.</p>
+            <p class="pain-body">Five checklist steps used language written for the system, not the user. "Creating trusted ID for your mobile device." "Authorizing your device to meter." These steps described what was happening technically, but left customers with no sense of what it meant for them or how long it would take.</p>
           </div>
         </article>
       </section>
@@ -347,7 +352,7 @@ footer{
       <!-- CONSIDERATIONS -->
       <section class="xcel-section" aria-labelledby="considerations-heading">
         <h2 id="considerations-heading" class="xcel-section-label">Design decisions</h2>
-        <p class="xcel-section-intro">The redesign worked within a hard constraint: I could only use data the API already exposed. No new backend work. No new endpoints. Every decision had to be technically honest — which meant the design had to work harder to translate what already existed.</p>
+        <p class="xcel-section-intro">The redesign worked within a hard constraint: I could only use data the API already exposed. No new backend work. No new endpoints. Every decision had to be technically honest, which meant the design had to work harder to translate what already existed.</p>
 
         <article class="ba-block">
           <div class="ba-phones">
@@ -361,7 +366,7 @@ footer{
             </div>
           </div>
           <h3 class="ba-heading project-title">Translate watts into dollars.</h3>
-          <p class="ba-body">The redesigned dashboard leads with $0.56 per hour — a number anyone understands — derived from the same wattage reading the MVP already exposed. A today vs. yesterday comparison replaced the meaningless cumulative total. The status chip added emotional signal: "Usage is higher than usual." Same data. Completely different meaning.</p>
+          <p class="ba-body">The redesigned dashboard leads with $0.56 per hour, a number anyone understands, derived from the same wattage reading the MVP already exposed. A today vs. yesterday comparison replaced the meaningless cumulative total. The status chip added emotional signal: "Usage is higher than usual." Same data. Completely different meaning.</p>
         </article>
 
         <article class="ba-block">
@@ -401,7 +406,7 @@ footer{
           <div class="anchor-label">What this project shows</div>
         </div>
         <div class="row-body">
-          <p>Being embedded in the engineering layer isn't separate from design — it's a competitive advantage. Understanding why the data exists the way it does, what the API can and can't expose, and what a firmware dependency means for a rollout timeline is exactly what makes design decisions technically honest. I didn't just redesign screens. I redesigned the translation layer between a complex system and the person holding the phone.</p>
+          <p>Being embedded in the engineering layer isn't separate from design: it's a competitive advantage. Understanding why the data exists the way it does, what the API can and can't expose, and what a firmware dependency means for a rollout timeline is exactly what makes design decisions technically honest. I didn't just redesign screens. I redesigned the translation layer between a complex system and the person holding the phone.</p>
         </div>
       </div>
 
@@ -410,7 +415,7 @@ footer{
           <div class="anchor-label">What I'd build next</div>
         </div>
         <div class="row-body">
-          <p>The roadmap already anticipated the next features: appliance-level disaggregation, solar offset display for customers with panels, and peak-hour cost alerts. Each of these requires data the current API doesn't yet expose — but the design foundation is ready for them. The next version of this app doesn't need to be smarter. It needs to be more personal.</p>
+          <p>The roadmap already anticipated the next features: appliance-level disaggregation, solar offset display for customers with panels, and peak-hour cost alerts. Each of these requires data the current API doesn't yet expose, but the design foundation is ready for them. The next version of this app doesn't need to be smarter. It needs to be more personal.</p>
         </div>
       </div>
 
@@ -419,7 +424,7 @@ footer{
           <div class="anchor-label">If conditions were different</div>
         </div>
         <div class="row-body">
-          <p>With access to real user testing data, I would have validated the cost-per-hour translation with actual customers before shipping — specifically testing whether "$0.56/hr" creates the behavior change the business wanted, or whether a different framing (daily projection, monthly estimate) would land better. The redesign is grounded in logic and stakeholder feedback from the original project. User testing would have made it evidence-based.</p>
+          <p>With access to real user testing data, I would have validated the cost-per-hour translation with actual customers before shipping: specifically testing whether "$0.56/hr" creates the behavior change the business wanted, or whether a different framing (daily projection, monthly estimate) would land better. The redesign is grounded in logic and stakeholder feedback from the original project. User testing would have made it evidence-based.</p>
         </div>
       </div>
 
@@ -454,7 +459,7 @@ function copyEmail(){
   const u='nikaylah',d='gmail.com',e=u+'@'+d;
   navigator.clipboard.writeText(e).then(()=>{
     const t=document.getElementById('toast');
-    t.textContent='Copied — '+e;
+    t.textContent='Copied: '+e;
     t.classList.add('show');
     setTimeout(()=>t.classList.remove('show'),2800);
   }).catch(()=>{window.location.href='mailto:'+u+'@'+d});
