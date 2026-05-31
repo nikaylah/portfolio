@@ -15,8 +15,8 @@
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg-page:#F1F2F4;
-  --bg-primary:#F1F2F4;
+  --bg-page:#FAF5EE;
+  --bg-primary:#FAF5EE;
   --bg-callout:#EEDBB1;
   --brand-primary:#DDA22F;
   --text-primary:#1a1a1a;
@@ -25,7 +25,7 @@
   --font:'Switzer',system-ui,-apple-system,sans-serif;
 }
 html{scroll-behavior:smooth}
-body{line-height:1.6;overflow-x:hidden}
+body{line-height:1.6;overflow-x:hidden;background-color:#FAF5EE}
 
 /* nav — see editorial-theme.css */
 .site-logo--footer{width:44px;height:44px}
@@ -46,20 +46,129 @@ body{line-height:1.6;overflow-x:hidden}
 
 .page{max-width:780px;margin:0 auto;padding-left:2rem;padding-right:2rem}
 
-.cs-hero{padding:3rem 0 0}
+/* Part 1 — full-bleed cinematic opener */
+.cs-cinematic{
+  width:100%;
+  background:#1C1410;
+  padding:7rem 2rem;
+  text-align:center;
+}
+.cs-cinematic-inner{
+  max-width:700px;
+  margin:0 auto;
+}
+.cs-cinematic-eyebrow{
+  font-size:0.65rem;
+  font-weight:400;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,0.45);
+  margin:0;
+}
+.cs-cinematic-headline{
+  font-family:'Gambarino',Georgia,serif;
+  font-size:clamp(3rem,7vw,5.5rem);
+  font-weight:400;
+  line-height:1.05;
+  color:#FAF5EE;
+  margin:1rem 0 0;
+  letter-spacing:-0.02em;
+}
+.cs-cinematic-sub{
+  font-size:1rem;
+  color:rgba(255,255,255,0.6);
+  max-width:520px;
+  margin:1.25rem auto 0;
+  line-height:1.7;
+}
+@media (max-width:768px){
+  .cs-cinematic{padding:3.5rem 1.5rem}
+}
+
+/* Part 2 — metadata and before/after (inside .page) */
+.cs-hero{padding-top:0}
+.cs-hero .breadcrumb{margin-top:1.25rem}
 .breadcrumb{font-size:0.65rem;color:var(--text-secondary);margin-bottom:1rem;letter-spacing:0.12em;text-transform:uppercase}
-.cs-title{font-size:clamp(2.5rem,5vw,3.5rem);line-height:1.05;margin-bottom:0.75rem}
-.cs-subtitle{font-size:0.95rem;color:var(--text-secondary);max-width:560px;line-height:1.65;margin-bottom:1.75rem}
 .meta-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;padding-bottom:2rem;border-bottom:1px solid var(--ui-border)}
 .meta-label{font-size:0.65rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-secondary);margin-bottom:4px}
 .meta-val{font-size:0.875rem;color:var(--text-primary)}
 .hero-img{width:100%;border-radius:0;border:1px solid var(--ui-border);object-fit:cover;object-position:top;max-height:440px;margin:1.75rem 0}
 
+/* HIGHLIGHTS */
+.cs-highlights{
+  margin-top:2.5rem;
+  border-bottom:1px solid var(--ui-border);
+  padding-bottom:3.25rem;
+}
+.cs-highlights-label{
+  font-size:0.65rem;
+  font-weight:400;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--text-secondary);
+  margin:0 0 1rem;
+}
+.cs-highlights-feature{
+  display:block;
+  width:100%;
+  height:500px;
+  object-fit:cover;
+  object-position:center 20%;
+  border:1px solid var(--ui-border);
+  margin:0;
+}
+.cs-highlights-tagline{
+  font-family:'Gambarino',Georgia,serif;
+  font-size:1rem;
+  font-style:italic;
+  color:var(--text-secondary);
+  text-align:center;
+  margin:1.25rem 0 0;
+  line-height:1.6;
+}
 /* TWO-COLUMN ROWS */
-.row{display:grid;grid-template-columns:minmax(0,11rem) minmax(0,1fr);gap:clamp(2rem,4vw,3.5rem);padding:3.25rem 0;border-bottom:1px solid var(--ui-border)}
+.row{display:grid;grid-template-columns:minmax(0,11rem) minmax(0,1fr);gap:clamp(2.5rem,5vw,4.5rem);padding:4.5rem 0;border-bottom:1px solid var(--ui-border)}
+.row.cs-reflection{grid-template-columns:1fr}
+.cs-reflection-label{
+  font-size:0.65rem;font-weight:400;
+  letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--text-secondary);margin:0;
+}
+.cs-reflection-headline{
+  font-family:'Gambarino',Georgia,serif;
+  font-size:clamp(1.75rem,3.5vw,2.5rem);
+  font-weight:400;
+  color:var(--text-primary);
+  line-height:1.2;
+  margin:0.75rem 0 0;
+  max-width:580px;
+  letter-spacing:-0.02em;
+}
+.cs-reflection-statement{
+  border-left:2px solid var(--brand-primary);
+  padding-left:1.25rem;
+  margin:1.75rem 0 1.5rem;
+}
+.cs-reflection-statement:last-of-type{margin-bottom:1.5rem}
+.cs-reflection-lead{
+  font-size:0.9rem;font-weight:600;
+  color:var(--text-primary);
+  line-height:1.4;
+  margin:0 0 0.5rem;
+}
+.cs-reflection-body{
+  font-size:0.9rem;font-weight:400;
+  color:var(--text-secondary);
+  line-height:1.75;
+  margin:0;
+}
 .anchor-label{font-size:0.65rem;font-weight:400;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-secondary);margin-bottom:6px}
-.anchor-title{font-size:1.1rem;line-height:1.3}
-.row-body{font-size:0.9rem;font-weight:400;color:var(--text-secondary);line-height:1.8}
+.anchor-title{
+  font-family:'Gambarino',Georgia,serif;
+  font-size:1.35rem;
+  line-height:1.3;
+}
+.row-body{font-size:0.875rem;font-weight:400;color:var(--text-secondary);line-height:1.85}
 .row-body p{margin-bottom:0.85rem}
 .row-body p:last-child{margin-bottom:0}
 
@@ -73,14 +182,127 @@ body{line-height:1.6;overflow-x:hidden}
 
 /* CHALLENGE */
 .challenge{margin-bottom:1.5rem}
-.ch-label{font-size:0.65rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-secondary);margin-bottom:4px}
+.ch-label{font-size:0.65rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-secondary);margin-bottom:0.65rem}
 .ch-q{font-family:var(--font);font-size:1rem;font-weight:600;color:var(--text-primary);margin-bottom:0.5rem;line-height:1.3}
 
-/* STAT ROW */
-.stat-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:1.25rem 0}
-.stat{background:var(--bg-primary);border:1px solid var(--ui-border);border-radius:0;padding:1rem 1.15rem}
-.stat-val{font-family:var(--font);font-size:1.3rem;font-weight:600;color:var(--text-primary);display:block;line-height:1}
-.stat-desc{font-size:0.72rem;color:var(--text-secondary);display:block;margin-top:4px;line-height:1.4}
+/* RESEARCH STAT CALLOUTS */
+.research-stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1rem;
+  margin:1.75rem 0;
+}
+.research-stat-card{
+  background:var(--bg-primary);
+  border:1px solid var(--ui-border);
+  border-radius:0;
+  padding:1.5rem 1.25rem;
+}
+.research-stat-card--accent{
+  border-bottom:2px solid var(--brand-primary);
+  padding-bottom:1rem;
+}
+.research-stat-display{
+  font-family:var(--font);
+  font-size:2.25rem;
+  font-weight:600;
+  color:var(--text-primary);
+  line-height:1.1;
+  display:block;
+}
+.research-stat-display--text{
+  font-size:1.5rem;
+}
+.research-stat-label{
+  font-size:0.78rem;
+  color:var(--text-secondary);
+  line-height:1.5;
+  margin:0.5rem 0 0;
+  display:block;
+}
+.research-stat-pull{
+  font-family:'Gambarino',Georgia,serif;
+  font-size:0.95rem;
+  font-style:italic;
+  color:var(--text-secondary);
+  margin:0.25rem 0 0;
+  line-height:1.6;
+}
+@media (max-width:768px){
+  .research-stats{grid-template-columns:1fr}
+}
+
+/* THE PIVOT — full-bleed dark section */
+.cs-pivot{
+  width:100vw;
+  margin-left:calc(50% - 50vw);
+  margin-right:calc(50% - 50vw);
+  background:#1C1410;
+  padding:5rem 2rem;
+  border-bottom:none;
+}
+.cs-pivot-inner{
+  max-width:680px;
+  margin:0 auto;
+}
+.cs-pivot-eyebrow{
+  font-size:0.65rem;
+  font-weight:400;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:rgba(255,255,255,0.4);
+  margin:0;
+}
+.cs-pivot-headline{
+  font-family:'Gambarino',Georgia,serif;
+  font-size:clamp(2rem,4vw,3rem);
+  font-weight:400;
+  color:#FAF5EE;
+  line-height:1.15;
+  margin:0.75rem 0 0;
+  letter-spacing:-0.02em;
+}
+.cs-pivot-body{
+  font-size:0.95rem;
+  color:rgba(255,255,255,0.65);
+  line-height:1.8;
+  margin:1.25rem 0 0;
+}
+.cs-pivot-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1.5rem;
+  margin-top:2.5rem;
+}
+.cs-pivot-grid img{
+  display:block;
+  width:100%;
+  height:auto;
+  border:1px solid rgba(255,255,255,0.12);
+  margin:0;
+}
+.cs-pivot-caption{
+  font-size:0.72rem;
+  font-style:italic;
+  color:rgba(255,255,255,0.4);
+  margin:0.5rem 0 0;
+  line-height:1.5;
+}
+.cs-pivot-closing{
+  font-family:'Gambarino',Georgia,serif;
+  font-size:1.1rem;
+  font-style:italic;
+  color:rgba(255,255,255,0.75);
+  margin:3rem 0 0;
+  text-align:center;
+  line-height:1.55;
+}
+@media (max-width:768px){
+  .cs-pivot{padding:3.5rem 1.5rem}
+  .cs-pivot-grid{grid-template-columns:1fr}
+}
+.cs-pivot{margin-bottom:0}
+.cs-pivot + .row{margin-top:0;border-top:none}
 
 /* IMAGE PLACEHOLDERS */
 .img-placeholder{width:100%;border-radius:0;border:1.5px dashed var(--ui-border);background:var(--bg-primary);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;padding:2.5rem 1rem;margin:1.25rem 0;text-align:center}
@@ -121,6 +343,15 @@ body{line-height:1.6;overflow-x:hidden}
 .compare-after-callout p{font-size:0.85rem;color:var(--text-secondary);line-height:1.65;margin:0 0 0.75rem}
 .compare-after-callout p:last-child{margin-bottom:0}
 .compare-after-hero{width:100%;display:block;border-radius:0;border:1px solid var(--ui-border);margin-bottom:0.5rem}
+.media-grid{display:grid;gap:1.5rem;margin:1.75rem 0}
+.media-grid--2{grid-template-columns:1fr 1fr}
+.media-grid--3{grid-template-columns:1fr 1fr 1fr}
+.media-grid > div{display:flex;flex-direction:column}
+.media-grid--2 .asset-img{height:240px;object-fit:cover;object-position:top;margin-bottom:0}
+@media (max-width:600px){
+  .media-grid--2,.media-grid--3{grid-template-columns:1fr}
+  .media-grid--2 .asset-img{height:auto}
+}
 
 /* FINAL SCREENS GRID */
 .final-screens-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:1.5rem}
@@ -131,6 +362,8 @@ body{line-height:1.6;overflow-x:hidden}
 .case-nav a{font-size:0.85rem;color:var(--text-secondary);text-decoration:none;letter-spacing:0.04em;transition:color 0.2s}
 .case-nav a:hover{color:var(--text-primary)}
 .case-nav a.next{color:var(--text-primary);font-weight:500}
+.live-site-link{display:inline-block;font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--brand-primary);text-decoration:none;margin:1rem 0 0;border-bottom:1px solid currentColor;padding-bottom:1px;transition:opacity 0.2s}
+.live-site-link:hover{opacity:0.7}
 
 footer{
   border-top:1px solid var(--ui-border);
@@ -184,6 +417,10 @@ footer{
 </style>
 <link rel="stylesheet" href="/editorial-theme.css">
 <link rel="stylesheet" href="/responsive.css">
+<style>
+:root{--bg-page:#FAF5EE;--bg-primary:#FAF5EE}
+html,body{background-color:#FAF5EE}
+</style>
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -199,25 +436,38 @@ footer{
   </header>
 
   <main id="main-content">
+    <section class="cs-cinematic" aria-label="Crescent Stables introduction">
+      <div class="cs-cinematic-inner">
+        <p class="cs-cinematic-eyebrow">Case Study — Crescent Stables</p>
+        <h1 class="cs-cinematic-headline">A space that was made for you.</h1>
+        <p class="cs-cinematic-sub">Most equestrian websites are built for people who already belong. This one wasn't.</p>
+      </div>
+    </section>
+
     <div class="page">
   <div class="cs-hero">
     <p class="breadcrumb">All work / Crescent Stables</p>
-    <h1 class="cs-title project-title">Crescent Stables</h1>
-    <p class="cs-subtitle">UX strategy, information architecture, and interaction design for an equestrian brand targeting adult first-time riders</p>
     <div class="meta-row">
       <div><div class="meta-label">Role</div><div class="meta-val">Lead Designer</div></div>
       <div><div class="meta-label">Timeline</div><div class="meta-val">4 to 6 weeks</div></div>
       <div><div class="meta-label">Tools</div><div class="meta-val">Figma, Replit</div></div>
       <div><div class="meta-label">Deliverable</div><div class="meta-val">Netlify + Squarespace</div></div>
     </div>
+    <a href="https://crescent-stables.netlify.app/" target="_blank" rel="noopener noreferrer" class="live-site-link">↗ View the prototype — crescent-stables.netlify.app</a>
+
+    <section class="cs-highlights" aria-label="Highlights">
+      <p class="cs-highlights-label">Highlights</p>
+      <img src="portfolio-assets/cs-live-home.png" alt="Redesigned Crescent Stables homepage" class="cs-highlights-feature" width="800" height="1200" loading="lazy" decoding="async">
+      <p class="cs-highlights-tagline">Warm cream, terracotta, and a space built for someone who has never done this before.</p>
+    </section>
 
     <div class="media-grid media-grid--2">
       <div>
-        <img src="portfolio-assets/before-homepage-crescent.png" alt="Original Crescent Stables homepage — dark navy and gold palette" class="asset-img" style="margin:0">
+        <img src="portfolio-assets/crescent-stables-before-home.png" alt="Original Crescent Stables homepage — dark navy and gold palette" class="asset-img" style="margin:0">
         <p class="asset-caption" style="margin-top:0.4rem">Before. Dark navy and gold.</p>
       </div>
       <div>
-        <img src="portfolio-assets/after-homepage-crescent.png" alt="Redesigned Crescent Stables homepage — warm cream and terracotta palette" class="asset-img" style="margin:0">
+        <img src="portfolio-assets/crescent-stables-after-home.png" alt="Redesigned Crescent Stables homepage — warm cream and terracotta palette" class="asset-img" style="margin:0">
         <p class="asset-caption" style="margin-top:0.4rem">After. Warm cream and terracotta.</p>
       </div>
     </div>
@@ -258,11 +508,21 @@ footer{
     </div>
     <div class="row-body">
       <p>I spoke with approximately 10 people to validate whether the emotional barriers I suspected were real. I asked about their perceptions of riding, whether they had ever considered trying it, and what would make them feel safe enough to take a first step.</p>
-      <div class="stat-row">
-        <div class="stat"><span class="stat-val">Curiosity</span><span class="stat-desc">was common but rarely acted on</span></div>
-        <div class="stat"><span class="stat-val">Fear</span><span class="stat-desc">of looking inexperienced came up repeatedly</span></div>
-        <div class="stat"><span class="stat-val">Insiders</span><span class="stat-desc">is who existing barn sites felt written for</span></div>
+      <div class="research-stats">
+        <div class="research-stat-card research-stat-card--accent">
+          <span class="research-stat-display">10/10</span>
+          <span class="research-stat-label">women interviewed felt curious about riding</span>
+        </div>
+        <div class="research-stat-card">
+          <span class="research-stat-display">0</span>
+          <span class="research-stat-label">had ever tried. Curiosity alone wasn't enough.</span>
+        </div>
+        <div class="research-stat-card">
+          <span class="research-stat-display research-stat-display--text">Every one</span>
+          <span class="research-stat-label">said existing barn sites felt written for insiders, not them</span>
+        </div>
       </div>
+      <p class="research-stat-pull">Fear of looking inexperienced was the most consistent barrier — not lack of interest.</p>
     </div>
   </div>
 
@@ -279,18 +539,18 @@ footer{
       <p class="asset-caption">System 1 vs System 2. Every design decision mapped to the emotional state it was designed to serve.</p>
 
       <div class="challenge">
-        <div class="ch-label">Challenge 1</div>
-        <div class="ch-q">How might we make an anxious visitor feel seen before she reads a word?</div>
+        <div class="ch-label">Challenge 01</div>
+        <div class="ch-q">She feels before she thinks. The hero had one job.</div>
         <p>Anchoring shaped the hero. The opening headline sets the emotional frame before any information is processed. Everything the visitor reads afterward is interpreted through that first impression.</p>
       </div>
       <div class="challenge">
-        <div class="ch-label">Challenge 2</div>
-        <div class="ch-q">How might we build trust without triggering defensiveness?</div>
+        <div class="ch-label">Challenge 02</div>
+        <div class="ch-q">Trust can't be announced. It has to be earned in sequence.</div>
         <p>Loss aversion shaped the session cards. Showing spots remaining creates urgency without pressure copy. Losing a spot feels worse than gaining one feels good. WYSIATI shaped the Before You Come page. Anxious users fill information gaps with worst-case assumptions, so the page was designed to fill every possible gap proactively.</p>
       </div>
       <div class="challenge">
-        <div class="ch-label">Challenge 3</div>
-        <div class="ch-q">How might we make the space feel specifically made for her?</div>
+        <div class="ch-label">Challenge 03</div>
+        <div class="ch-q">Cognitive ease is invisible. That's exactly the point.</div>
         <p>Cognitive ease shaped the visual design. Text contrast corrections, generous line height, calm hierarchy, and short paragraphs reduce cognitive load before the user consciously notices any of it.</p>
       </div>
     </div>
@@ -487,32 +747,24 @@ footer{
   </div>
 
   <!-- THE PIVOT -->
-  <div class="row">
-    <div>
-      <div class="anchor-label">The pivot</div>
-      <div class="anchor-title">The site was attracting the wrong audience entirely</div>
-    </div>
-    <div class="row-body">
-      <p>The first version of the site was dark navy and gold. It looked expensive. It looked like a luxury equestrian brand for people who already rode. That was the problem.</p>
-      <p>The client shared something that reframed the entire project. At their pop-up events, the people approaching them were mostly men. But the experience they were building was specifically for women who had never ridden. Women who felt excluded from traditional equestrian spaces. The site was attracting exactly the wrong audience and repelling exactly the right one.</p>
-      <p>I went back to the research. What makes a space feel like it was built for you versus built for someone else? The answer came from color psychology and inclusion design. Warm, organic tones signal approachability and safety. Cool, dark palettes with gold signal exclusivity and expertise. The site needed to feel like an invitation, not a velvet rope.</p>
-      <div class="pull-quote">
-        <p>The photography had the same problem. The original image choices were stock-looking. Horses without riders, animals without people, nothing that showed a real human having a real experience. The client felt they looked unnatural. More importantly they showed no one who looked like the target audience. A nervous first-time rider looking at those images would not see herself in them.</p>
-      </div>
-      <p>Both pivots, the color palette and the photography strategy, came from the same insight: design is not neutral. Every visual choice either includes someone or excludes them. The warm cream and terracotta palette and the human-centered photography were not aesthetic preferences. They were inclusion decisions.</p>
-
-      <div class="media-grid media-grid--2">
+  <section class="cs-pivot" aria-label="The pivot">
+    <div class="cs-pivot-inner">
+      <p class="cs-pivot-eyebrow">The pivot</p>
+      <h2 class="cs-pivot-headline">The first version was attracting the wrong audience entirely.</h2>
+      <p class="cs-pivot-body">At pop-up events, the people approaching the brand were mostly men. But Crescent Stables was built for women who had never ridden — women who felt excluded from traditional equestrian spaces. The dark navy and gold palette was doing the opposite of what the brand needed. It signaled luxury and expertise. It was a velvet rope, not a door.</p>
+      <div class="cs-pivot-grid">
         <div>
-          <img src="portfolio-assets/before-homepage-crescent.png" alt="Original Crescent Stables homepage — dark navy and gold palette" class="asset-img" style="margin:0">
-          <p class="asset-caption" style="margin-top:0.4rem">Before. Navy and gold reads luxury and expertise.</p>
+          <img src="portfolio-assets/crescent-stables-before-home.png" alt="Original Crescent Stables homepage — dark navy and gold palette" loading="lazy" decoding="async">
+          <p class="cs-pivot-caption">Before. Navy and gold. Luxury signal, wrong audience.</p>
         </div>
         <div>
-          <img src="portfolio-assets/after-homepage-crescent.png" alt="Redesigned Crescent Stables homepage — warm cream and terracotta palette" class="asset-img" style="margin:0">
-          <p class="asset-caption" style="margin-top:0.4rem">After. Cream and terracotta reads warmth and welcome. Same brand, opposite signals.</p>
+          <img src="portfolio-assets/crescent-stables-after-home.png" alt="Redesigned Crescent Stables homepage — warm cream and terracotta palette" loading="lazy" decoding="async">
+          <p class="cs-pivot-caption">After. Cream and terracotta. Warmth signal, right audience.</p>
         </div>
       </div>
+      <p class="cs-pivot-closing">Design is not neutral. Every visual choice either includes someone or excludes them.</p>
     </div>
-  </div>
+  </section>
 
   <!-- WHAT WAS DELIVERED -->
   <div class="row">
@@ -552,15 +804,23 @@ footer{
   </div>
 
   <!-- WHAT I LEARNED -->
-  <div class="row">
-    <div>
-      <div class="anchor-label">What I learned</div>
-      <div class="anchor-title">Three things that changed how I think about design</div>
-    </div>
-    <div class="row-body">
-      <p>Writing is a design decision. Removing generic phrasing had more impact on trust than any layout change. The difference between "Join us for a session" and "Whenever you are ready, we will be here" is the difference between transactional and human.</p>
-      <p>Structure is empathy. Organizing a site around how a nervous beginner thinks separates a site that builds trust from one that overwhelms.</p>
-      <p>Shipping changes how you design. Working through real deployment issues deepened my understanding of how design decisions translate into technical constraints. It made me more precise, not less creative.</p>
+  <div class="row cs-reflection">
+    <div class="cs-reflection-content">
+      <p class="cs-reflection-label">Reflection</p>
+      <h2 class="cs-reflection-headline">Inclusion design doesn't start with a policy. It starts with a photograph.</h2>
+
+      <div class="cs-reflection-statement">
+        <p class="cs-reflection-lead">Design is never neutral.</p>
+        <p class="cs-reflection-body">Every visual decision either opens a door or closes one. The palette, the photography, the page names — all of it is either welcoming someone or telling them this space isn't for them.</p>
+      </div>
+      <div class="cs-reflection-statement">
+        <p class="cs-reflection-lead">Structure is a form of empathy.</p>
+        <p class="cs-reflection-body">Organizing a site around how a nervous beginner thinks — not how a barn operates — is the difference between a site that builds trust and one that overwhelms.</p>
+      </div>
+      <div class="cs-reflection-statement">
+        <p class="cs-reflection-lead">Shipping changes how you design.</p>
+        <p class="cs-reflection-body">Working through real deployment sharpened every decision. When you know the consequences are real, you get more precise, not less creative.</p>
+      </div>
 
       <div class="shopify-note">
         <p><strong>Why this matters beyond equestrian.</strong> The same design problem shows up everywhere: how do you make someone who has never done this before feel like this space was built specifically for them? First-time business owners. First-time riders. First-time users of anything unfamiliar. The anxiety is the same. The design response should be too. That question is one I want to keep answering.</p>
