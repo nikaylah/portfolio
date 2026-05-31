@@ -234,6 +234,10 @@ footer{
   *{animation:none !important;transition:none !important}
 }
 
+.card--coming-soon{cursor:default;pointer-events:none;opacity:0.75}
+.card--coming-soon:hover{transform:none;box-shadow:0 4px 20px rgba(0,0,0,0.05)}
+.card-coming-soon-tag{display:inline-block;font-size:0.65rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-secondary);border:1px solid var(--ui-border);padding:0.3rem 0.85rem;border-radius:100px;}
+
 /* Responsive layout: see responsive.css */
 </style>
 <link rel="stylesheet" href="/editorial-theme.css">
@@ -295,7 +299,7 @@ footer{
       </div>
     </a>
 
-    <a href="/sustainable-generator.html" class="card">
+    <div class="card card--coming-soon">
       <div class="card-img">
         <img src="/generator-homepage.png" alt="Sustainable Fashion Generator app interface showing fiber selection and outfit output panels">
         <span class="card-tag">Creative Technology · AI Tool</span>
@@ -304,9 +308,9 @@ footer{
         <div class="card-type">Full-stack AI tool · Built in 7 days</div>
         <h2 class="card-name project-title">Sustainable Fashion Generator</h2>
         <p class="card-hook">An AI tool that generates outfit concepts starting from material values, not trends. Sustainability scores grounded in real Higg Index data. Built solo with React, Claude API, and Vercel.</p>
-        <span class="card-cta" aria-label="View Sustainable Generator case study">View case study →</span>
+        <span class="card-coming-soon-tag">Coming soon</span>
       </div>
-    </a>
+    </div>
 
   </div>
 </section>
