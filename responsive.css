@@ -135,13 +135,13 @@ footer,
   margin: 0;
 }
 
-/* ── Fixed email button: keep content and footer clickable ── */
+/* ── Fixed email button: single clearance below footer (no stacked body + footer gap) ── */
 body:has(.email-btn) {
-  padding-bottom: 5.5rem;
+  padding-bottom: 5rem;
 }
 
 body:has(.email-btn) footer {
-  margin-bottom: 4.75rem;
+  margin-bottom: 0;
 }
 
 /* ── 1440px+ large desktop ── */
