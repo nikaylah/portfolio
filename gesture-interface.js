@@ -261,7 +261,6 @@ function isImageReady(img){
     panels.forEach(panel=>{
       panel.style.removeProperty('transform');
     });
-    panels[6]?.scrollIntoView({inline:'center',block:'nearest'});
   }
 
   function applyDesktopEngine(){
