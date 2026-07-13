@@ -17,7 +17,6 @@
 :root{
   --bg-page:#F1F2F4;
   --bg-primary:#F1F2F4;
-  --bg-card:#EEDBB1;
   --brand-primary:#DDA22F;
   --text-primary:#1a1a1a;
   --text-secondary:#5c5c5c;
@@ -29,186 +28,305 @@ body{
   line-height:1.6;overflow-x:hidden;
 }
 
-/* NAV — see editorial-theme.css */
+/* HOMEPAGE — textured intro (header + hero) */
+.page-home .home-top{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  min-height:clamp(88vh,92vh,100vh);
+  background-image:url('/editorial-texture.png');
+  background-size:cover;
+  background-position:62% 28%;
+  background-repeat:no-repeat;
+}
+.page-home .site-header {
+  position: relative;
+  flex-shrink: 0;
+  background: transparent;
+  border-bottom: none;
+}
+.page-home .nav-home,
+.page-home .nav-link,
+.page-home .nav-email{
+  color:#1a1a1a;
+}
+.page-home .nav-home:hover,
+.page-home .nav-link:hover,
+.page-home .nav-email:hover{
+  color:#1a1a1a;
+  opacity:0.62;
+}
+.page-home .nav-email{
+  background:none;
+  border:none;
+  padding:0.35rem 0.25rem;
+  font-family:var(--font);
+  font-size:0.72rem;
+  font-weight:400;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  cursor:pointer;
+  min-height:44px;
+  display:inline-flex;
+  align-items:center;
+}
+.page-home .nav-email:focus-visible{
+  outline:2px solid #1a1a1a;
+  outline-offset:3px;
+}
 
 /* HERO */
-.hero{
+.page-home .hero{
+  flex:1;
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
   text-align:center;
-  min-height:70vh;
-  padding:120px 3rem 80px;
-  max-width:1200px;margin:0 auto;
+  min-height:0;
+  max-width:none;
+  margin:0;
+  padding:clamp(2rem,5vw,3.5rem) clamp(1.5rem,5vw,3rem) clamp(3rem,6vw,4.5rem);
+  background:transparent;
 }
-.hero-inner{
-  max-width:620px;
+.page-home .hero-inner{
+  max-width:640px;
   width:100%;
   margin:0 auto;
 }
-.hero-intro{
-  font-family:var(--font);
-  font-size:28px;
-  font-weight:400;
-  line-height:1.7;
-  color:var(--text-primary);
+.page-home .hero-headline{
+  margin:0;
   opacity:0;
   animation:fadeUp 0.8s 0.15s forwards;
 }
-.hero-intro-soft{
-  font-weight:300;
-}
-.hero-intro-strong{
-  font-weight:700;
-  color:var(--brand-primary);
-}
-.hero-scroll{
-  display:inline-block;
-  margin-top:40px;
+.page-home .hero-eyebrow{
+  display:block;
   font-family:var(--font);
-  font-size:14px;
+  font-size:clamp(0.875rem,1.6vw,1rem);
   font-weight:400;
-  line-height:1.7;
-  color:var(--text-secondary);
+  letter-spacing:0.04em;
+  color:#1a1a1a;
+  margin-bottom:1.25rem;
+}
+.page-home .hero-title{
+  display:block;
+  font-family:'Gambarino',Georgia,serif;
+  font-size:clamp(2.25rem,5.5vw,3.5rem);
+  font-weight:400;
+  line-height:1.12;
+  letter-spacing:-0.02em;
+  color:#1a1a1a;
+}
+.page-home .hero-lede{
+  margin:1.75rem auto 0;
+  max-width:34rem;
+  font-family:var(--font);
+  font-size:clamp(1rem,2vw,1.125rem);
+  font-weight:300;
+  line-height:1.65;
+  color:rgba(26,26,26,0.82);
+  opacity:0;
+  animation:fadeUp 0.8s 0.25s forwards;
+}
+.page-home .hero-scroll{
+  display:inline-block;
+  margin-top:2.5rem;
+  font-family:var(--font);
+  font-size:0.8125rem;
+  font-weight:400;
+  letter-spacing:0.06em;
+  color:rgba(26,26,26,0.65);
   text-decoration:none;
   opacity:0;
-  animation:fadeUp 0.8s 0.3s forwards;
-  transition:color 0.2s;
+  animation:fadeUp 0.8s 0.35s forwards;
+  transition:color 0.2s,opacity 0.2s;
 }
-.hero-scroll:hover{
-  color:var(--brand-primary);
-}
-@media (max-width:768px){
-  .hero{
-    padding:64px 1.5rem 48px;
-  }
-  .hero-intro{
-    font-size:20px;
-    line-height:1.6;
-  }
+.page-home .hero-scroll:hover{
+  color:#1a1a1a;
 }
 
-/* WORK — project cards (original soft editorial look) */
-.work{
-  --card-bg:#EEDBB1;
-  --card-img-bg:#F1F2F4;
-  --card-border:rgba(26,26,26,0.1);
-  --card-accent:#5c5c5c;
-  --card-tag-bg:rgba(26,26,26,0.88);
-  --card-tag-text:#F1F2F4;
-  --card-ink:#1a1a1a;
-  --card-ink-mid:#5c5c5c;
-  padding:2.5rem 3rem 6rem;
-  max-width:1200px;margin:0 auto;
+/* WORK GALLERY */
+.page-home .work-gallery{
+  max-width:1000px;
+  margin:0 auto;
+  padding:clamp(2.5rem,5vw,3.5rem) clamp(1.25rem,3vw,2rem) clamp(5rem,9vw,7rem);
 }
-.work-label{
-  font-size:0.65rem;font-weight:400;
-  letter-spacing:0.18em;text-transform:uppercase;
-  color:var(--text-secondary);margin-bottom:1.75rem;
+.page-home .work-gallery-title{
+  font-family:'Gambarino',Georgia,serif;
+  font-weight:400;
+  font-size:clamp(2.75rem,6vw,3.75rem);
+  line-height:1;
+  letter-spacing:-0.02em;
+  text-align:center;
+  color:var(--text-primary);
+  margin:0 0 clamp(3rem,5vw,4rem);
 }
-.work .cards{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(min(100%,350px),1fr));
-  gap:64px;
+.page-home .work-gallery-item{
+  margin:0 0 clamp(5.5rem,8vw,7rem);
 }
-.work .card{
-  border-radius:16px;overflow:hidden;
-  background:var(--card-bg);border:0.5px solid var(--card-border);
-  text-decoration:none;color:inherit;
-  display:flex;flex-direction:column;
-  height:100%;
-  box-shadow:0 4px 20px rgba(0,0,0,0.05);
-  transition:transform 0.3s,box-shadow 0.3s;
+.page-home .work-gallery-item:last-child{
+  margin-bottom:0;
 }
-.work .card:hover{
-  transform:translateY(-4px);
-  box-shadow:0 8px 28px rgba(0,0,0,0.08);
-  border-color:var(--card-border);
+.page-home .work-gallery-link{
+  display:block;
+  text-decoration:none;
+  color:inherit;
 }
-.work .card-img{
+.page-home .work-gallery-figure{
+  margin:0;
+  aspect-ratio:16/10;
+  overflow:hidden;
+  border-radius:6px;
+}
+.page-home .work-gallery-image{
   width:100%;
-  aspect-ratio:4/3;
-  overflow:hidden;position:relative;
-  background:var(--card-img-bg);flex-shrink:0;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  object-position:center;
+  transition:transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94);
 }
-.work .card-img img{
-  width:100%;height:100%;
-  object-fit:cover;object-position:center;
-  display:block;transition:transform 0.5s ease;
+.page-home .work-gallery-link:hover .work-gallery-image,
+.page-home .work-gallery-link:focus-visible .work-gallery-image{
+  transform:scale(1.012);
 }
-.work .card:hover .card-img img{transform:scale(1.03)}
-.work .card-tag{
-  position:absolute;bottom:1rem;left:1rem;
-  background:var(--card-tag-bg);
-  color:var(--card-tag-text);
-  font-size:0.65rem;font-weight:500;
-  letter-spacing:0.1em;text-transform:uppercase;
-  padding:0.35rem 0.85rem;border-radius:100px;
-  border:none;
+.page-home .work-gallery-caption{
+  margin:1.0625rem 0 0;
+  font-family:var(--font);
+  font-size:clamp(1.0625rem,1.8vw,1.3125rem);
+  font-weight:400;
+  line-height:1.3;
+  color:#1a1a1a;
 }
-.work .card-body{
-  padding:1.75rem 1.75rem 1.5rem;
-  display:flex;flex-direction:column;
-  justify-content:space-between;
-  flex:1;min-height:0;
-  gap:0.6rem;
+.page-home .work-gallery-name{
+  font-weight:500;
 }
-.work .card-type{
-  font-size:0.65rem;font-weight:400;
-  letter-spacing:0.14em;text-transform:uppercase;
-  color:var(--card-accent);
+.page-home .work-gallery-status{
+  display:inline;
+  margin-left:0.3em;
+  font-size:0.88em;
+  font-weight:400;
+  color:rgba(26,26,26,0.5);
+  letter-spacing:normal;
+  text-transform:none;
 }
-.work .card-name{
-  font-size:clamp(1.5rem,2.5vw,2rem);
-  line-height:1.15;
-}
-.work .card-hook{
-  font-size:0.875rem;font-weight:300;
-  color:var(--card-ink-mid);line-height:1.75;
-  flex:1;
-}
-.work .card-cta{
-  display:inline-flex;align-items:center;
-  gap:0.4rem;
-  font-size:0.78rem;font-weight:500;
-  color:var(--card-ink);letter-spacing:0.02em;
-  transition:gap 0.2s;
-  flex-shrink:0;
-}
-.work .card:hover .card-cta{gap:0.7rem}
 
 /* FOOTER */
-footer{
-  border-top:1px solid var(--ui-border);
-  padding:2.5rem 3rem;
-  display:flex;justify-content:space-between;
-  align-items:center;flex-wrap:wrap;gap:1rem;
-  max-width:1200px;margin:0 auto;
+.page-home .site-footer{
+  display:flex;
+  flex-direction:column;
+  min-height:clamp(420px,48vh,560px);
+  max-width:none;
+  margin:0;
+  padding:0;
+  border-top:none;
+  background-color:transparent;
+  background-image:url('/editorial-texture.png');
+  background-size:cover;
+  background-position:18% 82%;
+  background-repeat:no-repeat;
 }
-.footer-logo{flex-shrink:0;line-height:0;text-decoration:none}
-.footer-right{display:flex;flex-direction:column;align-items:flex-end;gap:0.5rem}
-.footer-links{display:flex;gap:1.5rem;flex-wrap:wrap}
-.footer-links a{
-  font-size:0.78rem;font-weight:400;letter-spacing:0.06em;
-  text-transform:uppercase;color:var(--text-secondary);
-  text-decoration:none;transition:color 0.2s;
+.page-home .site-footer-closing{
+  flex:1;
+  min-height:clamp(12rem,28vh,18rem);
 }
-.footer-links a:hover{color:var(--text-primary)}
-.footer-copy{font-size:0.68rem;color:var(--text-secondary);margin:0}
-
-/* STICKY EMAIL — see editorial-theme.css */
-.email-btn{
-  position:fixed;bottom:2rem;right:2rem;z-index:99;
+.page-home .site-footer-divider{
+  height:1px;
+  margin:0 clamp(1.25rem,4vw,3rem);
+  background:rgba(26,26,26,0.14);
+}
+.page-home .site-footer-bar{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  flex-wrap:wrap;
+  gap:1.25rem;
+  padding:clamp(1.75rem,3vw,2.5rem) clamp(1.25rem,4vw,3rem) clamp(2rem,4vw,2.75rem);
+}
+.page-home .footer-logo{flex-shrink:0;line-height:0;text-decoration:none}
+.page-home .footer-right{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:0.65rem;
+}
+.page-home .footer-links{
+  display:flex;
+  gap:1.25rem 1.75rem;
+  flex-wrap:wrap;
+}
+.page-home .footer-links a,
+.page-home .footer-links button{
+  font-size:0.78rem;
+  font-weight:400;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  color:rgba(26,26,26,0.72);
+  text-decoration:none;
+  transition:color 0.2s;
+  background:none;
+  border:none;
+  padding:0;
   font-family:var(--font);
+  cursor:pointer;
 }
-.copy-toast{
-  position:fixed;bottom:5rem;right:2rem;
-  font-size:0.72rem;padding:0.5rem 1rem;
-  border:1px solid var(--ui-border);z-index:100;
-  opacity:0;transition:opacity 0.3s;pointer-events:none;
+.page-home .footer-links a:hover,
+.page-home .footer-links button:hover{
+  color:#1a1a1a;
 }
-.copy-toast.show{opacity:1}
+.page-home .footer-copy{
+  font-size:0.68rem;
+  color:rgba(26,26,26,0.62);
+  margin:0;
+  text-align:right;
+}
+
+/* FLOATING EMAIL */
+.page-home .email-btn{
+  position:fixed;
+  bottom:2rem;
+  right:2rem;
+  z-index:99;
+  font-family:var(--font);
+  background:rgba(26,26,26,0.9);
+  color:#f1f2f4;
+  border:1px solid rgba(26,26,26,0.15);
+  border-radius:999px;
+  box-shadow:none;
+  padding:0.55rem 1rem;
+  font-size:0.7rem;
+  font-weight:400;
+  letter-spacing:0.04em;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  gap:0.4rem;
+  transition:background 0.2s,opacity 0.2s;
+}
+.page-home .email-btn:hover{
+  background:#1a1a1a;
+  border-color:#1a1a1a;
+  color:#f1f2f4;
+  box-shadow:none;
+  transform:none;
+}
+.page-home .copy-toast{
+  position:fixed;
+  bottom:5rem;
+  right:2rem;
+  font-size:0.72rem;
+  padding:0.5rem 1rem;
+  background:rgba(26,26,26,0.92);
+  color:#f1f2f4;
+  border:1px solid rgba(26,26,26,0.12);
+  border-radius:999px;
+  box-shadow:none;
+  z-index:100;
+  opacity:0;
+  transition:opacity 0.3s;
+  pointer-events:none;
+}
+.page-home .copy-toast.show{opacity:1}
 
 @keyframes fadeUp{
   from{opacity:0;transform:translateY(16px)}
@@ -234,98 +352,91 @@ footer{
   *{animation:none !important;transition:none !important}
 }
 
-.card--coming-soon{cursor:default;pointer-events:none;opacity:0.75}
-.card--coming-soon:hover{transform:none;box-shadow:0 4px 20px rgba(0,0,0,0.05)}
-.card-coming-soon-tag{display:inline-block;font-size:0.65rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-secondary);border:1px solid var(--ui-border);padding:0.3rem 0.85rem;border-radius:100px;}
-
 /* Responsive layout: see responsive.css */
 </style>
 <link rel="stylesheet" href="/editorial-theme.css">
 <link rel="stylesheet" href="/responsive.css">
 </head>
-<body>
+<body class="page-home">
   <a href="#main-content" class="skip-link">Skip to main content</a>
-<header class="site-header">
-  <nav class="nav-main" aria-label="Site">
-    <a href="/index.html" class="nav-home">Nikaylah</a>
-    <div class="nav-center">
-      <a href="/about/" class="nav-link">About</a>
-      <a href="https://www.linkedin.com/in/nikaylah" target="_blank" rel="noopener noreferrer" class="nav-link">LinkedIn</a>
-      <a href="https://drive.google.com/file/d/1-Kf0VUjrW54PMTsQTBf5Oehbb4yCEA07/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="nav-link">CV</a>
-      <button class="nav-cta" type="button" onclick="revealEmail()" aria-label="Copy email address">Email me</button>
-    </div>
-  </nav>
-</header>
+<div class="home-top">
+  <header class="site-header">
+    <nav class="nav-main" aria-label="Site">
+      <a href="/index.html" class="nav-home">Nikaylah</a>
+      <div class="nav-center">
+        <a href="/about/" class="nav-link">About</a>
+        <a href="https://www.linkedin.com/in/nikaylah" target="_blank" rel="noopener noreferrer" class="nav-link">LinkedIn</a>
+        <a href="https://drive.google.com/file/d/1-Kf0VUjrW54PMTsQTBf5Oehbb4yCEA07/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="nav-link">CV</a>
+        <button class="nav-link nav-email" type="button" onclick="revealEmail()" aria-label="Copy email address">Email</button>
+      </div>
+    </nav>
+  </header>
 
-<div class="hero">
-  <div class="hero-inner">
-    <h1 class="hero-intro">
-      <span class="hero-intro-soft">Hi, I'm Nikaylah,</span>
-      <span class="hero-intro-strong">a Product Designer</span>
-      and Creative Technologist. I research, design, and build for the people who have the vision but need someone to bring it to life.
-    </h1>
-    <a href="#selected-work" class="hero-scroll">See my work ↓</a>
+  <div class="hero">
+    <div class="hero-inner">
+      <h1 class="hero-headline">
+        <span class="hero-eyebrow">Hi, I'm Nikaylah,</span>
+        <span class="hero-title">a Product Designer and Creative Technologist.</span>
+      </h1>
+      <p class="hero-lede">I research, design, and build for the people who have the vision but need someone to bring it to life.</p>
+      <a href="#selected-work" class="hero-scroll">See my work ↓</a>
+    </div>
   </div>
 </div>
 
 <main id="main-content">
-  <section class="work" id="selected-work" aria-label="Selected work">
-  <div class="work-label">Selected work</div>
-  <div class="cards">
+  <section class="work-gallery" id="selected-work" aria-label="Selected work">
+    <h2 class="work-gallery-title">Work</h2>
 
-    <a href="/crescent-stables.html" class="card">
-      <div class="card-img">
-        <img src="/crescent-homepage.png" alt="Redesigned Crescent Stables homepage showing warm cream and terracotta design">
-        <span class="card-tag">UX Strategy · Inclusion Design</span>
-      </div>
-      <div class="card-body">
-        <div class="card-type">UX Redesign · Lead Designer</div>
-        <h2 class="card-name project-title">Crescent Stables</h2>
-        <p class="card-hook">A full redesign for a women-led equestrian brand whose original site was attracting the wrong audience. Research, behavioral psychology, and inclusion design made the experience feel like it was built for her specifically.</p>
-        <span class="card-cta" aria-label="View Crescent Stables case study">View case study →</span>
-      </div>
-    </a>
+    <article class="work-gallery-item">
+      <a href="/crescent-stables.html" class="work-gallery-link" aria-label="Crescent Stables case study">
+        <figure class="work-gallery-figure">
+          <img src="/crescent-homepage.png" alt="Redesigned Crescent Stables homepage showing warm cream and terracotta design" class="work-gallery-image" loading="lazy" decoding="async">
+        </figure>
+        <p class="work-gallery-caption">
+          <span class="work-gallery-name">Crescent Stables:</span> Designing confidence before the first ride
+        </p>
+      </a>
+    </article>
 
-    <a href="/xcel-energy.html" class="card">
-      <div class="card-img">
-        <img src="/xcel-card-hero.png" alt="Three screens from the redesigned My Energy Connection app — dashboard, error state, and setup flow">
-        <span class="card-tag">Enterprise UX · Data Design</span>
-      </div>
-      <div class="card-body">
-        <div class="card-type">UX Redesign · Accenture × Xcel Energy</div>
-        <h2 class="card-name project-title">My Energy Connection</h2>
-        <p class="card-hook">A smart meter app built for engineers, redesigned for people. I came back to the data I once built — this time as a designer — to make real-time energy usage legible, actionable, and human.</p>
-        <span class="card-cta" aria-label="View Xcel Energy case study">View case study →</span>
-      </div>
-    </a>
+    <article class="work-gallery-item">
+      <a href="/xcel-energy.html" class="work-gallery-link" aria-label="My Energy Connection case study">
+        <figure class="work-gallery-figure">
+          <img src="/xcel-card-hero.png" alt="Three screens from the redesigned My Energy Connection app — dashboard, error state, and setup flow" class="work-gallery-image" loading="lazy" decoding="async">
+        </figure>
+        <p class="work-gallery-caption">
+          <span class="work-gallery-name">My Energy Connection:</span> Making real-time energy data easier to understand
+        </p>
+      </a>
+    </article>
 
-    <div class="card card--coming-soon">
-      <div class="card-img">
-        <img src="/generator-homepage.png" alt="Sustainable Fashion Generator app interface showing fiber selection and outfit output panels">
-        <span class="card-tag">Creative Technology · AI Tool</span>
-      </div>
-      <div class="card-body">
-        <div class="card-type">Full-stack AI tool · Built in 7 days</div>
-        <h2 class="card-name project-title">Sustainable Fashion Generator</h2>
-        <p class="card-hook">An AI tool that generates outfit concepts starting from material values, not trends. Sustainability scores grounded in real Higg Index data. Built solo with React, Claude API, and Vercel.</p>
-        <span class="card-coming-soon-tag">Coming soon</span>
-      </div>
-    </div>
-
-  </div>
-</section>
+    <article class="work-gallery-item" aria-label="Sustainable Fashion Generator — coming soon">
+      <figure class="work-gallery-figure">
+        <img src="/generator-homepage.png" alt="Sustainable Fashion Generator app interface showing fiber selection and outfit output panels" class="work-gallery-image" loading="lazy" decoding="async">
+      </figure>
+      <p class="work-gallery-caption">
+        <span class="work-gallery-name">Sustainable Fashion Generator:</span> Exploring material-led concepts with AI<span class="work-gallery-status">· Soon</span>
+      </p>
+    </article>
+  </section>
 </main>
-<footer>
-  <a href="/" class="footer-logo" aria-label="Nikaylah home">
-    <img src="/logo-v4.png" alt="" class="site-logo site-logo--footer" width="44" height="44">
-  </a>
-  <div class="footer-right">
-    <div class="footer-links" role="navigation" aria-label="Footer">
-      <a href="/" aria-current="page">Work</a>
-      <a href="/about/">About</a>
-      <a href="https://www.linkedin.com/in/nikaylah" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+<footer class="site-footer">
+  <div class="site-footer-closing" aria-hidden="true"></div>
+  <div class="site-footer-divider" role="presentation"></div>
+  <div class="site-footer-bar">
+    <a href="/" class="footer-logo" aria-label="Nikaylah home">
+      <img src="/logo-v4.png" alt="" class="site-logo site-logo--footer" width="44" height="44">
+    </a>
+    <div class="footer-right">
+      <div class="footer-links" role="navigation" aria-label="Footer">
+        <a href="/" aria-current="page">Work</a>
+        <a href="/about/">About</a>
+        <a href="https://www.linkedin.com/in/nikaylah" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://drive.google.com/file/d/1-Kf0VUjrW54PMTsQTBf5Oehbb4yCEA07/view?usp=sharing" target="_blank" rel="noopener noreferrer">CV</a>
+        <button type="button" onclick="revealEmail()" aria-label="Copy email address">Email</button>
+      </div>
+      <p class="footer-copy"><span class="footer-whisper">Designed to classical music, good snacks and the hum of a treadmill. Sometimes a nice café.</span> © 2026 Nikaylah.</p>
     </div>
-    <p class="footer-copy"><span class="footer-whisper">Designed to classical music, good snacks and the hum of a treadmill. Sometimes a nice café.</span> © 2026 Nikaylah.</p>
   </div>
 </footer>
 

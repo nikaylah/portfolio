@@ -47,13 +47,12 @@ canvas {
   overflow-x: clip;
 }
 
-.work {
+.work-gallery {
   overflow-x: visible;
 }
 
 .site-header,
 footer,
-.card,
 .project,
 .row,
 .anchor,
@@ -146,23 +145,30 @@ body:has(.email-btn) footer {
 
 /* ── 1440px+ large desktop ── */
 @media (min-width: 1440px) {
-  .hero,
-  .work,
   .shell,
-  footer,
   .page {
+    max-width: 1280px;
+  }
+
+  body:not(.page-home) .hero,
+  body:not(.page-home) footer {
     max-width: 1280px;
   }
 }
 
 /* ── 1024px laptop ── */
 @media (max-width: 1024px) {
-  .hero,
-  .work,
+  body:not(.page-home) .hero,
+  .work-gallery,
   .shell,
-  footer {
+  body:not(.page-home) footer {
     padding-left: 2rem;
     padding-right: 2rem;
+  }
+
+  .page-home .work-gallery {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
   }
 
   .page {
@@ -216,92 +222,54 @@ body:has(.email-btn) footer {
     gap: 0.4rem 0.65rem;
   }
 
-  .hero {
+  body:not(.page-home) .hero {
     padding-top: 64px;
     padding-bottom: 48px;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
 
-  .work,
+  .page-home .home-top {
+    min-height: clamp(78vh, 86vh, 94vh);
+  }
+
+  .page-home .hero {
+    padding: clamp(1.5rem, 4vw, 2rem) 1.25rem clamp(2.5rem, 5vw, 3rem);
+  }
+
+  .work-gallery,
   .shell,
-  footer {
+  body:not(.page-home) footer {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
   }
 
-  /* Homepage selected work — keep auto-fit grid, uniform cards */
-  #selected-work,
-  .work#selected-work {
-    width: 100%;
-    max-width: 100%;
-    overflow: visible;
-    box-sizing: border-box;
-  }
-
-  #selected-work .cards,
-  .work .cards {
-    display: grid !important;
-    grid-template-columns: repeat(auto-fit, minmax(min(100%, 100%), 1fr)) !important;
-    gap: 64px;
-    width: 100%;
+  .page-home .work-gallery {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
     max-width: 100%;
   }
 
-  #selected-work .card,
-  .work .card {
-    display: flex !important;
-    flex-direction: column !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    min-width: 0;
-    height: auto;
-    margin: 0;
-    box-sizing: border-box;
-    border-radius: 16px;
-    overflow: hidden;
+  .page-home .work-gallery-item {
+    margin-bottom: clamp(5.5rem, 8vw, 6.5rem);
   }
 
-  #selected-work .card-img,
-  .work .card-img {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    height: auto;
-    min-height: 0;
-    border-radius: 16px 16px 0 0;
-    overflow: hidden;
-    position: relative;
-    flex-shrink: 0;
+  .page-home .work-gallery-caption {
+    font-size: 1.0625rem;
+    line-height: 1.3;
   }
 
-  #selected-work .card-img img,
-  .work .card-img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    display: block;
-  }
-
-  #selected-work .card-tag,
-  .work .card-tag {
-    position: absolute;
-    bottom: 1rem;
-    left: 1rem;
-    z-index: 1;
-  }
-
-  #selected-work .card-body,
-  .work .card-body {
-    display: flex;
+  .page-home .site-footer-bar {
     flex-direction: column;
-    justify-content: space-between;
-    flex: 1;
-    background: var(--bg-card);
-    padding: 1.75rem 1.5rem 1.5rem;
-    width: 100%;
-    box-sizing: border-box;
-    overflow: visible;
+    align-items: flex-start;
+  }
+
+  .page-home .footer-right {
+    align-items: flex-start;
+  }
+
+  .page-home .footer-copy {
+    text-align: left;
   }
 
   .page {
@@ -316,7 +284,7 @@ body:has(.email-btn) footer {
     grid-template-columns: 1fr;
   }
 
-  /* Case-study grids only — homepage .work .cards uses flex above */
+  /* Case-study grids only */
   .page .cards {
     grid-template-columns: 1fr;
   }
@@ -334,10 +302,15 @@ body:has(.email-btn) footer {
     grid-template-columns: 1fr;
   }
 
-  footer {
+  body:not(.page-home) footer {
     flex-direction: column;
     align-items: flex-start;
     gap: 1.25rem;
+  }
+
+  .page-home .footer-links {
+    flex-wrap: wrap;
+    gap: 0.5rem 1.25rem;
   }
 
   .footer-right {
@@ -368,11 +341,24 @@ body:has(.email-btn) footer {
     padding: 0.35rem 0.15rem;
   }
 
-  .email-btn,
+  body:not(.page-home) .email-btn,
   .about-fun-btn {
     min-height: 44px;
     padding: 0.5rem 1rem;
     font-size: 0.7rem;
+  }
+
+  .page-home .email-btn {
+    bottom: 1.25rem;
+    right: 1.25rem;
+  }
+
+  .page-home .copy-toast {
+    left: 1.25rem;
+    right: 1.25rem;
+    bottom: 4.25rem;
+    max-width: none;
+    text-align: center;
   }
 
   .site-logo--footer {
@@ -380,18 +366,33 @@ body:has(.email-btn) footer {
     height: 48px;
   }
 
-  .hero {
+  body:not(.page-home) .hero {
     padding-top: 64px;
     padding-bottom: 48px;
     padding-left: 1rem;
     padding-right: 1rem;
   }
 
-  .work,
+  .work-gallery,
   .shell,
-  footer {
+  body:not(.page-home) footer {
     padding-left: 1rem;
     padding-right: 1rem;
+  }
+
+  .page-home .work-gallery {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .page-home .site-footer-divider {
+    margin-left: 1.25rem;
+    margin-right: 1.25rem;
+  }
+
+  .page-home .site-footer-bar {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
   }
 
   .page {
@@ -417,11 +418,6 @@ body:has(.email-btn) footer {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.75rem;
-  }
-
-  #selected-work .card-body,
-  .work .card-body {
-    padding: 1.5rem 20px 1.25rem;
   }
 
   .page .card-img {
@@ -459,7 +455,13 @@ body:has(.email-btn) footer {
     justify-content: flex-start;
   }
 
-  .footer-links {
+  body:not(.page-home) .footer-links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.15rem;
+  }
+
+  .page-home .footer-links {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.15rem;
@@ -471,6 +473,12 @@ body:has(.email-btn) footer {
 @media (hover: hover) and (pointer: fine) {
   .nav-link:hover {
     color: var(--text-primary);
+  }
+
+  .page-home .nav-link:hover,
+  .page-home .nav-email:hover {
+    color: #1a1a1a;
+    opacity: 0.62;
   }
 
   .nav-cta:hover {
@@ -494,12 +502,12 @@ body:has(.email-btn) footer {
     box-shadow: none;
   }
 
-  .card:hover {
+  .work-gallery-link:hover .work-gallery-image,
+  .work-gallery-link:focus-visible .work-gallery-image {
     transform: none;
-    box-shadow: none;
   }
 
-  .card:hover .card-img img {
+  .page-home .email-btn:hover {
     transform: none;
   }
 
