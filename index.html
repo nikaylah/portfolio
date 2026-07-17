@@ -3,15 +3,38 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nikaylah — Product Designer & Creative Technologist</title>
-<meta name="description" content="Product Designer based in New York City. Focused on high-performance interaction and human-centered systems.">
-<link rel="icon" href="/favicon.ico?v=3" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=3">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=3">
+<title>Nikaylah — Product Designer</title>
+<meta name="description" content="Product Designer based in New York City. Case studies in UX strategy, inclusion design, and enterprise product design — designing products people trust.">
+<link rel="canonical" href="https://nikaylah.design/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Nikaylah">
+<meta property="og:title" content="Nikaylah — Product Designer">
+<meta property="og:description" content="Product Designer based in New York City. Case studies in UX strategy, inclusion design, and enterprise product design — designing products people trust.">
+<meta property="og:url" content="https://nikaylah.design/">
+<meta property="og:image" content="https://nikaylah.design/crescent-homepage.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Nikaylah — Product Designer">
+<meta name="twitter:description" content="Product Designer based in New York City. Case studies in UX strategy, inclusion design, and enterprise product design.">
+<meta name="twitter:image" content="https://nikaylah.design/crescent-homepage.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Corinthia&display=swap" rel="stylesheet">
+<link rel="icon" href="/favicon.ico?v=6" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=6">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=6">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png?v=6">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=6">
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
 <link href="https://api.fontshare.com/v2/css?f[]=switzer@300&f[]=gambarino@400&display=swap" rel="stylesheet">
-<!-- Vercel Analytics — tracks page views and time on page -->
-<script defer src="/_vercel/insights/script.js"></script>
+<!-- Vercel Analytics — production only (avoids local 404) -->
+<script>
+if(location.hostname!=='localhost'&&location.hostname!=='127.0.0.1'){
+  const s=document.createElement('script');
+  s.src='/_vercel/insights/script.js';
+  s.defer=true;
+  document.head.appendChild(s);
+}
+</script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
@@ -22,10 +45,17 @@
   --text-secondary:#5c5c5c;
   --ui-border:rgba(26,26,26,0.12);
   --font:'Switzer',system-ui,-apple-system,sans-serif;
+  --shadow-subtle:0 10px 36px rgba(0,0,0,0.06);
+  --ink:#1F1B18;
+  --ink-secondary:#29241F;
+  --ink-muted:rgba(31,27,24,0.72);
+  --ink-soft:rgba(41,36,31,0.72);
 }
 html{scroll-behavior:smooth}
 body{
   line-height:1.6;overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
 }
 
 /* HOMEPAGE — textured intro (header + hero) */
@@ -34,49 +64,79 @@ body{
   display:flex;
   flex-direction:column;
   min-height:clamp(88vh,92vh,100vh);
-  background-image:url('/editorial-texture.png');
+  background-image:url('/editorial-texture-opt.png');
+  background-image:-webkit-image-set(
+    url('/editorial-texture.webp') type('image/webp'),
+    url('/editorial-texture-opt.png') 1x
+  );
+  background-image:image-set(
+    url('/editorial-texture.webp') type('image/webp'),
+    url('/editorial-texture-opt.png') 1x
+  );
   background-size:cover;
-  background-position:62% 28%;
+  background-position:78% 35%;
   background-repeat:no-repeat;
+}
+.page-home .home-top::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.08);
+  pointer-events:none;
+  z-index:0;
 }
 .page-home .site-header {
   position: relative;
+  z-index:1;
   flex-shrink: 0;
   background: transparent;
   border-bottom: none;
 }
+.page-home .nav-main{
+  padding-top:1.5rem;
+  padding-bottom:0.5rem;
+}
 .page-home .nav-home,
 .page-home .nav-link,
-.page-home .nav-email{
-  color:#1a1a1a;
+.page-home .nav-contact{
+  color:rgba(250,245,238,0.75);
+  font-weight:300;
+  letter-spacing:0.16em;
+  font-size:0.8125rem;
+  text-decoration:none;
+  transition:opacity 0.2s,text-decoration-color 0.2s;
 }
 .page-home .nav-home:hover,
 .page-home .nav-link:hover,
-.page-home .nav-email:hover{
-  color:#1a1a1a;
-  opacity:0.62;
+.page-home .nav-contact:hover{
+  color:rgba(250,245,238,0.97);
+  opacity:0.72;
+  text-decoration:underline;
+  text-underline-offset:0.28em;
+  text-decoration-thickness:1px;
 }
-.page-home .nav-email{
+.page-home .nav-contact{
   background:none;
   border:none;
   padding:0.35rem 0.25rem;
   font-family:var(--font);
-  font-size:0.72rem;
-  font-weight:400;
-  letter-spacing:0.12em;
+  font-weight:300;
+  letter-spacing:0.16em;
   text-transform:uppercase;
   cursor:pointer;
   min-height:44px;
   display:inline-flex;
   align-items:center;
 }
-.page-home .nav-email:focus-visible{
-  outline:2px solid #1a1a1a;
+.page-home .nav-contact:focus-visible{
+  outline:2px solid rgba(250,245,238,0.97);
   outline-offset:3px;
 }
 
 /* HERO */
 .page-home .hero{
+  position:relative;
+  z-index:1;
   flex:1;
   display:flex;
   flex-direction:column;
@@ -90,150 +150,317 @@ body{
   background:transparent;
 }
 .page-home .hero-inner{
-  max-width:640px;
+  max-width:38rem;
   width:100%;
   margin:0 auto;
+  padding-top:clamp(1.5rem,4vw,2.5rem);
+  transform:translateY(-10px);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;
+}
+.page-home .hero-intro{
+  margin:0 0 clamp(2.5rem,4.5vw,3.25rem);
+  font-family:var(--font);
+  font-size:clamp(1.125rem,1.8vw,1.3125rem);
+  font-weight:400;
+  line-height:1.45;
+  letter-spacing:0.01em;
+  opacity:0;
+  animation:fadeUp 0.8s 0.1s forwards;
+}
+.page-home .hero-intro-greeting{
+  font-weight:300;
+  color:rgba(250,245,238,0.75);
+}
+.page-home .hero-smiley{
+  display:inline-block;
+  width:1.15em;
+  height:1.15em;
+  vertical-align:-0.22em;
+  margin:0 0.4em;
+  color:rgba(250,245,238,0.75);
+  flex:none;
+}
+.page-home .hero-intro-name{
+  font-family:'Corinthia',cursive;
+  font-size:1.75em;
+  font-weight:400;
+  line-height:1;
+  letter-spacing:normal;
+  color:rgba(250,245,238,0.97);
+  display:inline-block;
+  vertical-align:-0.06em;
+  padding:0 0.04em;
+}
+.page-home .hero-role{
+  margin:0 0 clamp(3.125rem,5.5vw,3.875rem);
+  font-family:var(--font);
+  font-size:clamp(1.0625rem,1.6vw,1.3125rem);
+  font-weight:400;
+  line-height:1.4;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  color:rgba(250,245,238,0.88);
+  opacity:0;
+  animation:fadeUp 0.8s 0.18s forwards;
 }
 .page-home .hero-headline{
-  margin:0;
-  opacity:0;
-  animation:fadeUp 0.8s 0.15s forwards;
-}
-.page-home .hero-eyebrow{
-  display:block;
-  font-family:var(--font);
-  font-size:clamp(0.875rem,1.6vw,1rem);
-  font-weight:400;
-  letter-spacing:0.04em;
-  color:#1a1a1a;
-  margin-bottom:1.25rem;
-}
-.page-home .hero-title{
-  display:block;
+  margin:0 auto clamp(3rem,5.5vw,3.75rem);
+  max-width:11.5em;
   font-family:'Gambarino',Georgia,serif;
-  font-size:clamp(2.25rem,5.5vw,3.5rem);
+  font-size:clamp(3rem,5.2vw,4.75rem);
   font-weight:400;
   line-height:1.12;
   letter-spacing:-0.02em;
-  color:#1a1a1a;
+  color:#FAF5EE;
+  opacity:0;
+  animation:fadeUp 0.8s 0.26s forwards;
+}
+.page-home .hero-headline em{
+  font-style:italic;
+  color:#D9A15B;
 }
 .page-home .hero-lede{
-  margin:1.75rem auto 0;
-  max-width:34rem;
+  margin:0 auto;
+  max-width:55ch;
   font-family:var(--font);
-  font-size:clamp(1rem,2vw,1.125rem);
-  font-weight:300;
+  font-size:clamp(1.125rem,1.8vw,1.3125rem);
+  font-weight:400;
   line-height:1.65;
-  color:rgba(26,26,26,0.82);
+  color:rgba(250,245,238,0.8);
   opacity:0;
-  animation:fadeUp 0.8s 0.25s forwards;
+  animation:fadeUp 0.8s 0.36s forwards;
 }
 .page-home .hero-scroll{
   display:inline-block;
-  margin-top:2.5rem;
+  margin-top:clamp(3.25rem,6vw,4rem);
   font-family:var(--font);
-  font-size:0.8125rem;
+  font-size:clamp(0.875rem,1.2vw,1rem);
   font-weight:400;
   letter-spacing:0.06em;
-  color:rgba(26,26,26,0.65);
+  color:rgba(250,245,238,0.75);
   text-decoration:none;
   opacity:0;
-  animation:fadeUp 0.8s 0.35s forwards;
-  transition:color 0.2s,opacity 0.2s;
+  animation:fadeUp 0.8s 0.46s forwards;
+  transition:color 0.2s;
 }
 .page-home .hero-scroll:hover{
-  color:#1a1a1a;
+  color:rgba(250,245,238,0.97);
 }
 
-/* WORK GALLERY */
-.page-home .work-gallery{
-  max-width:1000px;
+/* WORK — project cards */
+.page-home .work{
+  --card-bg:#EEDBB1;
+  --card-img-bg:#F1F2F4;
+  --card-border:rgba(26,26,26,0.1);
+  --card-accent:#5c5c5c;
+  --card-tag-bg:rgba(26,26,26,0.88);
+  --card-tag-text:#F1F2F4;
+  --card-ink:#1a1a1a;
+  --card-ink-mid:#5c5c5c;
+  padding:clamp(2.5rem,5vw,3.5rem) clamp(1.25rem,3vw,3rem) clamp(5.5rem,10vw,7.5rem);
+  max-width:1200px;
   margin:0 auto;
-  padding:clamp(2.5rem,5vw,3.5rem) clamp(1.25rem,3vw,2rem) clamp(5rem,9vw,7rem);
 }
-.page-home .work-gallery-title{
-  font-family:'Gambarino',Georgia,serif;
+.page-home .work-label{
+  font-family:var(--font);
+  font-size:0.65rem;
   font-weight:400;
-  font-size:clamp(2.75rem,6vw,3.75rem);
-  line-height:1;
-  letter-spacing:-0.02em;
-  text-align:center;
-  color:var(--text-primary);
-  margin:0 0 clamp(3rem,5vw,4rem);
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:var(--text-secondary);
+  margin-bottom:1.75rem;
 }
-.page-home .work-gallery-item{
-  margin:0 0 clamp(5.5rem,8vw,7rem);
+.page-home .work .cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,350px),1fr));
+  gap:64px;
 }
-.page-home .work-gallery-item:last-child{
-  margin-bottom:0;
-}
-.page-home .work-gallery-link{
-  display:block;
+.page-home .work .card{
+  border-radius:16px;
+  overflow:hidden;
+  background:var(--card-bg);
+  border:0.5px solid var(--card-border);
   text-decoration:none;
   color:inherit;
+  display:flex;
+  flex-direction:column;
+  height:100%;
+  box-shadow:0 4px 20px rgba(0,0,0,0.05);
+  transition:transform 0.3s,box-shadow 0.3s;
 }
-.page-home .work-gallery-figure{
-  margin:0;
-  aspect-ratio:16/10;
+.page-home .work .card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 8px 28px rgba(0,0,0,0.08);
+  border-color:var(--card-border);
+}
+.page-home .work .card-img{
+  width:100%;
+  aspect-ratio:4/3;
   overflow:hidden;
-  border-radius:6px;
+  position:relative;
+  background:var(--card-img-bg);
+  flex-shrink:0;
 }
-.page-home .work-gallery-image{
+.page-home .work .card-img img{
   width:100%;
   height:100%;
-  display:block;
   object-fit:cover;
   object-position:center;
-  transition:transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94);
+  display:block;
+  transition:transform 0.5s ease;
 }
-.page-home .work-gallery-link:hover .work-gallery-image,
-.page-home .work-gallery-link:focus-visible .work-gallery-image{
-  transform:scale(1.012);
-}
-.page-home .work-gallery-caption{
-  margin:1.0625rem 0 0;
+.page-home .work .card:hover .card-img img{transform:scale(1.03)}
+.page-home .work .card-tag{
+  position:absolute;
+  bottom:1rem;
+  left:1rem;
+  background:var(--card-tag-bg);
+  color:var(--card-tag-text);
   font-family:var(--font);
-  font-size:clamp(1.0625rem,1.8vw,1.3125rem);
-  font-weight:400;
-  line-height:1.3;
-  color:#1a1a1a;
-}
-.page-home .work-gallery-name{
+  font-size:0.65rem;
   font-weight:500;
+  letter-spacing:0.1em;
+  text-transform:uppercase;
+  padding:0.35rem 0.85rem;
+  border-radius:100px;
+  border:none;
 }
-.page-home .work-gallery-status{
-  display:inline;
-  margin-left:0.3em;
-  font-size:0.88em;
+.page-home .work .card-body{
+  padding:1.75rem 1.75rem 1.5rem;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  flex:1;
+  min-height:0;
+  gap:0.6rem;
+}
+.page-home .work .card-type{
+  font-family:var(--font);
+  font-size:0.65rem;
   font-weight:400;
-  color:rgba(26,26,26,0.5);
-  letter-spacing:normal;
-  text-transform:none;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--card-accent);
+}
+.page-home .work .card-name{
+  font-family:'Gambarino',Georgia,serif;
+  font-size:clamp(1.5rem,2.5vw,2rem);
+  line-height:1.15;
+}
+.page-home .work .card-hook{
+  font-family:var(--font);
+  font-size:0.875rem;
+  font-weight:300;
+  color:var(--card-ink-mid);
+  line-height:1.75;
+  flex:1;
+}
+.page-home .work .card-cta{
+  display:inline-flex;
+  align-items:center;
+  gap:0.4rem;
+  font-family:var(--font);
+  font-size:0.78rem;
+  font-weight:500;
+  color:var(--card-ink);
+  letter-spacing:0.02em;
+  transition:gap 0.2s;
+  flex-shrink:0;
+}
+.page-home .work .card:hover .card-cta{gap:0.7rem}
+.page-home .work .card--coming-soon{
+  cursor:default;
+  pointer-events:none;
+  opacity:0.85;
+}
+.page-home .work .card--coming-soon:hover{
+  transform:none;
+  box-shadow:0 4px 20px rgba(0,0,0,0.05);
+}
+.page-home .work .card-img--placeholder{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:var(--card-bg);
+}
+.page-home .work .card-placeholder{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:0.85rem;
+  text-align:center;
+  padding:2rem;
+}
+.page-home .work .card-coming-soon-tag{
+  display:inline-block;
+  font-family:var(--font);
+  font-size:0.65rem;
+  font-weight:500;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--text-secondary);
+  border:1px solid var(--ui-border);
+  padding:0.3rem 0.85rem;
+  border-radius:100px;
+}
+.page-home .work .card-placeholder-title{
+  font-family:'Gambarino',Georgia,serif;
+  font-size:clamp(1.25rem,2.2vw,1.6rem);
+  color:var(--card-ink);
+  max-width:16ch;
+}
+@media (max-width:768px){
+  .page-home .work .cards{
+    grid-template-columns:1fr;
+    gap:3rem;
+  }
+  .page-home .work .card-body{
+    padding:1.75rem 1.5rem 1.5rem;
+  }
+}
+@media (prefers-reduced-motion:reduce){
+  .page-home .work .card,
+  .page-home .work .card-img img,
+  .page-home .work .card-cta{
+    transition:none;
+  }
+  .page-home .work .card:hover{transform:none}
+  .page-home .work .card:hover .card-img img{transform:none}
 }
 
 /* FOOTER */
 .page-home .site-footer{
   display:flex;
   flex-direction:column;
-  min-height:clamp(420px,48vh,560px);
+  min-height:clamp(480px,52vh,620px);
   max-width:none;
   margin:0;
   padding:0;
   border-top:none;
   background-color:transparent;
-  background-image:url('/editorial-texture.png');
+  background-image:url('/editorial-texture-opt.png');
+  background-image:-webkit-image-set(
+    url('/editorial-texture.webp') type('image/webp'),
+    url('/editorial-texture-opt.png') 1x
+  );
+  background-image:image-set(
+    url('/editorial-texture.webp') type('image/webp'),
+    url('/editorial-texture-opt.png') 1x
+  );
   background-size:cover;
   background-position:18% 82%;
   background-repeat:no-repeat;
 }
 .page-home .site-footer-closing{
   flex:1;
-  min-height:clamp(12rem,28vh,18rem);
+  min-height:clamp(14rem,32vh,20rem);
 }
 .page-home .site-footer-divider{
   height:1px;
   margin:0 clamp(1.25rem,4vw,3rem);
-  background:rgba(26,26,26,0.14);
+  background:rgba(31,27,24,0.16);
 }
 .page-home .site-footer-bar{
   display:flex;
@@ -243,7 +470,7 @@ body{
   gap:1.25rem;
   padding:clamp(1.75rem,3vw,2.5rem) clamp(1.25rem,4vw,3rem) clamp(2rem,4vw,2.75rem);
 }
-.page-home .footer-logo{flex-shrink:0;line-height:0;text-decoration:none}
+.page-home .footer-logo{flex-shrink:0;text-decoration:none}
 .page-home .footer-right{
   display:flex;
   flex-direction:column;
@@ -257,13 +484,13 @@ body{
 }
 .page-home .footer-links a,
 .page-home .footer-links button{
-  font-size:0.78rem;
+  font-size:clamp(0.75rem,1vw,0.875rem);
   font-weight:400;
-  letter-spacing:0.06em;
+  letter-spacing:0.08em;
   text-transform:uppercase;
-  color:rgba(26,26,26,0.72);
+  color:rgba(250,245,238,0.75);
   text-decoration:none;
-  transition:color 0.2s;
+  transition:color 0.2s,opacity 0.2s;
   background:none;
   border:none;
   padding:0;
@@ -272,53 +499,27 @@ body{
 }
 .page-home .footer-links a:hover,
 .page-home .footer-links button:hover{
-  color:#1a1a1a;
+  color:rgba(250,245,238,0.97);
+  opacity:1;
 }
 .page-home .footer-copy{
-  font-size:0.68rem;
-  color:rgba(26,26,26,0.62);
+  font-size:clamp(0.6875rem,0.9vw,0.75rem);
+  color:rgba(250,245,238,0.65);
   margin:0;
   text-align:right;
+  line-height:1.55;
+  font-weight:400;
 }
 
-/* FLOATING EMAIL */
-.page-home .email-btn{
-  position:fixed;
-  bottom:2rem;
-  right:2rem;
-  z-index:99;
-  font-family:var(--font);
-  background:rgba(26,26,26,0.9);
-  color:#f1f2f4;
-  border:1px solid rgba(26,26,26,0.15);
-  border-radius:999px;
-  box-shadow:none;
-  padding:0.55rem 1rem;
-  font-size:0.7rem;
-  font-weight:400;
-  letter-spacing:0.04em;
-  cursor:pointer;
-  display:inline-flex;
-  align-items:center;
-  gap:0.4rem;
-  transition:background 0.2s,opacity 0.2s;
-}
-.page-home .email-btn:hover{
-  background:#1a1a1a;
-  border-color:#1a1a1a;
-  color:#f1f2f4;
-  box-shadow:none;
-  transform:none;
-}
 .page-home .copy-toast{
   position:fixed;
-  bottom:5rem;
-  right:2rem;
-  font-size:0.72rem;
-  padding:0.5rem 1rem;
-  background:rgba(26,26,26,0.92);
-  color:#f1f2f4;
-  border:1px solid rgba(26,26,26,0.12);
+  bottom:4.5rem;
+  right:1.75rem;
+  font-size:0.6875rem;
+  padding:0.45rem 0.9rem;
+  background:rgba(31,27,24,0.88);
+  color:rgba(241,242,244,0.92);
+  border:1px solid rgba(31,27,24,0.1);
   border-radius:999px;
   box-shadow:none;
   z-index:100;
@@ -327,6 +528,10 @@ body{
   pointer-events:none;
 }
 .page-home .copy-toast.show{opacity:1}
+
+.page-home .footer-whisper{
+  opacity:0.8;
+}
 
 @keyframes fadeUp{
   from{opacity:0;transform:translateY(16px)}
@@ -356,68 +561,130 @@ body{
 </style>
 <link rel="stylesheet" href="/editorial-theme.css">
 <link rel="stylesheet" href="/responsive.css">
+<style>
+/* Hero + footer brand — beat shared stylesheets on dark oxblood background */
+.page-home .nav-home .brand-mark--nav{color:currentColor;}
+.page-home .footer-logo{color:rgba(250,245,238,0.75);}
+.page-home .footer-logo .brand-mark{color:#FBF7EF;}
+.page-home .footer-logo:hover{color:rgba(250,245,238,0.97);opacity:1;}
+.page-home .nav-home:hover,
+.page-home .nav-link:hover,
+.page-home .nav-contact:hover{
+  color:rgba(250,245,238,0.97);
+}
+/* Footer links — beat shared stylesheets on dark oxblood background */
+.page-home .footer-links a:hover,
+.page-home .footer-links button:hover{
+  color:rgba(250,245,238,0.97);
+}
+/* Email pill — beats editorial-theme.css gold .email-btn */
+.email-btn{
+  position:fixed;
+  bottom:1.75rem;
+  right:1.75rem;
+  z-index:40;
+  display:inline-flex;
+  align-items:center;
+  gap:0.5rem;
+  padding:0.65rem 1rem;
+  font-family:var(--font);
+  font-size:0.6875rem;
+  font-weight:400;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--ink-secondary);
+  background:rgba(241,242,244,0.92);
+  border:1px solid rgba(26,26,26,0.1);
+  border-radius:999px;
+  cursor:pointer;
+  backdrop-filter:blur(8px);
+  transition:background 0.3s,border-color 0.3s,color 0.3s;
+  box-shadow:none;
+}
+.email-btn:hover{
+  background:#fff;
+  color:var(--ink);
+  border-color:rgba(26,26,26,0.18);
+  box-shadow:none;
+}
+</style>
 </head>
 <body class="page-home">
   <a href="#main-content" class="skip-link">Skip to main content</a>
 <div class="home-top">
   <header class="site-header">
     <nav class="nav-main" aria-label="Site">
-      <a href="/index.html" class="nav-home">Nikaylah</a>
+      <a href="/index.html" class="nav-home" aria-label="Nikaylah home">
+        <svg class="brand-mark brand-mark--nav" viewBox="0 0 164 100" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M46 92C30 92 20 84 18 74C9 73 3 66 3 57C3 48 10 41 19 41C21 30 32 22 45 22C55 22 64 27 69 35C72 26 81 20 91 20C104 20 114 29 115 41C127 42 136 50 136 61C136 66 133 71 128 74C127 84 118 92 106 92Z" fill="currentColor"/></svg>
+        <span class="brand-name">NIKAYLAH</span>
+      </a>
       <div class="nav-center">
+        <a href="#selected-work" class="nav-link">Work</a>
         <a href="/about/" class="nav-link">About</a>
         <a href="https://www.linkedin.com/in/nikaylah" target="_blank" rel="noopener noreferrer" class="nav-link">LinkedIn</a>
-        <a href="https://drive.google.com/file/d/1-Kf0VUjrW54PMTsQTBf5Oehbb4yCEA07/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="nav-link">CV</a>
-        <button class="nav-link nav-email" type="button" onclick="revealEmail()" aria-label="Copy email address">Email</button>
+        <a href="https://drive.google.com/file/d/18i05f4y_GH3vvXX1J9wEel7txm3prvzZ/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="nav-link">CV</a>
+        <button class="nav-link nav-contact" type="button" onclick="revealEmail()" aria-label="Copy email address">Contact</button>
       </div>
     </nav>
   </header>
 
   <div class="hero">
     <div class="hero-inner">
-      <h1 class="hero-headline">
-        <span class="hero-eyebrow">Hi, I'm Nikaylah,</span>
-        <span class="hero-title">a Product Designer and Creative Technologist.</span>
-      </h1>
-      <p class="hero-lede">I research, design, and build for the people who have the vision but need someone to bring it to life.</p>
-      <a href="#selected-work" class="hero-scroll">See my work ↓</a>
+      <p class="hero-intro"><span class="hero-intro-greeting">Hi,</span><svg class="hero-smiley" viewBox="0 0 52 52" fill="none" aria-hidden="true" focusable="false"><path d="M26 6 C39 5 47 15 46 27 C45 39 35 47 24 46 C13 45 5 34 7 22 C8.5 12 16 6.5 26 6.2" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" fill="none"/><path d="M17 21 C17.5 19.5 18.5 19.5 19 21" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" fill="none"/><path d="M32 20 C32.5 18.5 33.5 18.5 34 20" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" fill="none"/><path d="M16 30 C20 36 32 36.5 36 29.5" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" fill="none"/></svg><span class="hero-intro-greeting">I'm</span> <span class="hero-intro-name">Nikaylah</span>.</p>
+      <p class="hero-role">Product Designer</p>
+      <h1 class="hero-headline">Designing products people <em>trust</em>.</h1>
+      <p class="hero-lede">Helping people move forward through thoughtful interaction design.</p>
+      <a href="#selected-work" class="hero-scroll">See selected work ↓</a>
     </div>
   </div>
 </div>
 
 <main id="main-content">
-  <section class="work-gallery" id="selected-work" aria-label="Selected work">
-    <h2 class="work-gallery-title">Work</h2>
+  <section class="work" id="selected-work" aria-label="Selected work">
+    <div class="work-label">Selected work</div>
+    <div class="cards">
 
-    <article class="work-gallery-item">
-      <a href="/crescent-stables.html" class="work-gallery-link" aria-label="Crescent Stables case study">
-        <figure class="work-gallery-figure">
-          <img src="/crescent-homepage.png" alt="Redesigned Crescent Stables homepage showing warm cream and terracotta design" class="work-gallery-image" loading="lazy" decoding="async">
-        </figure>
-        <p class="work-gallery-caption">
-          <span class="work-gallery-name">Crescent Stables:</span> Designing confidence before the first ride
-        </p>
+      <a href="/crescent-stables.html" class="card" aria-label="Crescent Stables case study">
+        <div class="card-img">
+          <img height="1836" width="2936" src="/crescent-homepage.png" alt="Redesigned Crescent Stables homepage showing warm cream and terracotta design" loading="lazy" decoding="async">
+          <span class="card-tag">UX Strategy · Inclusion Design</span>
+        </div>
+        <div class="card-body">
+          <div class="card-type">UX Redesign · Lead Designer</div>
+          <h2 class="card-name project-title">Crescent Stables</h2>
+          <p class="card-hook">A full redesign for a women-led equestrian brand whose original site was attracting the wrong audience. Research, behavioral psychology, and inclusion design made the experience feel like it was built for her specifically.</p>
+          <span class="card-cta">View case study →</span>
+        </div>
       </a>
-    </article>
 
-    <article class="work-gallery-item">
-      <a href="/xcel-energy.html" class="work-gallery-link" aria-label="My Energy Connection case study">
-        <figure class="work-gallery-figure">
-          <img src="/xcel-card-hero.png" alt="Three screens from the redesigned My Energy Connection app — dashboard, error state, and setup flow" class="work-gallery-image" loading="lazy" decoding="async">
-        </figure>
-        <p class="work-gallery-caption">
-          <span class="work-gallery-name">My Energy Connection:</span> Making real-time energy data easier to understand
-        </p>
+      <a href="/xcel-energy" class="card" aria-label="My Energy Connection case study">
+        <div class="card-img">
+          <img height="576" width="946" src="/xcel-card-hero.png" alt="Three screens from the redesigned My Energy Connection app: dashboard, error state, and setup flow" loading="lazy" decoding="async">
+          <span class="card-tag">Enterprise UX · Data Design</span>
+        </div>
+        <div class="card-body">
+          <div class="card-type">UX Redesign · Accenture × Xcel Energy</div>
+          <h2 class="card-name project-title">My Energy Connection</h2>
+          <p class="card-hook">A smart meter app built for engineers, redesigned for people. I came back to the data I once built, this time as a designer, to make real-time energy usage legible, actionable, and human.</p>
+          <span class="card-cta">View case study →</span>
+        </div>
       </a>
-    </article>
 
-    <article class="work-gallery-item" aria-label="Sustainable Fashion Generator — coming soon">
-      <figure class="work-gallery-figure">
-        <img src="/generator-homepage.png" alt="Sustainable Fashion Generator app interface showing fiber selection and outfit output panels" class="work-gallery-image" loading="lazy" decoding="async">
-      </figure>
-      <p class="work-gallery-caption">
-        <span class="work-gallery-name">Sustainable Fashion Generator:</span> Exploring material-led concepts with AI<span class="work-gallery-status">· Soon</span>
-      </p>
-    </article>
+      <article class="card card--coming-soon" aria-label="Sustainable Fashion Generator, coming soon">
+        <div class="card-img card-img--placeholder">
+          <div class="card-placeholder">
+            <span class="card-coming-soon-tag">Coming soon</span>
+            <span class="card-placeholder-title">Sustainable Fashion Generator</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-type">Concept · In Progress</div>
+          <h2 class="card-name project-title">Sustainable Fashion Generator</h2>
+          <p class="card-hook">Exploring material-led concepts with AI.</p>
+        </div>
+      </article>
+
+    </div>
   </section>
 </main>
 <footer class="site-footer">
@@ -425,14 +692,15 @@ body{
   <div class="site-footer-divider" role="presentation"></div>
   <div class="site-footer-bar">
     <a href="/" class="footer-logo" aria-label="Nikaylah home">
-      <img src="/logo-v4.png" alt="" class="site-logo site-logo--footer" width="44" height="44">
+      <svg class="brand-mark brand-mark--footer" viewBox="0 0 164 100" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M46 92C30 92 20 84 18 74C9 73 3 66 3 57C3 48 10 41 19 41C21 30 32 22 45 22C55 22 64 27 69 35C72 26 81 20 91 20C104 20 114 29 115 41C127 42 136 50 136 61C136 66 133 71 128 74C127 84 118 92 106 92Z" fill="currentColor"/></svg>
+      <span class="brand-name">NIKAYLAH</span>
     </a>
     <div class="footer-right">
       <div class="footer-links" role="navigation" aria-label="Footer">
         <a href="/" aria-current="page">Work</a>
         <a href="/about/">About</a>
         <a href="https://www.linkedin.com/in/nikaylah" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        <a href="https://drive.google.com/file/d/1-Kf0VUjrW54PMTsQTBf5Oehbb4yCEA07/view?usp=sharing" target="_blank" rel="noopener noreferrer">CV</a>
+        <a href="https://drive.google.com/file/d/18i05f4y_GH3vvXX1J9wEel7txm3prvzZ/view?usp=sharing" target="_blank" rel="noopener noreferrer">CV</a>
         <button type="button" onclick="revealEmail()" aria-label="Copy email address">Email</button>
       </div>
       <p class="footer-copy"><span class="footer-whisper">Designed to classical music, good snacks and the hum of a treadmill. Sometimes a nice café.</span> © 2026 Nikaylah.</p>
@@ -441,7 +709,7 @@ body{
 </footer>
 
 <button class="email-btn" onclick="revealEmail()" aria-label="Copy email address">
-  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
   Email me
 </button>
 <div class="copy-toast" id="toast" role="status" aria-live="polite"></div>
@@ -454,7 +722,7 @@ function revealEmail(){
   const e=u+'@'+d;
   navigator.clipboard.writeText(e).then(()=>{
     const t=document.getElementById('toast');
-    t.textContent='Copied — '+e;
+    t.textContent='Copied. '+e;
     t.classList.add('show');
     setTimeout(()=>t.classList.remove('show'),2800);
   }).catch(()=>{

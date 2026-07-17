@@ -54,6 +54,11 @@ h3,
 .work-gallery-title,
 .hero-title,
 .panel-heading,
+.about-intro-headline,
+.about-pullquote-text,
+.about-journey-step,
+.about-principles-title,
+.about-closing-headline,
 .about-engineering-title,
 .anchor-title,
 .pain-heading,
@@ -83,7 +88,7 @@ li,
 .nav-center,
 .nav-meta-bar,
 .nav-link,
-.nav-email,
+.nav-contact,
 .nav-home,
 .nav-meta,
 .nav-cta,
@@ -94,10 +99,20 @@ li,
 .meta-val,
 .row-body,
 .about-body,
+.about-eyebrow,
+.about-section-label,
+.about-journey-desc,
+.about-life-intro,
+.about-engineering-lead,
+.about-closing-link,
+.about-principle,
+.panel-label,
 .hero-eyebrow,
 .hero-subtitle,
 .section-label,
 .panel-label,
+.hero-intro,
+.hero-role,
 .hero-lede,
 .work-gallery-caption,
 .work-gallery-name,
@@ -202,6 +217,9 @@ p,
 
 .nav-home {
   flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
   font-size: 0.62rem;
   font-weight: 500;
   letter-spacing: 0.2em;
@@ -219,6 +237,31 @@ p,
 .nav-home:focus-visible {
   outline: 2px solid var(--brand-primary);
   outline-offset: 3px;
+}
+
+/* Visible focus on dark surfaces (hero nav, back-to-top) */
+.back-to-top:focus-visible {
+  outline: 2px solid var(--bg-page, #f1f2f4);
+  outline-offset: 2px;
+}
+
+.page-home .nav-link:focus-visible,
+.page-home .nav-home:focus-visible {
+  outline: 2px solid rgba(250, 245, 238, 0.97);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .nav-center {
@@ -325,8 +368,44 @@ footer {
 
 .footer-logo {
   flex-shrink: 0;
-  line-height: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #FBF7EF;
   text-decoration: none;
+  line-height: 1.2;
+  transition: opacity 0.2s ease;
+}
+
+.footer-logo:hover {
+  opacity: 0.55;
+}
+
+.brand-mark {
+  height: 18px;
+  width: auto;
+  display: block;
+  flex: none;
+}
+
+.brand-mark--nav {
+  color: #1F1B18;
+}
+
+.brand-mark--footer {
+  color: #FBF7EF;
+}
+
+.brand-name {
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  line-height: inherit;
 }
 
 .footer-whisper {
@@ -343,8 +422,11 @@ footer {
 }
 
 .page-home .nav-link:hover,
-.page-home .nav-email:hover {
-  color: #1a1a1a;
+.page-home .nav-contact:hover {
+  color: var(--ink, #1f1b18);
+  opacity: 0.72;
+  text-decoration: underline;
+  text-underline-offset: 0.28em;
 }
 
 .copy-toast {

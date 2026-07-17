@@ -4,520 +4,978 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About — Nikaylah</title>
-<meta name="description" content="Product Designer based in New York City. Focused on high-performance interaction and human-centered systems.">
-<link rel="icon" href="/favicon.ico?v=3" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=3">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=3">
+<meta name="description" content="Product designer based in NYC. A personal archive — growing up creative, building software, and finding design as the place where every interest converged.">
+<link rel="canonical" href="https://nikaylah.design/about/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Nikaylah">
+<meta property="og:title" content="About — Nikaylah">
+<meta property="og:description" content="Product designer based in NYC. Growing up creative, building software, and finding design as the place where every interest converged.">
+<meta property="og:url" content="https://nikaylah.design/about/">
+<meta property="og:image" content="https://nikaylah.design/favicon-512.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="About — Nikaylah">
+<meta name="twitter:description" content="Product designer based in NYC. Growing up creative, building software, and finding design as the place where every interest converged.">
+<meta name="twitter:image" content="https://nikaylah.design/favicon-512.png">
+<link rel="icon" href="/favicon.ico?v=6" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=6">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=6">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png?v=6">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=6">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Corinthia&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
-<link href="https://api.fontshare.com/v2/css?f[]=switzer@300&f[]=gambarino@400&display=swap" rel="stylesheet">
-<script defer src="/_vercel/insights/script.js"></script>
+<link href="https://api.fontshare.com/v2/css?f[]=switzer@300,400&f[]=gambarino@400&display=swap" rel="stylesheet">
+<script>
+if(location.hostname!=='localhost'&&location.hostname!=='127.0.0.1'){
+  const s=document.createElement('script');
+  s.src='/_vercel/insights/script.js';
+  s.defer=true;
+  document.head.appendChild(s);
+}
+</script>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
   --bg-page:#F1F2F4;
   --bg-primary:#F1F2F4;
-  --bg-callout:#EEDBB1;
-  --brand-primary:#DDA22F;
-  --brand-primary-hover:#c89228;
   --text-primary:#1a1a1a;
-  --text-secondary:#5c5c5c;
-  --ui-border:rgba(26,26,26,0.12);
   --font:'Switzer',system-ui,-apple-system,sans-serif;
   --font-display:'Gambarino',Georgia,serif;
+  --font-hand:'Corinthia',cursive;
+  --shadow-subtle:0 10px 36px rgba(0,0,0,0.06);
+  --ink:#1F1B18;
+  --ink-secondary:#29241F;
+  --ink-soft:rgba(41,36,31,0.68);
+  --ink-whisper:rgba(41,36,31,0.48);
+  --story-gap:clamp(2rem,3vw,3rem);
 }
 html{scroll-behavior:smooth}
-@media (max-width:768px){
-  html{scroll-behavior:auto}
-}
+@media (max-width:768px){html{scroll-behavior:auto}}
 body{
-  line-height:1.6;overflow-x:hidden;
+  line-height:1.6;
+  overflow-x:hidden;
+  background:var(--bg-page);
+  color:var(--ink-secondary);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
 }
 
-/* NAV — see editorial-theme.css */
-
-/* ABOUT PAGE */
-
-/* Section 1 — Opening */
-.about-opening{
-  padding:80px 3rem 0;
-  max-width:1200px;margin:0 auto;
-  text-align:center;
+.page-about .nav-contact{
+  background:none;
+  border:none;
+  padding:0.35rem 0.25rem;
+  font-family:var(--font);
+  font-weight:400;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  cursor:pointer;
+  min-height:44px;
+  display:inline-flex;
+  align-items:center;
 }
-.about-opening-headline,
-.about-quote-text{
-  font-family:var(--font-display,'Gambarino',Georgia,serif);
+
+/* Chapter rhythm */
+.about-chapter{
+  padding-left:clamp(1.25rem,4vw,3rem);
+  padding-right:clamp(1.25rem,4vw,3rem);
+}
+
+/* Chapter 1: opening statement */
+.about-chapter--opening{
+  min-height:clamp(68vh,74vh,82vh);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding-top:clamp(5rem,10vw,7rem);
+  padding-bottom:clamp(4rem,10vw,8rem);
 }
 .about-opening-headline{
-  font-size:32px;font-weight:400;
-  line-height:1.45;letter-spacing:-0.02em;
-  max-width:680px;margin:0 auto;
-  color:var(--text-primary);
+  font-family:var(--font-display);
+  font-size:clamp(2.5rem,6.8vw,4.75rem);
+  font-weight:400;
+  line-height:1.1;
+  letter-spacing:-0.03em;
+  color:var(--ink);
+  max-width:11.5em;
+  margin:0 auto;
+  text-align:center;
+  text-wrap:balance;
 }
 
-/* Section 2 — Bio */
-.about-bio{
-  padding:48px 0 3rem;
+/* Chapter 2: editorial column */
+.about-chapter--story{
+  padding-top:clamp(1.25rem,3.5vw,2.75rem);
+  padding-bottom:clamp(3.5rem,7vw,5.5rem);
 }
-.about-bio-grid{
+.about-story-column{
+  max-width:35ch;
+  margin:0 auto;
+  background:#F4F1E8;
+  border-radius:8px;
+  padding:1.5rem 1.75rem;
+  box-shadow:0 0 0 1px rgba(31,27,24,0.08), 0 2px 10px rgba(31,27,24,0.05);
+}
+.about-body{
+  font-family:var(--font);
+  font-size:clamp(1rem,1.35vw,1.0625rem);
+  font-weight:300;
+  line-height:1.76;
+  color:var(--ink-secondary);
+  margin-bottom:1.6em;
+}
+.about-body:last-child{margin-bottom:0}
+
+/* Chapter 3: visual timeline */
+.about-chapter--cabinet{
+  padding-top:clamp(4rem,6.5vw,5.25rem);
+  padding-bottom:clamp(1.5rem,2.5vw,2rem);
+}
+.about-timeline{
+  position:relative;
+  max-width:48rem;
+  margin:0 auto;
+  padding:0 clamp(0.5rem,2vw,1rem);
+}
+.timeline-axis{
+  position:absolute;
+  left:50%;
+  top:1.5rem;
+  bottom:1.5rem;
+  width:1px;
+  background:linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(31,27,24,0.05) 6%,
+    rgba(31,27,24,0.05) 94%,
+    transparent 100%
+  );
+  transform:translateX(-50%);
+  pointer-events:none;
+  z-index:0;
+}
+.timeline-step{
+  position:relative;
+  z-index:1;
+  margin-bottom:clamp(7rem,9vw,8.25rem);
+}
+.timeline-step--major{
+  margin-bottom:clamp(11rem,13vw,12.25rem);
+}
+.timeline-step--related{
+  margin-bottom:clamp(6rem,7.25vw,7rem);
+}
+.timeline-step--finale{
+  margin-top:clamp(2.5rem,3.5vw,3.75rem);
+  margin-bottom:0;
+}
+.timeline-step--left,
+.timeline-step--right,
+.timeline-step--finale{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+}
+.timeline-step--left .timeline-unit,
+.timeline-step--left .timeline-unit--pair{
+  grid-column:1;
+  justify-self:end;
+  padding-right:clamp(1rem,2vw,1.5rem);
+}
+.timeline-step--right .timeline-unit,
+.timeline-step--right .timeline-unit--pair{
+  grid-column:2;
+  justify-self:start;
+  padding-left:clamp(1rem,2vw,1.5rem);
+}
+.timeline-step--finale .timeline-unit{
+  grid-column:1 / -1;
+  justify-self:center;
+}
+.timeline-unit{
+  display:grid;
+  grid-template-columns:auto minmax(0,28ch);
+  gap:var(--story-gap);
+  align-items:center;
+  max-width:100%;
+}
+.timeline-step--right .timeline-unit{
+  grid-template-columns:minmax(0,28ch) auto;
+}
+.timeline-step--finale .timeline-unit{
+  grid-template-columns:1fr;
+  justify-items:center;
+  text-align:center;
+}
+.timeline-unit--pair{
+  display:grid;
+  grid-template-columns:auto minmax(0,28ch);
+  gap:var(--story-gap);
+  align-items:center;
+}
+.timeline-icons{
   display:flex;
-  align-items:flex-start;
-  gap:48px;
+  align-items:center;
+  gap:clamp(2rem,3.5vw,2.75rem);
+  flex-shrink:0;
 }
-.about-bio-photo{
-  flex:0 0 40%;
-  width:40%;
-  max-width:40%;
-  border-radius:12px;
-  overflow:hidden;
+.timeline-item{
+  position:relative;
+  width:clamp(8rem,14vw,9.5rem);
+  flex-shrink:0;
+  z-index:1;
+}
+.timeline-item--compact{
+  width:clamp(5.5rem,9vw,6.5rem);
+}
+.timeline-step--finale .timeline-item{
+  width:clamp(8.5rem,15vw,10.5rem);
+}
+.timeline-item:is(:hover,:focus-within,.is-open){
+  z-index:3;
+}
+.timeline-trigger{
+  appearance:none;
+  border:none;
+  background:none;
+  padding:0;
   cursor:pointer;
+  width:100%;
+  display:block;
+  position:relative;
+  color:inherit;
+  text-align:inherit;
 }
-.about-bio-copy{
-  flex:0 0 55%;
-  width:55%;
-  max-width:55%;
-  display:flex;
-  flex-direction:column;
-  gap:1.25rem;
+.timeline-trigger:focus-visible{
+  outline:2px solid var(--ink);
+  outline-offset:6px;
+  border-radius:2px;
 }
-.about-bio-photo img{
+.timeline-figure{
   display:block;
   width:100%;
-  max-height:380px;
-  object-fit:cover;
-  border-radius:12px;
-  filter:blur(8px);
-  transition:filter 0.4s ease;
+  transform:translate3d(0,0,0) scale(1);
+  transition:transform 1.4s cubic-bezier(0.16,1,0.3,1),filter 1.4s cubic-bezier(0.16,1,0.3,1);
+  animation:timeline-float 12s ease-in-out infinite;
+  animation-delay:var(--float-delay,0s);
+  filter:drop-shadow(0 10px 18px rgba(31,27,24,0.06));
+  position:relative;
+  z-index:1;
 }
-.about-bio-photo:hover img,
-.about-bio-photo:focus-within img{
-  filter:blur(0);
-}
-@media (prefers-reduced-motion:reduce){
-  .about-bio-photo img{transition:none}
-}
-.about-bio-lead{
-  font-family:var(--font-display,'Gambarino',Georgia,serif);
-  font-size:1.35rem;line-height:1.3;
-  color:var(--text-primary);
-}
-
-/* Section 3 — Featured quote */
-.about-quote{
-  background:#2C1A0E;
-  color:#FAF5EE;
-  padding:80px 3rem;
+.timeline-figure img{
   width:100%;
+  height:auto;
+  display:block;
+  object-fit:contain;
 }
-.about-quote-text{
-  font-size:26px;font-weight:400;font-style:italic;
-  line-height:1.5;text-align:center;
-  max-width:640px;margin:0 auto;
-  color:#FAF5EE;
+.timeline-item:hover .timeline-figure,
+.timeline-item.is-open .timeline-figure,
+.timeline-item:focus-within .timeline-figure{
+  transform:scale(1.025);
+  filter:drop-shadow(0 14px 24px rgba(31,27,24,0.09));
+  animation-play-state:paused;
 }
-.about-quote-text p{margin:0}
-
-/* Section 4 — Credentials */
-.about-credentials{
-  padding:3rem 0 0;
-  margin-bottom:56px;
+.timeline-story{
+  font-family:var(--font);
+  font-size:0.9375rem;
+  font-weight:300;
+  line-height:1.55;
+  color:var(--ink-soft);
+  max-width:28ch;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity 0.55s cubic-bezier(0.16,1,0.3,1),transform 0.55s cubic-bezier(0.16,1,0.3,1);
+  position:relative;
+  z-index:2;
 }
-.about-credentials-list{
-  list-style:none;
-  margin:0;
-  padding:0;
+.timeline-step--left .timeline-story{
+  text-align:left;
+  transform:translateX(8px);
 }
-.about-credentials-row{
-  display:flex;
-  gap:24px;
-  line-height:2.2;
-  align-items:baseline;
+.timeline-step--right .timeline-story{
+  grid-column:1;
+  grid-row:1;
+  text-align:right;
+  justify-self:end;
+  transform:translateX(-8px);
 }
-.about-credentials-label{
-  display:inline-block;
-  width:140px;
+.timeline-step--right .timeline-item{
+  grid-column:2;
+  grid-row:1;
+}
+.timeline-step--left .timeline-item{
+  grid-column:1;
+  grid-row:1;
+}
+.timeline-step--left .timeline-story{
+  grid-column:2;
+  grid-row:1;
+}
+.timeline-unit:not(.timeline-unit--pair):has(.timeline-item:hover) .timeline-story,
+.timeline-unit:not(.timeline-unit--pair):has(.timeline-item.is-open) .timeline-story,
+.timeline-unit:not(.timeline-unit--pair):has(.timeline-item:focus-within) .timeline-story{
+  opacity:1;
+  transform:translateX(0);
+}
+.timeline-step--left:has(.timeline-unit--pair) .timeline-unit--pair{
+  grid-column:1 / -1;
+  justify-self:stretch;
+  grid-template-columns:1fr 1fr;
+  width:100%;
+  max-width:100%;
+  padding-right:0;
+  gap:0;
+}
+.timeline-step--left:has(.timeline-unit--pair) .timeline-icons{
+  justify-self:end;
+  padding-right:clamp(2.25rem,4vw,3.25rem);
+}
+.timeline-step--left:has(.timeline-unit--pair) .timeline-story-panel{
+  justify-self:start;
+  padding-left:clamp(2.25rem,4vw,3.25rem);
+  width:28ch;
+  min-width:20ch;
+  max-width:28ch;
   flex-shrink:0;
-  font-size:13px;
-  font-weight:400;
-  color:#9C7A55;
 }
-.about-credentials-value{
-  font-size:13px;
-  font-weight:500;
-  color:#2C1A0E;
-}
-
-/* Section 5 — Focus (about-meta) */
-.about-meta{
-  padding:0;
-  margin-bottom:48px;
-}
-.meta-block{margin-bottom:2.5rem}
-.meta-block:last-child{margin-bottom:0}
-.section-label{
-  font-size:0.65rem;font-weight:400;
-  letter-spacing:0.18em;text-transform:uppercase;
-  color:var(--text-secondary);margin-bottom:1rem;
-}
-.skill-tags{display:flex;flex-wrap:wrap;gap:8px}
-.skill-tag{
-  font-size:0.65rem;font-weight:400;
-  letter-spacing:0.06em;
-  border-radius:0;padding:0.35rem 0.85rem;
-}
-.about-meta .skill-tag{
-  background:#EFE6D8;
-  border:0.5px solid #D5C8B4;
-  color:#2C1A0E;
-}
-.about-tools .skill-tag{
-  background:transparent;
-  border:0.5px solid #D5C8B4;
-  color:#4A3020;
-}
-
-/* Section 6 — Tools */
-.about-tools{
-  padding:0;
-  margin-bottom:64px;
-}
-.about-tools-groups{
-  display:flex;flex-direction:column;gap:24px;
-}
-.about-tools-group{
-  display:flex;flex-direction:column;gap:8px;
-}
-.about-tools-category{
-  font-size:10px;font-weight:400;
-  letter-spacing:0.1em;text-transform:uppercase;
-  color:#9C7A55;
-  margin:0;
-  padding-left:8px;
-}
-
-/* Section 7 — Currently Tinkering */
-.about-tinkering{
-  padding:0;
-  max-width:640px;
-  margin-bottom:80px;
-}
-.about-tinkering-text{
-  font-size:0.9rem;color:var(--text-secondary);
-  line-height:1.75;font-weight:300;
-}
-.about-tinkering-text a{
-  color:var(--brand-primary);
-  text-decoration:none;
-  transition:color 0.2s;
-}
-.about-tinkering-text a:hover{
-  color:var(--brand-primary-hover,#c89228);
-}
-
-@media (max-width:768px){
-  .about-opening{padding:80px 1.5rem 0}
-  .about-opening-headline{font-size:24px}
-  .about-quote{padding:80px 1.5rem}
-  .about-quote-text{font-size:20px}
-  .about-bio-grid{
-    flex-direction:column;
-    align-items:stretch;
-    gap:1.5rem;
-  }
-  .about-bio-photo,
-  .about-bio-copy{
-    flex:none;
-    width:100%;
-    max-width:100%;
-  }
-}
-
-.about-body{
-  font-size:0.9rem;color:var(--text-secondary);
-  line-height:1.75;font-weight:300;
-}
-
-/* PAGE */
-.shell{max-width:1200px;margin:0 auto;padding:0 3rem}
-
-.about-engineering{
-  padding:0 0 4rem;
-}
-.about-engineering-title{
-  font-size:clamp(1.75rem,3.5vw,2.5rem);
-  margin-bottom:0.75rem;line-height:1.15;
-}
-.panel-label{
-  font-size:0.65rem;letter-spacing:0.18em;
-  text-transform:uppercase;color:var(--text-secondary);font-weight:400;
-}
-.about-engineering-lead{
-  font-size:0.9rem;color:var(--text-secondary);
-  line-height:1.75;font-weight:300;
-  max-width:52ch;margin-bottom:1.75rem;
-}
-.about-engineering-fullscreen{
-  display:inline-block;margin-top:1rem;
-  font-size:0.72rem;font-weight:500;
-  letter-spacing:0.08em;text-transform:uppercase;
-  color:var(--text-secondary);text-decoration:none;
-}
-.about-engineering-fullscreen:hover{color:var(--text-primary)}
-
-/* Closing statement */
-.about-closing{
-  background:#FAF5EE;
-  padding:80px 3rem;
+.timeline-story-panel{
+  position:relative;
+  min-height:4.75em;
   width:100%;
-  text-align:center;
+  max-width:28ch;
+  z-index:2;
+}
+.timeline-story-panel .timeline-story{
+  position:absolute;
+  top:50%;
+  left:0;
+  right:0;
+  transform:translateY(-50%) translateX(8px);
+  text-align:left;
+}
+.timeline-story-panel .timeline-story.is-active{
+  opacity:1;
+  transform:translateY(-50%) translateX(0);
+}
+.about-timeline > .timeline-step:nth-child(2) .timeline-item{width:clamp(8.25rem,14.2vw,9.75rem)}
+.about-timeline > .timeline-step:nth-child(3) .timeline-item{width:clamp(7.75rem,13.5vw,9.15rem)}
+.about-timeline > .timeline-step:nth-child(3) .timeline-unit{padding-left:clamp(1.35rem,2.2vw,2rem)}
+.about-timeline > .timeline-step:nth-child(5) .timeline-item{width:clamp(7.5rem,13vw,8.85rem)}
+.about-timeline > .timeline-step:nth-child(6) .timeline-item{width:clamp(8.15rem,14vw,9.35rem)}
+.about-timeline > .timeline-step:nth-child(7) .timeline-item{width:clamp(8.35rem,14.4vw,9.65rem)}
+.about-timeline > .timeline-step:nth-child(8) .timeline-item{width:clamp(7.65rem,13.2vw,9rem)}
+@media (max-width:1100px){
+  .timeline-step--left:has(.timeline-unit--pair) .timeline-story-panel{
+    width:min(26ch,100%);
+    min-width:18ch;
+  }
+}
+.about-chapter--manifesto{
+  padding-top:clamp(5.5rem,7.5vw,7rem);
+  padding-bottom:0;
+  scroll-margin-top:var(--site-header-offset,5.75rem);
+}
+.timeline-step--finale .timeline-unit{
   display:flex;
   flex-direction:column;
   align-items:center;
-  gap:1.5rem;
+  gap:1.25rem;
+  max-width:32ch;
 }
-.about-closing-text{
-  font-family:var(--font-display,'Gambarino',Georgia,serif);
-  font-size:22px;font-weight:400;
-  color:#2C1A0E;
-  max-width:560px;
-  line-height:1.7;
+.timeline-step--finale .timeline-story{
+  position:static;
+  margin-top:0;
+  text-align:center;
+  max-width:30ch;
+  transform:translateY(8px);
+}
+.timeline-step--finale .timeline-unit:has(.timeline-item:hover) .timeline-story,
+.timeline-step--finale .timeline-unit:has(.timeline-item.is-open) .timeline-story,
+.timeline-step--finale .timeline-unit:has(.timeline-item:focus-within) .timeline-story{
+  transform:translateY(0);
+}
+
+@keyframes timeline-float{
+  0%,100%{transform:translate3d(0,0,0) scale(1)}
+  50%{transform:translate3d(0,-5px,0) scale(1)}
+}
+
+/* Chapter 4: manifesto */
+.about-manifesto{
+  font-family:var(--font-display);
+  font-size:clamp(2rem,4.6vw,3.25rem);
+  font-weight:400;
+  font-style:italic;
+  line-height:1.22;
+  letter-spacing:-0.025em;
+  color:var(--ink);
+  max-width:16.5em;
+  margin:0 auto;
+  text-align:center;
+  text-wrap:balance;
+}
+
+/* Handwritten carousel introduction */
+.about-film-note{
+  font-family:var(--font-hand);
+  font-size:clamp(2.125rem,4vw,3rem);
+  font-weight:400;
+  line-height:1.2;
+  color:var(--ink-secondary);
+  text-align:center;
+  margin:clamp(5rem,7vw,7.5rem) auto clamp(2.25rem,3.5vw,3rem);
+  transform:translateX(-0.35em) rotate(-0.6deg);
+  max-width:20ch;
+}
+
+/* Photography gallery */
+.shell{
+  max-width:1080px;
+  margin:0 auto;
+  padding:0 clamp(1.25rem,4vw,3rem);
+}
+.about-gallery{
+  padding:0 0 clamp(3rem,5vw,4rem);
+  opacity:0;
+  transform:translateY(14px);
+  transition:opacity 1.2s cubic-bezier(0.16,1,0.3,1),transform 1.2s cubic-bezier(0.16,1,0.3,1);
+}
+.about-gallery.is-visible{
+  opacity:1;
+  transform:translateY(0);
+}
+.about-gallery .gc-container{
   margin:0;
 }
-.about-closing-link{
-  font-size:0.78rem;font-weight:500;
-  letter-spacing:0.02em;
-  text-decoration:none;
-  transition:color 0.2s;
+
+/* Closing line */
+.about-chapter--closing{
+  padding:clamp(5.5rem,8vw,7.5rem) clamp(1.25rem,4vw,3rem) clamp(3.5rem,5.5vw,4.5rem);
+  text-align:center;
+}
+.about-closing-line{
+  font-family:var(--font-display);
+  font-size:clamp(1.35rem,2.8vw,1.75rem);
+  font-weight:400;
+  line-height:1.4;
+  letter-spacing:-0.015em;
+  color:var(--ink);
+  margin:0;
 }
 
-/* FOOTER — matches index */
+/* Footer + email (shared patterns) */
 footer{
-  border-top:1px solid var(--ui-border);
-  padding:2.5rem 3rem;
-  display:flex;justify-content:space-between;
-  align-items:center;flex-wrap:wrap;gap:1rem;
-  max-width:1200px;margin:0 auto;
+  display:flex;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:2rem;
+  padding:clamp(2rem,4vw,2.75rem) clamp(1.25rem,4vw,3rem);
+  border-top:none;
 }
-.footer-logo{flex-shrink:0;line-height:0;text-decoration:none}
-.footer-right{display:flex;flex-direction:column;align-items:flex-end;gap:0.5rem}
-.footer-links{display:flex;gap:1.5rem;flex-wrap:wrap}
+.footer-right{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:1rem;
+  max-width:36rem;
+}
+.footer-links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:1.25rem 1.75rem;
+}
 .footer-links a{
-  font-size:0.78rem;font-weight:400;letter-spacing:0.06em;
-  text-transform:uppercase;color:var(--text-secondary);
-  text-decoration:none;transition:color 0.2s;
+  font-family:var(--font);
+  font-size:0.75rem;
+  font-weight:400;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--ink-secondary);
+  text-decoration:none;
 }
-.footer-links a:hover{color:var(--text-primary)}
-.footer-copy{font-size:0.68rem;color:var(--text-secondary);margin:0}
+.footer-links a:hover{text-decoration:underline;text-underline-offset:0.25em}
+.footer-copy{
+  font-family:var(--font);
+  font-size:0.75rem;
+  font-weight:300;
+  line-height:1.6;
+  color:var(--ink-soft);
+  text-align:right;
+}
+.footer-whisper{display:block;margin-bottom:0.35em}
 
-.email-btn{
-  position:fixed;bottom:2rem;right:2rem;z-index:99;
-  background:var(--text-primary);color:var(--bg-primary);
-  font-size:0.75rem;letter-spacing:0.06em;
-  padding:0.75rem 1.25rem;border-radius:0;
-  cursor:pointer;border:1px solid var(--text-primary);font-family:var(--font);
-  transition:background 0.2s,color 0.2s;
-}
-.email-btn:hover{background:var(--bg-primary);color:var(--text-primary)}
 .copy-toast{
-  position:fixed;bottom:5rem;right:2rem;
-  background:var(--text-primary);color:var(--bg-primary);
-  font-size:0.72rem;padding:0.5rem 1rem;
-  border-radius:8px;z-index:100;
-  opacity:0;transition:opacity 0.3s;pointer-events:none;
+  position:fixed;
+  bottom:4.5rem;
+  right:1.75rem;
+  z-index:41;
+  padding:0.6rem 0.9rem;
+  font-family:var(--font);
+  font-size:0.75rem;
+  color:var(--ink);
+  background:#fff;
+  border:1px solid rgba(26,26,26,0.1);
+  border-radius:4px;
+  opacity:0;
+  transform:translateY(6px);
+  transition:opacity 0.3s,transform 0.3s;
+  pointer-events:none;
 }
-.copy-toast.show{opacity:1}
+.copy-toast.show{opacity:1;transform:translateY(0)}
 
 .skip-link{
-  position:absolute;top:-100px;left:1rem;
-  background:var(--text-primary);color:var(--bg-primary);
-  padding:0.5rem 1rem;border-radius:4px;
-  font-size:0.85rem;font-family:var(--font);
-  text-decoration:none;z-index:999;transition:top 0.2s;
+  position:absolute;
+  top:-100%;
+  left:1rem;
+  z-index:100;
+  padding:0.5rem 1rem;
+  background:var(--ink);
+  color:#fff;
+  text-decoration:none;
+  font-family:var(--font);
+  font-size:0.875rem;
 }
 .skip-link:focus{top:1rem}
+
 *:focus-visible{
-  outline:2px solid var(--text-primary);outline-offset:3px;border-radius:2px;
+  outline:2px solid var(--ink);
+  outline-offset:3px;
+  border-radius:2px;
 }
-@media(prefers-reduced-motion:reduce){
-  *{animation:none !important;transition:none !important}
+
+@media (prefers-reduced-motion:reduce){
+  *{animation:none !important}
+  .timeline-figure{transform:none !important;transition:none !important}
+  .about-gallery{opacity:1;transform:none;transition:none}
 }
-/* Responsive layout: see responsive.css */
+
+@media (max-width:768px){
+  .about-chapter--opening{
+    min-height:clamp(60vh,68vh,72vh);
+    padding-bottom:clamp(3rem,8vw,5rem);
+  }
+  .about-chapter--story{
+    padding-top:clamp(1rem,3vw,2rem);
+    padding-bottom:clamp(3rem,6vw,4.5rem);
+  }
+  .about-timeline{
+    max-width:24rem;
+    padding-left:2.5rem;
+  }
+  .timeline-axis{
+    left:1.25rem;
+    transform:none;
+  }
+  .timeline-step--left,
+  .timeline-step--right,
+  .timeline-step--finale{
+    display:block;
+    margin-bottom:clamp(4.5rem,8vw,5.75rem);
+  }
+  .timeline-step--major{
+    margin-bottom:clamp(5.75rem,9vw,7rem);
+  }
+  .timeline-step--related{
+    margin-bottom:clamp(3.75rem,6.5vw,4.75rem);
+  }
+  .timeline-step--finale{
+    margin-top:clamp(1.75rem,3vw,2.5rem);
+  }
+  .timeline-step--left .timeline-unit,
+  .timeline-step--right .timeline-unit,
+  .timeline-step--left .timeline-unit--pair,
+  .timeline-step--right .timeline-unit--pair,
+  .timeline-step--finale .timeline-unit{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap:0;
+    padding-left:1.5rem;
+    justify-self:start;
+  }
+  .timeline-unit--pair{
+    grid-template-columns:1fr;
+  }
+  .timeline-icons{
+    flex-direction:row;
+    gap:clamp(2rem,6vw,2.75rem);
+  }
+  .timeline-item,
+  .timeline-item--compact,
+  .timeline-step--finale .timeline-item{
+    width:clamp(7rem,32vw,8.5rem);
+  }
+  .timeline-item--compact{
+    width:clamp(5rem,24vw,6rem);
+  }
+  .timeline-story,
+  .timeline-story-panel .timeline-story{
+    position:static;
+    width:auto;
+    max-width:none;
+    opacity:0;
+    max-height:0;
+    overflow:hidden;
+    margin-top:0;
+    transform:none !important;
+    text-align:left;
+    transition:opacity 0.5s cubic-bezier(0.16,1,0.3,1),max-height 0.5s cubic-bezier(0.16,1,0.3,1);
+  }
+  .timeline-story-panel{
+    min-height:0;
+    width:100%;
+  }
+  .timeline-unit:not(.timeline-unit--pair):has(.timeline-item.is-open) .timeline-story,
+  .timeline-story-panel .timeline-story.is-active{
+    opacity:1;
+    max-height:24rem;
+    overflow:visible;
+    margin-top:1rem;
+  }
+  .timeline-unit:has(.timeline-item:hover) .timeline-story,
+  .timeline-unit:has(.timeline-item:focus-within) .timeline-story,
+  .timeline-unit--pair:has([data-artifact="camera"]:hover) .timeline-story[data-for="camera"],
+  .timeline-unit--pair:has([data-artifact="film"]:hover) .timeline-story[data-for="film"]{
+    opacity:0;
+    max-height:0;
+    margin-top:0;
+  }
+  .timeline-step--finale .timeline-story{
+    text-align:left;
+  }
+  .about-chapter--manifesto{
+    padding-top:clamp(4.5rem,7vw,6rem);
+  }
+  .about-film-note{
+    margin:clamp(4rem,6.5vw,5.5rem) auto clamp(2rem,3.5vw,2.75rem);
+    font-size:clamp(1.875rem,7vw,2.5rem);
+    text-align:left;
+    padding-left:clamp(1.25rem,4vw,3rem);
+    padding-right:clamp(1.25rem,4vw,3rem);
+    max-width:100%;
+    transform:none;
+  }
+  .about-chapter--closing{
+    padding-top:clamp(4.5rem,7vw,6rem);
+    padding-bottom:clamp(3.5rem,5.5vw,4.5rem);
+  }
+  footer{flex-direction:column;align-items:flex-start}
+  .footer-right{align-items:flex-start}
+  .footer-copy{text-align:left}
+  .copy-toast{
+    left:1.25rem;
+    right:1.25rem;
+    bottom:4.25rem;
+    text-align:center;
+  }
+}
 </style>
 <link rel="stylesheet" href="/editorial-theme.css">
 <link rel="stylesheet" href="/responsive.css">
 <link rel="stylesheet" href="/gesture-interface.css?v=25">
+<style>
+/* About page parchment + dot grid — beats shared body/main backgrounds */
+body.page-about,
+body.page-about #main-content{
+  background-color:#F4F1E8;
+  background-image:radial-gradient(rgba(31,27,24,0.14) 1.2px, transparent 1.2px);
+  background-size:24px 24px;
+}
+
+/* Mid-page sections — transparent so dots show through continuously */
+.page-about .about-chapter,
+.page-about .about-chapter--opening,
+.page-about .about-chapter--story,
+.page-about .about-chapter--cabinet,
+.page-about .about-chapter--manifesto,
+.page-about .about-chapter--closing,
+.page-about .about-film-note,
+.page-about .about-timeline,
+.page-about .shell,
+.page-about .about-gallery,
+.page-about .gc-container,
+.page-about .gc-container .gc-experience,
+.page-about .gc-container .gc-stage,
+.page-about .gc-container .gc-spatial-hub,
+.page-about .gc-container .gc-gallery-scene,
+.page-about .gc-container .gc-gallery{
+  background:transparent;
+}
+
+/* Footer — solid parchment, no dot grid */
+.page-about footer{
+  background-color:#F4F1E8;
+  background-image:none;
+}
+
+/* Header — solid parchment band, seamless into dotted body */
+body.page-about .site-header{
+  background-color:#F4F1E8;
+  border-bottom:1px solid rgba(31,27,24,0.08);
+}
+
+/* Email pill — beats editorial-theme.css gold .email-btn */
+.email-btn{
+  position:fixed;
+  bottom:1.75rem;
+  right:1.75rem;
+  z-index:40;
+  display:inline-flex;
+  align-items:center;
+  gap:0.5rem;
+  padding:0.65rem 1rem;
+  font-family:var(--font);
+  font-size:0.6875rem;
+  font-weight:400;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--ink-secondary);
+  background:rgba(241,242,244,0.92);
+  border:1px solid rgba(26,26,26,0.1);
+  border-radius:999px;
+  cursor:pointer;
+  backdrop-filter:blur(8px);
+  transition:background 0.3s,border-color 0.3s,color 0.3s;
+  box-shadow:none;
+}
+.email-btn:hover{
+  background:#fff;
+  color:var(--ink);
+  border-color:rgba(26,26,26,0.18);
+  box-shadow:none;
+}
+
+</style>
 </head>
-<body>
+<body class="page-about">
 <a href="#main-content" class="skip-link">Skip to main content</a>
 
 <header class="site-header">
   <nav class="nav-main" aria-label="Site">
-    <a href="/index.html" class="nav-home">Nikaylah</a>
+    <a href="/index.html" class="nav-home" aria-label="Nikaylah home">
+      <svg class="brand-mark brand-mark--nav" viewBox="0 0 164 100" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M46 92C30 92 20 84 18 74C9 73 3 66 3 57C3 48 10 41 19 41C21 30 32 22 45 22C55 22 64 27 69 35C72 26 81 20 91 20C104 20 114 29 115 41C127 42 136 50 136 61C136 66 133 71 128 74C127 84 118 92 106 92Z" fill="currentColor"/></svg>
+      <span class="brand-name">NIKAYLAH</span>
+    </a>
     <div class="nav-center">
+      <a href="/#selected-work" class="nav-link">Work</a>
       <a href="/about/" class="nav-link nav-link--current" aria-current="page">About</a>
       <a href="https://www.linkedin.com/in/nikaylah" target="_blank" rel="noopener noreferrer" class="nav-link">LinkedIn</a>
-      <a href="https://drive.google.com/file/d/1-Kf0VUjrW54PMTsQTBf5Oehbb4yCEA07/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="nav-link">CV</a>
-      <button class="nav-cta" type="button" onclick="revealEmail()" aria-label="Copy email address">Email me</button>
+      <a href="https://drive.google.com/file/d/18i05f4y_GH3vvXX1J9wEel7txm3prvzZ/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="nav-link">CV</a>
+      <button class="nav-link nav-contact" type="button" onclick="revealEmail()" aria-label="Copy email address">Contact</button>
     </div>
   </nav>
 </header>
 
 <main id="main-content">
-  <section class="about-opening" aria-label="Introduction">
-    <h1 class="about-opening-headline">I see the world through a film camera and a terminal window. Design is where those two things finally made sense together.</h1>
+
+  <section class="about-chapter about-chapter--opening" aria-label="Opening">
+    <h1 class="about-opening-headline">I grew up making things long before I knew what product design was.</h1>
   </section>
 
-  <div class="shell">
-    <section class="about-bio" aria-label="Background">
-      <div class="about-bio-grid">
-        <div class="about-bio-photo" tabindex="0" aria-label="Profile photo — hover to reveal">
-          <img src="/portfolio-assets/selfie.png" alt="Nikaylah" width="400" height="400" decoding="async">
-        </div>
-        <div class="about-bio-copy">
-          <p class="about-bio-lead">I grew up painting, sewing and carrying a film camera.</p>
-          <p class="about-body">Then I studied computer science, spent years building and shipping software and found that product design is where both halves finally made sense.</p>
+  <section class="about-chapter about-chapter--story" aria-label="Story">
+    <h2 class="visually-hidden">My story</h2>
+    <div class="about-story-column">
+      <p class="about-body">I spent most of my childhood with a paintbrush, a sewing needle, or a camera in my hand. Making things were never just hobbies. They were how I paid attention to the world.</p>
+      <p class="about-body">I studied Computer Science because I wanted to understand how things worked underneath. Then I spent years in software engineering and technology consulting, building systems, reading error logs, and learning what it takes to ship something real.</p>
+      <p class="about-body">Somewhere along the way, I realized the problems I cared about most were not technical. They were human. The moment someone hesitates before clicking. The interface that makes a complicated process feel possible. That is where product design found me.</p>
+      <p class="about-body">Today, I design for confidence and clarity, especially in moments that feel unfamiliar. I want people to move forward feeling capable, not overwhelmed.</p>
+    </div>
+  </section>
+
+  <section class="about-chapter about-chapter--cabinet" aria-label="Visual timeline">
+    <h2 class="visually-hidden">How I got here</h2>
+    <div class="about-timeline" id="about-timeline">
+      <div class="timeline-axis" aria-hidden="true"></div>
+
+      <div class="timeline-step timeline-step--left timeline-step--major">
+        <div class="timeline-unit">
+          <article class="timeline-item" style="--float-delay:0s">
+            <button class="timeline-trigger" type="button" aria-expanded="false" aria-label="Sketchbook. Drawing was how I learned to translate what I noticed into something real.">
+              <span class="timeline-figure">
+                <img loading="lazy" src="/about/icons/sketchbook.svg" alt="" width="1024" height="1024" decoding="async">
+              </span>
+            </button>
+          </article>
+          <p class="timeline-story">Drawing was how I learned to translate what I noticed into something real.</p>
         </div>
       </div>
-    </section>
-  </div>
 
-  <section class="about-quote" aria-label="Design philosophy">
-    <blockquote class="about-quote-text">
-      <p>I design with the technical depth of someone who has actually read the error logs and the eye of someone who still shoots on film.</p>
+      <div class="timeline-step timeline-step--right timeline-step--related">
+        <div class="timeline-unit">
+          <article class="timeline-item" style="--float-delay:0.8s">
+            <button class="timeline-trigger" type="button" aria-expanded="false" aria-label="Sewing needle. Before interfaces, I learned that every detail changes how something feels.">
+              <span class="timeline-figure">
+                <img loading="lazy" src="/about/icons/needle.svg" alt="" width="1024" height="1024" decoding="async">
+              </span>
+            </button>
+          </article>
+          <p class="timeline-story">Before interfaces, I learned that every detail changes how something feels.</p>
+        </div>
+      </div>
+
+      <div class="timeline-step timeline-step--left timeline-step--major">
+        <div class="timeline-unit timeline-unit--pair">
+          <div class="timeline-icons">
+            <article class="timeline-item" data-artifact="camera" style="--float-delay:1.2s">
+              <button class="timeline-trigger" type="button" aria-expanded="false" aria-label="Instant camera. Photography taught me to slow down and notice what other people overlook.">
+                <span class="timeline-figure">
+                  <img loading="lazy" src="/about/icons/camera.svg" alt="" width="1024" height="1024" decoding="async">
+                </span>
+              </button>
+            </article>
+            <article class="timeline-item timeline-item--compact" data-artifact="film" style="--float-delay:1.8s">
+              <button class="timeline-trigger" type="button" aria-expanded="false" aria-label="Film roll. Every frame taught me that what you leave out matters as much as what you keep.">
+                <span class="timeline-figure">
+                  <picture><source srcset="/about/icons/film-roll.webp" type="image/webp"><img loading="lazy" src="/about/icons/film-roll-opt.png" alt="" width="1024" height="1024" decoding="async"></picture>
+                </span>
+              </button>
+            </article>
+          </div>
+          <div class="timeline-story-panel" aria-live="polite">
+            <p class="timeline-story" data-for="camera">Photography taught me to slow down and notice what other people overlook.</p>
+            <p class="timeline-story" data-for="film">Every frame taught me that what you leave out matters as much as what you keep.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-step timeline-step--right timeline-step--related">
+        <div class="timeline-unit">
+          <article class="timeline-item" style="--float-delay:2.2s">
+            <button class="timeline-trigger" type="button" aria-expanded="false" aria-label="Journal. Most of my best design ideas started as notes in the margins.">
+              <span class="timeline-figure">
+                <picture><source srcset="/about/icons/journal.webp" type="image/webp"><img loading="lazy" src="/about/icons/journal-opt.png" alt="" width="1024" height="1024" decoding="async"></picture>
+              </span>
+            </button>
+          </article>
+          <p class="timeline-story">Most of my best design ideas started as notes in the margins.</p>
+        </div>
+      </div>
+
+      <div class="timeline-step timeline-step--right timeline-step--related">
+        <div class="timeline-unit">
+          <article class="timeline-item" style="--float-delay:2.6s">
+            <button class="timeline-trigger" type="button" aria-expanded="false" aria-label="Open book. Reading taught me to sit inside someone else's perspective.">
+              <span class="timeline-figure">
+                <img loading="lazy" src="/about/icons/book.svg" alt="" width="1024" height="1024" decoding="async">
+              </span>
+            </button>
+          </article>
+          <p class="timeline-story">Reading taught me to sit inside someone else's perspective.</p>
+        </div>
+      </div>
+
+      <div class="timeline-step timeline-step--left timeline-step--major">
+        <div class="timeline-unit">
+          <article class="timeline-item" style="--float-delay:3s">
+            <button class="timeline-trigger" type="button" aria-expanded="false" aria-label="Vintage computer. Computer Science taught me how systems behave before I learned why people do.">
+              <span class="timeline-figure">
+                <img loading="lazy" src="/about/icons/computer.svg" alt="" width="1024" height="1024" decoding="async">
+              </span>
+            </button>
+          </article>
+          <p class="timeline-story">Computer Science taught me how systems behave before I learned why people do.</p>
+        </div>
+      </div>
+
+      <div class="timeline-step timeline-step--right timeline-step--major">
+        <div class="timeline-unit">
+          <article class="timeline-item" style="--float-delay:3.6s">
+            <button class="timeline-trigger" type="button" aria-expanded="false" aria-label="Saddle. Working with horses taught me patience, trust, and calm under uncertainty.">
+              <span class="timeline-figure">
+                <img loading="lazy" src="/about/icons/saddle.svg" alt="" width="1024" height="1024" decoding="async">
+              </span>
+            </button>
+          </article>
+          <p class="timeline-story">Working with horses taught me patience, trust, and calm under uncertainty.</p>
+        </div>
+      </div>
+
+      <div class="timeline-step timeline-step--finale">
+        <div class="timeline-unit">
+          <article class="timeline-item" style="--float-delay:4.2s">
+            <button class="timeline-trigger" type="button" aria-expanded="false" aria-label="Cursor. Product design became the place where making, systems, and understanding people finally met.">
+              <span class="timeline-figure">
+                <picture><source srcset="/about/icons/cursor.webp" type="image/webp"><img loading="lazy" src="/about/icons/cursor-opt.png" alt="" width="1024" height="1024" decoding="async"></picture>
+              </span>
+            </button>
+          </article>
+          <p class="timeline-story">Product design became the place where making, systems, and understanding people finally met.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-chapter about-chapter--manifesto" aria-label="Philosophy">
+    <h2 class="visually-hidden">Design philosophy</h2>
+    <blockquote class="about-manifesto">
+      <p>The best products don't make people think harder. They help people feel more capable.</p>
     </blockquote>
   </section>
 
-  <div class="shell">
-    <section class="about-credentials" aria-label="Credentials">
-      <ul class="about-credentials-list">
-        <li class="about-credentials-row">
-          <span class="about-credentials-label">CS Graduate</span>
-          <span class="about-credentials-value">Computer Science</span>
-        </li>
-        <li class="about-credentials-row">
-          <span class="about-credentials-label">Accenture</span>
-          <span class="about-credentials-value">Technology Consulting · 4 years</span>
-        </li>
-        <li class="about-credentials-row">
-          <span class="about-credentials-label">Currently</span>
-          <span class="about-credentials-value">Product Designer and Creative Technologist</span>
-        </li>
-      </ul>
-    </section>
+  <h2 class="about-film-note">A few moments I caught on film.</h2>
 
-    <section class="about-meta" aria-label="Focus">
-      <div class="meta-block">
-        <p class="section-label">Focus</p>
-        <div class="skill-tags">
-          <span class="skill-tag">UX Strategy &amp; Research</span>
-          <span class="skill-tag">Inclusion &amp; Behavioral Design</span>
-          <span class="skill-tag">Information Architecture</span>
-          <span class="skill-tag">Creative Technology</span>
-          <span class="skill-tag">Visual Systems</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="about-tools" aria-label="Tools">
-      <p class="section-label">Tools</p>
-      <div class="about-tools-groups">
-        <div class="about-tools-group">
-          <p class="about-tools-category">Design</p>
-          <div class="skill-tags">
-            <span class="skill-tag">Figma</span>
-            <span class="skill-tag">Framer</span>
-          </div>
-        </div>
-        <div class="about-tools-group">
-          <p class="about-tools-category">Build</p>
-          <div class="skill-tags">
-            <span class="skill-tag">Cursor</span>
-            <span class="skill-tag">Replit</span>
-            <span class="skill-tag">Vercel</span>
-            <span class="skill-tag">GitHub</span>
-          </div>
-        </div>
-        <div class="about-tools-group">
-          <p class="about-tools-category">AI</p>
-          <div class="skill-tags">
-            <span class="skill-tag">Claude</span>
-            <span class="skill-tag">Claude Code</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="about-tinkering" aria-label="Currently Tinkering">
-      <p class="section-label">Currently Tinkering</p>
-      <p class="about-tinkering-text">Follow along on <a href="https://x.com/cottonjournal_" target="_blank" rel="noopener noreferrer">Twitter</a> for experiments and side builds.</p>
-    </section>
-
-    <section class="about-engineering" aria-label="Creative Engineering">
-      <div class="panel-label">Analog Eye.</div>
-      <p class="about-engineering-lead">Slow down. Shoot film. Make things.</p>
-
-      <div class="gc-container">
-        <section class="gc-experience" aria-label="3D interaction showcase">
-          <div class="gc-stage">
-            <div class="gc-spatial-hub">
-              <div class="gc-gallery-scene" id="gc-gallery-scene">
-                <div class="gesture-catcher" id="gesture-catcher" aria-hidden="true"></div>
-                <div class="gc-gallery" id="gc-gallery" role="group" aria-label="Engineered art gallery">
-                  <div class="gc-gallery-ring" id="gc-gallery-ring">
-                    <article class="gc-panel" data-index="0" tabindex="-1" aria-label="Photograph 1"><div class="gc-panel-glass"><div class="gc-panel-media"><img class="gc-panel-photo gc-panel-photo-thumb" src="/portfolio-assets/thumbs/gallery-01.png" alt="Photography by Nikaylah" width="600" height="900" decoding="async" fetchpriority="high"><img class="gc-panel-photo gc-panel-photo-full" src="/portfolio-assets/gallery-01.png" alt="Photography by Nikaylah" width="600" height="900" decoding="async"></div></div></article>
-                    <article class="gc-panel" data-index="1" tabindex="-1" aria-label="Photograph 2"><div class="gc-panel-glass"><div class="gc-panel-media"><img class="gc-panel-photo gc-panel-photo-thumb" src="/portfolio-assets/thumbs/gallery-02.png" alt="Photography by Nikaylah" width="600" height="900" decoding="async"><img class="gc-panel-photo gc-panel-photo-full" src="/portfolio-assets/gallery-02.png" alt="Photography by Nikaylah" width="600" height="900" decoding="async"></div></div></article>
-                    <article class="gc-panel" data-index="2" tabindex="-1" aria-label="Photograph 3"><div class="gc-panel-glass"><div class="gc-panel-media"><img class="gc-panel-photo gc-panel-photo-thumb" src="/portfolio-assets/thumbs/gallery-03.png" alt="Photography by Nikaylah" width="600" height="900" decoding="async"><img class="gc-panel-photo gc-panel-photo-full" src="/portfolio-assets/gallery-03.png" alt="Photography by Nikaylah" width="600" height="900" decoding="async"></div></div></article>
-                    <article class="gc-panel" data-index="3" tabindex="-1" aria-label="Photograph 4"><div class="gc-panel-glass"><div class="gc-panel-media"><img class="gc-panel-photo gc-panel-photo-thumb" src="/portfolio-assets/thumbs/gallery-04.png" alt="Photography by Nikaylah" width="600" height="900" decoding="async"><img class="gc-panel-photo gc-panel-photo-full" src="/portfolio-assets/gallery-04.png" alt="Photography by Nikaylah" width="600" height="900" decoding="async"></div></div></article>
-                    <article class="gc-panel" data-index="4" tabindex="-1" aria-label="Photograph 5"><div class="gc-panel-glass"><div class="gc-panel-media"><img class="gc-panel-photo gc-panel-photo-thumb" src="/portfolio-assets/thumbs/gallery-05.png" alt="Photography by Nikaylah" width="600" height="900" decoding="async"><img class="gc-panel-photo gc-panel-photo-full" src="/portfolio-assets/gallery-05.png" alt="Photography by Nikaylah" width="600" height="900" decoding="async"></div></div></article>
-                    <article class="gc-panel" data-index="5" tabindex="-1" aria-label="Photograph 6"><div class="gc-panel-glass"><div class="gc-panel-media"><img class="gc-panel-photo gc-panel-photo-thumb" src="/portfolio-assets/thumbs/gallery-06.png" alt="Photography by Nikaylah" width="600" height="900" decoding="async"><img class="gc-panel-photo gc-panel-photo-full" src="/portfolio-assets/gallery-06.png" alt="Photography by Nikaylah" width="600" height="900" decoding="async"></div></div></article>
-                    <article class="gc-panel" data-index="6" tabindex="-1" aria-label="Photograph 7"><div class="gc-panel-glass"><div class="gc-panel-media"><img class="gc-panel-photo gc-panel-photo-thumb" src="/portfolio-assets/thumbs/gallery-07.png" alt="Photography by Nikaylah" width="600" height="900" decoding="async" fetchpriority="high"><img class="gc-panel-photo gc-panel-photo-full" src="/portfolio-assets/gallery-07.png" alt="Photography by Nikaylah" width="600" height="900" decoding="async" fetchpriority="high"></div></div></article>
-                    <article class="gc-panel" data-index="7" tabindex="-1" aria-label="Photograph 8"><div class="gc-panel-glass"><div class="gc-panel-media"><img class="gc-panel-photo gc-panel-photo-thumb" src="/portfolio-assets/thumbs/gallery-08.png" alt="Photography by Nikaylah" width="600" height="900" decoding="async"><img class="gc-panel-photo gc-panel-photo-full" src="/portfolio-assets/gallery-08.png" alt="Photography by Nikaylah" width="600" height="900" decoding="async"></div></div></article>
-                    <article class="gc-panel" data-index="8" tabindex="-1" aria-label="Photograph 9"><div class="gc-panel-glass"><div class="gc-panel-media"><img class="gc-panel-photo gc-panel-photo-thumb" src="/portfolio-assets/thumbs/gallery-09.png" alt="Photography by Nikaylah" width="600" height="900" decoding="async"><img class="gc-panel-photo gc-panel-photo-full" src="/portfolio-assets/gallery-09.png" alt="Photography by Nikaylah" width="600" height="900" decoding="async"></div></div></article>
-                    <article class="gc-panel" data-index="9" tabindex="-1" aria-label="Photograph 10"><div class="gc-panel-glass"><div class="gc-panel-media"><img class="gc-panel-photo gc-panel-photo-thumb" src="/portfolio-assets/thumbs/gallery-10.png" alt="Photography by Nikaylah" width="600" height="900" decoding="async"><img class="gc-panel-photo gc-panel-photo-full" src="/portfolio-assets/gallery-10.png" alt="Photography by Nikaylah" width="600" height="900" decoding="async"></div></div></article>
-                    <article class="gc-panel" data-index="10" tabindex="-1" aria-label="Photograph 11"><div class="gc-panel-glass"><div class="gc-panel-media"><img class="gc-panel-photo gc-panel-photo-thumb" src="/portfolio-assets/thumbs/gallery-11.png" alt="Photography by Nikaylah" width="600" height="900" decoding="async"><img class="gc-panel-photo gc-panel-photo-full" src="/portfolio-assets/gallery-11.png" alt="Photography by Nikaylah" width="600" height="900" decoding="async"></div></div></article>
-                    <article class="gc-panel" data-index="11" tabindex="-1" aria-label="Photograph 12"><div class="gc-panel-glass"><div class="gc-panel-media"><img class="gc-panel-photo gc-panel-photo-thumb" src="/portfolio-assets/thumbs/gallery-12.png" alt="Photography by Nikaylah" width="600" height="900" decoding="async"><img class="gc-panel-photo gc-panel-photo-full" src="/portfolio-assets/gallery-12.png" alt="Photography by Nikaylah" width="600" height="900" decoding="async"></div></div></article>
-                    <article class="gc-panel" data-index="12" tabindex="-1" aria-label="Photograph 13"><div class="gc-panel-glass"><div class="gc-panel-media"><img class="gc-panel-photo gc-panel-photo-thumb" src="/portfolio-assets/thumbs/gallery-13.png" alt="Photography by Nikaylah" width="600" height="900" decoding="async"><img class="gc-panel-photo gc-panel-photo-full" src="/portfolio-assets/gallery-13.png" alt="Photography by Nikaylah" width="600" height="900" decoding="async"></div></div></article>
-                  </div>
+  <section class="about-gallery shell" aria-label="Photography">
+    <div class="gc-container">
+      <section class="gc-experience" aria-label="3D interaction showcase">
+        <div class="gc-stage">
+          <div class="gc-spatial-hub">
+            <div class="gc-gallery-scene" id="gc-gallery-scene">
+              <div class="gesture-catcher" id="gesture-catcher" aria-hidden="true"></div>
+              <div class="gc-gallery" id="gc-gallery" role="group" aria-label="Engineered art gallery">
+                <div class="gc-gallery-ring" id="gc-gallery-ring">
+                  <article class="gc-panel" data-index="0" tabindex="-1" aria-label="Photograph 1"><div class="gc-panel-glass"><div class="gc-panel-media"><img loading="lazy" class="gc-panel-photo gc-panel-photo-thumb" src="/portfolio-assets/thumbs/gallery-01.png" alt="" width="48" height="32" decoding="async" fetchpriority="high"><img loading="lazy" class="gc-panel-photo gc-panel-photo-full" src="/portfolio-assets/gallery-01.png" alt="" width="1024" height="691" decoding="async"></div></div></article>
+                  <article class="gc-panel" data-index="1" tabindex="-1" aria-label="Photograph 2"><div class="gc-panel-glass"><div class="gc-panel-media"><img loading="lazy" class="gc-panel-photo gc-panel-photo-thumb" src="/portfolio-assets/thumbs/gallery-02.png" alt="" width="48" height="31" decoding="async"><img loading="lazy" class="gc-panel-photo gc-panel-photo-full" src="/portfolio-assets/gallery-02.png" alt="" width="1024" height="678" decoding="async"></div></div></article>
+                  <article class="gc-panel" data-index="2" tabindex="-1" aria-label="Photograph 3"><div class="gc-panel-glass"><div class="gc-panel-media"><img loading="lazy" class="gc-panel-photo gc-panel-photo-thumb" src="/portfolio-assets/thumbs/gallery-03.png" alt="" width="31" height="48" decoding="async"><img loading="lazy" class="gc-panel-photo gc-panel-photo-full" src="/portfolio-assets/gallery-03.png" alt="" width="678" height="1024" decoding="async"></div></div></article>
+                  <article class="gc-panel" data-index="3" tabindex="-1" aria-label="Photograph 4"><div class="gc-panel-glass"><div class="gc-panel-media"><img loading="lazy" class="gc-panel-photo gc-panel-photo-thumb" src="/portfolio-assets/thumbs/gallery-04.png" alt="" width="48" height="31" decoding="async"><img loading="lazy" class="gc-panel-photo gc-panel-photo-full" src="/portfolio-assets/gallery-04.png" alt="" width="1024" height="678" decoding="async"></div></div></article>
+                  <article class="gc-panel" data-index="4" tabindex="-1" aria-label="Photograph 5"><div class="gc-panel-glass"><div class="gc-panel-media"><img loading="lazy" class="gc-panel-photo gc-panel-photo-thumb" src="/portfolio-assets/thumbs/gallery-05.png" alt="" width="36" height="48" decoding="async"><img loading="lazy" class="gc-panel-photo gc-panel-photo-full" src="/portfolio-assets/gallery-05.png" alt="" width="767" height="1024" decoding="async"></div></div></article>
+                  <article class="gc-panel" data-index="5" tabindex="-1" aria-label="Photograph 6"><div class="gc-panel-glass"><div class="gc-panel-media"><img loading="lazy" class="gc-panel-photo gc-panel-photo-thumb" src="/portfolio-assets/thumbs/gallery-06.png" alt="" width="31" height="48" decoding="async"><img loading="lazy" class="gc-panel-photo gc-panel-photo-full" src="/portfolio-assets/gallery-06.png" alt="" width="678" height="1024" decoding="async"></div></div></article>
+                  <article class="gc-panel" data-index="6" tabindex="-1" aria-label="Photograph 7"><div class="gc-panel-glass"><div class="gc-panel-media"><img loading="lazy" class="gc-panel-photo gc-panel-photo-thumb" src="/portfolio-assets/thumbs/gallery-07.png" alt="" width="31" height="48" decoding="async" fetchpriority="high"><img loading="lazy" class="gc-panel-photo gc-panel-photo-full" src="/portfolio-assets/gallery-07.png" alt="" width="678" height="1024" decoding="async" fetchpriority="high"></div></div></article>
+                  <article class="gc-panel" data-index="7" tabindex="-1" aria-label="Photograph 8"><div class="gc-panel-glass"><div class="gc-panel-media"><img loading="lazy" class="gc-panel-photo gc-panel-photo-thumb" src="/portfolio-assets/thumbs/gallery-08.png" alt="" width="31" height="48" decoding="async"><img loading="lazy" class="gc-panel-photo gc-panel-photo-full" src="/portfolio-assets/gallery-08.png" alt="" width="678" height="1024" decoding="async"></div></div></article>
+                  <article class="gc-panel" data-index="8" tabindex="-1" aria-label="Photograph 9"><div class="gc-panel-glass"><div class="gc-panel-media"><img loading="lazy" class="gc-panel-photo gc-panel-photo-thumb" src="/portfolio-assets/thumbs/gallery-09.png" alt="" width="31" height="48" decoding="async"><img loading="lazy" class="gc-panel-photo gc-panel-photo-full" src="/portfolio-assets/gallery-09.png" alt="" width="678" height="1024" decoding="async"></div></div></article>
+                  <article class="gc-panel" data-index="9" tabindex="-1" aria-label="Photograph 10"><div class="gc-panel-glass"><div class="gc-panel-media"><img loading="lazy" class="gc-panel-photo gc-panel-photo-thumb" src="/portfolio-assets/thumbs/gallery-10.png" alt="" width="31" height="48" decoding="async"><img loading="lazy" class="gc-panel-photo gc-panel-photo-full" src="/portfolio-assets/gallery-10.png" alt="" width="678" height="1024" decoding="async"></div></div></article>
+                  <article class="gc-panel" data-index="10" tabindex="-1" aria-label="Photograph 11"><div class="gc-panel-glass"><div class="gc-panel-media"><img loading="lazy" class="gc-panel-photo gc-panel-photo-thumb" src="/portfolio-assets/thumbs/gallery-11.png" alt="" width="48" height="31" decoding="async"><img loading="lazy" class="gc-panel-photo gc-panel-photo-full" src="/portfolio-assets/gallery-11.png" alt="" width="1024" height="678" decoding="async"></div></div></article>
+                  <article class="gc-panel" data-index="11" tabindex="-1" aria-label="Photograph 12"><div class="gc-panel-glass"><div class="gc-panel-media"><img loading="lazy" class="gc-panel-photo gc-panel-photo-thumb" src="/portfolio-assets/thumbs/gallery-12.png" alt="" width="48" height="32" decoding="async"><img loading="lazy" class="gc-panel-photo gc-panel-photo-full" src="/portfolio-assets/gallery-12.png" alt="" width="1024" height="691" decoding="async"></div></div></article>
+                  <article class="gc-panel" data-index="12" tabindex="-1" aria-label="Photograph 13"><div class="gc-panel-glass"><div class="gc-panel-media"><img loading="lazy" class="gc-panel-photo gc-panel-photo-thumb" src="/portfolio-assets/thumbs/gallery-13.png" alt="" width="48" height="32" decoding="async"><img loading="lazy" class="gc-panel-photo gc-panel-photo-full" src="/portfolio-assets/gallery-13.png" alt="" width="1024" height="691" decoding="async"></div></div></article>
                 </div>
               </div>
             </div>
           </div>
-        </section>
-
-        <div id="modal-overlay" class="gc-modal-overlay" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Expanded photograph">
-          <div class="gc-modal-backdrop" data-modal-dismiss></div>
-          <figure class="gc-modal-stage">
-            <img class="gc-modal-image" src="" alt="" width="1200" height="1800" decoding="async">
-          </figure>
         </div>
+      </section>
+
+      <div id="modal-overlay" class="gc-modal-overlay" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Expanded photograph">
+        <div class="gc-modal-backdrop" data-modal-dismiss></div>
+        <figure class="gc-modal-stage">
+          <img class="gc-modal-image" src="" alt="" width="1200" height="1800" loading="lazy" decoding="async">
+        </figure>
       </div>
-
-      <a href="/gesture-interface.html" class="about-engineering-fullscreen">Open fullscreen experience →</a>
-    </section>
-
-  </div>
-
-  <section class="about-closing" aria-label="Closing">
-    <p class="about-closing-text">The technical and the human have always lived in the same person. Design is just where I finally stopped choosing between them.</p>
-    <a href="/#selected-work" class="about-closing-link card-cta">See my work →</a>
+    </div>
   </section>
+
+  <section class="about-chapter about-chapter--closing" aria-label="Closing">
+    <h2 class="about-closing-line">Still making things.</h2>
+  </section>
+
 </main>
 
 <footer>
   <a href="/" class="footer-logo" aria-label="Nikaylah home">
-    <img src="/logo-v4.png" alt="" class="site-logo site-logo--footer" width="44" height="44">
+    <svg class="brand-mark brand-mark--footer" viewBox="0 0 164 100" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M46 92C30 92 20 84 18 74C9 73 3 66 3 57C3 48 10 41 19 41C21 30 32 22 45 22C55 22 64 27 69 35C72 26 81 20 91 20C104 20 114 29 115 41C127 42 136 50 136 61C136 66 133 71 128 74C127 84 118 92 106 92Z" fill="currentColor"/></svg>
+    <span class="brand-name">NIKAYLAH</span>
   </a>
   <div class="footer-right">
     <div class="footer-links" role="navigation" aria-label="Footer">
       <a href="/">Work</a>
       <a href="/about/" aria-current="page">About</a>
       <a href="https://www.linkedin.com/in/nikaylah" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://drive.google.com/file/d/18i05f4y_GH3vvXX1J9wEel7txm3prvzZ/view?usp=sharing" target="_blank" rel="noopener noreferrer">CV</a>
     </div>
     <p class="footer-copy"><span class="footer-whisper">Designed to classical music, good snacks and the hum of a treadmill. Sometimes a nice café.</span> © 2026 Nikaylah.</p>
   </div>
 </footer>
 
 <button class="email-btn" onclick="revealEmail()" aria-label="Copy email address">
-  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
   Email me
 </button>
 <div class="copy-toast" id="toast" role="status" aria-live="polite"></div>
@@ -527,12 +985,13 @@ function revealEmail(){
   const u='nikaylah',d='gmail.com',e=u+'@'+d;
   navigator.clipboard.writeText(e).then(()=>{
     const t=document.getElementById('toast');
-    t.textContent='Copied — '+e;
+    t.textContent='Copied. '+e;
     t.classList.add('show');
     setTimeout(()=>t.classList.remove('show'),2800);
   }).catch(()=>{window.location.href='mailto:'+u+'@'+d});
 }
 </script>
+<script src="/about/curiosities.js" defer></script>
 <script src="/gesture-interface.js?v=27" defer></script>
 </body>
 </html>

@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nikaylah — Product Designer</title>
+<meta name="description" content="Product Designer based in New York City. Designing products that people trust — helping people move forward through thoughtful interaction design.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Corinthia&display=swap" rel="stylesheet">
+<link rel="icon" href="/favicon.ico?v=3" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=3">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=3">
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=switzer@300&f[]=gambarino@400&display=swap" rel="stylesheet">
+<!-- Vercel Analytics — tracks page views and time on page -->
+<script defer src="/_vercel/insights/script.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg-page:#F1F2F4;
+  --bg-primary:#F1F2F4;
+  --brand-primary:#DDA22F;
+  --text-primary:#1a1a1a;
+  --text-secondary:#5c5c5c;
+  --ui-border:rgba(26,26,26,0.12);
+  --font:'Switzer',system-ui,-apple-system,sans-serif;
+  --ink:#1F1B18;
+  --ink-secondary:#29241F;
+  --ink-muted:rgba(31,27,24,0.72);
+  --ink-soft:rgba(41,36,31,0.72);
+}
+html{scroll-behavior:smooth}
+body{
+  line-height:1.6;overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* HOMEPAGE — textured intro (header + hero) */
+.page-home .home-top{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  min-height:clamp(88vh,92vh,100vh);
+  background-image:url('/editorial-texture.png');
+  background-size:cover;
+  background-position:78% 35%;
+  background-repeat:no-repeat;
+}
+.page-home .home-top::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg, rgba(221,162,47,0.28) 0%, rgba(221,162,47,0.42) 100%);
+  pointer-events:none;
+  z-index:0;
+}
+.page-home .site-header {
+  position: relative;
+  z-index:1;
+  flex-shrink: 0;
+  background: transparent;
+  border-bottom: none;
+}
+.page-home .nav-main{
+  padding-top:1.5rem;
+  padding-bottom:0.5rem;
+}
+.page-home .nav-home,
+.page-home .nav-link,
+.page-home .nav-contact{
+  color:var(--ink);
+  font-weight:300;
+  letter-spacing:0.16em;
+  font-size:0.8125rem;
+  text-decoration:none;
+  transition:opacity 0.2s,text-decoration-color 0.2s;
+}
+.page-home .nav-home:hover,
+.page-home .nav-link:hover,
+.page-home .nav-contact:hover{
+  color:var(--ink);
+  opacity:0.72;
+  text-decoration:underline;
+  text-underline-offset:0.28em;
+  text-decoration-thickness:1px;
+}
+.page-home .nav-contact{
+  background:none;
+  border:none;
+  padding:0.35rem 0.25rem;
+  font-family:var(--font);
+  font-weight:300;
+  letter-spacing:0.16em;
+  text-transform:uppercase;
+  cursor:pointer;
+  min-height:44px;
+  display:inline-flex;
+  align-items:center;
+}
+.page-home .nav-contact:focus-visible{
+  outline:2px solid var(--ink);
+  outline-offset:3px;
+}
+
+/* HERO */
+.page-home .hero{
+  position:relative;
+  z-index:1;
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  min-height:0;
+  max-width:none;
+  margin:0;
+  padding:clamp(2rem,5vw,3.5rem) clamp(1.5rem,5vw,3rem) clamp(3rem,6vw,4.5rem);
+  background:transparent;
+}
+.page-home .hero-inner{
+  max-width:38rem;
+  width:100%;
+  margin:0 auto;
+  padding-top:clamp(1.5rem,4vw,2.5rem);
+  transform:translateY(-10px);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;
+}
+.page-home .hero-intro{
+  margin:0 0 clamp(2.5rem,4.5vw,3.25rem);
+  font-family:var(--font);
+  font-size:clamp(1.125rem,1.8vw,1.3125rem);
+  font-weight:400;
+  line-height:1.45;
+  letter-spacing:0.01em;
+  opacity:0;
+  animation:fadeUp 0.8s 0.1s forwards;
+}
+.page-home .hero-intro-greeting{
+  font-weight:300;
+  color:rgba(31,27,24,0.62);
+}
+.page-home .hero-intro-name{
+  font-family:'Corinthia',cursive;
+  font-size:1.75em;
+  font-weight:400;
+  line-height:1;
+  letter-spacing:normal;
+  color:rgba(31,27,24,0.95);
+  display:inline-block;
+  vertical-align:-0.06em;
+  padding:0 0.04em;
+}
+.page-home .hero-role{
+  margin:0 0 clamp(3.125rem,5.5vw,3.875rem);
+  font-family:var(--font);
+  font-size:clamp(0.8125rem,1.15vw,0.9375rem);
+  font-weight:300;
+  line-height:1.4;
+  letter-spacing:0.03em;
+  color:rgba(31,27,24,0.66);
+  opacity:0;
+  animation:fadeUp 0.8s 0.18s forwards;
+}
+.page-home .hero-headline{
+  margin:0 auto clamp(3rem,5.5vw,3.75rem);
+  max-width:11.5em;
+  font-family:'Gambarino',Georgia,serif;
+  font-size:clamp(3rem,5.2vw,4.75rem);
+  font-weight:400;
+  line-height:1.12;
+  letter-spacing:-0.02em;
+  color:var(--ink);
+  opacity:0;
+  animation:fadeUp 0.8s 0.26s forwards;
+}
+.page-home .hero-headline em{
+  font-style:italic;
+  color:#8A4A1F;
+}
+.page-home .hero-lede{
+  margin:0 auto;
+  max-width:55ch;
+  font-family:var(--font);
+  font-size:clamp(1.125rem,1.8vw,1.3125rem);
+  font-weight:400;
+  line-height:1.65;
+  color:rgba(41,36,31,0.74);
+  opacity:0;
+  animation:fadeUp 0.8s 0.36s forwards;
+}
+.page-home .hero-scroll{
+  display:inline-block;
+  margin-top:clamp(3.25rem,6vw,4rem);
+  font-family:var(--font);
+  font-size:clamp(0.875rem,1.2vw,1rem);
+  font-weight:400;
+  letter-spacing:0.06em;
+  color:rgba(41,36,31,0.74);
+  text-decoration:none;
+  opacity:0;
+  animation:fadeUp 0.8s 0.46s forwards;
+  transition:color 0.2s;
+}
+.page-home .hero-scroll:hover{
+  color:rgba(41,36,31,0.9);
+}
+
+/* WORK GALLERY */
+.page-home .work-gallery{
+  max-width:1080px;
+  margin:0 auto;
+  padding:clamp(2.5rem,5vw,3.5rem) clamp(1.25rem,3vw,2rem) clamp(5.5rem,10vw,7.5rem);
+}
+.page-home .work-gallery-title{
+  font-family:'Gambarino',Georgia,serif;
+  font-weight:400;
+  font-size:clamp(2.75rem,6vw,3.75rem);
+  line-height:1;
+  letter-spacing:-0.02em;
+  text-align:center;
+  color:var(--ink);
+  margin:0 0 clamp(3rem,5vw,4rem);
+}
+.page-home .work-gallery-item{
+  margin:0 0 clamp(6.5rem,9vw,8rem);
+}
+.page-home .work-gallery-item:last-child{
+  margin-bottom:0;
+}
+.page-home .work-gallery-link{
+  display:block;
+  text-decoration:none;
+  color:inherit;
+}
+.page-home .work-gallery-figure{
+  margin:0;
+  aspect-ratio:16/10;
+  overflow:hidden;
+  border-radius:6px;
+}
+.page-home .work-gallery-image{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  object-position:center;
+  transition:transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+.page-home .work-gallery-link:hover .work-gallery-image,
+.page-home .work-gallery-link:focus-visible .work-gallery-image{
+  transform:scale(1.012);
+}
+.page-home .work-gallery-caption{
+  margin:1.125rem 0 0;
+  font-family:var(--font);
+  font-size:clamp(1.125rem,1.9vw,1.375rem);
+  font-weight:400;
+  line-height:1.3;
+  color:var(--ink);
+}
+.page-home .work-gallery-name{
+  font-weight:500;
+}
+.page-home .work-gallery-status{
+  display:inline;
+  margin-left:0.3em;
+  font-size:0.88em;
+  font-weight:400;
+  color:var(--ink-soft);
+  letter-spacing:normal;
+  text-transform:none;
+}
+
+/* FOOTER */
+.page-home .site-footer{
+  display:flex;
+  flex-direction:column;
+  min-height:clamp(480px,52vh,620px);
+  max-width:none;
+  margin:0;
+  padding:0;
+  border-top:none;
+  background-color:transparent;
+  background-image:url('/editorial-texture.png');
+  background-size:cover;
+  background-position:18% 82%;
+  background-repeat:no-repeat;
+}
+.page-home .site-footer-closing{
+  flex:1;
+  min-height:clamp(14rem,32vh,20rem);
+}
+.page-home .site-footer-divider{
+  height:1px;
+  margin:0 clamp(1.25rem,4vw,3rem);
+  background:rgba(31,27,24,0.16);
+}
+.page-home .site-footer-bar{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  flex-wrap:wrap;
+  gap:1.25rem;
+  padding:clamp(1.75rem,3vw,2.5rem) clamp(1.25rem,4vw,3rem) clamp(2rem,4vw,2.75rem);
+}
+.page-home .footer-logo{flex-shrink:0;line-height:0;text-decoration:none}
+.page-home .footer-right{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-end;
+  gap:0.65rem;
+}
+.page-home .footer-links{
+  display:flex;
+  gap:1.25rem 1.75rem;
+  flex-wrap:wrap;
+}
+.page-home .footer-links a,
+.page-home .footer-links button{
+  font-size:clamp(0.75rem,1vw,0.875rem);
+  font-weight:400;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color:rgba(31,27,24,0.86);
+  text-decoration:none;
+  transition:color 0.2s,opacity 0.2s;
+  background:none;
+  border:none;
+  padding:0;
+  font-family:var(--font);
+  cursor:pointer;
+}
+.page-home .footer-links a:hover,
+.page-home .footer-links button:hover{
+  color:var(--ink);
+  opacity:1;
+}
+.page-home .footer-copy{
+  font-size:clamp(0.6875rem,0.9vw,0.75rem);
+  color:rgba(31,27,24,0.78);
+  margin:0;
+  text-align:right;
+  line-height:1.55;
+  font-weight:400;
+}
+
+/* FLOATING EMAIL */
+.page-home .email-btn{
+  position:fixed;
+  bottom:1.75rem;
+  right:1.75rem;
+  z-index:99;
+  font-family:var(--font);
+  background:rgba(31,27,24,0.42);
+  color:rgba(241,242,244,0.88);
+  border:1px solid rgba(31,27,24,0.08);
+  border-radius:999px;
+  box-shadow:none;
+  padding:0.45rem 0.85rem;
+  font-size:0.625rem;
+  font-weight:300;
+  letter-spacing:0.06em;
+  cursor:pointer;
+  display:inline-flex;
+  align-items:center;
+  gap:0.35rem;
+  opacity:0.72;
+  transition:background 0.2s,opacity 0.2s;
+}
+.page-home .email-btn svg{
+  width:12px;
+  height:12px;
+  opacity:0.85;
+}
+.page-home .email-btn:hover{
+  background:rgba(31,27,24,0.62);
+  border-color:rgba(31,27,24,0.12);
+  color:rgba(241,242,244,0.95);
+  box-shadow:none;
+  transform:none;
+  opacity:0.92;
+}
+.page-home .copy-toast{
+  position:fixed;
+  bottom:4.5rem;
+  right:1.75rem;
+  font-size:0.6875rem;
+  padding:0.45rem 0.9rem;
+  background:rgba(31,27,24,0.88);
+  color:rgba(241,242,244,0.92);
+  border:1px solid rgba(31,27,24,0.1);
+  border-radius:999px;
+  box-shadow:none;
+  z-index:100;
+  opacity:0;
+  transition:opacity 0.3s;
+  pointer-events:none;
+}
+.page-home .copy-toast.show{opacity:1}
+
+.page-home .footer-whisper{
+  opacity:0.8;
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(16px)}
+  to{opacity:1;transform:translateY(0)}
+}
+/* ACCESSIBILITY */
+.skip-link{
+  position:absolute;top:-100px;left:1rem;
+  background:var(--text-primary);color:var(--bg-primary);
+  padding:0.5rem 1rem;border-radius:4px;
+  font-size:0.85rem;font-family:var(--font);
+  text-decoration:none;z-index:999;
+  transition:top 0.2s;
+}
+.skip-link:focus{top:1rem}
+*:focus-visible{
+  outline:2px solid var(--text-primary);
+  outline-offset:3px;
+  border-radius:2px;
+}
+/* Respect reduced motion preference */
+@media(prefers-reduced-motion:reduce){
+  *{animation:none !important;transition:none !important}
+}
+
+/* Responsive layout: see responsive.css */
+</style>
+<link rel="stylesheet" href="/editorial-theme.css">
+<link rel="stylesheet" href="/responsive.css">
+</head>
+<body class="page-home">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+<div class="home-top">
+  <header class="site-header">
+    <nav class="nav-main" aria-label="Site">
+      <a href="/index.html" class="nav-home">Nikaylah</a>
+      <div class="nav-center">
+        <a href="#selected-work" class="nav-link">Work</a>
+        <a href="/about/" class="nav-link">About</a>
+        <a href="https://www.linkedin.com/in/nikaylah" target="_blank" rel="noopener noreferrer" class="nav-link">LinkedIn</a>
+        <a href="https://drive.google.com/file/d/1-Kf0VUjrW54PMTsQTBf5Oehbb4yCEA07/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="nav-link">CV</a>
+        <button class="nav-link nav-contact" type="button" onclick="revealEmail()" aria-label="Copy email address">Contact</button>
+      </div>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <div class="hero-inner">
+      <p class="hero-intro"><span class="hero-intro-greeting">Hi, I'm</span> <span class="hero-intro-name">Nikaylah</span>.</p>
+      <p class="hero-role">Product Designer</p>
+      <h1 class="hero-headline">Designing products people <em>trust</em>.</h1>
+      <p class="hero-lede">Helping people move forward through thoughtful interaction design.</p>
+      <a href="#selected-work" class="hero-scroll">See selected work ↓</a>
+    </div>
+  </div>
+</div>
+
+<main id="main-content">
+  <section class="work-gallery" id="selected-work" aria-label="Selected work">
+    <h2 class="work-gallery-title">Work</h2>
+
+    <article class="work-gallery-item">
+      <a href="/crescent-stables.html" class="work-gallery-link" aria-label="Crescent Stables case study">
+        <figure class="work-gallery-figure">
+          <img src="/crescent-homepage.png" alt="Redesigned Crescent Stables homepage showing warm cream and terracotta design" class="work-gallery-image" loading="lazy" decoding="async">
+        </figure>
+        <p class="work-gallery-caption">
+          <span class="work-gallery-name">Crescent Stables:</span> Designing confidence before the first ride
+        </p>
+      </a>
+    </article>
+
+    <article class="work-gallery-item">
+      <a href="/xcel-energy.html" class="work-gallery-link" aria-label="My Energy Connection case study">
+        <figure class="work-gallery-figure">
+          <img src="/xcel-card-hero.png" alt="Three screens from the redesigned My Energy Connection app — dashboard, error state, and setup flow" class="work-gallery-image" loading="lazy" decoding="async">
+        </figure>
+        <p class="work-gallery-caption">
+          <span class="work-gallery-name">My Energy Connection:</span> Making real-time energy data easier to understand
+        </p>
+      </a>
+    </article>
+
+    <article class="work-gallery-item" aria-label="Sustainable Fashion Generator — coming soon">
+      <figure class="work-gallery-figure">
+        <img src="/generator-homepage.png" alt="Sustainable Fashion Generator app interface showing fiber selection and outfit output panels" class="work-gallery-image" loading="lazy" decoding="async">
+      </figure>
+      <p class="work-gallery-caption">
+        <span class="work-gallery-name">Sustainable Fashion Generator:</span> Exploring material-led concepts with AI<span class="work-gallery-status">· Soon</span>
+      </p>
+    </article>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="site-footer-closing" aria-hidden="true"></div>
+  <div class="site-footer-divider" role="presentation"></div>
+  <div class="site-footer-bar">
+    <a href="/" class="footer-logo" aria-label="Nikaylah home">
+      <img src="/logo-v4.png" alt="" class="site-logo site-logo--footer" width="44" height="44">
+    </a>
+    <div class="footer-right">
+      <div class="footer-links" role="navigation" aria-label="Footer">
+        <a href="/" aria-current="page">Work</a>
+        <a href="/about/">About</a>
+        <a href="https://www.linkedin.com/in/nikaylah" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://drive.google.com/file/d/1-Kf0VUjrW54PMTsQTBf5Oehbb4yCEA07/view?usp=sharing" target="_blank" rel="noopener noreferrer">CV</a>
+        <button type="button" onclick="revealEmail()" aria-label="Copy email address">Email</button>
+      </div>
+      <p class="footer-copy"><span class="footer-whisper">Designed to classical music, good snacks and the hum of a treadmill. Sometimes a nice café.</span> © 2026 Nikaylah.</p>
+    </div>
+  </div>
+</footer>
+
+<button class="email-btn" onclick="revealEmail()" aria-label="Copy email address">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+  Email me
+</button>
+<div class="copy-toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* Email obfuscated — assembled at runtime so bots cannot scrape it */
+function revealEmail(){
+  const u='nikaylah';
+  const d='gmail.com';
+  const e=u+'@'+d;
+  navigator.clipboard.writeText(e).then(()=>{
+    const t=document.getElementById('toast');
+    t.textContent='Copied — '+e;
+    t.classList.add('show');
+    setTimeout(()=>t.classList.remove('show'),2800);
+  }).catch(()=>{
+    window.location.href='mailto:'+u+'@'+d;
+  });
+}
+
+/* Page view duration tracking — sends to Vercel Analytics automatically */
+/* No extra code needed — the script.js handles it */
+</script>
+</body>
+</html>

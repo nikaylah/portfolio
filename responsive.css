@@ -251,12 +251,63 @@ body:has(.email-btn) footer {
   }
 
   .page-home .work-gallery-item {
-    margin-bottom: clamp(5.5rem, 8vw, 6.5rem);
+    margin-bottom: clamp(6rem, 9vw, 7.5rem);
   }
 
   .page-home .work-gallery-caption {
-    font-size: 1.0625rem;
+    font-size: 1.125rem;
     line-height: 1.3;
+  }
+
+  .page-home .hero-intro {
+    font-size: 1.125rem;
+    margin-bottom: clamp(2rem, 5vw, 2.75rem);
+  }
+
+  .page-home .hero-intro-name {
+    font-size: 1.65em;
+    vertical-align: -0.05em;
+  }
+
+  .page-home .hero-role {
+    font-size: 0.8125rem;
+    font-weight: 300;
+    margin-bottom: clamp(2.75rem, 5.5vw, 3.5rem);
+  }
+
+  .page-home .hero-headline {
+    font-size: clamp(2.5rem, 7.5vw, 3.5rem);
+    line-height: 1.14;
+    max-width: 10.5em;
+    margin-bottom: clamp(2.5rem, 6vw, 3.25rem);
+  }
+
+  .page-home .hero-lede {
+    font-size: 1.125rem;
+    line-height: 1.65;
+    max-width: 50ch;
+  }
+
+  .page-home .hero-scroll {
+    font-size: 0.875rem;
+    margin-top: clamp(2.75rem, 7vw, 3.5rem);
+  }
+
+  .page-home .nav-home,
+  .page-home .nav-link,
+  .page-home .nav-contact {
+    font-size: 0.75rem;
+    font-weight: 300;
+    letter-spacing: 0.15em;
+  }
+
+  .page-home .footer-links a,
+  .page-home .footer-links button {
+    font-size: 0.8125rem;
+  }
+
+  .page-home .footer-copy {
+    font-size: 0.75rem;
   }
 
   .page-home .site-footer-bar {
@@ -476,14 +527,92 @@ body:has(.email-btn) footer {
   }
 
   .page-home .nav-link:hover,
-  .page-home .nav-email:hover {
-    color: #1a1a1a;
-    opacity: 0.62;
+  .page-home .nav-contact:hover {
+    color: var(--ink, #1f1b18);
+    opacity: 0.72;
+    text-decoration: underline;
+    text-underline-offset: 0.28em;
   }
 
   .nav-cta:hover {
     background: var(--brand-primary-hover);
     color: var(--text-on-brand, #1a1a1a);
+  }
+}
+
+/* ── Tap targets + readable micro-type (mobile / tablet) ── */
+.email-btn {
+  min-height: 44px;
+  min-width: 44px;
+  align-items: center;
+}
+
+.back-to-top {
+  width: 2.75rem;
+  height: 2.75rem;
+  min-width: 44px;
+  min-height: 44px;
+}
+
+@media (max-width: 1024px) {
+  /* Crescent Stables: horizontal chapter nav after sidebar stacks */
+  .cs-toc nav {
+    gap: 0.35rem 0.65rem;
+  }
+
+  .cs-toc-link {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0.45rem 0.35rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-link,
+  .nav-contact {
+    min-width: 44px;
+    justify-content: center;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  /* Case study labels + footer — floor at 12px for readability */
+  .breadcrumb,
+  .meta-label,
+  .anchor-label,
+  body:not(.page-home) .footer-copy {
+    font-size: 0.75rem;
+  }
+
+  body:not(.page-home) footer {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  /* Full-bleed breakouts: avoid 100vw scrollbar edge cases on narrow viewports */
+  .cs-photo--cinema,
+  .cs-scale--viewport,
+  .cs-pivot,
+  .final-screen--hero .asset-img {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .cs-scale--edge {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .copy-table-wrap,
+  .copy-table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
   }
 }
 

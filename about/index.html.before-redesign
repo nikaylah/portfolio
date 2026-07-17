@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Nikaylah</title>
+<meta name="description" content="Product Designer based in New York City. Focused on high-performance interaction and human-centered systems.">
+<link rel="icon" href="/favicon.ico?v=3" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=3">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=3">
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=switzer@300&f[]=gambarino@400&display=swap" rel="stylesheet">
+<script defer src="/_vercel/insights/script.js"></script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg-page:#F1F2F4;
+  --bg-primary:#F1F2F4;
+  --bg-callout:#EEDBB1;
+  --brand-primary:#DDA22F;
+  --brand-primary-hover:#c89228;
+  --text-primary:#1a1a1a;
+  --text-secondary:#5c5c5c;
+  --ui-border:rgba(26,26,26,0.12);
+  --font:'Switzer',system-ui,-apple-system,sans-serif;
+  --font-display:'Gambarino',Georgia,serif;
+}
+html{scroll-behavior:smooth}
+@media (max-width:768px){
+  html{scroll-behavior:auto}
+}
+body{
+  line-height:1.6;overflow-x:hidden;
+}
+
+/* NAV — see editorial-theme.css */
+
+/* ABOUT PAGE */
+
+/* Section 1 — Opening */
+.about-opening{
+  padding:80px 3rem 0;
+  max-width:1200px;margin:0 auto;
+  text-align:center;
+}
+.about-opening-headline,
+.about-quote-text{
+  font-family:var(--font-display,'Gambarino',Georgia,serif);
+}
+.about-opening-headline{
+  font-size:32px;font-weight:400;
+  line-height:1.45;letter-spacing:-0.02em;
+  max-width:680px;margin:0 auto;
+  color:var(--text-primary);
+}
+
+/* Section 2 — Bio */
+.about-bio{
+  padding:48px 0 3rem;
+}
+.about-bio-grid{
+  display:flex;
+  align-items:flex-start;
+  gap:48px;
+}
+.about-bio-photo{
+  flex:0 0 40%;
+  width:40%;
+  max-width:40%;
+  border-radius:12px;
+  overflow:hidden;
+  cursor:pointer;
+}
+.about-bio-copy{
+  flex:0 0 55%;
+  width:55%;
+  max-width:55%;
+  display:flex;
+  flex-direction:column;
+  gap:1.25rem;
+}
+.about-bio-photo img{
+  display:block;
+  width:100%;
+  max-height:380px;
+  object-fit:cover;
+  border-radius:12px;
+  filter:blur(8px);
+  transition:filter 0.4s ease;
+}
+.about-bio-photo:hover img,
+.about-bio-photo:focus-within img{
+  filter:blur(0);
+}
+@media (prefers-reduced-motion:reduce){
+  .about-bio-photo img{transition:none}
+}
+.about-bio-lead{
+  font-family:var(--font-display,'Gambarino',Georgia,serif);
+  font-size:1.35rem;line-height:1.3;
+  color:var(--text-primary);
+}
+
+/* Section 3 — Featured quote */
+.about-quote{
+  background:#2C1A0E;
+  color:#FAF5EE;
+  padding:80px 3rem;
+  width:100%;
+}
+.about-quote-text{
+  font-size:26px;font-weight:400;font-style:italic;
+  line-height:1.5;text-align:center;
+  max-width:640px;margin:0 auto;
+  color:#FAF5EE;
+}
+.about-quote-text p{margin:0}
+
+/* Section 4 — Credentials */
+.about-credentials{
+  padding:3rem 0 0;
+  margin-bottom:56px;
+}
+.about-credentials-list{
+  list-style:none;
+  margin:0;
+  padding:0;
+}
+.about-credentials-row{
+  display:flex;
+  gap:24px;
+  line-height:2.2;
+  align-items:baseline;
+}
+.about-credentials-label{
+  display:inline-block;
+  width:140px;
+  flex-shrink:0;
+  font-size:13px;
+  font-weight:400;
+  color:#9C7A55;
+}
+.about-credentials-value{
+  font-size:13px;
+  font-weight:500;
+  color:#2C1A0E;
+}
+
+/* Section 5 — Focus (about-meta) */
+.about-meta{
+  padding:0;
+  margin-bottom:48px;
+}
+.meta-block{margin-bottom:2.5rem}
+.meta-block:last-child{margin-bottom:0}
+.section-label{
+  font-size:0.65rem;font-weight:400;
+  letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--text-secondary);margin-bottom:1rem;
+}
+.skill-tags{display:flex;flex-wrap:wrap;gap:8px}
+.skill-tag{
+  font-size:0.65rem;font-weight:400;
+  letter-spacing:0.06em;
+  border-radius:0;padding:0.35rem 0.85rem;
+}
+.about-meta .skill-tag{
+  background:#EFE6D8;
+  border:0.5px solid #D5C8B4;
+  color:#2C1A0E;
+}
+.about-tools .skill-tag{
+  background:transparent;
+  border:0.5px solid #D5C8B4;
+  color:#4A3020;
+}
+
+/* Section 6 — Tools */
+.about-tools{
+  padding:0;
+  margin-bottom:64px;
+}
+.about-tools-groups{
+  display:flex;flex-direction:column;gap:24px;
+}
+.about-tools-group{
+  display:flex;flex-direction:column;gap:8px;
+}
+.about-tools-category{
+  font-size:10px;font-weight:400;
+  letter-spacing:0.1em;text-transform:uppercase;
+  color:#9C7A55;
+  margin:0;
+  padding-left:8px;
+}
+
+/* Section 7 — Currently Tinkering */
+.about-tinkering{
+  padding:0;
+  max-width:640px;
+  margin-bottom:80px;
+}
+.about-tinkering-text{
+  font-size:0.9rem;color:var(--text-secondary);
+  line-height:1.75;font-weight:300;
+}
+.about-tinkering-text a{
+  color:var(--brand-primary);
+  text-decoration:none;
+  transition:color 0.2s;
+}
+.about-tinkering-text a:hover{
+  color:var(--brand-primary-hover,#c89228);
+}
+
+@media (max-width:768px){
+  .about-opening{padding:80px 1.5rem 0}
+  .about-opening-headline{font-size:24px}
+  .about-quote{padding:80px 1.5rem}
+  .about-quote-text{font-size:20px}
+  .about-bio-grid{
+    flex-direction:column;
+    align-items:stretch;
+    gap:1.5rem;
+  }
+  .about-bio-photo,
+  .about-bio-copy{
+    flex:none;
+    width:100%;
+    max-width:100%;
+  }
+}
+
+.about-body{
+  font-size:0.9rem;color:var(--text-secondary);
+  line-height:1.75;font-weight:300;
+}
+
+/* PAGE */
+.shell{max-width:1200px;margin:0 auto;padding:0 3rem}
+
+.about-engineering{
+  padding:0 0 4rem;
+}
+.about-engineering-title{
+  font-size:clamp(1.75rem,3.5vw,2.5rem);
+  margin-bottom:0.75rem;line-height:1.15;
+}
+.panel-label{
+  font-size:0.65rem;letter-spacing:0.18em;
+  text-transform:uppercase;color:var(--text-secondary);font-weight:400;
+}
+.about-engineering-lead{
+  font-size:0.9rem;color:var(--text-secondary);
+  line-height:1.75;font-weight:300;
+  max-width:52ch;margin-bottom:1.75rem;
+}
+.about-engineering-fullscreen{
+  display:inline-block;margin-top:1rem;
+  font-size:0.72rem;font-weight:500;
+  letter-spacing:0.08em;text-transform:uppercase;
+  color:var(--text-secondary);text-decoration:none;
+}
+.about-engineering-fullscreen:hover{color:var(--text-primary)}
+
+/* Closing statement */
+.about-closing{
+  background:#FAF5EE;
+  padding:80px 3rem;
+  width:100%;
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:1.5rem;
+}
+.about-closing-text{
+  font-family:var(--font-display,'Gambarino',Georgia,serif);
+  font-size:22px;font-weight:400;
+  color:#2C1A0E;
+  max-width:560px;
+  line-height:1.7;
+  margin:0;
+}
+.about-closing-link{
+  font-size:0.78rem;font-weight:500;
+  letter-spacing:0.02em;
+  text-decoration:none;
+  transition:color 0.2s;
+}
+
+/* FOOTER — matches index */
+footer{
+  border-top:1px solid var(--ui-border);
+  padding:2.5rem 3rem;
+  display:flex;justify-content:space-between;
+  align-items:center;flex-wrap:wrap;gap:1rem;
+  max-width:1200px;margin:0 auto;
+}
+.footer-logo{flex-shrink:0;line-height:0;text-decoration:none}
+.footer-right{display:flex;flex-direction:column;align-items:flex-end;gap:0.5rem}
+.footer-links{display:flex;gap:1.5rem;flex-wrap:wrap}
+.footer-links a{
+  font-size:0.78rem;font-weight:400;letter-spacing:0.06em;
+  text-transform:uppercase;color:var(--text-secondary);
+  text-decoration:none;transition:color 0.2s;
+}
+.footer-links a:hover{color:var(--text-primary)}
+.footer-copy{font-size:0.68rem;color:var(--text-secondary);margin:0}
+
+.email-btn{
+  position:fixed;bottom:2rem;right:2rem;z-index:99;
+  background:var(--text-primary);color:var(--bg-primary);
+  font-size:0.75rem;letter-spacing:0.06em;
+  padding:0.75rem 1.25rem;border-radius:0;
+  cursor:pointer;border:1px solid var(--text-primary);font-family:var(--font);
+  transition:background 0.2s,color 0.2s;
+}
+.email-btn:hover{background:var(--bg-primary);color:var(--text-primary)}
+.copy-toast{
+  position:fixed;bottom:5rem;right:2rem;
+  background:var(--text-primary);color:var(--bg-primary);
+  font-size:0.72rem;padding:0.5rem 1rem;
+  border-radius:8px;z-index:100;
+  opacity:0;transition:opacity 0.3s;pointer-events:none;
+}
+.copy-toast.show{opacity:1}
+
+.skip-link{
+  position:absolute;top:-100px;left:1rem;
+  background:var(--text-primary);color:var(--bg-primary);
+  padding:0.5rem 1rem;border-radius:4px;
+  font-size:0.85rem;font-family:var(--font);
+  text-decoration:none;z-index:999;transition:top 0.2s;
+}
+.skip-link:focus{top:1rem}
+*:focus-visible{
+  outline:2px solid var(--text-primary);outline-offset:3px;border-radius:2px;
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none !important;transition:none !important}
+}
+/* Responsive layout: see responsive.css */
+</style>
+<link rel="stylesheet" href="/editorial-theme.css">
+<link rel="stylesheet" href="/responsive.css">
+<link rel="stylesheet" href="/gesture-interface.css?v=25">
+</head>
+<body>
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+  <nav class="nav-main" aria-label="Site">
+    <a href="/index.html" class="nav-home">Nikaylah</a>
+    <div class="nav-center">
+      <a href="/about/" class="nav-link nav-link--current" aria-current="page">About</a>
+      <a href="https://www.linkedin.com/in/nikaylah" target="_blank" rel="noopener noreferrer" class="nav-link">LinkedIn</a>
+      <a href="https://drive.google.com/file/d/1-Kf0VUjrW54PMTsQTBf5Oehbb4yCEA07/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="nav-link">CV</a>
+      <button class="nav-cta" type="button" onclick="revealEmail()" aria-label="Copy email address">Email me</button>
+    </div>
+  </nav>
+</header>
+
+<main id="main-content">
+  <section class="about-opening" aria-label="Introduction">
+    <h1 class="about-opening-headline">I see the world through a film camera and a terminal window. Design is where those two things finally made sense together.</h1>
+  </section>
+
+  <div class="shell">
+    <section class="about-bio" aria-label="Background">
+      <div class="about-bio-grid">
+        <div class="about-bio-photo" tabindex="0" aria-label="Profile photo — hover to reveal">
+          <img src="/portfolio-assets/selfie.png" alt="Nikaylah" width="400" height="400" decoding="async">
+        </div>
+        <div class="about-bio-copy">
+          <p class="about-bio-lead">I grew up painting, sewing and carrying a film camera.</p>
+          <p class="about-body">Then I studied computer science, spent years building and shipping software and found that product design is where both halves finally made sense.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="about-quote" aria-label="Design philosophy">
+    <blockquote class="about-quote-text">
+      <p>I design with the technical depth of someone who has actually read the error logs and the eye of someone who still shoots on film.</p>
+    </blockquote>
+  </section>
+
+  <div class="shell">
+    <section class="about-credentials" aria-label="Credentials">
+      <ul class="about-credentials-list">
+        <li class="about-credentials-row">
+          <span class="about-credentials-label">CS Graduate</span>
+          <span class="about-credentials-value">Computer Science</span>
+        </li>
+        <li class="about-credentials-row">
+          <span class="about-credentials-label">Accenture</span>
+          <span class="about-credentials-value">Technology Consulting · 4 years</span>
+        </li>
+        <li class="about-credentials-row">
+          <span class="about-credentials-label">Currently</span>
+          <span class="about-credentials-value">Product Designer and Creative Technologist</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="about-meta" aria-label="Focus">
+      <div class="meta-block">
+        <p class="section-label">Focus</p>
+        <div class="skill-tags">
+          <span class="skill-tag">UX Strategy &amp; Research</span>
+          <span class="skill-tag">Inclusion &amp; Behavioral Design</span>
+          <span class="skill-tag">Information Architecture</span>
+          <span class="skill-tag">Creative Technology</span>
+          <span class="skill-tag">Visual Systems</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-tools" aria-label="Tools">
+      <p class="section-label">Tools</p>
+      <div class="about-tools-groups">
+        <div class="about-tools-group">
+          <p class="about-tools-category">Design</p>
+          <div class="skill-tags">
+            <span class="skill-tag">Figma</span>
+            <span class="skill-tag">Framer</span>
+          </div>
+        </div>
+        <div class="about-tools-group">
+          <p class="about-tools-category">Build</p>
+          <div class="skill-tags">
+            <span class="skill-tag">Cursor</span>
+            <span class="skill-tag">Replit</span>
+            <span class="skill-tag">Vercel</span>
+            <span class="skill-tag">GitHub</span>
+          </div>
+        </div>
+        <div class="about-tools-group">
+          <p class="about-tools-category">AI</p>
+          <div class="skill-tags">
+            <span class="skill-tag">Claude</span>
+            <span class="skill-tag">Claude Code</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-tinkering" aria-label="Currently Tinkering">
+      <p class="section-label">Currently Tinkering</p>
+      <p class="about-tinkering-text">Follow along on <a href="https://x.com/cottonjournal_" target="_blank" rel="noopener noreferrer">Twitter</a> for experiments and side builds.</p>
+    </section>
+
+    <section class="about-engineering" aria-label="Creative Engineering">
+      <div class="panel-label">Analog Eye.</div>
+      <p class="about-engineering-lead">Slow down. Shoot film. Make things.</p>
+
+      <div class="gc-container">
+        <section class="gc-experience" aria-label="3D interaction showcase">
+          <div class="gc-stage">
+            <div class="gc-spatial-hub">
+              <div class="gc-gallery-scene" id="gc-gallery-scene">
+                <div class="gesture-catcher" id="gesture-catcher" aria-hidden="true"></div>
+                <div class="gc-gallery" id="gc-gallery" role="group" aria-label="Engineered art gallery">
+                  <div class="gc-gallery-ring" id="gc-gallery-ring">
+                    <article class="gc-panel" data-index="0" tabindex="-1" aria-label="Photograph 1"><div class="gc-panel-glass"><div class="gc-panel-media"><img class="gc-panel-photo gc-panel-photo-thumb" src="/portfolio-assets/thumbs/gallery-01.png" alt="Photography by Nikaylah" width="600" height="900" decoding="async" fetchpriority="high"><img class="gc-panel-photo gc-panel-photo-full" src="/portfolio-assets/gallery-01.png" alt="Photography by Nikaylah" width="600" height="900" decoding="async"></div></div></article>
+                    <article class="gc-panel" data-index="1" tabindex="-1" aria-label="Photograph 2"><div class="gc-panel-glass"><div class="gc-panel-media"><img class="gc-panel-photo gc-panel-photo-thumb" src="/portfolio-assets/thumbs/gallery-02.png" alt="Photography by Nikaylah" width="600" height="900" decoding="async"><img class="gc-panel-photo gc-panel-photo-full" src="/portfolio-assets/gallery-02.png" alt="Photography by Nikaylah" width="600" height="900" decoding="async"></div></div></article>
+                    <article class="gc-panel" data-index="2" tabindex="-1" aria-label="Photograph 3"><div class="gc-panel-glass"><div class="gc-panel-media"><img class="gc-panel-photo gc-panel-photo-thumb" src="/portfolio-assets/thumbs/gallery-03.png" alt="Photography by Nikaylah" width="600" height="900" decoding="async"><img class="gc-panel-photo gc-panel-photo-full" src="/portfolio-assets/gallery-03.png" alt="Photography by Nikaylah" width="600" height="900" decoding="async"></div></div></article>
+                    <article class="gc-panel" data-index="3" tabindex="-1" aria-label="Photograph 4"><div class="gc-panel-glass"><div class="gc-panel-media"><img class="gc-panel-photo gc-panel-photo-thumb" src="/portfolio-assets/thumbs/gallery-04.png" alt="Photography by Nikaylah" width="600" height="900" decoding="async"><img class="gc-panel-photo gc-panel-photo-full" src="/portfolio-assets/gallery-04.png" alt="Photography by Nikaylah" width="600" height="900" decoding="async"></div></div></article>
+                    <article class="gc-panel" data-index="4" tabindex="-1" aria-label="Photograph 5"><div class="gc-panel-glass"><div class="gc-panel-media"><img class="gc-panel-photo gc-panel-photo-thumb" src="/portfolio-assets/thumbs/gallery-05.png" alt="Photography by Nikaylah" width="600" height="900" decoding="async"><img class="gc-panel-photo gc-panel-photo-full" src="/portfolio-assets/gallery-05.png" alt="Photography by Nikaylah" width="600" height="900" decoding="async"></div></div></article>
+                    <article class="gc-panel" data-index="5" tabindex="-1" aria-label="Photograph 6"><div class="gc-panel-glass"><div class="gc-panel-media"><img class="gc-panel-photo gc-panel-photo-thumb" src="/portfolio-assets/thumbs/gallery-06.png" alt="Photography by Nikaylah" width="600" height="900" decoding="async"><img class="gc-panel-photo gc-panel-photo-full" src="/portfolio-assets/gallery-06.png" alt="Photography by Nikaylah" width="600" height="900" decoding="async"></div></div></article>
+                    <article class="gc-panel" data-index="6" tabindex="-1" aria-label="Photograph 7"><div class="gc-panel-glass"><div class="gc-panel-media"><img class="gc-panel-photo gc-panel-photo-thumb" src="/portfolio-assets/thumbs/gallery-07.png" alt="Photography by Nikaylah" width="600" height="900" decoding="async" fetchpriority="high"><img class="gc-panel-photo gc-panel-photo-full" src="/portfolio-assets/gallery-07.png" alt="Photography by Nikaylah" width="600" height="900" decoding="async" fetchpriority="high"></div></div></article>
+                    <article class="gc-panel" data-index="7" tabindex="-1" aria-label="Photograph 8"><div class="gc-panel-glass"><div class="gc-panel-media"><img class="gc-panel-photo gc-panel-photo-thumb" src="/portfolio-assets/thumbs/gallery-08.png" alt="Photography by Nikaylah" width="600" height="900" decoding="async"><img class="gc-panel-photo gc-panel-photo-full" src="/portfolio-assets/gallery-08.png" alt="Photography by Nikaylah" width="600" height="900" decoding="async"></div></div></article>
+                    <article class="gc-panel" data-index="8" tabindex="-1" aria-label="Photograph 9"><div class="gc-panel-glass"><div class="gc-panel-media"><img class="gc-panel-photo gc-panel-photo-thumb" src="/portfolio-assets/thumbs/gallery-09.png" alt="Photography by Nikaylah" width="600" height="900" decoding="async"><img class="gc-panel-photo gc-panel-photo-full" src="/portfolio-assets/gallery-09.png" alt="Photography by Nikaylah" width="600" height="900" decoding="async"></div></div></article>
+                    <article class="gc-panel" data-index="9" tabindex="-1" aria-label="Photograph 10"><div class="gc-panel-glass"><div class="gc-panel-media"><img class="gc-panel-photo gc-panel-photo-thumb" src="/portfolio-assets/thumbs/gallery-10.png" alt="Photography by Nikaylah" width="600" height="900" decoding="async"><img class="gc-panel-photo gc-panel-photo-full" src="/portfolio-assets/gallery-10.png" alt="Photography by Nikaylah" width="600" height="900" decoding="async"></div></div></article>
+                    <article class="gc-panel" data-index="10" tabindex="-1" aria-label="Photograph 11"><div class="gc-panel-glass"><div class="gc-panel-media"><img class="gc-panel-photo gc-panel-photo-thumb" src="/portfolio-assets/thumbs/gallery-11.png" alt="Photography by Nikaylah" width="600" height="900" decoding="async"><img class="gc-panel-photo gc-panel-photo-full" src="/portfolio-assets/gallery-11.png" alt="Photography by Nikaylah" width="600" height="900" decoding="async"></div></div></article>
+                    <article class="gc-panel" data-index="11" tabindex="-1" aria-label="Photograph 12"><div class="gc-panel-glass"><div class="gc-panel-media"><img class="gc-panel-photo gc-panel-photo-thumb" src="/portfolio-assets/thumbs/gallery-12.png" alt="Photography by Nikaylah" width="600" height="900" decoding="async"><img class="gc-panel-photo gc-panel-photo-full" src="/portfolio-assets/gallery-12.png" alt="Photography by Nikaylah" width="600" height="900" decoding="async"></div></div></article>
+                    <article class="gc-panel" data-index="12" tabindex="-1" aria-label="Photograph 13"><div class="gc-panel-glass"><div class="gc-panel-media"><img class="gc-panel-photo gc-panel-photo-thumb" src="/portfolio-assets/thumbs/gallery-13.png" alt="Photography by Nikaylah" width="600" height="900" decoding="async"><img class="gc-panel-photo gc-panel-photo-full" src="/portfolio-assets/gallery-13.png" alt="Photography by Nikaylah" width="600" height="900" decoding="async"></div></div></article>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div id="modal-overlay" class="gc-modal-overlay" hidden aria-hidden="true" role="dialog" aria-modal="true" aria-label="Expanded photograph">
+          <div class="gc-modal-backdrop" data-modal-dismiss></div>
+          <figure class="gc-modal-stage">
+            <img class="gc-modal-image" src="" alt="" width="1200" height="1800" decoding="async">
+          </figure>
+        </div>
+      </div>
+
+      <a href="/gesture-interface.html" class="about-engineering-fullscreen">Open fullscreen experience →</a>
+    </section>
+
+  </div>
+
+  <section class="about-closing" aria-label="Closing">
+    <p class="about-closing-text">The technical and the human have always lived in the same person. Design is just where I finally stopped choosing between them.</p>
+    <a href="/#selected-work" class="about-closing-link card-cta">See my work →</a>
+  </section>
+</main>
+
+<footer>
+  <a href="/" class="footer-logo" aria-label="Nikaylah home">
+    <img src="/logo-v4.png" alt="" class="site-logo site-logo--footer" width="44" height="44">
+  </a>
+  <div class="footer-right">
+    <div class="footer-links" role="navigation" aria-label="Footer">
+      <a href="/">Work</a>
+      <a href="/about/" aria-current="page">About</a>
+      <a href="https://www.linkedin.com/in/nikaylah" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+    <p class="footer-copy"><span class="footer-whisper">Designed to classical music, good snacks and the hum of a treadmill. Sometimes a nice café.</span> © 2026 Nikaylah.</p>
+  </div>
+</footer>
+
+<button class="email-btn" onclick="revealEmail()" aria-label="Copy email address">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+  Email me
+</button>
+<div class="copy-toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+function revealEmail(){
+  const u='nikaylah',d='gmail.com',e=u+'@'+d;
+  navigator.clipboard.writeText(e).then(()=>{
+    const t=document.getElementById('toast');
+    t.textContent='Copied — '+e;
+    t.classList.add('show');
+    setTimeout(()=>t.classList.remove('show'),2800);
+  }).catch(()=>{window.location.href='mailto:'+u+'@'+d});
+}
+</script>
+<script src="/gesture-interface.js?v=27" defer></script>
+</body>
+</html>

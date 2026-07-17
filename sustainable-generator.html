@@ -3,12 +3,32 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sustainable Generator. Nikaylah</title>
-<meta name="description" content="A full-stack AI tool generating outfit concepts from natural fiber selection and real sustainability data. Built solo in 7 days.">
-<link rel="icon" href="/favicon.ico?v=3" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=3">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=3">
-<script defer src="/_vercel/insights/script.js"></script>
+<title>Sustainable Fashion Generator Case Study — Nikaylah</title>
+<meta name="description" content="Product design case study: a full-stack AI tool generating outfit concepts from natural fiber selection and real sustainability data. Built solo in 7 days.">
+<link rel="canonical" href="https://nikaylah.design/sustainable-generator">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Nikaylah">
+<meta property="og:title" content="Sustainable Fashion Generator Case Study — Nikaylah">
+<meta property="og:description" content="Product design case study: an AI tool generating outfit concepts from natural fibers and sustainability data. Built solo in 7 days.">
+<meta property="og:url" content="https://nikaylah.design/sustainable-generator">
+<meta property="og:image" content="https://nikaylah.design/generator-homepage.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sustainable Fashion Generator Case Study — Nikaylah">
+<meta name="twitter:description" content="Product design case study: AI-generated outfits grounded in natural fibers and sustainability data.">
+<meta name="twitter:image" content="https://nikaylah.design/generator-homepage.png">
+<link rel="icon" href="/favicon.ico?v=6" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=6">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=6">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png?v=6">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=6">
+<script>
+if(location.hostname!=='localhost'&&location.hostname!=='127.0.0.1'){
+  const s=document.createElement('script');
+  s.src='/_vercel/insights/script.js';
+  s.defer=true;
+  document.head.appendChild(s);
+}
+</script>
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
 <link href="https://api.fontshare.com/v2/css?f[]=switzer@300&f[]=gambarino@400&display=swap" rel="stylesheet">
 <style>
@@ -22,26 +42,33 @@
   --text-secondary:#5c5c5c;
   --ui-border:rgba(26,26,26,0.12);
   --font:'Switzer',system-ui,-apple-system,sans-serif;
+  --shadow-subtle:0 10px 36px rgba(0,0,0,0.06);
+  --ink:#1F1B18;
+  --ink-secondary:#29241F;
 }
 html{scroll-behavior:smooth}
 body{line-height:1.6;overflow-x:hidden}
 
 /* nav — see editorial-theme.css */
-.site-logo--footer{width:44px;height:44px}
 .nav-link{
   font-size:0.78rem;font-weight:400;letter-spacing:0.08em;
   text-transform:uppercase;color:var(--text-secondary);
   text-decoration:none;transition:color 0.2s;
 }
 .nav-link:hover{color:var(--text-primary)}
-.nav-cta{
-  background:var(--text-primary);color:var(--bg-primary);
-  padding:0.5rem 1.25rem;border-radius:0;
-  font-size:0.75rem;font-weight:600;letter-spacing:0.06em;
-  cursor:pointer;border:1px solid var(--text-primary);font-family:var(--font);
-  transition:background 0.2s,color 0.2s;
+.nav-contact{
+  background:none;
+  border:none;
+  padding:0.35rem 0.25rem;
+  font-family:var(--font);
+  font-weight:400;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  cursor:pointer;
+  min-height:44px;
+  display:inline-flex;
+  align-items:center;
 }
-.nav-cta:hover{background:var(--bg-primary);color:var(--text-primary)}
 .nav-back{font-size:0.78rem;color:var(--text-secondary);text-decoration:none;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s}
 .nav-back:hover{color:var(--text-primary)}
 
@@ -59,7 +86,7 @@ body{line-height:1.6;overflow-x:hidden}
 /* TWO-COLUMN ROWS */
 .row{display:grid;grid-template-columns:minmax(0,11rem) minmax(0,1fr);gap:clamp(2rem,4vw,3.5rem);padding:3.25rem 0;border-bottom:1px solid var(--ui-border)}
 .anchor-label{font-size:0.65rem;font-weight:400;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-secondary);margin-bottom:6px}
-.anchor-title{font-size:1.1rem;line-height:1.3}
+.anchor-title{font-size:1.1rem;line-height:1.3;margin:0;font-weight:400}
 .row-body{font-size:0.9rem;font-weight:400;color:var(--text-secondary);line-height:1.8}
 .row-body p{margin-bottom:0.85rem}
 .row-body p:last-child{margin-bottom:0}
@@ -108,7 +135,6 @@ footer{
   flex-wrap:wrap;gap:1rem;
   max-width:1200px;margin:0 auto;
 }
-.footer-logo{flex-shrink:0;line-height:0;text-decoration:none}
 .footer-right{display:flex;flex-direction:column;align-items:flex-end;gap:0.5rem}
 .footer-links{display:flex;gap:1.5rem;flex-wrap:wrap}
 .footer-links a{
@@ -120,14 +146,54 @@ footer{
 .footer-copy{font-size:0.68rem;color:var(--text-secondary);margin:0}
 
 .email-btn{
-  position:fixed;bottom:2rem;right:2rem;z-index:99;
-  background:var(--text-primary);color:var(--bg-primary);
-  font-size:0.75rem;letter-spacing:0.06em;
-  padding:0.75rem 1.25rem;border-radius:0;
-  cursor:pointer;border:1px solid var(--text-primary);font-family:var(--font);
-  transition:background 0.2s,color 0.2s;
+  position:fixed;
+  bottom:1.75rem;
+  right:1.75rem;
+  z-index:40;
+  display:inline-flex;
+  align-items:center;
+  gap:0.5rem;
+  padding:0.65rem 1rem;
+  font-family:var(--font);
+  font-size:0.6875rem;
+  font-weight:400;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--ink-secondary);
+  background:rgba(241,242,244,0.92);
+  border:1px solid rgba(26,26,26,0.1);
+  border-radius:999px;
+  cursor:pointer;
+  backdrop-filter:blur(8px);
+  transition:background 0.3s,border-color 0.3s,color 0.3s;
 }
-.email-btn:hover{background:var(--bg-primary);color:var(--text-primary)}
+.email-btn:hover{
+  background:#fff;
+  color:var(--ink);
+  border-color:rgba(26,26,26,0.18);
+}
+.back-to-top{
+  position:fixed;
+  bottom:5.5rem;
+  right:2rem;
+  z-index:98;
+  width:2.5rem;
+  height:2.5rem;
+  background:var(--text-primary);
+  color:var(--bg-page);
+  border:none;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1rem;
+  line-height:1;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity 0.35s ease,visibility 0.35s ease;
+}
+.back-to-top.is-visible{opacity:1;visibility:visible}
+.back-to-top:hover{opacity:0.82}
 .copy-toast{position:fixed;bottom:5rem;right:2rem;background:var(--text-primary);color:var(--bg-primary);border:1px solid var(--ui-border);font-size:0.72rem;padding:0.5rem 1rem;border-radius:0;z-index:100;opacity:0;transition:opacity 0.3s;pointer-events:none}
 .copy-toast.show{opacity:1}
 
@@ -153,17 +219,23 @@ footer{
 </style>
 <link rel="stylesheet" href="/editorial-theme.css">
 <link rel="stylesheet" href="/responsive.css">
+<style>
+</style>
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <header class="site-header">
     <nav class="nav-main" aria-label="Site">
-      <a href="/index.html" class="nav-home">Nikaylah</a>
+      <a href="/index.html" class="nav-home" aria-label="Nikaylah home">
+        <svg class="brand-mark brand-mark--nav" viewBox="0 0 164 100" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M46 92C30 92 20 84 18 74C9 73 3 66 3 57C3 48 10 41 19 41C21 30 32 22 45 22C55 22 64 27 69 35C72 26 81 20 91 20C104 20 114 29 115 41C127 42 136 50 136 61C136 66 133 71 128 74C127 84 118 92 106 92Z" fill="currentColor"/></svg>
+        <span class="brand-name">NIKAYLAH</span>
+      </a>
       <div class="nav-center">
+        <a href="/#selected-work" class="nav-link">Work</a>
         <a href="/about/" class="nav-link">About</a>
         <a href="https://www.linkedin.com/in/nikaylah" target="_blank" rel="noopener noreferrer" class="nav-link">LinkedIn</a>
-        <a href="https://drive.google.com/file/d/1-Kf0VUjrW54PMTsQTBf5Oehbb4yCEA07/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="nav-link">CV</a>
-        <button class="nav-cta" type="button" onclick="copyEmail()" aria-label="Copy email address">Email me</button>
+        <a href="https://drive.google.com/file/d/18i05f4y_GH3vvXX1J9wEel7txm3prvzZ/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="nav-link">CV</a>
+        <button class="nav-link nav-contact" type="button" onclick="copyEmail()" aria-label="Copy email address">Contact</button>
       </div>
     </nav>
   </header>
@@ -180,19 +252,19 @@ footer{
       <div><div class="meta-label">Stack</div><div class="meta-val">React, Vite, Claude API, Vercel</div></div>
       <div><div class="meta-label">Status</div><div class="meta-val">Live on Vercel</div></div>
     </div>
-    <img src="generator-homepage.png" alt="Sustainable Fashion Generator" class="hero-img">
+    <img loading="eager" height="1808" width="2400" src="generator-homepage.png" alt="Sustainable Fashion Generator app homepage showing fiber selection and generated outfit panels" class="hero-img">
   </div>
 
   <!-- CONTEXT -->
   <div class="row">
     <div>
       <div class="anchor-label">Context</div>
-      <div class="anchor-title">Most fashion tools start with a trend. I wanted to build one that starts with a value.</div>
+      <h2 class="anchor-title">Most fashion tools start with a trend. I wanted to build one that starts with a value.</h2>
     </div>
     <div class="row-body">
       <p>I care about what we consume and what we leave behind. Plastic in our water. Synthetic fibers that take centuries to break down. A fashion industry that produces more than it needs and disposes of it faster than the planet can absorb it.</p>
       <p>I wanted to explore what a tool might look like if sustainability came first. Not as a filter applied after the fact, but as the starting point for every creative decision. This project is my answer to that question.</p>
-      <img src="portfolio-assets/sg-gap-diagram.png" alt="Gap diagram showing where the Sustainable Generator sits between creative tools and compliance tools" class="asset-img">
+      <img loading="lazy" height="1800" width="2880" src="portfolio-assets/sg-gap-diagram.png" alt="Gap diagram showing where the Sustainable Generator sits between creative tools and compliance tools" class="asset-img">
       <p class="asset-caption">Nothing bridges both. That gap is where this project lives.</p>
     </div>
   </div>
@@ -201,7 +273,7 @@ footer{
   <div class="row">
     <div>
       <div class="anchor-label">The experiment</div>
-      <div class="anchor-title">A working prototype that puts material integrity before aesthetic direction</div>
+      <h2 class="anchor-title">A working prototype that puts material integrity before aesthetic direction</h2>
     </div>
     <div class="row-body">
       <p>The AI Sustainable Fashion Generator is a working web prototype that generates outfit concepts based on natural fiber selection, personal style, and design values. Every output includes a sustainability score calculated from real environmental data, fabric texture photography, an animated garment silhouette, and an AI reasoning layer that explains how each selection shaped the result.</p>
@@ -218,7 +290,7 @@ footer{
           <span style="width:10px;height:10px;border-radius:50%;background:#28C840;display:inline-block"></span>
           <span style="margin-left:8px;background:rgba(44,42,38,0.08);border-radius:0;padding:0.2rem 0.75rem;font-size:0.65rem;color:var(--text-secondary);font-family:var(--font);flex:1;max-width:220px">sustainable-fashion-gen.vercel.app</span>
         </div>
-        <img src="portfolio-assets/sg-app-interface.png" alt="Full Sustainable Fashion Generator app interface showing fiber selection and generated outfit" style="width:100%;display:block;border-radius:0 8px 0 0;border:1px solid var(--ui-border);cursor:zoom-in" onclick="openLightbox(this.src,this.alt)">
+        <img loading="lazy" height="4088" width="2940" src="portfolio-assets/sg-app-interface.png" alt="Full Sustainable Fashion Generator app interface showing fiber selection and generated outfit" style="width:100%;display:block;border-radius:0 8px 0 0;border:1px solid var(--ui-border);cursor:zoom-in" onclick="openLightbox(this.src,this.alt)">
       </div>
       <p class="asset-caption">The full two-panel layout. Fiber selection on the left, generated outfit with sustainability score on the right.</p>
     </div>
@@ -228,12 +300,12 @@ footer{
   <div class="row">
     <div>
       <div class="anchor-label">The gap</div>
-      <div class="anchor-title">Two types of tools exist. Nothing bridges both.</div>
+      <h2 class="anchor-title">Two types of tools exist. Nothing bridges both.</h2>
     </div>
     <div class="row-body">
       <p>Most sustainable fashion tools fall into one of two categories. They are either creative generation tools that focus on aesthetics without addressing environmental impact, or sustainability verification tools that track data without helping anyone make something new.</p>
       <p>Nothing bridges both. That gap is where this project lives. The tool I built asks users to choose a fiber before they choose a style. That sequencing is deliberate. In the traditional fashion industry, designers choose an aesthetic direction first and find a cheap fabric to match it later. Flipping that order is a small interface decision with a meaningful design philosophy behind it.</p>
-      <img src="portfolio-assets/sg-gap-diagram.png" alt="Gap diagram showing where the Sustainable Generator sits between creative and compliance tools" class="asset-img">
+      <img loading="lazy" height="1800" width="2880" src="portfolio-assets/sg-gap-diagram.png" alt="Gap diagram showing where the Sustainable Generator sits between creative and compliance tools" class="asset-img">
       <p class="asset-caption">Creative tools ignore sustainability. Compliance tools ignore creativity. This tool bridges both.</p>
     </div>
   </div>
@@ -242,20 +314,20 @@ footer{
   <div class="row">
     <div>
       <div class="anchor-label">Design decisions</div>
-      <div class="anchor-title">Fiber before style. Values before aesthetics.</div>
+      <h2 class="anchor-title">Fiber before style. Values before aesthetics.</h2>
     </div>
     <div class="row-body">
       <p>The most important design decision in this project was the sequencing. Every other choice. the UI layout, the sustainability score display, the animated garment system. came after that one structural call was made.</p>
-      <img src="portfolio-assets/sg-user-flow.png" alt="User flow diagram showing fiber to style to values to generate sequence" class="asset-img">
+      <img loading="lazy" height="1800" width="2880" src="portfolio-assets/sg-user-flow.png" alt="User flow diagram showing fiber to style to values to generate sequence" class="asset-img">
       <p class="asset-caption">Fiber before style. Values before aesthetics. The sequencing is the design.</p>
       <p>Writing the system prompt for the Claude API was closer to UX writing than engineering. Every word shaped the output. Vague instructions produced vague results. Specific constraints produced specific, useful outputs. The prompt had to encode not just what to generate, but why each material choice mattered and how to explain that reasoning back to the user.</p>
       <div class="media-grid media-grid--2">
         <div>
-          <img src="portfolio-assets/sg-wireframe-1.png" alt="Early version of the Sustainable Fashion Generator — fiber and style selection screen" class="asset-img" style="margin:0">
+          <img loading="lazy" height="979" width="1625" src="portfolio-assets/sg-wireframe-1.png" alt="Early version of the Sustainable Fashion Generator — fiber and style selection screen" class="asset-img" style="margin:0">
           <p class="asset-caption" style="margin-top:0.4rem">Early UI. Fiber selection and style vibe before the visual direction was locked.</p>
         </div>
         <div>
-          <img src="portfolio-assets/sg-wireframe-2.png" alt="Early version showing design priorities and generate button" class="asset-img" style="margin:0">
+          <img loading="lazy" height="708" width="1193" src="portfolio-assets/sg-wireframe-2.png" alt="Early version showing design priorities and generate button" class="asset-img" style="margin:0">
           <p class="asset-caption" style="margin-top:0.4rem">Design priorities and generate flow in the first iteration.</p>
         </div>
       </div>
@@ -266,14 +338,14 @@ footer{
   <div class="row">
     <div>
       <div class="anchor-label">The interaction</div>
-      <div class="anchor-title">The moment the tool felt like a creative collaboration</div>
+      <h2 class="anchor-title">The moment the tool felt like a creative collaboration</h2>
     </div>
     <div class="row-body">
       <p>The "how your choices shaped this" section was the design decision I am most proud of. After generating an outfit the app shows three lines explaining which selection drove each creative decision. Organic Hemp informed the fabric weight and drape. Romantic shaped the gathered layers and soft movement. Full Coverage guided the longer hemlines and layered silhouette.</p>
       <div class="pull-quote">
         <p>That section transforms the experience from feeling like a random output generator into feeling like a creative collaboration. Users understand that their values produced this specific result.</p>
       </div>
-      <img src="portfolio-assets/sg-choices-closeup.png" alt="How your choices shaped this section showing three reasoning lines" class="asset-img">
+      <img loading="lazy" height="690" width="2834" src="portfolio-assets/sg-choices-closeup.png" alt="How your choices shaped this section showing three reasoning lines" class="asset-img">
       <p class="asset-caption">The reasoning layer. Each line connects a user selection directly to a creative decision in the output.</p>
       <video controls style="width:100%;border-radius:0;margin:1.25rem 0;border:1px solid var(--ui-border);" poster="portfolio-assets/sg-app-interface.png">
         <source src="portfolio-assets/sg-demo.mp4" type="video/mp4">
@@ -286,7 +358,7 @@ footer{
   <div class="row">
     <div>
       <div class="anchor-label">User testing</div>
-      <div class="anchor-title">Testing with people who are not like you is more valuable than testing with people who are</div>
+      <h2 class="anchor-title">Testing with people who are not like you is more valuable than testing with people who are</h2>
     </div>
     <div class="row-body">
       <p>I tested with family members who had no background in fashion sustainability. The goal was to see whether someone completely outside the target audience could move through the experience without friction.</p>
@@ -294,7 +366,7 @@ footer{
       <div class="pull-quote">
         <p>My mom's reaction was a better design signal than any assumption I could have made about a typical user. If someone with no context for sustainability scoring finds the experience approachable, the sequencing is working.</p>
       </div>
-      <img src="portfolio-assets/sg-user-testing.png" alt="User testing the Sustainable Fashion Generator" class="asset-img">
+      <picture><source srcset="portfolio-assets/sg-user-testing.webp" type="image/webp"><img loading="lazy" height="4032" width="3024" src="portfolio-assets/sg-user-testing-opt.png" alt="User testing the Sustainable Fashion Generator" class="asset-img"></picture>
       <p class="asset-caption">Testing with someone outside the target audience. If the sequencing works for her, it works.</p>
     </div>
   </div>
@@ -303,18 +375,18 @@ footer{
   <div class="row">
     <div>
       <div class="anchor-label">What worked</div>
-      <div class="anchor-title">The reveal flow. The sequencing. The fact that sustainability felt informative rather than preachy.</div>
+      <h2 class="anchor-title">The reveal flow. The sequencing. The fact that sustainability felt informative rather than preachy.</h2>
     </div>
     <div class="row-body">
       <p>The moment the project felt real was when people I know used it and understood it immediately. Not every feature. Not every data point. But the core idea: you choose what you care about and the tool builds something from it.</p>
       <p>Sustainability data is more compelling when it is specific. "Hemp is better for the environment" changes nothing. "Hemp saves 2000 liters of water per garment compared to conventional cotton" changes how someone thinks about a choice.</p>
       <div class="media-grid media-grid--2">
         <div>
-          <img src="portfolio-assets/sg-wireframe-1.png" alt="Early version of the app before the guided reveal flow" class="asset-img" style="margin:0">
+          <img loading="lazy" height="979" width="1625" src="portfolio-assets/sg-wireframe-1.png" alt="Early version of the app before the guided reveal flow" class="asset-img" style="margin:0">
           <p class="asset-caption" style="margin-top:0.4rem">Before. Early UI with all selections visible at once.</p>
         </div>
         <div>
-          <img src="portfolio-assets/sg-output-final.png" alt="Final generated outfit output with guided reveal flow" class="asset-img" style="margin:0">
+          <img loading="lazy" height="4122" width="2940" src="portfolio-assets/sg-output-final.png" alt="Final generated outfit output with guided reveal flow" class="asset-img" style="margin:0">
           <p class="asset-caption" style="margin-top:0.4rem">After. Generated output with sustainability score and reasoning layer.</p>
         </div>
       </div>
@@ -325,7 +397,7 @@ footer{
   <div class="row">
     <div>
       <div class="anchor-label">The pivot</div>
-      <div class="anchor-title">A performance constraint forced a better design decision</div>
+      <h2 class="anchor-title">A performance constraint forced a better design decision</h2>
     </div>
     <div class="row-body">
       <p>The original vision for the generator included a 3D rendered image of the final outfit. Something a user could look at and immediately see what their garment would actually look like on a real person. That was the plan going in.</p>
@@ -336,7 +408,7 @@ footer{
       <p>I chose the animated SVG silhouette system instead. It renders instantly, it moves, and it gives users a visual response the moment generation completes. The tradeoff was photorealism. but the gain was trust. Users could see something happening. The experience felt responsive rather than broken.</p>
       <p>That decision also sharpened the design philosophy of the whole project. The visual is not the point. The reasoning is the point. The "how your choices shaped this" section. which explains exactly why the AI made each design decision. became more valuable than any photorealistic render could have been. A performance limitation became the strongest design decision in the project.</p>
 
-      <img src="portfolio-assets/sg-pivot-diagram.png" alt="Performance pivot diagram showing 3D rendering vs SVG silhouette decision" class="asset-img">
+      <img loading="lazy" height="1800" width="2880" src="portfolio-assets/sg-pivot-diagram.png" alt="Performance pivot diagram showing 3D rendering vs SVG silhouette decision" class="asset-img">
       <p class="asset-caption">A performance constraint became the strongest design decision in the project.</p>
     </div>
   </div>
@@ -345,7 +417,7 @@ footer{
   <div class="row">
     <div>
       <div class="anchor-label">What I would build next</div>
-      <div class="anchor-title">Three things that would make this significantly more powerful</div>
+      <h2 class="anchor-title">Three things that would make this significantly more powerful</h2>
     </div>
     <div class="row-body">
       <p>First, I would make the initial selections more visual. Right now users choose between text labels with subtitles. Ideally each option would have a small image or texture preview so the choice feels sensory not just conceptual.</p>
@@ -358,7 +430,7 @@ footer{
   <div class="row">
     <div>
       <div class="anchor-label">What this could become</div>
-      <div class="anchor-title">The fashion industry is moving toward material-first design. Tools like this are going to matter.</div>
+      <h2 class="anchor-title">The fashion industry is moving toward material-first design. Tools like this are going to matter.</h2>
     </div>
     <div class="row-body">
       <p>The EU Digital Product Passport requires brands to document the environmental impact of every garment before it reaches market. Tools that help designers make those decisions at the concept stage rather than retroactively are going to matter.</p>
@@ -370,7 +442,7 @@ footer{
   <div class="row">
     <div>
       <div class="anchor-label">What I learned</div>
-      <div class="anchor-title">Four things this project taught me about design</div>
+      <h2 class="anchor-title">Four things this project taught me about design</h2>
     </div>
     <div class="row-body">
       <p>Writing a constrained system prompt is closer to UX writing than engineering. Every word shapes the output. Vague instructions produce vague results. Specific constraints produce specific, useful outputs.</p>
@@ -379,15 +451,15 @@ footer{
       <p>The most important design decision in this project was the sequencing. Fiber before style. Values before aesthetics. That one structural choice is what makes this a design experiment worth talking about rather than another AI generator.</p>
       <div class="media-grid media-grid--3">
         <div>
-          <img src="portfolio-assets/sg-final-1.png" alt="Fiber selection screen" class="asset-img" style="margin:0">
+          <img loading="lazy" height="1558" width="1730" src="portfolio-assets/sg-final-1.png" alt="Fiber selection screen" class="asset-img" style="margin:0">
           <p class="asset-caption" style="margin-top:0.4rem">Fiber selection. The starting point for every creative decision.</p>
         </div>
         <div>
-          <img src="portfolio-assets/sg-final-2.png" alt="Generated outfit with sustainability score" class="asset-img" style="margin:0">
+          <img loading="lazy" height="1482" width="2068" src="portfolio-assets/sg-final-2.png" alt="Generated outfit with sustainability score" class="asset-img" style="margin:0">
           <p class="asset-caption" style="margin-top:0.4rem">Generated outfit with Higg Index sustainability score.</p>
         </div>
         <div>
-          <img src="portfolio-assets/sg-final-3.png" alt="How your choices shaped this section" class="asset-img" style="margin:0">
+          <img loading="lazy" height="1104" width="2332" src="portfolio-assets/sg-final-3.png" alt="How your choices shaped this section" class="asset-img" style="margin:0">
           <p class="asset-caption" style="margin-top:0.4rem">The reasoning layer. Values made visible.</p>
         </div>
       </div>
@@ -414,24 +486,30 @@ footer{
 </main>
 <footer>
   <a href="/" class="footer-logo" aria-label="Nikaylah home">
-    <img src="/logo-v4.png" alt="" class="site-logo site-logo--footer" width="44" height="44">
+    <svg class="brand-mark brand-mark--footer" viewBox="0 0 164 100" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M46 92C30 92 20 84 18 74C9 73 3 66 3 57C3 48 10 41 19 41C21 30 32 22 45 22C55 22 64 27 69 35C72 26 81 20 91 20C104 20 114 29 115 41C127 42 136 50 136 61C136 66 133 71 128 74C127 84 118 92 106 92Z" fill="currentColor"/></svg>
+    <span class="brand-name">NIKAYLAH</span>
   </a>
   <div class="footer-right">
     <div class="footer-links" role="navigation" aria-label="Footer">
       <a href="/">Work</a>
       <a href="/about/">About</a>
       <a href="https://www.linkedin.com/in/nikaylah" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://drive.google.com/file/d/18i05f4y_GH3vvXX1J9wEel7txm3prvzZ/view?usp=sharing" target="_blank" rel="noopener noreferrer">CV</a>
     </div>
     <p class="footer-copy"><span class="footer-whisper">Designed to classical music, good snacks and the hum of a treadmill. Sometimes a nice café.</span> © 2026 Nikaylah.</p>
   </div>
 </footer>
 
-<button class="email-btn" onclick="copyEmail()">✉ Email me</button>
+<button class="email-btn" onclick="copyEmail()" aria-label="Copy email address">
+  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+  Email me
+</button>
 <div class="copy-toast" id="toast" role="status" aria-live="polite"></div>
+<button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <div id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" aria-hidden="true" style="display:none;position:fixed;inset:0;z-index:999;background:rgba(44,42,38,0.92);align-items:center;justify-content:center;cursor:zoom-out" onclick="closeLightbox()">
   <button id="lightbox-close" onclick="closeLightbox()" aria-label="Close image viewer" style="position:fixed;top:1.5rem;right:1.5rem;background:none;border:none;color:rgba(245,240,232,0.8);font-size:2rem;cursor:pointer;line-height:1;font-family:var(--font)">×</button>
-  <img id="lightbox-img" src="" alt="" style="max-width:90vw;max-height:90vh;border-radius:0;border:1px solid var(--ui-border)">
+  <img id="lightbox-img" src="" alt="" width="1200" height="800" loading="lazy" decoding="async" style="max-width:90vw;max-height:90vh;border-radius:0;border:1px solid var(--ui-border)">
   </div>
 
 <script>
@@ -473,6 +551,17 @@ document.querySelectorAll('img.asset-img').forEach(function(img){
     if(e.key==='Enter'||e.key===' ') openLightbox(img.src,img.alt);
   });
 });
+</script>
+<script>
+(function(){
+  var backTop=document.getElementById('back-to-top');
+  if(!backTop) return;
+  function onScroll(){
+    backTop.classList.toggle('is-visible', window.scrollY>600);
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+})();
 </script>
 </body>
 </html>

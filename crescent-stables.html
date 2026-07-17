@@ -3,12 +3,32 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Crescent Stables. Nikaylah</title>
-<meta name="description" content="A full UX redesign for a women-led equestrian brand using behavioral psychology and inclusion design.">
-<link rel="icon" href="/favicon.ico?v=3" sizes="any">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=3">
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=3">
-<script defer src="/_vercel/insights/script.js"></script>
+<title>Crescent Stables Case Study — Nikaylah</title>
+<meta name="description" content="UX case study: a full redesign for a women-led equestrian brand using behavioral psychology and inclusion design to help adult beginners feel they belong.">
+<link rel="canonical" href="https://nikaylah.design/crescent-stables">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Nikaylah">
+<meta property="og:title" content="Crescent Stables Case Study — Nikaylah">
+<meta property="og:description" content="UX case study: a full redesign for a women-led equestrian brand using behavioral psychology and inclusion design.">
+<meta property="og:url" content="https://nikaylah.design/crescent-stables">
+<meta property="og:image" content="https://nikaylah.design/portfolio-assets/after-homepage-crescent.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Crescent Stables Case Study — Nikaylah">
+<meta name="twitter:description" content="UX case study: behavioral psychology and inclusion design for a women-led equestrian brand.">
+<meta name="twitter:image" content="https://nikaylah.design/portfolio-assets/after-homepage-crescent.png">
+<link rel="icon" href="/favicon.ico?v=6" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=6">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=6">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png?v=6">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=6">
+<script>
+if(location.hostname!=='localhost'&&location.hostname!=='127.0.0.1'){
+  const s=document.createElement('script');
+  s.src='/_vercel/insights/script.js';
+  s.defer=true;
+  document.head.appendChild(s);
+}
+</script>
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
 <link href="https://api.fontshare.com/v2/css?f[]=switzer@300&f[]=gambarino@400&display=swap" rel="stylesheet">
 <style>
@@ -21,215 +41,935 @@
   --brand-primary:#DDA22F;
   --text-primary:#1a1a1a;
   --text-secondary:#5c5c5c;
-  --ui-border:rgba(26,26,26,0.12);
+  --ui-border:rgba(26,26,26,0.08);
   --font:'Switzer',system-ui,-apple-system,sans-serif;
+  --font-display:'Gambarino',Georgia,serif;
+  --ink:#1F1B18;
+  --ink-secondary:#29241F;
+  --shadow-subtle:0 10px 36px rgba(0,0,0,0.06);
 }
+
+/* ── Editorial type system (Crescent Stables) ── */
+.page-case{
+  --cs-hero:clamp(4.25rem,9.5vw,7.15rem);
+  --cs-statement:clamp(3.25rem,5.8vw,4.18rem);
+  --cs-intro:clamp(1.5rem,2.4vw,1.875rem);
+  --cs-body:clamp(1.3125rem,1.4vw,1.4375rem);
+  --cs-label:0.8125rem;
+  --cs-caption:1.0625rem;
+  --cs-leading-body:1.72;
+  --cs-leading-intro:1.52;
+  --cs-leading-display:1.04;
+  --cs-measure-body:32ch;
+  --cs-measure-intro:34ch;
+  --cs-tracking-label:0.2em;
+  font-family:var(--font);
+  font-weight:300;
+  font-size:var(--cs-body);
+  line-height:var(--cs-leading-body);
+  color:var(--text-primary);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;
+}
+.page-case strong,
+.page-case b{font-weight:inherit;color:var(--text-primary)}
+.page-case em{font-style:italic}
 html{scroll-behavior:smooth}
-body{line-height:1.6;overflow-x:hidden;background-color:#FAF5EE}
+body{line-height:var(--cs-leading-body,1.72);overflow-x:hidden;background-color:#FAF5EE}
 
-/* nav — see editorial-theme.css */
-.site-logo--footer{width:44px;height:44px}
-.nav-link{
-  font-size:0.78rem;font-weight:400;letter-spacing:0.08em;
-  text-transform:uppercase;color:var(--text-secondary);
-  text-decoration:none;transition:color 0.2s;
-}
-.nav-link:hover{color:var(--text-primary)}
-.nav-cta{
-  background:var(--text-primary);color:var(--bg-primary);
-  padding:0.5rem 1.25rem;border-radius:0;
-  font-size:0.75rem;font-weight:600;letter-spacing:0.06em;
-  cursor:pointer;border:1px solid var(--text-primary);font-family:var(--font);
-  transition:background 0.2s,color 0.2s;
-}
-.nav-cta:hover{background:var(--bg-primary);color:var(--text-primary)}
-
-.page{max-width:780px;margin:0 auto;padding-left:2rem;padding-right:2rem}
-
-/* Part 1 — full-bleed cinematic opener */
-.cs-cinematic{
-  width:100%;
-  background:#1C1410;
-  padding:7rem 2rem;
-  text-align:center;
-}
-.cs-cinematic-inner{
-  max-width:700px;
-  margin:0 auto;
-}
-.cs-cinematic-eyebrow{
-  font-size:0.65rem;
+.page-case .nav-contact{
+  background:none;
+  border:none;
+  padding:0.35rem 0.25rem;
+  font-family:var(--font);
   font-weight:400;
-  letter-spacing:0.18em;
+  letter-spacing:0.14em;
   text-transform:uppercase;
-  color:rgba(255,255,255,0.45);
-  margin:0;
+  cursor:pointer;
+  min-height:44px;
+  display:inline-flex;
+  align-items:center;
 }
-.cs-cinematic-headline{
-  font-family:'Gambarino',Georgia,serif;
-  font-size:clamp(3rem,7vw,5.5rem);
+
+.page{max-width:820px;margin:0 auto;padding-left:0;padding-right:0}
+
+/* ── Beverly-style case layout: sticky chapter nav ── */
+.cs-case-layout{
+  display:grid;
+  grid-template-columns:minmax(0,9.5rem) minmax(0,1fr);
+  gap:clamp(2.5rem,5vw,4.5rem);
+  max-width:1180px;
+  margin:0 auto;
+  padding:0 clamp(1.25rem,4vw,3rem);
+}
+.cs-case-main{min-width:0}
+.cs-toc{
+  position:sticky;
+  top:calc(var(--site-header-offset, 5.75rem) + 1.25rem);
+  align-self:start;
+  padding-top:clamp(1.5rem,3vw,2.5rem);
+  z-index:10;
+}
+.cs-toc nav{display:flex;flex-direction:column;gap:0.15rem}
+.cs-toc-link{
+  display:block;
+  font-size:0.72rem;
   font-weight:400;
-  line-height:1.05;
-  color:#FAF5EE;
-  margin:1rem 0 0;
-  letter-spacing:-0.02em;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:rgba(26,26,26,0.60);
+  text-decoration:none;
+  padding:0.3rem 0;
+  transition:color 0.35s ease;
+  line-height:1.35;
 }
-.cs-cinematic-sub{
-  font-size:1rem;
-  color:rgba(255,255,255,0.6);
-  max-width:520px;
-  margin:1.25rem auto 0;
-  line-height:1.7;
+.cs-toc-link:hover,
+.cs-toc-link.is-active{color:var(--text-primary)}
+.cs-toc-marker{
+  display:inline-block;
+  width:0.5rem;
+  margin-right:0.1rem;
+  opacity:0;
+  font-size:0.55rem;
+  vertical-align:middle;
+  transition:opacity 0.35s ease;
+}
+.cs-toc-link.is-active .cs-toc-marker{opacity:1}
+.cs-section-label{
+  font-size:var(--cs-label);
+  font-weight:400;
+  letter-spacing:var(--cs-tracking-label);
+  text-transform:uppercase;
+  color:rgba(26,26,26,0.60);
+  margin:0 0 clamp(1.75rem,3vw,2.5rem);
+}
+.cs-statement-mixed em{
+  font-style:italic;
+  color:var(--cs-camel,#A67C52);
+  font-weight:400;
+}
+[id^="cs-"]{scroll-margin-top:calc(var(--site-header-offset, 5.75rem) + 1.5rem)}
+
+/* ── Editorial rhythm (spacing only) ── */
+.cs-beat--expansive{padding-top:clamp(7rem,14vw,11rem)!important;padding-bottom:clamp(6rem,12vw,9rem)!important}
+.cs-beat--compressed{padding-top:clamp(3rem,6vw,4.5rem)!important;padding-bottom:clamp(2.5rem,5vw,3.5rem)!important}
+.cs-beat--pause{padding-top:clamp(9rem,18vw,14rem)!important;padding-bottom:clamp(5rem,10vw,8rem)!important}
+.row--breath{padding-top:clamp(6.5rem,12vw,10rem);padding-bottom:clamp(5rem,9vw,7.5rem)}
+.row--tight{padding-top:clamp(3rem,5vw,4rem);padding-bottom:clamp(2.5rem,4vw,3.5rem)}
+.row--statement{padding-top:clamp(8rem,15vw,12rem);padding-bottom:clamp(4rem,8vw,6rem)}
+.cs-section--visual-first .row-body > p:first-child{max-width:var(--cs-measure-intro);margin-bottom:clamp(2rem,4vw,3rem)}
+.cs-section--visual-first .cs-dominant-visual{margin-top:0}
+
+/* ── Editorial case-study hero (Beverly: image first, headline + aside, 3-col meta) ── */
+.cs-hero-editorial{
+  --cs-oxblood:#4A211B;
+  --cs-camel:#A67C52;
+  padding:calc(var(--site-header-offset, 5.75rem) + clamp(2rem, 4vw, 3.5rem)) 0 clamp(4rem, 7vw, 6rem);
+  background:var(--bg-page);
+  border-bottom:1px solid var(--ui-border);
+}
+.cs-hero-shell{
+  max-width:none;
+  margin:0;
+  display:flex;
+  flex-direction:column;
+  gap:clamp(3rem,6vw,5rem);
+}
+.cs-hero-media--lead .cs-hero-media-frame{
+  aspect-ratio:21/10;
+  border-radius:2px;
+}
+.cs-hero-media--lead{
+  width:100%;
+  margin:0;
+  order:0;
+}
+.cs-hero-lower{
+  display:grid;
+  grid-template-columns:1fr;
+  row-gap:clamp(2.5rem,5vw,4rem);
+  align-items:start;
+}
+.cs-hero-secondary{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,0.8fr);
+  column-gap:clamp(2rem,4vw,4rem);
+  row-gap:clamp(2rem,4vw,3rem);
+  align-items:start;
+}
+.cs-hero-text{
+  padding-top:0;
+  max-width:none;
+  min-width:0;
+}
+.cs-hero-aside{
+  padding-top:0;
+  min-width:0;
+}
+.cs-hero-tags{
+  display:flex;
+  flex-wrap:wrap;
+  gap:0.5rem;
+  margin-top:clamp(1.875rem,3.1vw,2.375rem);
+}
+.cs-hero-tag{
+  font-size:0.75rem;
+  font-weight:400;
+  letter-spacing:0.06em;
+  padding:0.4rem 0.9rem;
+  background:rgba(26,26,26,0.05);
+  border-radius:999px;
+  color:var(--text-secondary);
+}
+.cs-skip-cta{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  border:1px solid var(--cs-oxblood);
+  border-radius:999px;
+  padding:0.7rem 1.4rem;
+  margin-top:clamp(2.5rem,4.5vw,3.25rem);
+  margin-bottom:clamp(1.5rem,3vw,2.25rem);
+  font-family:var(--font-ui);
+  font-size:0.72rem;
+  font-weight:500;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--cs-oxblood);
+  text-decoration:none;
+  background:transparent;
+  transition:background 0.25s ease, color 0.25s ease;
+}
+.cs-skip-cta:hover{
+  background:var(--cs-oxblood);
+  color:var(--bg-page);
+}
+.cs-skip-cta-icon{font-size:0.8rem; line-height:1;}
+.cs-skip-cta-text{}
+.cs-hero-meta{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:clamp(1.5rem,2.5vw,2rem);
+  align-self:stretch;
+  margin:0;
+  padding-top:0;
+  border-top:none;
+  max-width:none;
+}
+.cs-hero-aside .cs-hero-summary{margin-top:0}
+.cs-hero-meta-row{
+  display:block;
+  padding:0;
+  border-bottom:none;
+  font-size:var(--cs-body);
+  line-height:var(--cs-leading-body);
+}
+.cs-hero-meta-row dt{
+  font-size:var(--cs-label);
+  font-weight:400;
+  letter-spacing:var(--cs-tracking-label);
+  text-transform:uppercase;
+  color:var(--text-secondary);
+  margin:0 0 0.65rem;
+}
+.cs-hero-meta-row dd{
+  font-weight:300;
+  color:var(--text-secondary);
+  margin:0;
+  max-width:none;
+}
+.cs-hero-eyebrow{
+  font-size:var(--cs-label);
+  font-weight:400;
+  letter-spacing:var(--cs-tracking-label);
+  text-transform:uppercase;
+  color:var(--cs-oxblood);
+  margin:0 0 clamp(1.2rem,2.1vw,1.625rem);
+}
+.cs-hero-headline{
+  font-family:var(--font-display);
+  font-size:var(--cs-hero);
+  font-weight:400;
+  line-height:var(--cs-leading-display);
+  letter-spacing:-0.035em;
+  color:var(--text-primary);
+  margin:0;
+  min-width:0;
+  max-width:100%;
+  overflow-wrap:normal;
+  word-break:keep-all;
+  hyphens:none;
+  text-wrap:balance;
+}
+.cs-hero-summary{
+  font-size:var(--cs-intro);
+  font-weight:300;
+  line-height:var(--cs-leading-intro);
+  color:var(--text-secondary);
+  margin:clamp(1.5rem,2.5vw,2rem) 0 0;
+  max-width:var(--cs-measure-intro);
+}
+.cs-hero-promise{
+  font-family:var(--font-display);
+  font-size:var(--cs-intro);
+  font-style:italic;
+  font-weight:400;
+  line-height:var(--cs-leading-intro);
+  color:var(--cs-camel);
+  margin:clamp(0.9rem,1.6vw,1.35rem) 0 0;
+  max-width:22ch;
+}
+.cs-hero-media-frame{
+  position:relative;
+  border:1px solid rgba(26,26,26,0.07);
+  background:#F7F2EA;
+  overflow:hidden;
+  aspect-ratio:16 / 10;
+  line-height:0;
+  transition:border-color 0.35s ease;
+}
+.cs-hero-media-frame:hover{border-color:rgba(26,26,26,0.14)}
+.cs-hero-media-frame img,
+.cs-hero-media-frame video{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  object-position:top center;
+}
+.cs-hero-media-caption{
+  font-size:var(--cs-caption);
+  font-style:italic;
+  font-weight:300;
+  color:var(--text-secondary);
+  margin:clamp(0.7rem,1.2vw,0.9rem) 0 0;
+  line-height:1.5;
+  max-width:var(--cs-measure-body);
+}
+
+/* Impact stats row — hero follow-up */
+.cs-impact-row{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:clamp(2rem,5vw,4rem);
+  padding:clamp(4rem,8vw,6rem) 0;
+  border-bottom:1px solid var(--ui-border);
+}
+.cs-impact-item{min-width:0}
+.cs-impact-num{
+  font-family:var(--font-display);
+  font-size:var(--cs-statement);
+  font-weight:400;
+  line-height:var(--cs-leading-display);
+  letter-spacing:-0.03em;
+  color:var(--text-primary);
+  display:block;
+}
+.cs-impact-label{
+  font-family:var(--font);
+  font-size:0.9rem;
+  font-weight:300;
+  line-height:1.5;
+  color:var(--text-secondary);
+  display:block;
+  margin-top:0.75rem;
+  max-width:18ch;
 }
 @media (max-width:768px){
-  .cs-cinematic{padding:3.5rem 1.5rem}
+  .cs-impact-row{grid-template-columns:1fr}
 }
 
-/* Part 2 — metadata and before/after (inside .page) */
-.cs-hero{padding-top:0}
-.cs-hero .breadcrumb{margin-top:1.25rem}
-.breadcrumb{font-size:0.65rem;color:var(--text-secondary);margin-bottom:1rem;letter-spacing:0.12em;text-transform:uppercase}
-.meta-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;padding-bottom:2rem;border-bottom:1px solid var(--ui-border)}
-.meta-label{font-size:0.65rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-secondary);margin-bottom:4px}
-.meta-val{font-size:0.875rem;color:var(--text-primary)}
-.hero-img{width:100%;border-radius:0;border:1px solid var(--ui-border);object-fit:cover;object-position:top;max-height:440px;margin:1.75rem 0}
-
-/* HIGHLIGHTS */
-.cs-highlights{
-  margin-top:2.5rem;
-  border-bottom:1px solid var(--ui-border);
-  padding-bottom:3.25rem;
+@media (max-width:900px){
+  .cs-hero-secondary{grid-template-columns:1fr}
+  .cs-hero-meta{
+    padding-top:clamp(1.75rem,3vw,2.5rem);
+    border-top:1px solid rgba(26,26,26,0.08);
+  }
+  .cs-hero-headline{max-width:100%}
+  .cs-hero-summary{max-width:none}
 }
-.cs-highlights-label{
-  font-size:0.65rem;
+@media (max-width:1024px){
+  .cs-case-layout{grid-template-columns:1fr}
+  .cs-toc{
+    position:relative;
+    top:auto;
+    padding-top:0;
+    padding-bottom:1rem;
+    border-bottom:1px solid rgba(26,26,26,0.06);
+    margin-bottom:0.5rem;
+  }
+  .cs-toc nav{
+    flex-direction:row;
+    flex-wrap:wrap;
+    gap:0.35rem 1.25rem;
+  }
+  .cs-toc-marker{display:none}
+}
+@media (max-width:600px){
+  .cs-hero-meta-row{grid-template-columns:1fr;gap:0.3rem}
+}
+
+/* ── PROLOGUE: chapters below hero ── */
+.cs-prologue{
+  --chapter-ink:#1C1410;
+  --chapter-cream:#FAF5EE;
+}
+.cs-chapter{
+  position:relative;
+}
+.cs-chapter-kicker{
+  font-size:var(--cs-label);
   font-weight:400;
-  letter-spacing:0.18em;
+  letter-spacing:var(--cs-tracking-label);
   text-transform:uppercase;
   color:var(--text-secondary);
-  margin:0 0 1rem;
+  margin:0 0 clamp(2.5rem,5vw,4rem);
 }
-.cs-highlights-feature{
-  display:block;
-  width:100%;
-  height:500px;
-  object-fit:cover;
-  object-position:center 20%;
-  border:1px solid var(--ui-border);
+
+/* Chapter 2: rupture */
+.cs-chapter--rupture{
+  padding:clamp(8rem,16vw,13rem) 0 clamp(6rem,11vw,9rem);
+  border-bottom:1px solid var(--ui-border);
+}
+.cs-rupture-statement{
+  font-family:var(--font-display);
+  font-size:var(--cs-statement);
+  font-weight:400;
+  line-height:var(--cs-leading-display);
+  letter-spacing:-0.035em;
+  color:var(--text-primary);
+  min-width:0;
+  max-width:100%;
+  overflow-wrap:normal;
+  word-break:keep-all;
+  hyphens:none;
+  margin:0 0 clamp(2rem,4vw,3rem);
+  text-wrap:balance;
+}
+.cs-rupture-sub{
+  font-family:var(--font-display);
+  font-size:var(--cs-intro);
+  font-style:italic;
+  font-weight:400;
+  line-height:var(--cs-leading-intro);
+  color:var(--text-secondary);
+  max-width:var(--cs-measure-intro);
   margin:0;
 }
-.cs-highlights-tagline{
-  font-family:'Gambarino',Georgia,serif;
-  font-size:1rem;
-  font-style:italic;
-  color:var(--text-secondary);
-  text-align:center;
-  margin:1.25rem 0 0;
-  line-height:1.6;
+.cs-rupture-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,220px);
+  gap:clamp(3rem,6vw,5rem);
+  align-items:end;
+  margin-top:clamp(5rem,9vw,7rem);
 }
-/* TWO-COLUMN ROWS */
-.row{display:grid;grid-template-columns:minmax(0,11rem) minmax(0,1fr);gap:clamp(2.5rem,5vw,4.5rem);padding:4.5rem 0;border-bottom:1px solid var(--ui-border)}
-.row.cs-reflection{grid-template-columns:1fr}
+.cs-rupture-copy{
+  font-size:var(--cs-body);
+  font-weight:300;
+  line-height:var(--cs-leading-body);
+  color:var(--text-secondary);
+  max-width:var(--cs-measure-body);
+}
+.cs-rupture-copy p{margin:0 0 1.5rem}
+.cs-rupture-copy p:last-child{margin-bottom:0}
+.cs-rupture-visual{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+}
+.cs-rupture-visual img{
+  width:auto;
+  max-width:200px;
+  height:auto;
+  display:block;
+  border:1px solid var(--ui-border);
+}
+.cs-rupture-visual figcaption{
+  font-size:var(--cs-caption);
+  font-style:italic;
+  font-weight:300;
+  color:var(--text-secondary);
+  margin:clamp(0.7rem,1.2vw,0.9rem) 0 0;
+  text-align:center;
+  line-height:1.5;
+  max-width:16ch;
+}
+
+/* Chapter 3: three stages */
+.cs-chapter--evolution{
+  padding:clamp(4rem,7vw,5.5rem) 0;
+  border-top:1px solid var(--ui-border);
+}
+.cs-chapter--evolution .page{
+  max-width:900px;
+  padding-top:0;
+  padding-bottom:0;
+  padding-left:0;
+  padding-right:0;
+}
+.cs-chapter--evolution .cs-section-label{
+  margin-bottom:clamp(2rem,3.5vw,2.75rem);
+}
+.cs-evolution-lead{
+  font-family:var(--font-display);
+  font-size:var(--cs-statement);
+  font-weight:400;
+  line-height:var(--cs-leading-display);
+  letter-spacing:-0.03em;
+  color:var(--text-primary);
+  max-width:11em;
+  margin:0 0 clamp(2rem,4vw,3rem);
+}
+.cs-evolution-deck{
+  font-size:var(--cs-intro);
+  font-weight:300;
+  line-height:var(--cs-leading-intro);
+  color:var(--text-secondary);
+  max-width:var(--cs-measure-intro);
+  margin:0;
+}
+.cs-triptych{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:clamp(2rem,4vw,3rem);
+  margin-top:clamp(5rem,9vw,7rem);
+  align-items:start;
+}
+.cs-triptych-stage{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+}
+.cs-triptych-marker{
+  font-size:var(--cs-label);
+  letter-spacing:var(--cs-tracking-label);
+  text-transform:uppercase;
+  color:var(--text-secondary);
+  margin:0 0 1.25rem;
+  width:100%;
+  text-align:left;
+}
+.cs-triptych-marker--finale{color:var(--text-primary)}
+.cs-triptych-stage img{
+  width:auto;
+  max-width:min(100%,200px);
+  height:auto;
+  display:block;
+  border:1px solid var(--ui-border);
+}
+.cs-triptych-note{
+  font-size:var(--cs-body);
+  font-weight:300;
+  line-height:var(--cs-leading-body);
+  color:var(--text-secondary);
+  margin:1.25rem 0 0;
+  text-align:left;
+  width:100%;
+  max-width:var(--cs-measure-body);
+}
+.cs-triptych-note .cs-note-label{
+  display:block;
+  font-size:var(--cs-label);
+  letter-spacing:var(--cs-tracking-label);
+  text-transform:uppercase;
+  color:var(--text-primary);
+  margin-bottom:0.5rem;
+}
+.cs-prologue-close{
+  font-family:var(--font-display);
+  font-size:var(--cs-intro);
+  font-style:italic;
+  line-height:var(--cs-leading-intro);
+  color:var(--text-primary);
+  max-width:var(--cs-measure-intro);
+  margin:clamp(5rem,9vw,7rem) 0 0;
+}
+.cs-prologue-footnote{
+  font-size:var(--cs-body);
+  font-weight:300;
+  line-height:var(--cs-leading-body);
+  color:var(--text-secondary);
+  max-width:var(--cs-measure-body);
+  margin:clamp(3rem,5vw,4rem) 0 0;
+  padding-top:clamp(2.5rem,4vw,3.5rem);
+  border-top:1px solid rgba(26,26,26,0.06);
+}
+.cs-prologue-footnote a{
+  color:var(--text-primary);
+  text-decoration:none;
+  border-bottom:1px solid rgba(26,26,26,0.2);
+}
+.cs-prologue-footnote a:hover{opacity:0.7}
+.cs-prologue .live-site-link{
+  margin-top:1.75rem;
+}
+
+/* Bridge into case study body */
+.cs-bridge{
+  padding:clamp(6rem,12vw,10rem) 0;
+  border-bottom:1px solid var(--ui-border);
+}
+.cs-bridge-text{
+  font-family:var(--font-display);
+  font-size:var(--cs-intro);
+  font-weight:400;
+  line-height:var(--cs-leading-intro);
+  color:var(--text-secondary);
+  max-width:var(--cs-measure-intro);
+  margin:0;
+}
+
+.row--editorial{
+  grid-template-columns:minmax(0,1fr);
+  gap:clamp(2rem,4vw,3rem);
+  padding-top:clamp(6rem,11vw,9rem);
+}
+.row--editorial > .row-body,
+.row--editorial > .cs-section-headline{
+  min-width:0;
+}
+.cs-section-headline{
+  font-family:var(--font-display);
+  font-size:var(--cs-statement);
+  font-weight:400;
+  line-height:var(--cs-leading-display);
+  letter-spacing:-0.03em;
+  color:var(--text-primary);
+  min-width:0;
+  max-width:100%;
+  overflow-wrap:normal;
+  word-break:keep-all;
+  hyphens:none;
+  margin:0 0 clamp(2.5rem,5vw,4rem);
+}
+
+.hero-img{width:100%;border-radius:0;border:1px solid var(--ui-border);object-fit:cover;object-position:top;max-height:440px;margin:1.75rem 0}
+.row{display:grid;grid-template-columns:minmax(0,11rem) minmax(0,1fr);gap:clamp(3rem,6vw,5rem);padding:clamp(5rem,9vw,7.5rem) 0;border-bottom:1px solid var(--ui-border)}
+.row.cs-reflection{grid-template-columns:1fr;padding-top:clamp(7rem,13vw,10rem);padding-bottom:clamp(6rem,11vw,9rem)}
 .cs-reflection-label{
-  font-size:0.65rem;font-weight:400;
-  letter-spacing:0.18em;text-transform:uppercase;
-  color:var(--text-secondary);margin:0;
+  font-size:var(--cs-label);
+  font-weight:400;
+  letter-spacing:var(--cs-tracking-label);
+  text-transform:uppercase;
+  color:var(--text-secondary);
+  margin:0 0 clamp(2rem,4vw,3rem);
 }
 .cs-reflection-headline{
-  font-family:'Gambarino',Georgia,serif;
-  font-size:clamp(1.75rem,3.5vw,2.5rem);
+  font-family:var(--font-display);
+  font-size:var(--cs-statement);
   font-weight:400;
   color:var(--text-primary);
-  line-height:1.2;
-  margin:0.75rem 0 0;
-  max-width:580px;
-  letter-spacing:-0.02em;
+  line-height:var(--cs-leading-display);
+  margin:0 0 clamp(3rem,5vw,4.5rem);
+  max-width:10em;
+  letter-spacing:-0.03em;
 }
 .cs-reflection-statement{
-  border-left:2px solid var(--brand-primary);
-  padding-left:1.25rem;
-  margin:1.75rem 0 1.5rem;
+  border-left:1px solid rgba(26,26,26,0.12);
+  padding-left:clamp(1.25rem,2vw,1.75rem);
+  margin:0 0 clamp(2.5rem,4vw,3.5rem);
+  max-width:var(--cs-measure-intro);
 }
-.cs-reflection-statement:last-of-type{margin-bottom:1.5rem}
+.cs-reflection-statement:last-of-type{margin-bottom:clamp(3rem,5vw,4rem)}
 .cs-reflection-lead{
-  font-size:0.9rem;font-weight:600;
+  font-size:var(--cs-intro);
+  font-weight:400;
   color:var(--text-primary);
-  line-height:1.4;
-  margin:0 0 0.5rem;
+  line-height:var(--cs-leading-intro);
+  margin:0 0 0.75rem;
 }
 .cs-reflection-body{
-  font-size:0.9rem;font-weight:400;
+  font-size:var(--cs-body);
+  font-weight:300;
   color:var(--text-secondary);
-  line-height:1.75;
+  line-height:var(--cs-leading-body);
+  margin:0;
+  max-width:var(--cs-measure-body);
+}
+.anchor-label{font-size:var(--cs-label);font-weight:400;letter-spacing:var(--cs-tracking-label);text-transform:uppercase;color:var(--text-secondary);margin-bottom:clamp(1rem,2vw,1.5rem)}
+.anchor-title{
+  font-family:var(--font-display);
+  font-size:var(--cs-intro);
+  line-height:var(--cs-leading-intro);
+  font-weight:400;
+  max-width:var(--cs-measure-intro);
   margin:0;
 }
-.anchor-label{font-size:0.65rem;font-weight:400;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-secondary);margin-bottom:6px}
-.anchor-title{
-  font-family:'Gambarino',Georgia,serif;
-  font-size:1.35rem;
-  line-height:1.3;
-}
-.row-body{font-size:0.875rem;font-weight:400;color:var(--text-secondary);line-height:1.85}
-.row-body p{margin-bottom:0.85rem}
+.row-body{font-size:var(--cs-body);font-weight:300;color:var(--text-secondary);line-height:var(--cs-leading-body)}
+.row-body p{margin-bottom:1.5rem;max-width:var(--cs-measure-body)}
 .row-body p:last-child{margin-bottom:0}
 
-/* ASSET IMAGES */
-.asset-img{width:100%;border-radius:0;margin:1.25rem 0;border:1px solid var(--ui-border);}
-.asset-caption{font-size:0.72rem;color:var(--text-secondary);font-style:italic;margin-top:-0.5rem;margin-bottom:1.25rem;padding-left:4px}
+/* ASSET IMAGES + editorial photography */
+.asset-img{width:100%;border-radius:0;margin:clamp(2rem,4vw,3rem) 0;border:1px solid rgba(26,26,26,0.07);transition:border-color 0.35s ease,opacity 0.35s ease}
+.asset-img:hover{border-color:rgba(26,26,26,0.14)}
+.asset-caption{
+  font-size:var(--cs-caption);
+  font-weight:300;
+  color:var(--text-secondary);
+  font-style:italic;
+  margin-top:clamp(0.55rem,1vw,0.75rem);
+  margin-bottom:clamp(2.25rem,3.5vw,2.85rem);
+  padding-left:0;
+  line-height:1.5;
+  max-width:var(--cs-measure-body);
+}
+.media-grid .asset-caption{
+  margin-top:clamp(0.75rem,1.35vw,0.95rem);
+  margin-bottom:clamp(1.25rem,2vw,1.65rem);
+}
+
+/* Editorial photo system */
+.cs-photo{margin:0;line-height:0}
+.cs-photo img{
+  width:100%;
+  display:block;
+  border:1px solid rgba(26,26,26,0.07);
+  transition:border-color 0.35s ease,transform 0.5s ease;
+}
+.cs-photo:hover img{border-color:rgba(26,26,26,0.14)}
+.cs-photo figcaption{
+  font-size:var(--cs-caption);
+  font-weight:300;
+  font-style:italic;
+  color:var(--text-secondary);
+  line-height:1.5;
+  margin:clamp(0.7rem,1.25vw,0.9rem) 0 0;
+  max-width:var(--cs-measure-body);
+}
+.cs-photo--cinema{
+  width:100vw;
+  max-width:100vw;
+  margin-left:calc(50% - 50vw);
+  margin-right:calc(50% - 50vw);
+  margin-top:clamp(3rem,6vw,5rem);
+  margin-bottom:clamp(3rem,6vw,5rem);
+}
+.cs-photo--cinema .cs-photo-frame{
+  aspect-ratio:21/9;
+  overflow:hidden;
+  background:#F7F2EA;
+}
+.cs-photo--cinema img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border:none;
+  border-bottom:1px solid rgba(26,26,26,0.07);
+}
+.cs-photo--cinema figcaption{padding:clamp(0.85rem,1.5vw,1.1rem) clamp(1.25rem,4vw,3rem) clamp(0.5rem,0.85vw,0.65rem)}
+.cs-photo--medium .cs-photo-frame{
+  aspect-ratio:4/3;
+  overflow:hidden;
+  max-width:640px;
+}
+.cs-photo--medium img{height:100%;object-fit:cover}
+.cs-photo--detail .cs-photo-frame{
+  aspect-ratio:16/10;
+  overflow:hidden;
+  max-width:480px;
+}
+.cs-photo--detail img{height:100%;object-fit:cover;object-position:top center}
+.cs-photo--context .cs-photo-frame{overflow:hidden}
+.cs-photo--context img{object-fit:cover;object-position:top center}
+.cs-photo-story{
+  display:flex;
+  flex-direction:column;
+  gap:clamp(3rem,6vw,5rem);
+  margin:clamp(3rem,6vw,5rem) 0;
+}
+.cs-photo-crop--hero img{object-position:center 18%}
+.cs-photo-crop--nav img{object-position:top left}
+.cs-photo-crop--type img{object-position:center 12%}
+.cs-photo-crop--cta img{object-position:center 72%}
+
+/* Image scale rhythm */
+.cs-dominant-visual{margin:clamp(3rem,7vw,6rem) 0}
+.cs-scale--viewport{
+  width:100vw;
+  margin-left:calc(50% - 50vw);
+  margin-right:calc(50% - 50vw);
+  margin-top:clamp(4rem,8vw,7rem);
+  margin-bottom:clamp(4rem,8vw,7rem);
+}
+.cs-scale--viewport img,
+.cs-scale--viewport .cs-photo-frame{
+  width:100%;
+  max-height:min(88vh,1200px);
+  object-fit:cover;
+  object-position:top center;
+}
+.cs-scale--edge{
+  width:calc(100% + clamp(2rem,6vw,5rem));
+  margin-left:calc(-1 * clamp(1rem,3vw,2.5rem));
+  margin-right:calc(-1 * clamp(1rem,3vw,2.5rem));
+}
+.cs-scale--intimate{max-width:280px;margin-left:0}
+.cs-scale--intimate img{max-width:100%}
 
 /* PULL QUOTE */
-.pull-quote{border-left:3px solid var(--brand-primary);padding:1.5rem 1.75rem;margin:2rem 0;background:var(--bg-callout);border:1px solid var(--ui-border);border-radius:12px}
-.pull-quote p{font-family:var(--font);font-style:italic;font-weight:500;font-size:1.05rem;color:var(--text-primary);margin:0;line-height:1.7;letter-spacing:-0.01em}
+.pull-quote{
+  background:var(--bg-callout);
+  border:none;
+  border-radius:14px;
+  padding:clamp(2rem,3vw,2.5rem);
+  margin:clamp(3rem,5vw,4rem) 0;
+  width:fit-content;
+  max-width:600px;
+}
+.pull-quote p{
+  font-family:var(--font-display);
+  font-style:italic;
+  font-weight:400;
+  font-size:var(--cs-body);
+  color:var(--text-primary);
+  margin:0;
+  line-height:var(--cs-leading-body);
+  max-width:none;
+}
 
 /* CHALLENGE */
-.challenge{margin-bottom:1.5rem}
-.ch-label{font-size:0.65rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-secondary);margin-bottom:0.65rem}
-.ch-q{font-family:var(--font);font-size:1rem;font-weight:600;color:var(--text-primary);margin-bottom:0.5rem;line-height:1.3}
+.challenge{margin-bottom:clamp(2.5rem,4vw,3.5rem);max-width:var(--cs-measure-body)}
+.ch-label{font-size:var(--cs-label);font-weight:400;letter-spacing:var(--cs-tracking-label);text-transform:uppercase;color:var(--text-secondary);margin-bottom:1rem}
+.ch-q{font-family:var(--font-display);font-size:var(--cs-intro);font-weight:400;color:var(--text-primary);margin-bottom:1rem;line-height:var(--cs-leading-intro)}
+.challenge p{font-size:var(--cs-body);font-weight:300;line-height:var(--cs-leading-body);color:var(--text-secondary);max-width:var(--cs-measure-body)}
 
 /* RESEARCH STAT CALLOUTS */
 .research-stats{
   display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:1rem;
-  margin:1.75rem 0;
+  gap:clamp(1.5rem,3vw,2rem);
+  margin:clamp(3rem,5vw,4rem) 0;
 }
 .research-stat-card{
-  background:var(--bg-primary);
-  border:1px solid var(--ui-border);
+  background:transparent;
+  border:none;
+  border-top:1px solid rgba(26,26,26,0.08);
   border-radius:0;
-  padding:1.5rem 1.25rem;
+  padding:1.5rem 0 0;
 }
-.research-stat-card--accent{
-  border-bottom:2px solid var(--brand-primary);
-  padding-bottom:1rem;
-}
+.research-stat-card--accent{border-top-color:rgba(26,26,26,0.18)}
 .research-stat-display{
-  font-family:var(--font);
-  font-size:2.25rem;
-  font-weight:600;
+  font-family:var(--font-display);
+  font-size:clamp(3.5rem,7vw,5.5rem);
+  font-weight:400;
   color:var(--text-primary);
-  line-height:1.1;
+  line-height:0.95;
+  letter-spacing:-0.03em;
   display:block;
 }
-.research-stat-display--text{
-  font-size:1.5rem;
-}
+.research-stat-display--text{font-size:clamp(2.25rem,4.5vw,3.5rem)}
 .research-stat-label{
-  font-size:0.78rem;
+  font-size:var(--cs-caption);
+  font-weight:300;
   color:var(--text-secondary);
   line-height:1.5;
-  margin:0.5rem 0 0;
+  margin:0.85rem 0 0;
   display:block;
+  max-width:14ch;
 }
-.research-stat-pull{
-  font-family:'Gambarino',Georgia,serif;
-  font-size:0.95rem;
-  font-style:italic;
+.cs-impact-stats{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:clamp(2rem,4vw,3rem);
+  margin:0 0 clamp(4rem,7vw,6rem);
+  padding-bottom:clamp(2.5rem,4vw,3.5rem);
+  border-bottom:1px solid rgba(26,26,26,0.06);
+}
+@media (max-width:768px){
+  .cs-impact-stats,.research-stats{grid-template-columns:1fr}
+}
+
+/* Problem-style centered editorial beat */
+.cs-problem-beat{
+  text-align:center;
+  padding:clamp(6rem,12vw,10rem) 0;
+  max-width:52rem;
+  margin:0 auto;
+}
+.cs-problem-beat .cs-section-headline{
+  margin-left:auto;
+  margin-right:auto;
+  max-width:12em;
+}
+.cs-problem-beat .cs-problem-sub{
+  font-size:var(--cs-intro);
+  font-weight:300;
+  line-height:var(--cs-leading-intro);
   color:var(--text-secondary);
-  margin:0.25rem 0 0;
-  line-height:1.6;
+  max-width:var(--cs-measure-intro);
+  margin:clamp(1.5rem,3vw,2rem) auto 0;
+}
+.cs-problem-beat .cs-problem-sub b{
+  font-weight:400;
+  color:var(--text-primary);
+}
+
+/* Back to top */
+.back-to-top{
+  position:fixed;
+  bottom:5.5rem;
+  right:2rem;
+  z-index:98;
+  width:2.5rem;
+  height:2.5rem;
+  background:var(--text-primary);
+  color:var(--bg-page);
+  border:none;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1rem;
+  line-height:1;
+  opacity:0;
+  visibility:hidden;
+  transition:opacity 0.35s ease,visibility 0.35s ease;
+}
+.back-to-top.is-visible{opacity:1;visibility:visible}
+.back-to-top:hover{opacity:0.82}
+.research-stat-pull{
+  font-family:var(--font-display);
+  font-size:var(--cs-intro);
+  font-style:italic;
+  font-weight:400;
+  color:var(--text-secondary);
+  margin:clamp(2.5rem,4vw,3.5rem) 0 0;
+  line-height:var(--cs-leading-intro);
+  max-width:var(--cs-measure-intro);
+}
+
+/* Research section — vertical rhythm only */
+#cs-research.row--editorial{
+  display:block;
+  gap:clamp(1.75rem,3.2vw,2.5rem);
+}
+#cs-research .cs-section-label{
+  margin-bottom:clamp(1.5rem,2.65vw,2.15rem);
+}
+#cs-research .cs-impact-stats{
+  gap:clamp(1.75rem,3.2vw,2.5rem);
+  margin-bottom:clamp(2.5rem,4.5vw,3.75rem);
+  padding-bottom:clamp(2rem,3.5vw,2.75rem);
+}
+#cs-research .research-stat-label{
+  margin-top:0.75rem;
+}
+#cs-research .cs-section-headline{
+  margin-bottom:clamp(2rem,3.75vw,3.25rem);
+}
+#cs-research .row-body > p{
+  margin-bottom:1.5rem;
+}
+#cs-research .research-stat-pull{
+  margin:clamp(2.25rem,3.85vw,3.15rem) 0 clamp(1.35rem,2.25vw,1.75rem);
 }
 @media (max-width:768px){
   .research-stats{grid-template-columns:1fr}
+  .cs-rupture-grid{grid-template-columns:1fr}
+  .cs-rupture-visual{align-items:flex-start}
+  .cs-triptych{grid-template-columns:1fr;max-width:320px;margin-left:0;margin-right:auto}
 }
 
 /* THE PIVOT — full-bleed dark section */
@@ -285,7 +1025,7 @@ body{line-height:1.6;overflow-x:hidden;background-color:#FAF5EE}
   font-size:0.72rem;
   font-style:italic;
   color:rgba(255,255,255,0.4);
-  margin:0.5rem 0 0;
+  margin:clamp(0.65rem,1.1vw,0.85rem) 0 clamp(0.75rem,1.25vw,1rem);
   line-height:1.5;
 }
 .cs-pivot-closing{
@@ -304,7 +1044,262 @@ body{line-height:1.6;overflow-x:hidden;background-color:#FAF5EE}
 .cs-pivot{margin-bottom:0}
 .cs-pivot + .row{margin-top:0;border-top:none}
 
-/* IMAGE PLACEHOLDERS */
+/* EARNED TRANSITION */
+.cs-earned{
+  padding:clamp(8rem,15vw,12rem) clamp(1.25rem,4vw,3rem) clamp(6rem,11vw,9rem);
+  border-bottom:1px solid var(--ui-border);
+  text-align:left;
+}
+.cs-earned-eyebrow{
+  font-size:var(--cs-label);
+  font-weight:400;
+  letter-spacing:var(--cs-tracking-label);
+  text-transform:uppercase;
+  color:var(--text-secondary);
+  margin:0 0 clamp(2rem,4vw,3rem);
+}
+.cs-earned-headline{
+  font-family:var(--font-display);
+  font-size:var(--cs-statement);
+  font-weight:400;
+  color:var(--text-primary);
+  line-height:var(--cs-leading-display);
+  margin:0 0 clamp(2rem,4vw,3rem);
+  max-width:10em;
+  letter-spacing:-0.03em;
+}
+.cs-earned-body{
+  font-size:var(--cs-body);
+  font-weight:300;
+  color:var(--text-secondary);
+  line-height:var(--cs-leading-body);
+  margin:0;
+  max-width:var(--cs-measure-body);
+}
+
+/* EVOLUTION */
+.cs-evolution{
+  padding:clamp(4rem,7vw,5.5rem) 0;
+  border-bottom:1px solid var(--ui-border);
+}
+.cs-evolution-intro{
+  font-size:var(--cs-body);
+  font-weight:300;
+  color:var(--text-secondary);
+  line-height:var(--cs-leading-body);
+  margin-bottom:clamp(3rem,5vw,4rem);
+  max-width:var(--cs-measure-body);
+}
+.cs-evolution-stage{
+  padding:clamp(3rem,5vw,4rem) 0;
+  border-top:1px solid rgba(26,26,26,0.06);
+}
+.cs-evolution-marker{
+  font-size:var(--cs-label);
+  font-weight:400;
+  letter-spacing:var(--cs-tracking-label);
+  text-transform:uppercase;
+  color:var(--text-secondary);
+  margin:0 0 1rem;
+}
+.cs-evolution-title{
+  font-family:var(--font-display);
+  font-size:var(--cs-intro);
+  font-weight:400;
+  color:var(--text-primary);
+  line-height:var(--cs-leading-intro);
+  margin:0 0 clamp(2rem,3vw,2.5rem);
+  max-width:var(--cs-measure-intro);
+}
+.cs-evolution-grid{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);
+  gap:clamp(3rem,6vw,5rem);
+  align-items:start;
+}
+.cs-evolution-copy{font-size:var(--cs-body);font-weight:300;color:var(--text-secondary);line-height:var(--cs-leading-body)}
+.cs-evolution-copy p{margin-bottom:1.5rem;max-width:var(--cs-measure-body)}
+.cs-evolution-copy p:last-child{margin-bottom:0}
+.cs-evolution-copy .cs-note-label{
+  font-size:var(--cs-label);
+  letter-spacing:var(--cs-tracking-label);
+  text-transform:uppercase;
+  color:var(--text-primary);
+  display:block;
+  margin-bottom:0.35rem;
+}
+.cs-evolution-arrow{
+  text-align:center;
+  padding:clamp(2rem,4vw,3rem) 0;
+  font-family:var(--font-display);
+  font-size:var(--cs-intro);
+  color:var(--text-secondary);
+  line-height:1;
+}
+
+.cs-evolution-stage:first-of-type{border-top:none;padding-top:0}
+.cs-evolution-visual{display:flex;justify-content:flex-end}
+.cs-evolution-visual img{border:1px solid rgba(26,26,26,0.07);transition:border-color 0.35s ease}
+.cs-evolution-visual img:hover{border-color:rgba(26,26,26,0.14)}
+
+/* PERCEPTION SHIFTS */
+.cs-shifts{
+  display:grid;
+  gap:0;
+  margin:clamp(3rem,5vw,4rem) 0 0;
+  border-top:1px solid rgba(26,26,26,0.06);
+}
+.cs-shift{
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  gap:1.5rem;
+  align-items:baseline;
+  padding:1.35rem 0;
+  border-bottom:1px solid rgba(26,26,26,0.06);
+  font-size:var(--cs-body);
+  line-height:var(--cs-leading-body);
+}
+.cs-shift-from{color:var(--text-secondary);font-style:italic;text-align:right}
+.cs-shift-arrow{color:var(--text-secondary);font-size:var(--cs-label);letter-spacing:0.1em}
+.cs-shift-to{color:var(--text-primary);font-weight:300}
+
+/* RAISING THE CRAFT */
+.cs-craft-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:clamp(2.5rem,4vw,3.5rem);
+  margin:clamp(3rem,5vw,4rem) 0 0;
+}
+.cs-craft-item{border-top:1px solid rgba(26,26,26,0.06);padding-top:clamp(1.5rem,2.5vw,2rem)}
+.cs-craft-label{
+  font-size:var(--cs-label);
+  font-weight:400;
+  letter-spacing:var(--cs-tracking-label);
+  text-transform:uppercase;
+  color:var(--text-secondary);
+  margin:0 0 1rem;
+}
+.cs-craft-desc{
+  font-size:var(--cs-body);
+  font-weight:300;
+  color:var(--text-secondary);
+  line-height:var(--cs-leading-body);
+  margin:0 0 clamp(1.5rem,2.5vw,2rem);
+  max-width:var(--cs-measure-body);
+}
+.cs-craft-item img{border:1px solid rgba(26,26,26,0.07)}
+.cs-craft-item--wide{grid-column:1 / -1}
+
+/* V2 PAYOFF */
+.cs-payoff{
+  width:100%;
+  background:var(--bg-primary);
+  padding:clamp(8rem,15vw,12rem) clamp(1.25rem,4vw,3rem) clamp(6rem,11vw,9rem);
+  border-bottom:1px solid var(--ui-border);
+}
+.cs-payoff-inner{max-width:100%;width:100%;margin:0 auto}
+.cs-payoff .cs-photo--cinema{
+  width:100%;
+  max-width:100%;
+  margin-left:0;
+  margin-right:0;
+}
+.cs-payoff-eyebrow{
+  font-size:var(--cs-label);
+  font-weight:400;
+  letter-spacing:var(--cs-tracking-label);
+  text-transform:uppercase;
+  color:var(--text-secondary);
+  margin:0 0 clamp(2.5rem,4vw,3.5rem);
+}
+.cs-payoff-caption{
+  font-family:var(--font-display);
+  font-size:var(--cs-intro);
+  font-style:italic;
+  font-weight:400;
+  color:var(--text-secondary);
+  margin:clamp(1.85rem,3.35vw,2.75rem) 0 0;
+  max-width:var(--cs-measure-intro);
+  line-height:var(--cs-leading-intro);
+}
+
+/* ANNOTATED SCREENS */
+.cs-annotated-block{
+  margin:clamp(4rem,7vw,6rem) 0;
+  padding-top:clamp(4rem,7vw,6rem);
+  border-top:1px solid rgba(26,26,26,0.06);
+}
+.cs-annotated-block:first-child{margin-top:clamp(2rem,4vw,3rem);padding-top:0;border-top:none}
+.cs-annotated-version{
+  font-size:var(--cs-label);
+  font-weight:400;
+  letter-spacing:var(--cs-tracking-label);
+  text-transform:uppercase;
+  color:var(--text-secondary);
+}
+.cs-annotated-title{
+  font-family:var(--font-display);
+  font-size:var(--cs-intro);
+  color:var(--text-primary);
+  line-height:var(--cs-leading-intro);
+  margin:0 0 clamp(2.5rem,4vw,3.5rem);
+  max-width:var(--cs-measure-intro);
+}
+.cs-annotated-header{margin-bottom:0}
+.cs-observations li{
+  font-size:var(--cs-body);
+  font-weight:300;
+  color:var(--text-secondary);
+  line-height:var(--cs-leading-body);
+  padding:1.25rem 0;
+  border-bottom:1px solid rgba(26,26,26,0.06);
+  display:grid;
+  grid-template-columns:2rem 1fr;
+  gap:1rem;
+  align-items:baseline;
+  max-width:var(--cs-measure-intro);
+}
+.cs-obs-num{
+  font-size:var(--cs-label);
+  letter-spacing:var(--cs-tracking-label);
+  color:var(--text-secondary);
+}
+.cs-version-pair figcaption{
+  font-size:var(--cs-caption);
+  font-weight:300;
+  color:var(--text-secondary);
+  font-style:italic;
+  margin:clamp(0.7rem,1.25vw,0.9rem) 0 0;
+  line-height:1.5;
+}
+@media (max-width:768px){
+  .cs-evolution-grid,.cs-annotated-row,.cs-craft-grid,.cs-version-pair{grid-template-columns:1fr}
+  .cs-shift{grid-template-columns:1fr;text-align:left;gap:0.35rem}
+  .cs-shift-from{text-align:left}
+  .cs-shift-arrow{display:none}
+  .cs-annotated-header{grid-template-columns:1fr}
+}
+
+/* CASE STUDY SCREENSHOTS */
+.asset-img.cs-screenshot,
+img.cs-screenshot{
+  width:auto;
+  height:auto;
+  display:block;
+  margin-left:0;
+  margin-right:auto;
+  cursor:zoom-in;
+  transition:border-color 0.35s ease,opacity 0.35s ease;
+}
+.cs-screenshot--page{max-width:min(100%,320px)}
+.cs-screenshot--wide{max-width:min(100%,720px)}
+.cs-screenshot--hero{max-width:min(100%,100%)}
+.cs-screenshot--swatch{max-width:min(100%,240px)}
+.cs-rupture-visual .cs-screenshot--wide{max-width:min(100%,280px)}
+.cs-triptych-stage .cs-screenshot{max-width:min(100%,260px)}
+.cs-payoff .cs-screenshot--wide{width:100%;max-width:none}
+.final-screens-grid .asset-img{width:100%;max-width:none;margin:0}
+.final-screens-grid .asset-img.cs-screenshot--page{max-width:100%}
 .img-placeholder{width:100%;border-radius:0;border:1.5px dashed var(--ui-border);background:var(--bg-primary);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;padding:2.5rem 1rem;margin:1.25rem 0;text-align:center}
 .img-placeholder-icon{font-size:1.5rem;opacity:0.4}
 .img-placeholder-label{font-size:0.72rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-secondary)}
@@ -315,55 +1310,76 @@ body{line-height:1.6;overflow-x:hidden;background-color:#FAF5EE}
 .p3{background:var(--bg-primary);color:var(--text-secondary)}
 
 /* COPY COMPARISON TABLE */
-.copy-table{width:100%;border-collapse:collapse;margin:1.25rem 0;font-size:0.82rem}
-.copy-table th{font-size:0.65rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-secondary);padding:0.5rem 0.75rem;text-align:left;border-bottom:1px solid var(--ui-border)}
-.copy-table td{padding:0.75rem;border-bottom:1px solid var(--ui-border);line-height:1.5;vertical-align:top}
-.copy-table td:first-child{color:var(--text-secondary);font-style:italic}
-.copy-table td:last-child{color:var(--text-primary);font-weight:400}
+.copy-table{width:100%;border-collapse:collapse;margin:clamp(2.5rem,4vw,3.5rem) 0;font-size:var(--cs-body)}
+.copy-table th{font-size:var(--cs-label);font-weight:400;letter-spacing:var(--cs-tracking-label);text-transform:uppercase;color:var(--text-secondary);padding:0.85rem 0;text-align:left;border-bottom:1px solid rgba(26,26,26,0.08)}
+.copy-table td{padding:1.25rem 0;border-bottom:1px solid rgba(26,26,26,0.06);line-height:var(--cs-leading-body);vertical-align:top;font-weight:300}
+.copy-table td:first-child{color:var(--text-secondary);font-style:italic;max-width:16ch}
+.copy-table td:last-child{color:var(--text-primary);max-width:var(--cs-measure-body)}
 
-/* SKILL TAGS */
-.skill-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:1rem}
-.skill-tag{font-size:0.65rem;color:var(--text-secondary);letter-spacing:0.06em;background:transparent;border:1px solid var(--ui-border);border-radius:0;padding:0.3rem 0.85rem;display:inline-block}
+.skill-tag{font-size:var(--cs-label);color:var(--text-secondary);letter-spacing:var(--cs-tracking-label);background:transparent;border:none;border-top:1px solid rgba(26,26,26,0.06);border-radius:0;padding:0.65rem 0;display:inline-block;margin-right:1.5rem}
 
-/* SHOPIFY NOTE */
-.shopify-note{background:var(--bg-primary);border-radius:0;padding:1.25rem 1.5rem;margin:1.25rem 0;border:1px solid rgba(122,140,110,0.3)}
-.shopify-note p{font-size:0.875rem;color:var(--text-secondary);line-height:1.75;margin:0}
-.shopify-note strong{color:var(--text-primary);font-weight:500}
+.shopify-note{background:var(--bg-callout);border:none;border-radius:14px;padding:clamp(2rem,3.5vw,2.75rem);margin:clamp(3rem,5vw,4rem) 0 0;max-width:600px}
+.shopify-note p{font-size:var(--cs-body);font-weight:300;color:var(--text-secondary);line-height:var(--cs-leading-body);margin:0;max-width:none}
+.shopify-note .cs-note-label{font-size:var(--cs-label);letter-spacing:var(--cs-tracking-label);text-transform:uppercase;color:var(--text-primary);display:block;margin-bottom:1rem}
 
-/* PHOTOGRAPHY COMPARISON */
-.photo-compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:2rem}
+.compare-label{font-size:var(--cs-label);font-weight:400;letter-spacing:var(--cs-tracking-label);text-transform:uppercase;padding:0;margin-bottom:clamp(1.5rem,2.5vw,2rem);background:none;color:var(--text-secondary)}
+.compare-note{font-size:var(--cs-caption);font-weight:300;color:var(--text-secondary);line-height:1.5;margin:clamp(0.7rem,1.2vw,0.9rem) 0 clamp(1.65rem,2.65vw,2.15rem);font-style:italic;max-width:var(--cs-measure-body)}
+.compare-after-callout{background:transparent;border:none;padding:0;border-radius:0;margin-bottom:clamp(2rem,3vw,2.5rem);max-width:var(--cs-measure-intro)}
+.compare-after-callout p{font-size:var(--cs-body);font-weight:300;color:var(--text-secondary);line-height:var(--cs-leading-body);margin:0 0 1.25rem;max-width:var(--cs-measure-body)}
+.compare-img{border-radius:0;border:1px solid rgba(26,26,26,0.07)}
+
+.final-screens-grid{display:grid;grid-template-columns:1fr;gap:clamp(4rem,8vw,7rem);margin-top:clamp(3rem,6vw,5rem)}
+.final-screen .asset-img{margin-bottom:0}
+.final-screen--hero .asset-img{max-height:min(88vh,1100px);object-fit:cover;object-position:top center;width:100vw;max-width:100vw;margin-left:calc(50% - 50vw);margin-right:calc(50% - 50vw)}
+
+.case-nav a{font-size:var(--cs-body);font-weight:300}
+.case-nav a.next{font-weight:300}
+.live-site-link{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  border:1px solid var(--cs-oxblood);
+  border-radius:999px;
+  padding:0.7rem 1.5rem;
+  margin:1.75rem 0 0;
+  font-family:var(--font-ui);
+  font-size:0.72rem;
+  font-weight:500;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--bg-page);
+  background:var(--cs-oxblood);
+  text-decoration:none;
+  transition:opacity 0.25s ease, transform 0.25s ease;
+}
+.live-site-link:hover{opacity:0.9; transform:translateY(-1px);}
+.live-site-arrow{font-size:0.85rem; line-height:1;}
+
+.photo-compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(4rem,7vw,6rem);margin-top:clamp(3rem,5vw,4rem)}
 .compare-column{display:flex;flex-direction:column}
-.compare-label{font-size:0.65rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;padding:0.3rem 0.75rem;border-radius:2px;display:inline-block;margin-bottom:1.5rem}
-.compare-label--before{background:rgba(44,42,38,0.08);color:var(--text-secondary)}
-.compare-label--after{background:rgba(160,82,45,0.12);color:var(--text-primary)}
-.compare-item{margin-bottom:1.75rem}
-.compare-img{width:100%;display:block;border-radius:6px;margin-bottom:0.5rem;border:1px solid var(--ui-border)}
-.compare-note{font-size:0.75rem;color:var(--text-secondary);line-height:1.55;margin:0;font-style:italic}
-.compare-after-callout{background:var(--bg-callout);border-left:3px solid var(--brand-primary);padding:1.25rem 1.5rem;border-radius:0 12px 12px 0;margin-bottom:1.75rem}
-.compare-after-callout p{font-size:0.85rem;color:var(--text-secondary);line-height:1.65;margin:0 0 0.75rem}
-.compare-after-callout p:last-child{margin-bottom:0}
-.compare-after-hero{width:100%;display:block;border-radius:0;border:1px solid var(--ui-border);margin-bottom:0.5rem}
-.media-grid{display:grid;gap:1.5rem;margin:1.75rem 0}
+.compare-item{margin-bottom:clamp(2.5rem,4vw,3.5rem)}
+.compare-img{width:100%;display:block;border-radius:0;margin-bottom:clamp(0.85rem,1.5vw,1.1rem)}
+.media-grid{display:grid;gap:clamp(2rem,4vw,3rem);margin:clamp(3rem,5vw,4rem) 0}
 .media-grid--2{grid-template-columns:1fr 1fr}
 .media-grid--3{grid-template-columns:1fr 1fr 1fr}
 .media-grid > div{display:flex;flex-direction:column}
-.media-grid--2 .asset-img{height:240px;object-fit:cover;object-position:top;margin-bottom:0}
+.skill-tags{display:flex;flex-wrap:wrap;gap:0;margin-top:clamp(2.5rem,4vw,3.5rem)}
+.cs-annotated-row{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,0.85fr);gap:clamp(2.5rem,4vw,4rem);align-items:start}
+.cs-annotated-visual{display:flex;justify-content:flex-start}
+.cs-annotated-visual img{border:1px solid rgba(26,26,26,0.07)}
+.cs-observations{list-style:none;margin:0;padding:0}
+.cs-observations li:last-child{border-bottom:none}
+.cs-version-pair{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2.5rem,4vw,4rem);margin-top:0;justify-items:start}
+.cs-version-pair figure{display:flex;flex-direction:column;align-items:flex-start;max-width:320px}
+.cs-version-pair img{border:1px solid rgba(26,26,26,0.07)}
+.final-screen{display:flex;flex-direction:column}
+.case-nav{display:flex;justify-content:space-between;align-items:baseline;padding:clamp(5rem,9vw,7rem) 0 clamp(6rem,11vw,9rem);flex-wrap:wrap;gap:1.5rem;border-top:1px solid rgba(26,26,26,0.06)}
+.case-nav a{color:var(--text-secondary);text-decoration:none;transition:color 0.35s ease,opacity 0.35s ease}
+.case-nav a:hover{color:var(--text-primary);opacity:0.72}
 @media (max-width:600px){
   .media-grid--2,.media-grid--3{grid-template-columns:1fr}
-  .media-grid--2 .asset-img{height:auto}
+  .photo-compare-grid{grid-template-columns:1fr}
 }
-
-/* FINAL SCREENS GRID */
-.final-screens-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:1.5rem}
-.final-screen{display:flex;flex-direction:column}
-.final-screen .asset-img{margin-bottom:0.5rem}
-
-.case-nav{display:flex;justify-content:space-between;align-items:center;padding:3rem 0 5rem;flex-wrap:wrap;gap:1rem}
-.case-nav a{font-size:0.85rem;color:var(--text-secondary);text-decoration:none;letter-spacing:0.04em;transition:color 0.2s}
-.case-nav a:hover{color:var(--text-primary)}
-.case-nav a.next{color:var(--text-primary);font-weight:500}
-.live-site-link{display:inline-block;font-size:0.72rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--brand-primary);text-decoration:none;margin:1rem 0 0;border-bottom:1px solid currentColor;padding-bottom:1px;transition:opacity 0.2s}
-.live-site-link:hover{opacity:0.7}
 
 footer{
   border-top:1px solid var(--ui-border);
@@ -372,7 +1388,6 @@ footer{
   flex-wrap:wrap;gap:1rem;
   max-width:1200px;margin:0 auto;
 }
-.footer-logo{flex-shrink:0;line-height:0;text-decoration:none}
 .footer-right{display:flex;flex-direction:column;align-items:flex-end;gap:0.5rem}
 .footer-links{display:flex;gap:1.5rem;flex-wrap:wrap}
 .footer-links a{
@@ -383,15 +1398,6 @@ footer{
 .footer-links a:hover{color:var(--text-primary)}
 .footer-copy{font-size:0.68rem;color:var(--text-secondary);margin:0}
 
-.email-btn{
-  position:fixed;bottom:2rem;right:2rem;z-index:99;
-  background:var(--text-primary);color:var(--bg-primary);
-  font-size:0.75rem;letter-spacing:0.06em;
-  padding:0.75rem 1.25rem;border-radius:0;
-  cursor:pointer;border:1px solid var(--text-primary);font-family:var(--font);
-  transition:background 0.2s,color 0.2s;
-}
-.email-btn:hover{background:var(--bg-primary);color:var(--text-primary)}
 .copy-toast{position:fixed;bottom:5rem;right:2rem;background:var(--text-primary);color:var(--bg-primary);border:1px solid var(--ui-border);font-size:0.72rem;padding:0.5rem 1rem;border-radius:0;z-index:100;opacity:0;transition:opacity 0.3s;pointer-events:none}
 .copy-toast.show{opacity:1}
 
@@ -413,135 +1419,298 @@ footer{
 @media(prefers-reduced-motion:reduce){
   *{animation:none !important;transition:none !important}
 }
+
+/* Callout cards — authoritative box model (beats editorial-theme.css) */
+.cs-case-main .cs-reflection .shopify-note{
+  max-width:600px;
+  padding:clamp(2rem,3.5vw,2.75rem);
+  background:var(--bg-callout);
+  border:none;
+  border-radius:14px;
+}
+.cs-case-main .cs-reflection .shopify-note p{
+  max-width:none;
+  margin:0;
+}
+.cs-case-main .pull-quote{
+  width:fit-content;
+  max-width:600px;
+  padding:clamp(2rem,3vw,2.5rem);
+  background:var(--bg-callout);
+  border:none;
+  border-left:none;
+  border-radius:14px;
+}
+.cs-case-main .pull-quote p{max-width:none;margin:0}
+.cs-case-main .compare-after-callout{
+  background:transparent;
+  border:none;
+  border-left:none;
+  padding:0;
+  border-radius:0;
+}
+.cs-case-main .cs-prologue .live-site-link{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  border:1px solid var(--cs-oxblood);
+  border-radius:999px;
+  padding:0.7rem 1.5rem;
+  margin:1.75rem 0 0;
+  font-family:var(--font-ui);
+  font-size:0.72rem;
+  font-weight:500;
+  letter-spacing:0.14em;
+  text-transform:uppercase;
+  color:var(--bg-page);
+  background:var(--cs-oxblood);
+  text-decoration:none;
+  transition:opacity 0.25s ease, transform 0.25s ease;
+}
+.cs-case-main .cs-prologue .live-site-link:hover{opacity:0.9; transform:translateY(-1px);}
+.cs-case-main .cs-prologue .live-site-arrow{font-size:0.85rem; line-height:1;}
+
 /* Responsive layout: see responsive.css */
 </style>
 <link rel="stylesheet" href="/editorial-theme.css">
 <link rel="stylesheet" href="/responsive.css">
 <style>
+/* Email pill — beats editorial-theme.css gold .email-btn */
+.email-btn{
+  position:fixed;
+  bottom:1.75rem;
+  right:1.75rem;
+  z-index:40;
+  display:inline-flex;
+  align-items:center;
+  gap:0.5rem;
+  padding:0.65rem 1rem;
+  font-family:var(--font);
+  font-size:0.6875rem;
+  font-weight:400;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  color:var(--ink-secondary);
+  background:rgba(241,242,244,0.92);
+  border:1px solid rgba(26,26,26,0.1);
+  border-radius:999px;
+  cursor:pointer;
+  backdrop-filter:blur(8px);
+  transition:background 0.3s,border-color 0.3s,color 0.3s;
+  box-shadow:none;
+}
+.email-btn:hover{
+  background:#fff;
+  color:var(--ink);
+  border-color:rgba(26,26,26,0.18);
+  box-shadow:none;
+}
+</style>
+<style>
 :root{--bg-page:#FAF5EE;--bg-primary:#FAF5EE}
 html,body{background-color:#FAF5EE}
 </style>
 </head>
-<body>
+<body class="page-case">
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <header class="site-header">
     <nav class="nav-main" aria-label="Site">
-      <a href="/index.html" class="nav-home">Nikaylah</a>
+      <a href="/index.html" class="nav-home" aria-label="Nikaylah home">
+        <svg class="brand-mark brand-mark--nav" viewBox="0 0 164 100" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M46 92C30 92 20 84 18 74C9 73 3 66 3 57C3 48 10 41 19 41C21 30 32 22 45 22C55 22 64 27 69 35C72 26 81 20 91 20C104 20 114 29 115 41C127 42 136 50 136 61C136 66 133 71 128 74C127 84 118 92 106 92Z" fill="currentColor"/></svg>
+        <span class="brand-name">NIKAYLAH</span>
+      </a>
       <div class="nav-center">
+        <a href="/#selected-work" class="nav-link">Work</a>
         <a href="/about/" class="nav-link">About</a>
         <a href="https://www.linkedin.com/in/nikaylah" target="_blank" rel="noopener noreferrer" class="nav-link">LinkedIn</a>
-        <a href="https://drive.google.com/file/d/1-Kf0VUjrW54PMTsQTBf5Oehbb4yCEA07/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="nav-link">CV</a>
-        <button class="nav-cta" type="button" onclick="copyEmail()" aria-label="Copy email address">Email me</button>
+        <a href="https://drive.google.com/file/d/18i05f4y_GH3vvXX1J9wEel7txm3prvzZ/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="nav-link">CV</a>
+        <button class="nav-link nav-contact" type="button" onclick="copyEmail()" aria-label="Copy email address">Contact</button>
       </div>
     </nav>
   </header>
 
   <main id="main-content">
-    <section class="cs-cinematic" aria-label="Crescent Stables introduction">
-      <div class="cs-cinematic-inner">
-        <p class="cs-cinematic-eyebrow">Case Study — Crescent Stables</p>
-        <h1 class="cs-cinematic-headline">A space that was made for you.</h1>
-        <p class="cs-cinematic-sub">Most equestrian websites are built for people who already belong. This one wasn't.</p>
+    <div class="cs-case-layout">
+      <aside class="cs-toc" aria-label="Case study chapters">
+        <nav>
+          <a href="#cs-context" class="cs-toc-link is-active" data-toc="cs-context"><span class="cs-toc-marker" aria-hidden="true">■</span> Context</a>
+          <a href="#cs-evolution" class="cs-toc-link" data-toc="cs-evolution"><span class="cs-toc-marker" aria-hidden="true">■</span> Evolution</a>
+          <a href="#cs-research" class="cs-toc-link" data-toc="cs-research"><span class="cs-toc-marker" aria-hidden="true">■</span> Research</a>
+          <a href="#cs-approach" class="cs-toc-link" data-toc="cs-approach"><span class="cs-toc-marker" aria-hidden="true">■</span> Approach</a>
+          <a href="#cs-iteration" class="cs-toc-link" data-toc="cs-iteration"><span class="cs-toc-marker" aria-hidden="true">■</span> Iteration</a>
+          <a href="#cs-solution" class="cs-toc-link" data-toc="cs-solution"><span class="cs-toc-marker" aria-hidden="true">■</span> Solution</a>
+          <a href="#cs-reflection" class="cs-toc-link" data-toc="cs-reflection"><span class="cs-toc-marker" aria-hidden="true">■</span> Reflection</a>
+        </nav>
+      </aside>
+
+      <div class="cs-case-main">
+    <section class="cs-hero-editorial" id="cs-context" aria-label="Crescent Stables introduction">
+      <div class="cs-hero-shell">
+        <figure class="cs-hero-media cs-hero-media--lead">
+          <div class="cs-hero-media-frame" data-media-slot="hero-preview">
+            <!-- Replace img with video (MP4/WebM) when motion preview is ready -->
+            <img loading="eager" src="portfolio-assets/after-homepage-crescent.png" alt="Crescent Stables Version 2 homepage, warm editorial layout with hero photography" width="2912" height="1734" fetchpriority="high" decoding="async">
+          </div>
+        </figure>
+        <div class="cs-hero-lower">
+          <div class="cs-hero-text">
+            <p class="cs-hero-eyebrow">Crescent Stables · Product Design</p>
+            <h1 class="cs-hero-headline">Designing belonging before the first ride.</h1>
+          </div>
+          <div class="cs-hero-secondary">
+          <div class="cs-hero-aside">
+            <p class="cs-hero-summary">Crescent Stables is a women-led equestrian experiences brand for adult beginners. I redesigned its digital experience to reduce uncertainty, build trust, and help women feel that the space was meant for them before they ever arrived at the barn.</p>
+            <p class="cs-hero-promise">A space that was made for you.</p>
+            <div class="cs-hero-tags" aria-label="Project scope">
+              <span class="cs-hero-tag">Web</span>
+              <span class="cs-hero-tag">UX Strategy</span>
+              <span class="cs-hero-tag">Front-end</span>
+            </div>
+            <a href="#cs-solution" class="cs-skip-cta">
+              <span class="cs-skip-cta-text">Skip to solution</span>
+              <span class="cs-skip-cta-icon" aria-hidden="true">↓</span>
+            </a>
+          </div>
+          <dl class="cs-hero-meta">
+            <div class="cs-hero-meta-row">
+              <dt>Role</dt>
+              <dd>Lead Product Designer</dd>
+            </div>
+            <div class="cs-hero-meta-row">
+              <dt>Duration</dt>
+              <dd>6 weeks</dd>
+            </div>
+            <div class="cs-hero-meta-row">
+              <dt>Scope</dt>
+              <dd>Research, UX strategy, visual design, copywriting, and front-end implementation</dd>
+            </div>
+          </dl>
+          </div>
+        </div>
       </div>
     </section>
+
+    <!-- Impact stats — swap in client metrics here when available -->
+    <section class="cs-impact-row" aria-label="Research at a glance">
+      <div class="cs-impact-item">
+        <span class="cs-impact-num">10/10</span>
+        <span class="cs-impact-label">women interviewed felt curious about riding</span>
+      </div>
+      <div class="cs-impact-item">
+        <span class="cs-impact-num">0</span>
+        <span class="cs-impact-label">had ever tried it before</span>
+      </div>
+      <div class="cs-impact-item">
+        <span class="cs-impact-num">2/2</span>
+        <span class="cs-impact-label">user testers said the site felt written for them</span>
+      </div>
+    </section>
+
+    <div class="cs-prologue" id="cs-evolution" aria-label="Opening chapters">
+
+      <!-- Scroll 2: Why different? -->
+      <section class="cs-chapter cs-chapter--rupture cs-beat--pause" aria-label="Chapter two">
+        <div class="page">
+          <p class="cs-section-label">Context</p>
+          <h2 class="cs-rupture-statement cs-statement-mixed">This is not a <em>before-and-after</em> story.</h2>
+          <p class="cs-rupture-sub">It is the evolution of one product through three stages of understanding.</p>
+
+          <div class="cs-rupture-grid">
+            <div class="cs-rupture-copy">
+              <p>Most redesign case studies show two screens and a conclusion. Crescent Stables needed a harder story. A placeholder that signaled the wrong audience. A first pass that solved structure but not feeling. A second pass that finally earned the brand's emotional promise.</p>
+              <p>The interesting part is not the final screen. It is what each version revealed that the previous one could not yet see.</p>
+            </div>
+            <figure class="cs-rupture-visual cs-scale--intimate">
+              <img src="portfolio-assets/crescent-stables-before-home.png" alt="Original Crescent Stables placeholder, dark navy and gold palette" class="cs-screenshot cs-screenshot--wide" width="1024" height="582" loading="eager" decoding="async">
+              <figcaption>Where it started. The wrong signal, before any real design thinking began.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- Scroll 3: Why three versions? -->
+      <section class="cs-chapter cs-chapter--evolution" aria-label="Chapter three">
+        <div class="page">
+          <p class="cs-section-label">The evolution</p>
+          <h2 class="cs-evolution-lead">Each version solved a deeper problem than the last.</h2>
+          <p class="cs-evolution-deck">Placeholder established the gap. Version 1 built the foundation. Version 2 deepened emotional precision. None of them were failures. Each was incomplete judgment, refined.</p>
+
+          <div class="cs-triptych" aria-label="Three project stages">
+            <article class="cs-triptych-stage">
+              <p class="cs-triptych-marker">01 · Placeholder</p>
+              <img src="portfolio-assets/crescent-stables-before-home.png" alt="Original placeholder homepage" class="cs-screenshot cs-screenshot--wide" width="1024" height="582" loading="lazy" decoding="async">
+              <p class="cs-triptych-note"><span class="cs-note-label">What it exposed</span> Dark navy and gold attracted the wrong audience. Mostly men at pop-up events, not the women the brand was built for.</p>
+            </article>
+            <article class="cs-triptych-stage">
+              <p class="cs-triptych-marker">02 · Version 1</p>
+              <img src="portfolio-assets/cs-v1-home.png" alt="Version 1 homepage" class="cs-screenshot cs-screenshot--page" width="500" height="1024" loading="lazy" decoding="async">
+              <p class="cs-triptych-note"><span class="cs-note-label">What it solved</span> Hierarchy, IA, reassurance copy, and audience-centered photography. The UX finally worked. It still read like a capable template.</p>
+            </article>
+            <article class="cs-triptych-stage">
+              <p class="cs-triptych-marker cs-triptych-marker--finale">03 · Version 2</p>
+              <picture><source srcset="portfolio-assets/cs-v2-home.webp" type="image/webp"><img src="portfolio-assets/cs-v2-home-opt.png" alt="Version 2 homepage" class="cs-screenshot cs-screenshot--page" width="2880" height="10380" loading="lazy" decoding="async"></picture>
+              <p class="cs-triptych-note"><span class="cs-note-label">What it deepened</span> Editorial calm, named audience, softer language, and emotional sequencing across every page. The experience finally felt like a space to belong.</p>
+            </article>
+          </div>
+
+          <p class="cs-prologue-close">The iteration between versions is the real story. What follows is how research, psychology, and two design passes built the experience that shipped.</p>
+
+          <p class="cs-prologue-footnote">Over six weeks, I led discovery research, UX strategy, information architecture, visual design, copywriting, branding, and front-end implementation. I delivered a <a href="https://crescent-stables.netlify.app/" target="_blank" rel="noopener noreferrer">responsive prototype</a> user-tested with first-time riders, and a production website handed off to the client.</p>
+          <a href="https://crescent-stables.netlify.app/" target="_blank" rel="noopener noreferrer" class="live-site-link">
+            <span>View the prototype</span>
+            <span class="live-site-arrow" aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </section>
+
+    </div>
 
     <div class="page">
-  <div class="cs-hero">
-    <p class="breadcrumb">All work / Crescent Stables</p>
-    <div class="meta-row">
-      <div><div class="meta-label">Role</div><div class="meta-val">Lead Designer</div></div>
-      <div><div class="meta-label">Timeline</div><div class="meta-val">4 to 6 weeks</div></div>
-      <div><div class="meta-label">Tools</div><div class="meta-val">Figma, Replit</div></div>
-      <div><div class="meta-label">Deliverable</div><div class="meta-val">Netlify + Squarespace</div></div>
-    </div>
-    <a href="https://crescent-stables.netlify.app/" target="_blank" rel="noopener noreferrer" class="live-site-link">↗ View the prototype — crescent-stables.netlify.app</a>
 
-    <section class="cs-highlights" aria-label="Highlights">
-      <p class="cs-highlights-label">Highlights</p>
-      <img src="portfolio-assets/cs-live-home.png" alt="Redesigned Crescent Stables homepage" class="cs-highlights-feature" width="800" height="1200" loading="lazy" decoding="async">
-      <p class="cs-highlights-tagline">Warm cream, terracotta, and a space built for someone who has never done this before.</p>
-    </section>
-
-    <div class="media-grid media-grid--2">
-      <div>
-        <img src="portfolio-assets/crescent-stables-before-home.png" alt="Original Crescent Stables homepage — dark navy and gold palette" class="asset-img" style="margin:0">
-        <p class="asset-caption" style="margin-top:0.4rem">Before. Dark navy and gold.</p>
-      </div>
-      <div>
-        <img src="portfolio-assets/crescent-stables-after-home.png" alt="Redesigned Crescent Stables homepage — warm cream and terracotta palette" class="asset-img" style="margin:0">
-        <p class="asset-caption" style="margin-top:0.4rem">After. Warm cream and terracotta.</p>
-      </div>
-    </div>
-  </div>
-
-  <!-- CONTEXT -->
-  <div class="row">
-    <div>
-      <div class="anchor-label">Context</div>
-      <div class="anchor-title">A welcoming equestrian brand for women who have never ridden</div>
-    </div>
-    <div class="row-body">
-      <p>Crescent Stables is a women-led equestrian experiences brand in Minnesota targeting adult beginners. I served as lead designer, collaborating with the brand stakeholder throughout.</p>
-      <p>The target audience is specific. Adult women with little to no riding experience, motivated by curiosity but stopped by anxiety. Worried about safety, embarrassment, and not fitting in. One insight sharpened the entire design direction. Women from certain cultural and religious backgrounds face additional barriers to accessing equestrian spaces. The design could not just be welcoming in a general sense. It had to be specifically and visibly welcoming to the women who had the most reason to feel like this space was not for them.</p>
-    </div>
-  </div>
-
-  <!-- THE QUESTION -->
-  <div class="row">
-    <div>
-      <div class="anchor-label">The question</div>
-      <div class="anchor-title">What does a first-time rider need to feel before she takes a first step?</div>
-    </div>
-    <div class="row-body">
-      <p>Not information. Not a list of sessions and prices. A feeling that this place is for someone like her. That she won't look foolish, that someone thought about her specifically when they built this.</p>
-      <div class="pull-quote">
-        <p>Most equestrian websites are built for people who already ride. They use insider language and assume prior knowledge. The existing site had the same problem. It answered functional questions before it answered emotional ones.</p>
-      </div>
-      <p>The site needed to answer three questions for every visitor, in this order: Is this for someone like me? Is it safe and structured? What do I do to get started?</p>
-    </div>
+  <div class="cs-bridge" aria-label="Transition to case study">
+    <p class="cs-bridge-text">Crescent Stables is a women-led equestrian experiences brand in Minnesota, built for adult beginners who feel excluded from traditional riding spaces. The design could not be welcoming in a general sense. It had to be specifically welcoming to the women with the most reason to hesitate.</p>
   </div>
 
   <!-- RESEARCH -->
-  <div class="row">
-    <div>
-      <div class="anchor-label">Research</div>
-      <div class="anchor-title">10 interviews confirmed the emotional barrier was real</div>
-    </div>
-    <div class="row-body">
-      <p>I spoke with approximately 10 people to validate whether the emotional barriers I suspected were real. I asked about their perceptions of riding, whether they had ever considered trying it, and what would make them feel safe enough to take a first step.</p>
-      <div class="research-stats">
-        <div class="research-stat-card research-stat-card--accent">
-          <span class="research-stat-display">10/10</span>
-          <span class="research-stat-label">women interviewed felt curious about riding</span>
-        </div>
-        <div class="research-stat-card">
-          <span class="research-stat-display">0</span>
-          <span class="research-stat-label">had ever tried. Curiosity alone wasn't enough.</span>
-        </div>
-        <div class="research-stat-card">
-          <span class="research-stat-display research-stat-display--text">Every one</span>
-          <span class="research-stat-label">said existing barn sites felt written for insiders, not them</span>
-        </div>
+  <div class="row row--editorial row--statement" id="cs-research">
+    <p class="cs-section-label">Research</p>
+    <div class="cs-impact-stats" aria-label="Research findings">
+      <div class="research-stat-card">
+        <span class="research-stat-display">10/10</span>
+        <span class="research-stat-label">women interviewed felt curious about riding</span>
       </div>
-      <p class="research-stat-pull">Fear of looking inexperienced was the most consistent barrier — not lack of interest.</p>
+      <div class="research-stat-card">
+        <span class="research-stat-display">0</span>
+        <span class="research-stat-label">had ever tried. Curiosity alone wasn't enough.</span>
+      </div>
+      <div class="research-stat-card">
+        <span class="research-stat-display research-stat-display--text">Every one</span>
+        <span class="research-stat-label">said existing barn sites felt written for insiders, not them</span>
+      </div>
+    </div>
+    <h2 class="cs-section-headline cs-statement-mixed">Ten interviews. <em>Zero had ever ridden.</em> Every one felt the sites weren't for them.</h2>
+    <div class="row-body">
+      <p>I spoke with approximately 10 women to validate whether the emotional barriers I suspected were real. I asked about their perceptions of riding, whether they had ever considered trying it, and what would make them feel safe enough to take a first step.</p>
+      <p class="research-stat-pull">Fear of looking inexperienced was the most consistent barrier. Not lack of interest.</p>
+      <p>Not information. Not a list of sessions and prices. A feeling that this place is for someone like her. That someone thought about her specifically when they built this. The site needed to answer three questions in order: Is this for someone like me? Is it safe and structured? What do I do to get started?</p>
     </div>
   </div>
 
   <!-- FRAMEWORK -->
-  <div class="row">
+  <div class="row" id="cs-approach">
     <div>
       <div class="anchor-label">Framework</div>
-      <div class="anchor-title">Behavioral psychology as the design spine</div>
+      <h2 class="anchor-title">Behavioral psychology as the design spine</h2>
     </div>
     <div class="row-body">
       <p>I structured the entire redesign around Kahneman's System 1 and System 2 framework. An anxious first-time visitor is operating almost entirely in System 1. She feels before she thinks. Every design decision had to serve what she feels in the first three seconds before her rational mind engages.</p>
 
-      <img src="portfolio-assets/cs-behavioral-framework.png" alt="Behavioral psychology framework diagram" class="asset-img">
+      <img loading="lazy" height="1800" width="2880" src="portfolio-assets/cs-behavioral-framework.png" alt="Behavioral psychology framework diagram" class="asset-img">
       <p class="asset-caption">System 1 vs System 2. Every design decision mapped to the emotional state it was designed to serve.</p>
 
       <div class="challenge">
-        <div class="ch-label">Challenge 01</div>
-        <div class="ch-q">She feels before she thinks. The hero had one job.</div>
+        <div class="ch-label">Problem 01</div>
+        <div class="ch-q cs-statement-mixed">She feels before she thinks. <em>The hero had one job.</em></div>
         <p>Anchoring shaped the hero. The opening headline sets the emotional frame before any information is processed. Everything the visitor reads afterward is interpreted through that first impression.</p>
       </div>
       <div class="challenge">
@@ -561,7 +1730,7 @@ html,body{background-color:#FAF5EE}
   <div class="row">
     <div>
       <div class="anchor-label">Information architecture</div>
-      <div class="anchor-title">Built around how a nervous beginner thinks, not how a barn operates</div>
+      <h2 class="anchor-title">Built around how a nervous beginner thinks, not how a barn operates</h2>
     </div>
     <div class="row-body">
       <p>The final site has four pages: Home, Experiences, Before You Come, and About. Two naming decisions are worth noting.</p>
@@ -622,7 +1791,7 @@ html,body{background-color:#FAF5EE}
   <div class="row">
     <div>
       <div class="anchor-label">Wireframing</div>
-      <div class="anchor-title">Three rounds of wireframes before any visual design</div>
+      <h2 class="anchor-title">Three rounds of wireframes before any visual design</h2>
     </div>
     <div class="row-body">
       <p>Three rounds of wireframes in Figma before any visual design. Round one established basic page structure and content hierarchy. Round two refined spacing, card layouts, and CTA placement. Round three used Figma AI to pressure-test layout assumptions as a tool to accelerate iteration, not to replace design thinking.</p>
@@ -630,16 +1799,16 @@ html,body{background-color:#FAF5EE}
 
       <div class="media-grid media-grid--3">
         <div>
-          <img src="portfolio-assets/cs-wireframe-round1.png" alt="Round 1 wireframes — hand-drawn sketches exploring page structure" class="asset-img" style="margin:0">
-          <p class="asset-caption" style="margin-top:0.4rem">Round 1. Hand-drawn sketches to explore structure before committing to anything digital.</p>
+          <img loading="lazy" height="1411" width="1341" src="portfolio-assets/cs-wireframe-round1.png" alt="Round 1 wireframes, hand-drawn sketches exploring page structure" class="asset-img" style="margin:0">
+          <p class="asset-caption">Round 1. Hand-drawn sketches to explore structure before committing to anything digital.</p>
         </div>
         <div>
-          <img src="portfolio-assets/cs-wireframe-round2.png" alt="Round 2 wireframes — lo-fi digital layout with grey placeholders" class="asset-img" style="margin:0">
-          <p class="asset-caption" style="margin-top:0.4rem">Round 2. Lo-fi digital layout. Content hierarchy locked in before any visual design.</p>
+          <img loading="lazy" height="3498" width="5984" src="portfolio-assets/cs-wireframe-round2.png" alt="Round 2 wireframes, lo-fi digital layout with grey placeholders" class="asset-img" style="margin:0">
+          <p class="asset-caption">Round 2. Lo-fi digital layout. Content hierarchy locked in before any visual design.</p>
         </div>
         <div>
-          <img src="portfolio-assets/cs-wireframe-round3.png" alt="Round 3 wireframes — styled digital wireframes with typography and card layouts" class="asset-img" style="margin:0">
-          <p class="asset-caption" style="margin-top:0.4rem">Round 3. Styled wireframes. Typography, spacing, and card layouts refined before final build.</p>
+          <img loading="lazy" height="3994" width="1964" src="portfolio-assets/cs-wireframe-round3.png" alt="Round 3 wireframes, styled digital wireframes with typography and card layouts" class="asset-img" style="margin:0">
+          <p class="asset-caption">Round 3. Styled wireframes. Typography, spacing, and card layouts refined before final build.</p>
         </div>
       </div>
     </div>
@@ -649,15 +1818,15 @@ html,body{background-color:#FAF5EE}
   <div class="row">
     <div>
       <div class="anchor-label">Visual direction</div>
-      <div class="anchor-title">Warm, unhurried, and built for cognitive ease</div>
+      <h2 class="anchor-title">Warm, unhurried, and built for cognitive ease</h2>
     </div>
     <div class="row-body">
       <p>The visual direction is warm and unhurried. Generous white space, strong typography hierarchy, card-based layouts, and a restrained palette of warm cream, terracotta, and sage green. Pull quote treatments appear at emotional peak moments on each page.</p>
 
-      <img src="portfolio-assets/cs-component-closeups.png" alt="Three annotated component decisions: renamed nav, reassurance strip, and loss aversion session card" class="asset-img">
-      <p class="asset-caption">Three decisions, each made intentionally. Naming, reassurance, and scarcity — all working before the user consciously notices.</p>
+      <img loading="lazy" height="964" width="2804" src="portfolio-assets/cs-component-closeups.png" alt="Three annotated component decisions: renamed nav, reassurance strip, and loss aversion session card" class="asset-img">
+      <p class="asset-caption">Three decisions, each made intentionally. Naming, reassurance, and scarcity. All working before the user consciously notices.</p>
 
-      <p>Copywriting was treated as a design discipline with explicit constraints. No generic phrasing. No filler. No formal tone. Every sentence either reassures the visitor or moves her forward.</p>
+      <p>Copywriting was treated as a design discipline with explicit constraints. No generic phrasing. No filler. No formal tone. Every sentence either reassures the visitor or moves her forward. These foundations shaped Version 1 and became the raw material Version 2 refined.</p>
 
       <div class="copy-table-wrap">
       <table class="copy-table">
@@ -694,7 +1863,7 @@ html,body{background-color:#FAF5EE}
   <div class="row">
     <div>
       <div class="anchor-label">Photography strategy</div>
-      <div class="anchor-title">Images that confirm what the copy promises</div>
+      <h2 class="anchor-title">Images that confirm what the copy promises</h2>
     </div>
     <div class="row-body">
       <p>Photography was shifted from facility shots to human-centered connection imagery. The images selected show women of color and women in hijab in casual, non-competitive riding contexts. This was a UX decision, not a visual one.</p>
@@ -704,119 +1873,456 @@ html,body{background-color:#FAF5EE}
 
       <div class="photo-compare-grid">
         <div class="compare-column">
-          <span class="compare-label compare-label--before">Before</span>
+          <span class="compare-label compare-label--before">Original imagery</span>
 
           <div class="compare-item">
-            <img src="portfolio-assets/before-2.jpg" alt="Black and white photo of competitive riders in formal equestrian attire" class="asset-img compare-img">
+            <picture><source srcset="portfolio-assets/before-2.webp" type="image/webp"><img loading="lazy" height="3744" width="5616" src="portfolio-assets/before-2-opt.jpg" alt="Black and white photo of competitive riders in formal equestrian attire" class="asset-img compare-img"></picture>
             <p class="compare-note">Formal competition context. Sends a signal of expertise before the user reads a single word.</p>
           </div>
 
           <div class="compare-item">
-            <img src="portfolio-assets/before-1.jpg" alt="Horses looking out from stable stalls" class="asset-img compare-img">
+            <picture><source srcset="portfolio-assets/before-1.webp" type="image/webp"><img loading="lazy" height="4160" width="6240" src="portfolio-assets/before-1-opt.jpg" alt="Horses looking out from stable stalls" class="asset-img compare-img"></picture>
             <p class="compare-note">Appealing but impersonal. No human presence, no one to identify with.</p>
           </div>
 
           <div class="compare-item">
-            <img src="portfolio-assets/before-3.jpg" alt="Horse in muddy blanket standing near a weathered barn" class="asset-img compare-img">
+            <picture><source srcset="portfolio-assets/before-3.webp" type="image/webp"><img loading="lazy" height="2500" width="3750" src="portfolio-assets/before-3-opt.jpg" alt="Horse in muddy blanket standing near a weathered barn" class="asset-img compare-img"></picture>
             <p class="compare-note">Authentic, but not inviting. Activates uncertainty rather than curiosity.</p>
           </div>
 
           <div class="compare-item">
-            <img src="portfolio-assets/before-4.jpg" alt="Horseshoe mounted on red barn wood" class="asset-img compare-img">
+            <picture><source srcset="portfolio-assets/before-4.webp" type="image/webp"><img loading="lazy" height="3237" width="4782" src="portfolio-assets/before-4-opt.jpg" alt="Horseshoe mounted on red barn wood" class="asset-img compare-img"></picture>
             <p class="compare-note">Moody and insider. Signals a world with its own codes that you need to already know.</p>
           </div>
 
           <div class="compare-item">
-            <img src="portfolio-assets/before-5.jpg" alt="White fence at a horse arena in golden hour light" class="asset-img compare-img">
+            <picture><source srcset="portfolio-assets/before-5.webp" type="image/webp"><img loading="lazy" height="2667" width="4000" src="portfolio-assets/before-5-opt.jpg" alt="White fence at a horse arena in golden hour light" class="asset-img compare-img"></picture>
             <p class="compare-note">Beautiful light, empty frame. No person to identify with, no answer to: is this for me?</p>
           </div>
         </div>
 
         <div class="compare-column">
-          <span class="compare-label compare-label--after">After</span>
+          <span class="compare-label compare-label--after">The direction</span>
 
           <div class="compare-after-callout">
             <p>Every photo sends a signal before the brain engages the text. The original images signaled: this is a serious equestrian world and you need to already belong here.</p>
             <p>The redesign centers women who look like the actual audience. Casual clothes. Real moments. The inclusion work happens before a word is read. This is the WYSIATI principle applied visually: if someone does not see themselves, they will not imagine themselves in the experience.</p>
           </div>
 
-          <img src="portfolio-assets/cs-live-home.png" alt="Redesigned Crescent Stables homepage showing a Black woman riding in casual clothes" class="compare-after-hero">
-          <p class="asset-caption">The live homepage hero. A Black woman on horseback in a puffer vest and jeans. The body language reads joy, not performance.</p>
+          <p class="compare-note" style="font-style:normal">Photography direction was locked in Version 1 and refined in Version 2. The final hero image, a Black woman on horseback in a puffer vest and jeans, appears later in this case study, after the full design evolution.</p>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- THE PIVOT -->
-  <section class="cs-pivot" aria-label="The pivot">
-    <div class="cs-pivot-inner">
-      <p class="cs-pivot-eyebrow">The pivot</p>
-      <h2 class="cs-pivot-headline">The first version was attracting the wrong audience entirely.</h2>
-      <p class="cs-pivot-body">At pop-up events, the people approaching the brand were mostly men. But Crescent Stables was built for women who had never ridden — women who felt excluded from traditional equestrian spaces. The dark navy and gold palette was doing the opposite of what the brand needed. It signaled luxury and expertise. It was a velvet rope, not a door.</p>
-      <div class="cs-pivot-grid">
-        <div>
-          <img src="portfolio-assets/crescent-stables-before-home.png" alt="Original Crescent Stables homepage — dark navy and gold palette" loading="lazy" decoding="async">
-          <p class="cs-pivot-caption">Before. Navy and gold. Luxury signal, wrong audience.</p>
+  <!-- EARNED TRANSITION -->
+  <section class="cs-earned cs-beat--pause" aria-label="Transition to design">
+    <p class="cs-earned-eyebrow">From strategy to screens</p>
+    <h2 class="cs-earned-headline">The research, psychology, and architecture had to come first.</h2>
+    <p class="cs-earned-body">The emotional logic had to come first. What follows is not one redesign. It is three stages of thinking, each building on what the last one got right.</p>
+  </section>
+
+  <!-- VERSION 1 -->
+  <div class="row row--breath cs-section--visual-first" id="cs-iteration">
+    <div>
+      <div class="anchor-label">Version 1</div>
+      <h2 class="anchor-title">A real foundation. Hierarchy, structure, and reassurance.</h2>
+    </div>
+    <div class="row-body">
+      <p>Version 1 was a successful milestone. It solved the problems the original placeholder could not: clear information architecture, behavioral psychology mapped to page structure, reassurance-first copy, and photography that centered the actual audience.</p>
+      <p>It answered the three questions in order. Is this for someone like me? Is it safe and structured? What do I do to get started? The site finally worked as a UX system.</p>
+      <p>After client review and my own reflection, something still felt off. Version 1 had solved organization. The experience still read like a capable website template rather than a space someone could emotionally belong to.</p>
+
+      <div class="cs-photo-story cs-dominant-visual">
+        <figure class="cs-photo cs-photo--detail cs-photo-crop--type">
+          <div class="cs-photo-frame">
+            <picture><source srcset="portfolio-assets/cs-v2-hero-detail.webp" type="image/webp"><img loading="lazy" src="portfolio-assets/cs-v2-hero-detail-opt.png" alt="Version 2 hero typography detail" class="cs-screenshot" width="2880" height="2418" decoding="async"></picture>
+          </div>
+          <figcaption>Typography and headline hierarchy. The emotional frame sets before any information is processed.</figcaption>
+        </figure>
+        <figure class="cs-photo cs-photo--medium cs-photo-crop--hero">
+          <div class="cs-photo-frame">
+            <img loading="lazy" src="portfolio-assets/cs-v1-home.png" alt="Crescent Stables Version 1 homepage, medium crop" class="cs-screenshot cs-screenshot--page" width="500" height="1024" decoding="async">
+          </div>
+          <figcaption>Version 1 homepage. Correct structure, correct audience signals. Still carrying the visual rhythm of a generic template.</figcaption>
+        </figure>
+        <figure class="cs-photo cs-photo--context">
+          <div class="cs-photo-frame">
+            <img loading="lazy" src="portfolio-assets/cs-v1-home.png" alt="Crescent Stables Version 1 full homepage" class="cs-screenshot cs-screenshot--page" width="500" height="1024" decoding="async">
+          </div>
+          <figcaption>Full page context. Structure worked. Feeling did not yet.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+
+  <!-- ITERATION -->
+  <div class="row">
+    <div>
+      <div class="anchor-label">Iteration</div>
+      <h2 class="anchor-title">Version two wasn't about polish. It was about precision.</h2>
+    </div>
+    <div class="row-body">
+      <p>Version 1 solved many usability problems. It did not fully solve the emotional problem. The experience was welcoming in a general sense. It did not yet feel specifically welcoming to the women who had the most reason to hesitate.</p>
+      <p>I did not treat this as a failure. I treated it as incomplete judgment. The first solution had earned its place. The second pass was about deepening what the first one had only implied.</p>
+
+      <div class="pull-quote">
+        <p>Good design is rarely finished on the first pass. The question is whether you can see what your own work is still communicating, and have the discipline to revisit it.</p>
+      </div>
+
+      <p>Version 2 shifted the experience from generally welcoming to specifically welcoming. It named the audience instead of implying them. It redesigned Before You Come around emotional reassurance, not just practical information. It softened language throughout, improved pacing and hierarchy, and made every page answer a different emotional question.</p>
+      <p>These were UX decisions. Not a visual refresh for its own sake.</p>
+    </div>
+  </div>
+
+  <!-- EVOLUTION — three stages -->
+  <div class="row">
+    <div>
+      <div class="anchor-label">Evolution</div>
+      <h2 class="anchor-title">Three stages of thinking. Not a before and after.</h2>
+    </div>
+    <div class="row-body">
+      <p class="cs-evolution-intro">Each version is a different layer of judgment. What it solved. What it still wasn't saying. Why another pass was necessary.</p>
+
+      <div class="cs-evolution">
+        <div class="cs-evolution-stage">
+          <p class="cs-evolution-marker">Stage 01 · Original placeholder</p>
+          <h3 class="cs-evolution-title">The wrong signal from the start</h3>
+          <div class="cs-evolution-grid">
+            <div class="cs-evolution-copy">
+              <p><span class="cs-note-label">What it solved</span> Nothing, intentionally. It was a temporary site while the brand found its footing.</p>
+              <p><span class="cs-note-label">What it wasn't communicating</span> That this was a women-led space for beginners. The dark navy and gold palette signaled luxury and expertise. A velvet rope, not a door. At pop-up events, the people approaching were mostly men. The visual language was attracting the wrong audience entirely.</p>
+              <p><span class="cs-note-label">Why another iteration happened</span> The brand needed a site that answered emotional questions before functional ones. Design is not neutral. Every visual choice either includes someone or excludes them.</p>
+            </div>
+            <div class="cs-evolution-visual">
+              <img src="portfolio-assets/crescent-stables-before-home.png" alt="Original Crescent Stables placeholder homepage, dark navy and gold" class="cs-screenshot cs-screenshot--wide" width="1024" height="582" loading="lazy" decoding="async">
+            </div>
+          </div>
         </div>
-        <div>
-          <img src="portfolio-assets/crescent-stables-after-home.png" alt="Redesigned Crescent Stables homepage — warm cream and terracotta palette" loading="lazy" decoding="async">
-          <p class="cs-pivot-caption">After. Cream and terracotta. Warmth signal, right audience.</p>
+
+        <p class="cs-evolution-arrow" aria-hidden="true">↓</p>
+
+        <div class="cs-evolution-stage">
+          <p class="cs-evolution-marker">Stage 02 · Version 1</p>
+          <h3 class="cs-evolution-title">Structure and hierarchy. The foundation.</h3>
+          <div class="cs-evolution-grid">
+            <div class="cs-evolution-copy">
+              <p><span class="cs-note-label">What it solved</span> Information architecture built around how a nervous beginner thinks. Reassurance-first copy. Photography centered on women of color and women in hijab. Behavioral psychology mapped to every page. A four-page structure that built trust in sequence.</p>
+              <p><span class="cs-note-label">What it still wasn't communicating</span> Emotional belonging. Version 1 felt slightly generic. Too expected, too website-like. It had the right UX logic but not yet the editorial calm of a space someone could imagine themselves inside.</p>
+              <p><span class="cs-note-label">Why another iteration happened</span> Solving hierarchy is not the same as solving feeling. Version 1 created the foundation. Version 2 had to deepen the emotional experience.</p>
+            </div>
+            <div class="cs-evolution-visual">
+              <img src="portfolio-assets/cs-v1-home.png" alt="Crescent Stables Version 1 homepage" class="cs-screenshot cs-screenshot--page" width="500" height="1024" loading="lazy" decoding="async">
+            </div>
+          </div>
+        </div>
+
+        <p class="cs-evolution-arrow" aria-hidden="true">↓</p>
+
+        <div class="cs-evolution-stage">
+          <p class="cs-evolution-marker">Stage 03 · Version 2</p>
+          <h3 class="cs-evolution-title">Precision. Editorial calm and emotional specificity.</h3>
+          <div class="cs-evolution-grid">
+            <div class="cs-evolution-copy">
+              <p><span class="cs-note-label">What it solved</span> Every page now answers a distinct emotional question. Copy is softer and more specific. Before You Come became a reassurance experience, not an information dump. Contact became a conversation at the end of trust, not a competing nav item. The whole experience reads as editorial, not templated.</p>
+              <p><span class="cs-note-label">What it communicates now</span> This is a space to belong. Not a riding school. The visitor feels named, not implied. The pace is calm enough to breathe.</p>
+              <p><span class="cs-note-label">What shipped</span> Version 2 became the final deployed prototype and the production Squarespace handoff.</p>
+            </div>
+            <div class="cs-evolution-visual">
+              <picture><source srcset="portfolio-assets/cs-v2-home.webp" type="image/webp"><img src="portfolio-assets/cs-v2-home-opt.png" alt="Crescent Stables Version 2 homepage" class="cs-screenshot cs-screenshot--page" width="2880" height="10380" loading="lazy" decoding="async"></picture>
+            </div>
+          </div>
         </div>
       </div>
-      <p class="cs-pivot-closing">Design is not neutral. Every visual choice either includes someone or excludes them.</p>
+    </div>
+  </div>
+
+  <!-- WHAT CHANGED BEYOND THE INTERFACE -->
+  <div class="row">
+    <div>
+      <div class="anchor-label">Perception</div>
+      <h2 class="anchor-title">What changed beyond the interface</h2>
+    </div>
+    <div class="row-body">
+      <p>Version 2 was not a visual reskin. It changed how users feel at each step of the journey. It shifted the underlying frame of every interaction.</p>
+
+      <div class="cs-shifts">
+        <div class="cs-shift">
+          <span class="cs-shift-from">Information</span>
+          <span class="cs-shift-arrow">→</span>
+          <span class="cs-shift-to">Reassurance</span>
+        </div>
+        <div class="cs-shift">
+          <span class="cs-shift-from">Sessions</span>
+          <span class="cs-shift-arrow">→</span>
+          <span class="cs-shift-to">Experiences</span>
+        </div>
+        <div class="cs-shift">
+          <span class="cs-shift-from">Contact page</span>
+          <span class="cs-shift-arrow">→</span>
+          <span class="cs-shift-to">Conversation</span>
+        </div>
+        <div class="cs-shift">
+          <span class="cs-shift-from">Safety</span>
+          <span class="cs-shift-arrow">→</span>
+          <span class="cs-shift-to">Before You Come</span>
+        </div>
+        <div class="cs-shift">
+          <span class="cs-shift-from">Riding school</span>
+          <span class="cs-shift-arrow">→</span>
+          <span class="cs-shift-to">Space to belong</span>
+        </div>
+        <div class="cs-shift">
+          <span class="cs-shift-from">Generally welcoming</span>
+          <span class="cs-shift-arrow">→</span>
+          <span class="cs-shift-to">Specifically welcoming</span>
+        </div>
+        <div class="cs-shift">
+          <span class="cs-shift-from">Implied audience</span>
+          <span class="cs-shift-arrow">→</span>
+          <span class="cs-shift-to">Named audience</span>
+        </div>
+      </div>
+
+      <p style="margin-top:clamp(2.5rem,4vw,3.5rem)">Each shift is a UX decision. The visitor does not just see different screens. She feels differently about whether this place was built for her.</p>
+    </div>
+  </div>
+
+  <!-- RAISING THE CRAFT -->
+  <div class="row">
+    <div>
+      <div class="anchor-label">Raising the craft</div>
+      <h2 class="anchor-title">Obsessive refinement between V1 and V2</h2>
+    </div>
+    <div class="row-body">
+      <p>Version 2 was not a single moment of inspiration. It was weeks of small, deliberate refinements. Each one tested against the question: does this make a nervous beginner feel more capable, or more overwhelmed?</p>
+
+      <div class="cs-craft-grid">
+        <div class="cs-craft-item">
+          <p class="cs-craft-label">Color exploration</p>
+          <p class="cs-craft-desc">Moved from a palette that felt template-adjacent to one with editorial warmth. Burgundy, dusty rose, sand, and cream. Each tone chosen to feel calm, not decorative.</p>
+          <img src="portfolio-assets/cs-color-exploration.png" alt="Crescent Stables color palette exploration, burgundy, rose, sand, and cream" class="cs-screenshot cs-screenshot--swatch" width="262" height="263" loading="lazy" decoding="async">
+        </div>
+        <div class="cs-craft-item">
+          <p class="cs-craft-label">Typography refinement</p>
+          <p class="cs-craft-desc">Tightened the relationship between serif display and sans-serif body. Italic emphasis reserved for emotional peak moments, not decoration. Line height and paragraph rhythm adjusted for cognitive ease.</p>
+          <picture><source srcset="portfolio-assets/cs-v2-hero-detail.webp" type="image/webp"><img src="portfolio-assets/cs-v2-hero-detail-opt.png" alt="Version 2 hero typography detail showing serif headline with italic emphasis" class="cs-screenshot cs-screenshot--wide" width="2880" height="2418" loading="lazy" decoding="async"></picture>
+        </div>
+        <div class="cs-craft-item">
+          <p class="cs-craft-label">Copy refinement</p>
+          <p class="cs-craft-desc">Every sentence audited for pressure, filler, and insider language. "Join us for a session" became "Whenever you are ready, we will be here." The tone shifted from invitation-as-obligation to invitation-as-permission.</p>
+        </div>
+        <div class="cs-craft-item">
+          <p class="cs-craft-label">Spacing and pacing</p>
+          <p class="cs-craft-desc">Increased vertical rhythm between sections. Reduced visual density on session cards. Each page given more room to breathe. The calm is structural, not just aesthetic.</p>
+        </div>
+        <div class="cs-craft-item">
+          <p class="cs-craft-label">Image direction</p>
+          <p class="cs-craft-desc">Shifted from facility documentation to human connection. Women in casual clothes, real moments, non-competitive contexts. The hero image had to answer "is this for me?" before a word was read.</p>
+        </div>
+        <div class="cs-craft-item">
+          <p class="cs-craft-label">Interaction refinement</p>
+          <p class="cs-craft-desc">Created a genuine low-pressure contact path. Removed Contact from navigation. Added a "Not ready yet?" email capture. Every interaction designed to reduce commitment anxiety, not increase conversion pressure.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- V2 PAYOFF -->
+  <section class="cs-payoff cs-beat--expansive" id="cs-solution" aria-label="Version 2 homepage">
+    <div class="cs-payoff-inner cs-scale--viewport">
+      <p class="cs-payoff-eyebrow">Version 2 · The payoff</p>
+      <figure class="cs-photo cs-photo--cinema cs-photo-crop--hero">
+        <div class="cs-photo-frame">
+          <img src="portfolio-assets/after-homepage-crescent.png" alt="Crescent Stables Version 2 homepage, editorial calm with warm cream palette" class="cs-screenshot cs-screenshot--hero" width="2912" height="1734" loading="lazy" decoding="async">
+        </div>
+        <figcaption>A space that was made for you. Every decision above leads here. Not as a reveal, but as a conclusion.</figcaption>
+      </figure>
     </div>
   </section>
 
-  <!-- WHAT WAS DELIVERED -->
-  <div class="row">
+  <!-- ANNOTATED COMPARISONS -->
+  <div class="row row--tight">
     <div>
-      <div class="anchor-label">What was delivered</div>
-      <div class="anchor-title">Two products. A deployed prototype and a production site handed off to the client.</div>
+      <div class="anchor-label">Annotated screens</div>
+      <h2 class="anchor-title">Quiet observations on what changed between versions</h2>
+    </div>
+    <div class="row-body">
+      <p>These are not instructions. They are the decisions I would point to if someone asked what Version 2 actually improved, and why each one is a product judgment, not a visual preference.</p>
+
+      <div class="cs-annotated-block">
+        <div class="cs-annotated-header">
+          <span class="cs-annotated-version">Homepage</span>
+          <p class="cs-annotated-title">From capable layout to editorial first impression</p>
+        </div>
+        <div class="cs-photo-story">
+          <figure class="cs-photo cs-photo--detail cs-photo-crop--type">
+            <div class="cs-photo-frame">
+              <picture><source srcset="portfolio-assets/cs-v2-hero-detail.webp" type="image/webp"><img src="portfolio-assets/cs-v2-hero-detail-opt.png" alt="Version 2 hero typography and headline close-up" class="cs-screenshot cs-screenshot--wide" width="2880" height="2418" loading="lazy" decoding="async"></picture>
+            </div>
+            <figcaption>Close-up. Typography calmed. Audience named before the scroll.</figcaption>
+          </figure>
+          <figure class="cs-photo cs-photo--medium cs-photo-crop--hero">
+            <div class="cs-photo-frame">
+              <picture><source srcset="portfolio-assets/cs-v2-home.webp" type="image/webp"><img src="portfolio-assets/cs-v2-home-opt.png" alt="Version 2 homepage medium crop" class="cs-screenshot cs-screenshot--page" width="2880" height="10380" loading="lazy" decoding="async"></picture>
+            </div>
+            <figcaption>Medium crop. Editorial calm replaces template rhythm.</figcaption>
+          </figure>
+          <div class="cs-version-pair">
+            <figure>
+              <img src="portfolio-assets/cs-v1-home.png" alt="Version 1 homepage" class="cs-screenshot cs-screenshot--page" width="500" height="1024" loading="lazy" decoding="async">
+              <figcaption>Version 1. Correct hierarchy, template rhythm.</figcaption>
+            </figure>
+            <figure>
+              <picture><source srcset="portfolio-assets/cs-v2-home.webp" type="image/webp"><img src="portfolio-assets/cs-v2-home-opt.png" alt="Version 2 homepage" class="cs-screenshot cs-screenshot--page" width="2880" height="10380" loading="lazy" decoding="async"></picture>
+              <figcaption>Version 2. Editorial calm, named audience.</figcaption>
+            </figure>
+          </div>
+        </div>
+        <ul class="cs-observations" style="margin-top:clamp(2.5rem,4vw,3.5rem)">
+            <li><span class="cs-obs-num">01</span>Navigation simplified to four intentional pages. No competing contact link.</li>
+            <li><span class="cs-obs-num">02</span>Hero copy names the audience explicitly: women-only, no experience needed</li>
+            <li><span class="cs-obs-num">03</span>Typography hierarchy calmed. Serif display with restrained italic emphasis.</li>
+            <li><span class="cs-obs-num">04</span>Photography direction: joy and belonging, not performance</li>
+            <li><span class="cs-obs-num">05</span>Spacing increased. The page breathes before it asks anything of the visitor.</li>
+          </ul>
+      </div>
+
+      <div class="cs-annotated-block">
+        <div class="cs-annotated-header">
+          <span class="cs-annotated-version">Experiences</span>
+          <p class="cs-annotated-title">From session listing to low-pressure discovery</p>
+        </div>
+        <div class="cs-version-pair">
+          <figure>
+            <img src="portfolio-assets/cs-v1-experiences.png" alt="Version 1 experiences page" class="cs-screenshot cs-screenshot--page" width="377" height="1024" loading="lazy" decoding="async">
+            <figcaption>Version 1. Functional session cards with reserve buttons.</figcaption>
+          </figure>
+          <figure>
+            <picture><source srcset="portfolio-assets/cs-v2-experiences.webp" type="image/webp"><img src="portfolio-assets/cs-v2-experiences-opt.png" alt="Version 2 experiences page" class="cs-screenshot cs-screenshot--page" width="2880" height="6708" loading="lazy" decoding="async"></picture>
+            <figcaption>Version 2. Calmer hierarchy with a "not ready yet" path.</figcaption>
+          </figure>
+        </div>
+        <ul class="cs-observations" style="margin-top:1.25rem">
+          <li><span class="cs-obs-num">01</span>Sessions renamed to Experiences. Shifts frame from transaction to journey.</li>
+          <li><span class="cs-obs-num">02</span>Self-segmentation paths help visitors find their entry point without reading everything</li>
+          <li><span class="cs-obs-num">03</span>Scarcity shown through spots remaining, not announced through pressure copy</li>
+          <li><span class="cs-obs-num">04</span>"Not ready yet?" email capture. A genuine low-pressure alternative to booking.</li>
+        </ul>
+      </div>
+
+      <div class="cs-annotated-block">
+        <div class="cs-annotated-header">
+          <span class="cs-annotated-version">Before You Come</span>
+          <p class="cs-annotated-title">From practical checklist to emotional reassurance</p>
+        </div>
+        <div class="cs-version-pair">
+          <figure>
+            <img src="portfolio-assets/cs-v1-before-you-come.png" alt="Version 1 Before You Come page" class="cs-screenshot cs-screenshot--page" width="345" height="1024" loading="lazy" decoding="async">
+            <figcaption>Version 1. Useful information, checklist rhythm.</figcaption>
+          </figure>
+          <figure>
+            <picture><source srcset="portfolio-assets/cs-v2-before-you-come.webp" type="image/webp"><img src="portfolio-assets/cs-v2-before-you-come-opt.png" alt="Version 2 Before You Come page" class="cs-screenshot cs-screenshot--page" width="2880" height="8698" loading="lazy" decoding="async"></picture>
+            <figcaption>Version 2. Emotional sequencing with a week-long narrative.</figcaption>
+          </figure>
+        </div>
+        <ul class="cs-observations" style="margin-top:1.25rem">
+          <li><span class="cs-obs-num">01</span>Redesigned around emotional reassurance. Not just what to bring.</li>
+          <li><span class="cs-obs-num">02</span>Week-long timeline helps anxious visitors imagine the full arc, not just day one</li>
+          <li><span class="cs-obs-num">03</span>FAQ reframed as "questions we hear often." Normalizes hesitation.</li>
+          <li><span class="cs-obs-num">04</span>Photography placed at the emotional center. Human connection before rules.</li>
+        </ul>
+      </div>
+
+      <div class="cs-annotated-block">
+        <div class="cs-annotated-header">
+          <span class="cs-annotated-version">About</span>
+          <p class="cs-annotated-title">From brand page to trust-building conversation</p>
+        </div>
+        <div class="cs-version-pair">
+          <figure>
+            <img src="portfolio-assets/cs-v1-about.png" alt="Version 1 about page" class="cs-screenshot cs-screenshot--page" width="428" height="1024" loading="lazy" decoding="async">
+            <figcaption>Version 1. Clear story, standard about-page structure.</figcaption>
+          </figure>
+          <figure>
+            <picture><source srcset="portfolio-assets/cs-v2-about.webp" type="image/webp"><img src="portfolio-assets/cs-v2-about-opt.png" alt="Version 2 about page" class="cs-screenshot cs-screenshot--page" width="2880" height="7182" loading="lazy" decoding="async"></picture>
+            <figcaption>Version 2. Editorial narrative with contact as conversation.</figcaption>
+          </figure>
+        </div>
+        <ul class="cs-observations" style="margin-top:1.25rem">
+          <li><span class="cs-obs-num">01</span>Founder story leads with empathy, not credentials</li>
+          <li><span class="cs-obs-num">02</span>Three protected values frame the brand as intentional, not accidental</li>
+          <li><span class="cs-obs-num">03</span>Testimonials placed at the trust peak. Social proof after story, not before.</li>
+          <li><span class="cs-obs-num">04</span>Contact merged here as conversation. Appears when trust is highest.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- FINAL EXPERIENCE -->
+  <div class="row row--breath cs-section--visual-first">
+    <div>
+      <div class="anchor-label">Final experience</div>
+      <h2 class="anchor-title">What shipped. Prototype tested, production handed off.</h2>
     </div>
     <div class="row-body">
       <p>A deployed Netlify prototype and a production Squarespace site handed off to the client. The prototype is publicly accessible at crescent-stables.netlify.app.</p>
       <p>The Netlify build was user-tested with two first-generation adult beginners before handoff. Both testers said the same thing: it felt like it was written for them.</p>
 
       <div class="final-screens-grid">
-        <div class="final-screen">
-          <img src="portfolio-assets/cs-live-home.png" alt="Crescent Stables redesigned homepage" class="asset-img">
+        <div class="final-screen final-screen--hero">
+          <picture><source srcset="portfolio-assets/cs-live-home.webp" type="image/webp"><img loading="lazy" height="1100" width="2884" src="portfolio-assets/cs-live-home-opt.png" alt="Crescent Stables final homepage" class="asset-img cs-screenshot cs-screenshot--hero"></picture>
           <p class="asset-caption">Home. Leads with belonging before anything else. Three short phrases below the hero spell out the pace, the group, and the expectation before the user scrolls.</p>
         </div>
 
         <div class="final-screen">
-          <img src="portfolio-assets/cs-live-experiences.png" alt="Crescent Stables experiences page with upcoming sessions" class="asset-img">
-          <p class="asset-caption">Experiences. Sessions listed chronologically with spots remaining visible. Scarcity is shown, not announced. Anchoring nudges action without pressure copy.</p>
+          <figure class="cs-photo cs-photo--detail cs-photo-crop--cta">
+            <div class="cs-photo-frame">
+              <picture><source srcset="portfolio-assets/cs-live-experiences.webp" type="image/webp"><img loading="lazy" height="953" width="1453" src="portfolio-assets/cs-live-experiences-opt.png" alt="Experiences page session cards and spots remaining" class="asset-img"></picture>
+            </div>
+            <figcaption class="asset-caption">Experiences. Scarcity is shown, not announced. Anchoring nudges action without pressure copy.</figcaption>
+          </figure>
         </div>
 
         <div class="final-screen">
-          <img src="portfolio-assets/cs-live-before-you-come.png" alt="Before You Come page with practical preparation guidance" class="asset-img">
-          <p class="asset-caption">Before You Come. Renamed from Safety. Safety language centers risk. Preparation language centers readiness. The rename changes what the user imagines when they click.</p>
+          <figure class="cs-photo cs-photo--medium">
+            <div class="cs-photo-frame">
+              <picture><source srcset="portfolio-assets/cs-live-before-you-come.webp" type="image/webp"><img loading="lazy" height="8540" width="2940" src="portfolio-assets/cs-live-before-you-come-opt.png" alt="Before You Come page with practical preparation guidance" class="asset-img"></picture>
+            </div>
+            <figcaption class="asset-caption">Before You Come. Renamed from Safety. Preparation language centers readiness, not risk.</figcaption>
+          </figure>
         </div>
 
         <div class="final-screen">
-          <img src="portfolio-assets/cs-live-about.png" alt="About page with founder story and contact form" class="asset-img">
-          <p class="asset-caption">About. Contact moved here from the main nav. It now appears at the end of the founder's story, when trust is highest and the decision to reach out feels natural.</p>
+          <picture><source srcset="portfolio-assets/cs-live-about.webp" type="image/webp"><img loading="lazy" height="6876" width="2914" src="portfolio-assets/cs-live-about-opt.png" alt="About page with founder story and contact form" class="asset-img"></picture>
+          <p class="asset-caption">About. Contact moved here from the main nav. It appears at the end of the founder's story, when trust is highest and the decision to reach out feels natural.</p>
         </div>
       </div>
 
-      <img src="portfolio-assets/cs-user-testing.png" alt="User testing the Crescent Stables site on a laptop" class="asset-img">
-      <p class="asset-caption">User testing with a first-time adult beginner before handoff. Both testers said it felt like it was written for them.</p>
+      <figure class="cs-photo cs-scale--intimate" style="margin-top:clamp(4rem,7vw,6rem)">
+        <picture><source srcset="portfolio-assets/cs-user-testing.webp" type="image/webp"><img loading="lazy" height="3107" width="3017" src="portfolio-assets/cs-user-testing-opt.png" alt="User testing the Crescent Stables site on a laptop" class="asset-img"></picture>
+        <figcaption class="asset-caption">User testing with a first-time adult beginner before handoff.</figcaption>
+      </figure>
     </div>
   </div>
 
   <!-- WHAT I LEARNED -->
-  <div class="row cs-reflection">
+  <div class="row cs-reflection" id="cs-reflection">
     <div class="cs-reflection-content">
       <p class="cs-reflection-label">Reflection</p>
-      <h2 class="cs-reflection-headline">Inclusion design doesn't start with a policy. It starts with a photograph.</h2>
+      <h2 class="cs-reflection-headline">The strongest story in this project is not the final design. It is the iteration.</h2>
 
       <div class="cs-reflection-statement">
-        <p class="cs-reflection-lead">Design is never neutral.</p>
-        <p class="cs-reflection-body">Every visual decision either opens a door or closes one. The palette, the photography, the page names — all of it is either welcoming someone or telling them this space isn't for them.</p>
+        <p class="cs-reflection-lead">Version 1 was not a failure. It was the foundation.</p>
+        <p class="cs-reflection-body">It solved hierarchy, architecture, and reassurance structure. Version 2 deepened emotional precision. The difference between them is not aesthetics. It is judgment. Knowing when your first solution is correct but incomplete, and having the discipline to revisit your own work.</p>
+      </div>
+      <div class="cs-reflection-statement">
+        <p class="cs-reflection-lead">Inclusion design doesn't start with a policy. It starts with a photograph.</p>
+        <p class="cs-reflection-body">Every visual decision either opens a door or closes one. The palette, the photography, the page names. All of it is either welcoming someone or telling them this space isn't for them.</p>
       </div>
       <div class="cs-reflection-statement">
         <p class="cs-reflection-lead">Structure is a form of empathy.</p>
-        <p class="cs-reflection-body">Organizing a site around how a nervous beginner thinks — not how a barn operates — is the difference between a site that builds trust and one that overwhelms.</p>
+        <p class="cs-reflection-body">Organizing a site around how a nervous beginner thinks, not how a barn operates, is the difference between a site that builds trust and one that overwhelms.</p>
       </div>
       <div class="cs-reflection-statement">
         <p class="cs-reflection-lead">Shipping changes how you design.</p>
@@ -824,10 +2330,11 @@ html,body{background-color:#FAF5EE}
       </div>
 
       <div class="shopify-note">
-        <p><strong>Why this matters beyond equestrian.</strong> The same design problem shows up everywhere: how do you make someone who has never done this before feel like this space was built specifically for them? First-time business owners. First-time riders. First-time users of anything unfamiliar. The anxiety is the same. The design response should be too. That question is one I want to keep answering.</p>
+        <p><span class="cs-note-label">Why this matters beyond equestrian</span> The same design problem shows up everywhere: how do you make someone who has never done this before feel like this space was built specifically for them? First-time business owners. First-time riders. First-time users of anything unfamiliar. The anxiety is the same. The design response should be too. That question is one I want to keep answering.</p>
       </div>
 
       <div class="skill-tags">
+        <span class="skill-tag">Iterative Design</span>
         <span class="skill-tag">UX Strategy</span>
         <span class="skill-tag">Discovery Research</span>
         <span class="skill-tag">Information Architecture</span>
@@ -845,30 +2352,38 @@ html,body{background-color:#FAF5EE}
 
   <div class="case-nav">
     <a href="/">← Back to all work</a>
-    <a href="/xcel-energy.html" class="next">Next: My Energy Connection →</a>
+    <a href="/xcel-energy" class="next">Next: My Energy Connection →</a>
   </div>
 </div>
+      </div>
+    </div>
 </main>
 <footer>
   <a href="/" class="footer-logo" aria-label="Nikaylah home">
-    <img src="/logo-v4.png" alt="" class="site-logo site-logo--footer" width="44" height="44">
+    <svg class="brand-mark brand-mark--footer" viewBox="0 0 164 100" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M46 92C30 92 20 84 18 74C9 73 3 66 3 57C3 48 10 41 19 41C21 30 32 22 45 22C55 22 64 27 69 35C72 26 81 20 91 20C104 20 114 29 115 41C127 42 136 50 136 61C136 66 133 71 128 74C127 84 118 92 106 92Z" fill="currentColor"/></svg>
+    <span class="brand-name">NIKAYLAH</span>
   </a>
   <div class="footer-right">
     <div class="footer-links" role="navigation" aria-label="Footer">
       <a href="/">Work</a>
       <a href="/about/">About</a>
       <a href="https://www.linkedin.com/in/nikaylah" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://drive.google.com/file/d/18i05f4y_GH3vvXX1J9wEel7txm3prvzZ/view?usp=sharing" target="_blank" rel="noopener noreferrer">CV</a>
     </div>
     <p class="footer-copy"><span class="footer-whisper">Designed to classical music, good snacks and the hum of a treadmill. Sometimes a nice café.</span> © 2026 Nikaylah.</p>
   </div>
 </footer>
 
-<button class="email-btn" onclick="copyEmail()">✉ Email me</button>
+<button class="back-to-top" id="back-to-top" type="button" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<button class="email-btn" onclick="copyEmail()" aria-label="Copy email address">
+  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+  Email me
+</button>
 <div class="copy-toast" id="toast" role="status" aria-live="polite"></div>
 
 <div id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer" aria-hidden="true" style="display:none;position:fixed;inset:0;z-index:999;background:rgba(44,42,38,0.92);align-items:center;justify-content:center;cursor:zoom-out" onclick="closeLightbox()">
   <button id="lightbox-close" onclick="closeLightbox()" aria-label="Close image viewer" style="position:fixed;top:1.5rem;right:1.5rem;background:none;border:none;color:rgba(245,240,232,0.8);font-size:2rem;cursor:pointer;line-height:1;font-family:var(--font)">×</button>
-  <img id="lightbox-img" src="" alt="" style="max-width:90vw;max-height:90vh;border-radius:0;border:1px solid var(--ui-border)">
+  <img id="lightbox-img" src="" alt="" width="1200" height="800" loading="lazy" decoding="async" style="max-width:90vw;max-height:90vh;border-radius:0;border:1px solid var(--ui-border)">
   </div>
 
 <script>
@@ -876,7 +2391,7 @@ function copyEmail(){
   const u='nikaylah',d='gmail.com',e=u+'@'+d;
   navigator.clipboard.writeText(e).then(()=>{
     const t=document.getElementById('toast');
-    t.textContent='Copied — '+e;
+    t.textContent='Copied: '+e;
     t.classList.add('show');
     setTimeout(()=>t.classList.remove('show'),2800);
   }).catch(()=>{window.location.href='mailto:'+u+'@'+d});
@@ -900,7 +2415,7 @@ function closeLightbox(){
 document.addEventListener('keydown',function(e){
   if(e.key==='Escape') closeLightbox();
 });
-document.querySelectorAll('img.asset-img, img.compare-img, img.compare-after-hero').forEach(function(img){
+document.querySelectorAll('img.asset-img, img.compare-img, img.compare-after-hero, img.cs-screenshot, .cs-evolution-visual img, .cs-craft-item img, .cs-payoff img, .cs-annotated-visual img, .cs-version-pair img, .cs-photo img').forEach(function(img){
   img.style.cursor='zoom-in';
   img.setAttribute('tabindex','0');
   img.setAttribute('role','button');
@@ -910,6 +2425,28 @@ document.querySelectorAll('img.asset-img, img.compare-img, img.compare-after-her
     if(e.key==='Enter'||e.key===' ') openLightbox(img.src,img.alt);
   });
 });
+
+(function(){
+  var tocLinks=document.querySelectorAll('.cs-toc-link');
+  var sections=Array.from(tocLinks).map(function(link){
+    var id=link.getAttribute('data-toc');
+    return id?document.getElementById(id):null;
+  }).filter(Boolean);
+  var backTop=document.getElementById('back-to-top');
+  function onScroll(){
+    if(backTop) backTop.classList.toggle('is-visible',window.scrollY>600);
+    var pos=window.scrollY+window.innerHeight*0.35;
+    var current=sections[0];
+    sections.forEach(function(section){
+      if(section.offsetTop<=pos) current=section;
+    });
+    tocLinks.forEach(function(link){
+      link.classList.toggle('is-active',link.getAttribute('data-toc')===current.id);
+    });
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+})();
 </script>
 </body>
 </html>
